@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Logistic回归是统计学习中的经典分类方法。其实仅在线性回归的基础上，套用了一个逻辑函数。本文主要详述逻辑回归模型的基础。 假设有输入向量 $x=(x_1;x_2;…;x_n)$， 由线性回归模型产生的预测值">
+<meta name="description" content="Logistic回归是统计学习中的经典分类方法。其实仅在线性回归的基础上，套用了一个逻辑函数。本文主要详述逻辑回归模型的基础。 假设有输入向量 $x=(x_1;x_2;…;x_n)$， 由线性回归模型产生的预测值  $$z=w ^ \mathrm{ T }x+b\tag{1}$$ 是实值，需要转换为 0/1 值才能进行分类。因此找一个单调可微函数来替代，将$z$ 的值映射到 (0,1) 之间，这里">
 <meta name="keywords" content="机器学习,原理,Logistic回归">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Logistic回归">
 <meta property="og:url" content="http://yoursite.com/2018/01/23/logistic回归/index.html">
 <meta property="og:site_name" content="QxD&#39;s Notes">
-<meta property="og:description" content="Logistic回归是统计学习中的经典分类方法。其实仅在线性回归的基础上，套用了一个逻辑函数。本文主要详述逻辑回归模型的基础。 假设有输入向量 $x=(x_1;x_2;…;x_n)$， 由线性回归模型产生的预测值">
+<meta property="og:description" content="Logistic回归是统计学习中的经典分类方法。其实仅在线性回归的基础上，套用了一个逻辑函数。本文主要详述逻辑回归模型的基础。 假设有输入向量 $x=(x_1;x_2;…;x_n)$， 由线性回归模型产生的预测值  $$z=w ^ \mathrm{ T }x+b\tag{1}$$ 是实值，需要转换为 0/1 值才能进行分类。因此找一个单调可微函数来替代，将$z$ 的值映射到 (0,1) 之间，这里">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-26T14:14:10.760Z">
+<meta property="og:updated_time" content="2018-02-14T01:34:51.525Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Logistic回归">
-<meta name="twitter:description" content="Logistic回归是统计学习中的经典分类方法。其实仅在线性回归的基础上，套用了一个逻辑函数。本文主要详述逻辑回归模型的基础。 假设有输入向量 $x=(x_1;x_2;…;x_n)$， 由线性回归模型产生的预测值">
+<meta name="twitter:description" content="Logistic回归是统计学习中的经典分类方法。其实仅在线性回归的基础上，套用了一个逻辑函数。本文主要详述逻辑回归模型的基础。 假设有输入向量 $x=(x_1;x_2;…;x_n)$， 由线性回归模型产生的预测值  $$z=w ^ \mathrm{ T }x+b\tag{1}$$ 是实值，需要转换为 0/1 值才能进行分类。因此找一个单调可微函数来替代，将$z$ 的值映射到 (0,1) 之间，这里">
 
 
 
@@ -364,7 +364,8 @@
 
       
         <p>Logistic回归是统计学习中的经典分类方法。其实仅在线性回归的基础上，套用了一个逻辑函数。本文主要详述逻辑回归模型的基础。</p>
-<p>假设有输入向量 $x=(x_1;x_2;…;x_n)$， 由线性回归模型产生的预测值<br><a id="more"></a><br>$$z=w ^ \mathrm{ T }x+b\tag{1}$$ 是实值，需要转换为 0/1 值才能进行分类。因此找一个单调可微函数来替代，将$z$ 的值映射到 (0,1) 之间，这里采用logistic函数：<br>$$y=\frac{1}{1+e^{-z}}\tag{2}$$<br>将式(1)代入得到             $$y=\frac{1}{1+e^{-(w ^ \mathrm{ T }x+b)}}\tag{3}$$                         上式可变化为对数几率形式：<br>$$\ln \frac{y}{1-y}=w ^ \mathrm{ T }x+b\tag{4}$$<br>由此看出，真实标记 $y$ 的对数几率是输入 $x$ 的线性函数。<br>将 $y$ 视为类后验概率估计 $p(y=1|x)$ ，则上式可重写为<br>$$\ln \frac{p(y=1|x)}{p(y=0|x)}=w ^ \mathrm{ T }x+b\tag{5}$$<br>显然有<br>$$p(y=1|x)=\frac{e^{w ^ \mathrm{ T }x+b}}{1+e^{w ^ \mathrm{ T }x+b}}\tag{6}$$<br>$$p(y=0|x)=\frac{1}{1+e^{w ^ \mathrm{ T }x+b}}\tag{7}$$<br>此时线性函数的值越接近正无穷，概率值就越接近1；线性函数的值越接近负无穷，概率值就越接近0。这样的模型就是logistic回归模型。</p>
+<p>假设有输入向量 $x=(x_1;x_2;…;x_n)$， 由线性回归模型产生的预测值 </p>
+<p>$$z=w ^ \mathrm{ T }x+b\tag{1}$$ 是实值，需要转换为 0/1 值才能进行分类。因此找一个单调可微函数来替代，将$z$ 的值映射到 (0,1) 之间，这里采用logistic函数：<br>$$y=\frac{1}{1+e^{-z}}\tag{2}$$<br><a id="more"></a><br>将式(1)代入得到             $$y=\frac{1}{1+e^{-(w ^ \mathrm{ T }x+b)}}\tag{3}$$                         上式可变化为对数几率形式：<br>$$\ln \frac{y}{1-y}=w ^ \mathrm{ T }x+b\tag{4}$$<br>由此看出，真实标记 $y$ 的对数几率是输入 $x$ 的线性函数。<br>将 $y$ 视为类后验概率估计 $p(y=1|x)$ ，则上式可重写为<br>$$\ln \frac{p(y=1|x)}{p(y=0|x)}=w ^ \mathrm{ T }x+b\tag{5}$$<br>显然有<br>$$p(y=1|x)=\frac{e^{w ^ \mathrm{ T }x+b}}{1+e^{w ^ \mathrm{ T }x+b}}\tag{6}$$<br>$$p(y=0|x)=\frac{1}{1+e^{w ^ \mathrm{ T }x+b}}\tag{7}$$<br>此时线性函数的值越接近正无穷，概率值就越接近1；线性函数的值越接近负无穷，概率值就越接近0。这样的模型就是logistic回归模型。</p>
 <p>接下来可通过“极大似然法”来估计 $w$ 和 $b$ 。</p>
 
       
@@ -409,6 +410,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/02/14/Conda命令/" rel="prev" title="Conda常用命令">
+                Conda常用命令 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -476,7 +481,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -487,7 +492,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -498,7 +503,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

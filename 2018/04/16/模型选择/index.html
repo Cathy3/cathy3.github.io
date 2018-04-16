@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="机器学习,sklearn,模型选择,交叉验证法," />
 
 
 
@@ -79,13 +79,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="QxD&#39;s Notes">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="1.概述这里将都使用波士顿房价的数据集，用10折交叉验证来分离数据，通过均方误差来评估算法模型。在scikit-learn中用cross_val_score()函数评估算法模型。2.1 线性回归算法12345678910111213141516import pandas as pdfrom sklearn.model_selection import KFoldfrom sklearn.model">
+<meta name="keywords" content="机器学习,sklearn,模型选择,交叉验证法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="模型选择：评估回归模型">
+<meta property="og:url" content="http://yoursite.com/2018/04/16/模型选择/index.html">
 <meta property="og:site_name" content="QxD&#39;s Notes">
+<meta property="og:description" content="1.概述这里将都使用波士顿房价的数据集，用10折交叉验证来分离数据，通过均方误差来评估算法模型。在scikit-learn中用cross_val_score()函数评估算法模型。2.1 线性回归算法12345678910111213141516import pandas as pdfrom sklearn.model_selection import KFoldfrom sklearn.model">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-16T15:15:25.078Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="QxD&#39;s Notes">
+<meta name="twitter:title" content="模型选择：评估回归模型">
+<meta name="twitter:description" content="1.概述这里将都使用波士顿房价的数据集，用10折交叉验证来分离数据，通过均方误差来评估算法模型。在scikit-learn中用cross_val_score()函数评估算法模型。2.1 线性回归算法12345678910111213141516import pandas as pdfrom sklearn.model_selection import KFoldfrom sklearn.model">
 
 
 
@@ -115,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/16/模型选择/"/>
 
 
 
 
 
-  <title>QxD's Notes</title>
+  <title>模型选择：评估回归模型 | QxD's Notes</title>
   
 
 
@@ -150,8 +155,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left 
-  page-home">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -244,9 +248,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -276,9 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/16/模型选择/" itemprop="url">模型选择：评估回归模型</a></h1>
+          <h1 class="post-title" itemprop="name headline">模型选择：评估回归模型</h1>
         
 
         <div class="post-meta">
@@ -361,15 +363,11 @@
       
 
       
-        
-          
-            <p>1.概述<br>这里将都使用波士顿房价的数据集，用10折交叉验证来分离数据，通过均方误差来评估算法模型。<br>在scikit-learn中用cross_val_score()函数评估算法模型。<br>2.1 线性回归算法<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> KFold</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> cross_val_score</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</span><br><span class="line"><span class="comment">#导入数据</span></span><br><span class="line">data = pd.read_csv(<span class="string">'housing.csv'</span>)</span><br><span class="line"><span class="comment">#划分数据</span></span><br><span class="line">X = data.values[:,<span class="number">0</span>:<span class="number">13</span>]</span><br><span class="line">Y = data.values[:,<span class="number">13</span>]</span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line">seed = <span class="number">7</span></span><br><span class="line">kfold = KFold(n_splits=<span class="number">10</span>, random_state = seed)</span><br><span class="line">model = LinearRegression()</span><br><span class="line">scoring = <span class="string">'neg_mean_squared_error'</span></span><br><span class="line">result = cross_val_score(model, X, Y, cv=kfold, scoring=scoring)</span><br><span class="line">print(<span class="string">'Linear Regression: %.3f'</span> %result.mean())</span><br></pre></td></tr></table></figure></p>
+        <p>1.概述<br>这里将都使用波士顿房价的数据集，用10折交叉验证来分离数据，通过均方误差来评估算法模型。<br>在scikit-learn中用cross_val_score()函数评估算法模型。<br>2.1 线性回归算法<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> KFold</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> cross_val_score</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</span><br><span class="line"><span class="comment">#导入数据</span></span><br><span class="line">data = pd.read_csv(<span class="string">'housing.csv'</span>)</span><br><span class="line"><span class="comment">#划分数据</span></span><br><span class="line">X = data.values[:,<span class="number">0</span>:<span class="number">13</span>]</span><br><span class="line">Y = data.values[:,<span class="number">13</span>]</span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line">seed = <span class="number">7</span></span><br><span class="line">kfold = KFold(n_splits=<span class="number">10</span>, random_state = seed)</span><br><span class="line">model = LinearRegression()</span><br><span class="line">scoring = <span class="string">'neg_mean_squared_error'</span></span><br><span class="line">result = cross_val_score(model, X, Y, cv=kfold, scoring=scoring)</span><br><span class="line">print(<span class="string">'Linear Regression: %.3f'</span> %result.mean())</span><br></pre></td></tr></table></figure></p>
 <p>执行结果如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Linear Regression: -34.705</span><br></pre></td></tr></table></figure></p>
 <p>2.2 岭回归算法<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> KFold</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> cross_val_score</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> Ridge</span><br><span class="line"><span class="comment">#导入数据</span></span><br><span class="line">data = pd.read_csv(<span class="string">'housing.csv'</span>)</span><br><span class="line"><span class="comment">#划分数据</span></span><br><span class="line">X = data.values[:,<span class="number">0</span>:<span class="number">13</span>]</span><br><span class="line">Y = data.values[:,<span class="number">13</span>]</span><br><span class="line"></span><br><span class="line">seed = <span class="number">7</span></span><br><span class="line">kfold = KFold(n_splits=<span class="number">10</span>, random_state = seed)</span><br><span class="line">model = Ridge()</span><br><span class="line">scoring = <span class="string">'neg_mean_squared_error'</span></span><br><span class="line">result = cross_val_score(model, X, Y, cv=kfold, scoring=scoring)</span><br><span class="line">print(<span class="string">'Ridge Regression: %.3f'</span> %result.mean())</span><br></pre></td></tr></table></figure></p>
 <p>执行结果如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ridge Regression: -34.078</span><br></pre></td></tr></table></figure></p>
 
-          
-        
       
     </div>
     
@@ -384,436 +382,42 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/new 1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Icy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="QxD's Notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/15/new 1/" itemprop="url">计划</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-15T00:00:00+08:00">
-                2018-04-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
           
-            
+            <a href="/tags/sklearn/" rel="tag"># sklearn</a>
           
-
+            <a href="/tags/模型选择/" rel="tag"># 模型选择</a>
           
+            <a href="/tags/交叉验证法/" rel="tag"># 交叉验证法</a>
           
-             <span id="/2018/04/15/new 1/" class="leancloud_visitors" data-flag-title="计划">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>今天是2018年4月15日,星期日，计划每天写一篇文章，长短不限，坚持一个月。</p>
-<p>因为前几天看学长找实习做的笔试题，有算法题、编程题、概率统计等等涉及计算机的方方面面，我基本上都不会，想到一年后我也到做题找实习，就很担心啊。必须从现在起好好学习巩固了！</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
       
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/23/logistic回归/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Icy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="QxD's Notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/23/logistic回归/" itemprop="url">Logistic回归</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-23T15:27:33+08:00">
-                2018-01-23
-              </time>
+              <a href="/2018/04/15/new 1/" rel="next" title="计划">
+                <i class="fa fa-chevron-left"></i> 计划
+              </a>
             
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/01/23/logistic回归/" class="leancloud_visitors" data-flag-title="Logistic回归">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Logistic回归是统计学习中的经典分类方法。其实仅在线性回归的基础上，套用了一个逻辑函数。本文主要详述逻辑回归模型的基础。</p>
-<p>假设有输入向量 $x=(x_1;x_2;…;x_n)$， 由线性回归模型产生的预测值 </p>
-<p>$$z=w ^ \mathrm{ T }x+b\tag{1}$$ 是实值，需要转换为 0/1 值才能进行分类。因此找一个单调可微函数来替代，将$z$ 的值映射到 (0,1) 之间，这里采用logistic函数：<br>$$y=\frac{1}{1+e^{-z}}\tag{2}$$<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/01/23/logistic回归/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/21/1-1-3 去哪旅行/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Icy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="QxD's Notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/21/1-1-3 去哪旅行/" itemprop="url">1-1-3 去哪旅行</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-21T00:00:00+08:00">
-                2018-01-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/01/21/1-1-3 去哪旅行/" class="leancloud_visitors" data-flag-title="1-1-3 去哪旅行">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>spend your autumn years  安度晚年<br>transports one back in time to 穿越到…<br>with the sophistication of 带着…的精致<br>an English country manor 一个英国乡村庄园<br>tucked away 被藏在…<br>tuck you in 掖被窝<br> on the outskirts of 在…的郊外<br>breathtaking surroundings 美不胜收的环境<br>the entire building exudes historical ambience  整栋建筑散发着历史气息<br>XX since the day we XX , and you’ve never once talked about XX . 咱们一起这么久了，你一次也没XX过。<br>Do you want any of these XX ?  你想要这些XX吗？<br>You might be needing them again. 没准你很快就又用到了呢。<br>I want you to have this.  我想让你拿着这个。<br>Are you sure? Oh, absolutely. 真的吗？当然了。<br>There’s a XX there just at the bottom. 在底下有点 XX<br>I think you know something about that already. 我猜你已经知道了。<br>I used to live there…a long time ago. 我很久以前住在那过。<br>There won’t be any…那可没有…<br>Well, that’s just as well. 没有正好。<br>I can’t afford the XX. 我付不起 XX<br>It’s a luxury development…where all the residents are in their golden years.豪华住宅区，那的居住民都是退休的年纪。<br>loads of  一堆<br>reek of curry 散发着咖喱的臭味<br>you never see one on their own, they always move in packs. 他们总是成群结队的<br>makes it easier to…  …就更容易了<br>rob you blind 骗光你<br>You know what?  你知道吗？<br>I thought you were supposed to…. 你不是应该…<br>take me to my flat. 送我回公寓<br>don’t blame me, mate.  别怪我啊大兄弟<br>You married her.  是你娶了她。<br>She is married to you. 她嫁给了你。 </p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -823,10 +427,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -834,6 +439,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -1055,6 +664,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

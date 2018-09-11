@@ -325,7 +325,7 @@
 <p>在scikit-learn中，主要是基于LogisticRegression模型来解决Logistic回归算法，其中，有两种不同的代价函数(cost function)：<br>L1:  </p>
 <p>$$ \min _ { w,c }|w| _ 1+C\sum _ { i=1 }^n log ( exp ( -y_ i(X _ { i }^ \mathrm { T }w+c))+1)$$s</p>
 <p>L2：  </p>
-<p>$$ \min <em>{ w, c } \frac { 1 }{ 2 }w^ \mathrm { T }w +C \sum </em>{ i=1 }^nlog(exp(-y<em>i(X</em>{i}^ \mathrm { T }w+c))+1)$$</p>
+<p>$$ \min _{ w, c } \frac { 1 }{ 2 }w^ \mathrm { T }w +C \sum _{ i=1 }^nlog(exp(-y _i (X _{i}^ \mathrm { T }w+c))+1)$$</p>
 <p>每个式子中前一项是<strong>正则化项（Regularizer）</strong>（包含w的范数），后一项是<strong>损失函数（loss function）</strong>，参数 <strong>C</strong> 控制了两者在最终的损失函数中所占的比重。<br>求解w参数的方法根据L1/L2代价函数的不同，也存在不同的求解拟合参数的方法：  </p>
 <table>
 <thead>

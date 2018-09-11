@@ -323,7 +323,7 @@
           
             <h3 id="test"><a href="#test" class="headerlink" title="test"></a>test</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*class* sklearn.linear_model.**LogisticRegression**(penalty=’l2’, dual=False, tol=0.0001, C=1.0, fit_intercept=True, intercept_scaling=1, class_weight=None, random_state=None, solver=’liblinear’, max_iter=100, multi_class=’ovr’, verbose=0, warm_start=False, n_jobs=1)</span><br></pre></td></tr></table></figure>
 <p>在scikit-learn中，主要是基于LogisticRegression模型来解决Logistic回归算法，其中，有两种不同的代价函数(cost function)：<br>L1:  </p>
-<p>$$ \min <em> { w,c}|w| </em> 1+C\sum <em> {i=1}^nlog(exp(-y </em> i(X _ {i}^ \mathrm {T}w+c))+1)$$</p>
+<p>$$ \min <em> { w,c }|w| </em> 1+C\sum <em> {i=1}^n log(exp(-y </em> i(X _ {i}^ \mathrm { T }w+c))+1)$$</p>
 <p>L2：  </p>
 <p>$$ \min <em>{ w, c } \frac { 1 }{ 2 }w^ \mathrm {T}w +C \sum </em>{ i=1}^nlog(exp(-y<em>i(X</em>{i}^ \mathrm { T }w+c))+1)$$</p>
 <p>每个式子中前一项是<strong>正则化项（Regularizer）</strong>（包含w的范数），后一项是<strong>损失函数（loss function）</strong>，参数 <strong>C</strong> 控制了两者在最终的损失函数中所占的比重。<br>求解w参数的方法根据L1/L2代价函数的不同，也存在不同的求解拟合参数的方法：  </p>
@@ -1537,9 +1537,14 @@
             <h1 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h1><p>Logistic回归是统计学习中的经典分类方法。其实仅在线性回归的基础上，套用了一个逻辑函数。本文主要详述逻辑回归模型的基础。</p>
 <p>假设有输入向量 $x=(x_1;x_2;…;x_n)$， 由线性回归模型产生的预测值 </p>
 <p>$$z=w ^ \mathrm{ T }x+b\tag{1}$$ 是实值，需要转换为 0/1 值才能进行分类。因此找一个单调可微函数来替代，将$z$ 的值映射到 (0,1) 之间，这里采用<a href="https://en.wikipedia.org/wiki/Logistic_function" target="_blank" rel="noopener">logistic函数</a>：<br>$$y=\frac{1}{1+e^{-z}}\tag{2}$$<br><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Logistic-curve.svg/1200px-Logistic-curve.svg.png" alt="logistic function"><br>从图中可以看出，对数几率函数是一种“Sigmoid函数”，当 $z=0$ 时，函数值为0.5。随着 $z$ 的增大，对应的值将逼近于1；而随着 $z$ 的减小，输出值将逼近于0。如果横坐标刻度足够大，函数将看起来很像一个阶跃函数，其输出值在 $z=0$ 附近变化很陡。</p>
-<p>将式(1)代入得到             $$y=\frac{1}{1+e^{-(w ^ \mathrm{ T }x+b)}}\tag{3}$$<br><strong>上式就是logistic回归模型的分类函数。</strong>最后， $y$ 是一个范围在0~1之间的数值。结果大于0.5的数据被归入1类，小于0.5的即被归入0类。所以，Logistic回归也可以被看成是一种概率估计。</p>
-<p>(3)式可变化为对数几率形式：<br>$$\ln \frac{y}{1-y}=w ^ \mathrm{ T }x+b\tag{4}$$<br>由此看出，<strong>真实标记 $y$ 的对数几率是输入 $x$ 的线性函数</strong>。<br>将 $y$ 视为类后验概率估计 $p(y=1|x)$ ，则上式可重写为<br>$$\ln \frac{p(y=1|x)}{p(y=0|x)}=w ^ \mathrm{ T }x+b\tag{5}$$</p>
-<p>显然有<br>$$p(y=1|x)=\frac{e^{w ^ \mathrm{ T }x+b}}{1+e^{w ^ \mathrm{ T }x+b}}\tag{6}$$<br>$$p(y=0|x)=\frac{1}{1+e^{w ^ \mathrm{ T }x+b}}\tag{7}$$<br><strong>此时线性函数的值越接近正无穷，概率值就越接近1；线性函数的值越接近负无穷，概率值就越接近0。由此得以分类。</strong></p>
+<p>将式(1)代入得到             </p>
+<p>$$y=\frac{1}{1+e^{-(w ^ \mathrm{ T }x+b)}}\tag{3}$$ </p>
+<p><strong>上式就是logistic回归模型的分类函数。</strong>最后， $y$ 是一个范围在0~1之间的数值。结果大于0.5的数据被归入1类，小于0.5的即被归入0类。所以，Logistic回归也可以被看成是一种概率估计。</p>
+<p>(3)式可变化为对数几率形式：</p>
+<p>$$\ln \frac{y}{1-y}=w ^ \mathrm{ T }x+b\tag{4}$$<br>由此看出，<strong>真实标记 $y$ 的对数几率是输入 $x$ 的线性函数</strong>。<br>将 $y$ 视为类后验概率估计 $p(y=1|x)$ ，则上式可重写为</p>
+<p>$$\ln \frac{p(y=1|x)}{p(y=0|x)}=w ^ \mathrm{ T }x+b\tag{5}$$</p>
+<p>显然有</p>
+<p>$$p(y=1|x)=\frac{e^{w ^ \mathrm{ T }x+b}}{1+e^{w ^ \mathrm{ T }x+b}}\tag{6}$$<br>$$p(y=0|x)=\frac{1}{1+e^{w ^ \mathrm{ T }x+b}}\tag{7}$$<br><strong>此时线性函数的值越接近正无穷，概率值就越接近1；线性函数的值越接近负无穷，概率值就越接近0。由此得以分类。</strong></p>
 <p>接下来可通过“极大似然法”来估计 $w$ 和 $b$ 。</p>
 <h1 id="用优化方法来估计参数"><a href="#用优化方法来估计参数" class="headerlink" title="用优化方法来估计参数"></a>用优化方法来估计参数</h1><p>优化方法有很多，这里主要了解梯度下降，牛顿法和BFGS</p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>

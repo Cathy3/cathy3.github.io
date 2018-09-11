@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="机器学习,原理,Logistic回归," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,20 +79,17 @@
 
 
 
-<meta name="description" content="基本原理Logistic回归是统计学习中的经典分类方法。其实仅在线性回归的基础上，套用了一个逻辑函数。本文主要详述逻辑回归模型的基础。 假设有输入向量 $x=(x_1;x_2;…;x_n)$， 由线性回归模型产生的预测值  $$z=w ^ \mathrm{ T }x+b\tag{1}$$ 是实值，需要转换为 0/1 值才能进行分类。因此找一个单调可微函数来替代，将$z$ 的值映射到 (0,1) 之">
-<meta name="keywords" content="机器学习,原理,Logistic回归">
+<meta name="description" content="class sklearn.linear_model.LogisticRegression(penalty=’l2’, dual=False, tol=0.0001, C=1.0, fit_intercept=True, intercept_scaling=1, class_weight=None, random_state=None, solver=’liblinear’, max_iter=">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Logistic回归">
-<meta property="og:url" content="http://yoursite.com/2018/01/23/logistic回归/index.html">
+<meta property="og:title" content="LogisticRegression的sklearn参数说明">
+<meta property="og:url" content="http://yoursite.com/2018/08/24/LogisticRegression的sklearn参数说明/index.html">
 <meta property="og:site_name" content="QxD&#39;s Notes">
-<meta property="og:description" content="基本原理Logistic回归是统计学习中的经典分类方法。其实仅在线性回归的基础上，套用了一个逻辑函数。本文主要详述逻辑回归模型的基础。 假设有输入向量 $x=(x_1;x_2;…;x_n)$， 由线性回归模型产生的预测值  $$z=w ^ \mathrm{ T }x+b\tag{1}$$ 是实值，需要转换为 0/1 值才能进行分类。因此找一个单调可微函数来替代，将$z$ 的值映射到 (0,1) 之">
+<meta property="og:description" content="class sklearn.linear_model.LogisticRegression(penalty=’l2’, dual=False, tol=0.0001, C=1.0, fit_intercept=True, intercept_scaling=1, class_weight=None, random_state=None, solver=’liblinear’, max_iter=">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Logistic-curve.svg/1200px-Logistic-curve.svg.png">
-<meta property="og:updated_time" content="2018-09-11T10:30:41.432Z">
+<meta property="og:updated_time" content="2018-09-11T10:49:14.628Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Logistic回归">
-<meta name="twitter:description" content="基本原理Logistic回归是统计学习中的经典分类方法。其实仅在线性回归的基础上，套用了一个逻辑函数。本文主要详述逻辑回归模型的基础。 假设有输入向量 $x=(x_1;x_2;…;x_n)$， 由线性回归模型产生的预测值  $$z=w ^ \mathrm{ T }x+b\tag{1}$$ 是实值，需要转换为 0/1 值才能进行分类。因此找一个单调可微函数来替代，将$z$ 的值映射到 (0,1) 之">
-<meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Logistic-curve.svg/1200px-Logistic-curve.svg.png">
+<meta name="twitter:title" content="LogisticRegression的sklearn参数说明">
+<meta name="twitter:description" content="class sklearn.linear_model.LogisticRegression(penalty=’l2’, dual=False, tol=0.0001, C=1.0, fit_intercept=True, intercept_scaling=1, class_weight=None, random_state=None, solver=’liblinear’, max_iter=">
 
 
 
@@ -122,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/01/23/logistic回归/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/24/LogisticRegression的sklearn参数说明/"/>
 
 
 
 
 
-  <title>Logistic回归 | QxD's Notes</title>
+  <title>LogisticRegression的sklearn参数说明 | QxD's Notes</title>
   
 
 
@@ -245,7 +242,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/23/logistic回归/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/24/LogisticRegression的sklearn参数说明/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Icy">
@@ -262,7 +259,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Logistic回归</h1>
+          <h1 class="post-title" itemprop="name headline">LogisticRegression的sklearn参数说明</h1>
         
 
         <div class="post-meta">
@@ -274,8 +271,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-23T15:27:33+08:00">
-                2018-01-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T16:51:05+08:00">
+                2018-08-24
               </time>
             
 
@@ -285,28 +282,6 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -314,7 +289,7 @@
 
           
           
-             <span id="/2018/01/23/logistic回归/" class="leancloud_visitors" data-flag-title="Logistic回归">
+             <span id="/2018/08/24/LogisticRegression的sklearn参数说明/" class="leancloud_visitors" data-flag-title="LogisticRegression的sklearn参数说明">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -345,16 +320,98 @@
       
 
       
-        <h1 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h1><p>Logistic回归是统计学习中的经典分类方法。其实仅在线性回归的基础上，套用了一个逻辑函数。本文主要详述逻辑回归模型的基础。</p>
-<p>假设有输入向量 $x=(x_1;x_2;…;x_n)$， 由线性回归模型产生的预测值 </p>
-<p>$$z=w ^ \mathrm{ T }x+b\tag{1}$$ 是实值，需要转换为 0/1 值才能进行分类。因此找一个单调可微函数来替代，将$z$ 的值映射到 (0,1) 之间，这里采用<a href="https://en.wikipedia.org/wiki/Logistic_function" target="_blank" rel="noopener">logistic函数</a>：<br>$$y=\frac{1}{1+e^{-z}}\tag{2}$$<br><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Logistic-curve.svg/1200px-Logistic-curve.svg.png" alt="logistic function"><br>从图中可以看出，对数几率函数是一种“Sigmoid函数”，当 $z=0$ 时，函数值为0.5。随着 $z$ 的增大，对应的值将逼近于1；而随着 $z$ 的减小，输出值将逼近于0。如果横坐标刻度足够大，函数将看起来很像一个阶跃函数，其输出值在 $z=0$ 附近变化很陡。</p>
-<p>将式(1)代入得到             $$y=\frac{1}{1+e^{-(w ^ \mathrm{ T }x+b)}}\tag{3}$$<br><strong>上式就是logistic回归模型的分类函数。</strong>最后， $y$ 是一个范围在0~1之间的数值。结果大于0.5的数据被归入1类，小于0.5的即被归入0类。所以，Logistic回归也可以被看成是一种概率估计。</p>
-<p>(3)式可变化为对数几率形式：<br>$$\ln \frac{y}{1-y}=w ^ \mathrm{ T }x+b\tag{4}$$<br>由此看出，<strong>真实标记 $y$ 的对数几率是输入 $x$ 的线性函数</strong>。<br>将 $y$ 视为类后验概率估计 $p(y=1|x)$ ，则上式可重写为<br>$$\ln \frac{p(y=1|x)}{p(y=0|x)}=w ^ \mathrm{ T }x+b\tag{5}$$</p>
-<p>显然有<br>$$p(y=1|x)=\frac{e^{w ^ \mathrm{ T }x+b}}{1+e^{w ^ \mathrm{ T }x+b}}\tag{6}$$<br>$$p(y=0|x)=\frac{1}{1+e^{w ^ \mathrm{ T }x+b}}\tag{7}$$<br><strong>此时线性函数的值越接近正无穷，概率值就越接近1；线性函数的值越接近负无穷，概率值就越接近0。由此得以分类。</strong></p>
-<p>接下来可通过“极大似然法”来估计 $w$ 和 $b$ 。</p>
-<h1 id="用优化方法来估计参数"><a href="#用优化方法来估计参数" class="headerlink" title="用优化方法来估计参数"></a>用优化方法来估计参数</h1><p>优化方法有很多，这里主要了解梯度下降，牛顿法和BFGS</p>
+        <blockquote>
+<p><em>class</em> sklearn.linear_model.<strong>LogisticRegression</strong>(penalty=’l2’, dual=False, tol=0.0001, C=1.0, fit_intercept=True, intercept_scaling=1, class_weight=None, random_state=None, solver=’liblinear’, max_iter=100, multi_class=’ovr’, verbose=0, warm_start=False, n_jobs=1)</p>
+</blockquote>
+<p>在scikit-learn中，主要是基于LogisticRegression模型来解决Logistic回归算法，其中，有两种不同的代价函数(cost function)：<br>L1:</p>
+<p>$$\min_{w, c} |w|<em>1 +C\sum</em>{i=1}^nlog(exp(-y<em>i(X</em>{i}^\mathrm{T}w+c))+1)$$</p>
+<p>L2：</p>
+<p>$$\min<em>{w, c} \frac{1}{2}w^\mathrm{T}w +C\sum</em>{i=1}^nlog(exp(-y<em>i(X</em>{i}^\mathrm{T}w+c))+1)$$</p>
+<p>每个式子中前一项是<strong>正则化项（Regularizer）</strong>（包含w的范数），后一项是<strong>损失函数（loss function）</strong>，参数 <strong>C</strong> 控制了两者在最终的损失函数中所占的比重。<br>求解w参数的方法根据L1/L2代价函数的不同，也存在不同的求解拟合参数的方法：<br>|Case |Solver|<br>|—- | —|<br>|L2 penalty | “saga”,  “liblinear” , “lbfgs”,  “sag”,  “newton-cg”|<br>|L1 penalty | “saga”,  “liblinear” |<br>|Multinomial loss |“saga”, “lbfgs”,  “sag”,  “newton-cg”|<br>|Very Large dataset (n_samples) |“saga”, “sag” |</p>
+<ul>
+<li><strong>penalty：</strong>惩罚项，str类型，可选参数为l1和l2，默认为l2。<ul>
+<li>用于指定惩罚项中使用的规范。加上约束，使得模型更不会过拟合(overfit)，可以获得泛化能力更强的结果</li>
+<li>newton-cg、sag和lbfgs求解算法只支持L2规范。</li>
+<li>L1规范假设的是模型的参数满足拉普拉斯分布，L2假设的模型参数满足高斯分布，</li>
+</ul>
+</li>
+<li><strong>dual：</strong>对偶或原始方法，bool类型，默认为False。<ul>
+<li>对偶方法只用在求解线性多核(liblinear)的<strong>L2惩罚项</strong>上。</li>
+<li>当样本数量&gt;样本特征的时候，dual通常设置为False。</li>
+</ul>
+</li>
+<li><strong>tol：</strong>停止求解的标准，float类型，默认为1e-4。<ul>
+<li>就是求解到多少的时候，停止，认为已经求出最优解。</li>
+</ul>
+</li>
+<li><strong>c：</strong>正则化系数λ的倒数，float类型，默认为1.0。必须是正浮点型数。<ul>
+<li>像SVM一样，越小的数值表示越强的正则化。</li>
+</ul>
+</li>
+<li><strong>fit_intercept：</strong>是否存在截距或偏差，bool类型，默认为True。</li>
+<li><strong>intercept_scaling：</strong> float类型，默认为1。<ul>
+<li>仅在正则化项为”liblinear”，且fit_intercept设置为True时有用。</li>
+</ul>
+</li>
+<li><strong>class_weight：</strong>用于标示分类模型中各种类型的权重.<ul>
+<li>默认为None，也就是不考虑权重。可以输入一个字典或者’balanced’字符串。</li>
+<li>可以<code>{class_label:weight}</code>形式自己输入各个类型的权重。举个例子，比如对于0,1的二元模型，我们可以定义class_weight={0:0.9,1:0.1}，这样类型0的权重为90%，而类型1的权重为10%。</li>
+<li>也可以选择<strong>balanced</strong>，那么类库会根据训练样本量来计算权重。某种类型样本量越多，则权重越低，样本量越少，则权重越高。类权重计算方法如下：<code>n_samples/(n_classes *np.bincount(y))</code>。</li>
+<li><code>n_samples</code>为样本数，<code>n_classes</code>为类别数量，<code>np.bincount(y)</code>会输出每个类的样本数，例如 y=[1,0,0,1,1], 则 np.bincount(y)=[2,3]。<br>那么class_weight有什么作用呢？ 在分类模型中，我们经常会遇到两类问题：<br><strong>第一种是误分类的代价很高。</strong>比如对合法用户和非法用户进行分类，将非法用户分类为合法用户的代价很高，我们宁愿将合法用户分类为非法用户，这时可以人工再甄别，但是却不愿将非法用户分类为合法用户。这时，我们可以适当提高非法用户的权重。<br><strong>第二种是样本是高度失衡的</strong>。比如我们有合法用户和非法用户的二元样本数据10000条，里面合法用户有9995条，非法用户只有5条，如果我们不考虑权重，则我们可以将所有的测试集都预测为合法用户，这样预测准确率理论上有99.95%，但是却没有任何意义。这时，我们可以选择balanced，让类库自动提高非法用户样本的权重。提高了某种分类的权重，相比不考虑权重，会有更多的样本分类划分到高权重的类别，从而可以解决上面两类问题。</li>
+</ul>
+</li>
+<li><strong>random_state：</strong>随机数种子，int类型，可选参数，默认为None。<ul>
+<li>仅在正则化优化算法为 sag, liblinear 时有用。</li>
+</ul>
+</li>
+<li><strong>solver：</strong>优化方法选择。默认为liblinear。<ul>
+<li>有五个可选参数，即newton-cg, lbfgs, liblinear, sag, saga。</li>
+<li><strong>liblinear：</strong>使用了开源的liblinear库实现，内部使用了坐标轴下降法来迭代优化损失函数。</li>
+<li><strong>lbfgs：</strong>L-BFGS算法，拟牛顿法的一种，利用损失函数二阶导数矩阵即海森矩阵来迭代优化损失函数。</li>
+<li><strong>newton-cg：</strong>也是牛顿法家族的一种，利用损失函数二阶导数矩阵即海森矩阵来迭代优化损失函数。</li>
+<li><strong>sag：</strong>即随机平均梯度下降(Stochastic Average Gradient descent)，是梯度下降法的变种，和普通梯度下降法的区别是每次迭代仅仅用一部分的样本来计算梯度，适合于样本数据多的时候。</li>
+<li><strong>saga：</strong>线性收敛的随机优化算法的的变重。 </li>
+<li><strong>总结：</strong>  <ul>
+<li><strong>liblinear适用于小数据集</strong>，而sag和saga适用于大数据集因为速度更快。</li>
+<li>对于多分类问题，<strong>只有newton-cg,sag,saga和lbfgs能够处理多项损失</strong>，而<strong>liblinear受限于一对剩余(OvR)</strong>。意思就是用liblinear的时候，如果是多分类问题，得先把一种类别作为一个类别，剩余的所有类别作为另外一个类别。一次类推，遍历所有类别，进行分类。</li>
+<li><strong>newton-cg, sag 和 lbfgs</strong> 这三种优化算法时都需要损失函数的一阶或者二阶连续导数，因此不能用于没有连续导数的L1正则化，<strong>只能用于L2正则化</strong>。而 <strong>liblinear 和 saga</strong> <strong>通吃L1正则化和L2正则化</strong>。</li>
+<li>同时，sag每次仅仅使用了部分样本进行梯度迭代，所以当样本量少的时候不要选择它，而<strong>如果样本量非常大，比如大于10万，sag是第一选择</strong>。但是<strong>sag不能用于L1正则化</strong>，所以当你有大量的样本，又需要L1正则化的话就要自己做取舍了。要么通过对样本采样来降低样本量，要么回到L2正则化。</li>
+<li>逻辑回归有二元逻辑回归和多元逻辑回归。对于多元逻辑回归常见的有one-vs-rest(OvR)和many-vs-many(MvM)两种。而MvM一般比OvR分类相对准确一些。而liblinear只支持OvR，不支持MvM，这样<strong>如果我们需要相对精确的多元逻辑回归时，就不能选择liblinear了</strong>。也意味着如果我们需要相对精确的多元逻辑回归<strong>不能使用L1正则化了</strong>。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>max_iter：</strong>算法收敛最大迭代次数，int类型，默认为10。<ul>
+<li>仅在正则化优化算法为newton-cg, sag 和lbfgs才有用。</li>
+</ul>
+</li>
+<li><strong>multi_class：</strong>分类方式选择参数，str类型，可选参数为ovr和multinomial，<strong>默认为ovr</strong>。<ul>
+<li>如果是二元逻辑回归，ovr和multinomial并没有任何区别，区别主要在多元逻辑回归上。</li>
+<li><strong>ovr</strong>即前面提到的one-vs-rest(OvR)。OvR的思想是无论你是多少元逻辑回归，我们都可以看做二元逻辑回归。具体做法是，对于第K类的分类决策，我们把所有第K类的样本作为正例，除了第K类样本以外的所有样本都作为负例，然后在上面做二元逻辑回归，得到第K类的分类模型。其他类的分类模型获得以此类推。</li>
+<li>而<strong>multinomial</strong>即前面提到的many-vs-many(MvM)。MvM相对复杂，这里举MvM的特例one-vs-one(OvO)作讲解。如果模型有T类，我们每次在所有的T类样本里面选择两类样本出来，不妨记为T1类和T2类，把所有的输出为T1和T2的样本放在一起，把T1作为正例，T2作为负例，进行二元逻辑回归，得到模型参数。我们一共需要T(T-1)/2次分类。</li>
+<li>可以看出OvR相对简单，但分类效果相对略差（这里指大多数样本分布情况，某些样本分布下OvR可能更好）。而MvM分类相对精确，但是分类速度没有OvR快。</li>
+<li>如果选择了ovr，则4种损失函数的优化方法liblinear，newton-cg,lbfgs和sag都可以选择。<strong>但是如果选择了multinomial,则只能选择 newton-cg, lbfgs 和 sag 了</strong>。</li>
+</ul>
+</li>
+<li><strong>verbose:</strong>日志冗长度，int类型。默认为0。就是不输出训练过程。<ul>
+<li>1的时候偶尔输出结果，大于1，对于每个子模型都输出。</li>
+</ul>
+</li>
+<li><strong>warm_start：</strong>热启动参数，bool类型。默认为False。<ul>
+<li>如果为True，则下一次训练是以追加树的形式进行（重新使用上一次的调用作为初始化）。</li>
+</ul>
+</li>
+<li><strong>n_jobs：</strong>并行数。int类型，默认为1。<ul>
+<li>1的时候，用CPU的一个内核运行程序，</li>
+<li>2的时候，用CPU的2个内核运行程序。</li>
+<li>为-1的时候，用所有CPU的内核运行程序。</li>
+</ul>
+</li>
+</ul>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
-<li><a href="https://chenrudan.github.io/blog/2016/01/09/logisticregression.html" target="_blank" rel="noopener">浅析Logistic Regression</a></li>
+<li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#sklearn.linear_model.LogisticRegression.decision_function%20%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92" target="_blank" rel="noopener">sklearn.linear_model.LogisticRegression-scikit-learn 0.19.2 documentation</a></li>
+<li><a href="https://www.jianshu.com/p/bbdeb356057e" target="_blank" rel="noopener">Logistic回归(Logistic Regression)算法笔记(二)-scikit learn</a></li>
+<li><a href="https://blog.csdn.net/jark_/article/details/78342644" target="_blank" rel="noopener">LogisticRegression - 参数说明</a></li>
 </ul>
 
       
@@ -371,16 +428,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
-          
-            <a href="/tags/原理/" rel="tag"># 原理</a>
-          
-            <a href="/tags/Logistic回归/" rel="tag"># Logistic回归</a>
-          
-        </div>
-      
 
       
       
@@ -390,15 +437,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/08/19/python3 zip(), lambda, map()/" rel="next" title="python3 zip(), lambda, map()">
+                <i class="fa fa-chevron-left"></i> python3 zip(), lambda, map()
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/02/14/Conda命令/" rel="prev" title="Conda常用命令">
-                Conda常用命令 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -530,7 +577,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本原理"><span class="nav-number">1.</span> <span class="nav-text">基本原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#用优化方法来估计参数"><span class="nav-number">2.</span> <span class="nav-text">用优化方法来估计参数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">1.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>

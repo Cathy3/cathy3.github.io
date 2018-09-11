@@ -88,7 +88,7 @@
 <meta property="og:description" content="基本原理Logistic回归是统计学习中的经典分类方法。其实仅在线性回归的基础上，套用了一个逻辑函数。本文主要详述逻辑回归模型的基础。 假设有输入向量 $x=(x_1;x_2;…;x_n)$， 由线性回归模型产生的预测值  $$z=w ^ \mathrm{ T }x+b\tag{1}$$ 是实值，需要转换为 0/1 值才能进行分类。因此找一个单调可微函数来替代，将$z$ 的值映射到 (0,1) 之">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Logistic-curve.svg/1200px-Logistic-curve.svg.png">
-<meta property="og:updated_time" content="2018-09-11T11:35:17.383Z">
+<meta property="og:updated_time" content="2018-09-11T12:25:58.515Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Logistic回归">
 <meta name="twitter:description" content="基本原理Logistic回归是统计学习中的经典分类方法。其实仅在线性回归的基础上，套用了一个逻辑函数。本文主要详述逻辑回归模型的基础。 假设有输入向量 $x=(x_1;x_2;…;x_n)$， 由线性回归模型产生的预测值  $$z=w ^ \mathrm{ T }x+b\tag{1}$$ 是实值，需要转换为 0/1 值才能进行分类。因此找一个单调可微函数来替代，将$z$ 的值映射到 (0,1) 之">
@@ -347,7 +347,9 @@
       
         <h1 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h1><p>Logistic回归是统计学习中的经典分类方法。其实仅在线性回归的基础上，套用了一个逻辑函数。本文主要详述逻辑回归模型的基础。</p>
 <p>假设有输入向量 $x=(x_1;x_2;…;x_n)$， 由线性回归模型产生的预测值 </p>
-<p>$$z=w ^ \mathrm{ T }x+b\tag{1}$$ 是实值，需要转换为 0/1 值才能进行分类。因此找一个单调可微函数来替代，将$z$ 的值映射到 (0,1) 之间，这里采用<a href="https://en.wikipedia.org/wiki/Logistic_function" target="_blank" rel="noopener">logistic函数</a>：<br>$$y=\frac{1}{1+e^{-z}}\tag{2}$$<br><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Logistic-curve.svg/1200px-Logistic-curve.svg.png" alt="logistic function"><br>从图中可以看出，对数几率函数是一种“Sigmoid函数”，当 $z=0$ 时，函数值为0.5。随着 $z$ 的增大，对应的值将逼近于1；而随着 $z$ 的减小，输出值将逼近于0。如果横坐标刻度足够大，函数将看起来很像一个阶跃函数，其输出值在 $z=0$ 附近变化很陡。</p>
+<p>$$z=w ^ \mathrm{ T }x+b\tag{1}$$ 是实值，需要转换为 0/1 值才能进行分类。因此找一个单调可微函数来替代，将$z$ 的值映射到 (0,1) 之间，这里采用<a href="https://en.wikipedia.org/wiki/Logistic_function" target="_blank" rel="noopener">logistic函数</a>：<br>$$y=\frac{1}{1+e^{-z}}\tag{2}$$</p>
+<a id="more"></a>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Logistic-curve.svg/1200px-Logistic-curve.svg.png" alt="logistic function"><br>从图中可以看出，对数几率函数是一种“Sigmoid函数”，当 $z=0$ 时，函数值为0.5。随着 $z$ 的增大，对应的值将逼近于1；而随着 $z$ 的减小，输出值将逼近于0。如果横坐标刻度足够大，函数将看起来很像一个阶跃函数，其输出值在 $z=0$ 附近变化很陡。</p>
 <p>将式(1)代入得到             </p>
 <p>$$y=\frac{1}{1+e^{-(w ^ \mathrm{ T }x+b)}}\tag{3}$$ </p>
 <p><strong>上式就是logistic回归模型的分类函数。</strong>最后， $y$ 是一个范围在0~1之间的数值。结果大于0.5的数据被归入1类，小于0.5的即被归入0类。所以，Logistic回归也可以被看成是一种概率估计。</p>

@@ -82,15 +82,15 @@
 <meta name="description" content="21. 合并两个有序链表Merge Two Sorted Lists 题目描述将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。  示例：  输入：1-&amp;gt;2-&amp;gt;4, 1-&amp;gt;3-&amp;gt;4 输出：1-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;4">
 <meta name="keywords" content="链表,python - LeetCode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="用python刷LeetCode中链表题">
-<meta property="og:url" content="http://yoursite.com/2019/02/20/用python刷LeetCode中链表题/index.html">
+<meta property="og:title" content="用python刷LeetCode链表题(简单级)">
+<meta property="og:url" content="http://yoursite.com/2019/02/20/用python刷LeetCode中链表题(简单级)/index.html">
 <meta property="og:site_name" content="QxD&#39;s Notes">
 <meta property="og:description" content="21. 合并两个有序链表Merge Two Sorted Lists 题目描述将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。  示例：  输入：1-&amp;gt;2-&amp;gt;4, 1-&amp;gt;3-&amp;gt;4 输出：1-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;4">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/14/160_statement.png">
-<meta property="og:updated_time" content="2019-02-21T10:25:50.211Z">
+<meta property="og:updated_time" content="2019-02-23T12:52:30.915Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="用python刷LeetCode中链表题">
+<meta name="twitter:title" content="用python刷LeetCode链表题(简单级)">
 <meta name="twitter:description" content="21. 合并两个有序链表Merge Two Sorted Lists 题目描述将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。  示例：  输入：1-&amp;gt;2-&amp;gt;4, 1-&amp;gt;3-&amp;gt;4 输出：1-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;4">
 <meta name="twitter:image" content="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/14/160_statement.png">
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/20/用python刷LeetCode中链表题/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/02/20/用python刷LeetCode中链表题(简单级)/"/>
 
 
 
 
 
-  <title>用python刷LeetCode中链表题 | QxD's Notes</title>
+  <title>用python刷LeetCode链表题(简单级) | QxD's Notes</title>
   
 
 
@@ -245,7 +245,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/20/用python刷LeetCode中链表题/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/20/用python刷LeetCode中链表题(简单级)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Icy">
@@ -262,7 +262,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">用python刷LeetCode中链表题</h1>
+          <h1 class="post-title" itemprop="name headline">用python刷LeetCode链表题(简单级)</h1>
         
 
         <div class="post-meta">
@@ -314,7 +314,7 @@
 
           
           
-             <span id="/2019/02/20/用python刷LeetCode中链表题/" class="leancloud_visitors" data-flag-title="用python刷LeetCode中链表题">
+             <span id="/2019/02/20/用python刷LeetCode中链表题(简单级)/" class="leancloud_visitors" data-flag-title="用python刷LeetCode链表题(简单级)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -405,9 +405,9 @@
 <blockquote>
 <p>输入: 1-&gt;2-&gt;6-&gt;3-&gt;4-&gt;5-&gt;6, val = 6</p>
 <p>输出: 1-&gt;2-&gt;3-&gt;4-&gt;5</p>
-<h2 id="方法：一个指针"><a href="#方法：一个指针" class="headerlink" title="方法：一个指针"></a>方法：一个指针</h2><ul>
+<h2 id="方法：dummy-node"><a href="#方法：dummy-node" class="headerlink" title="方法：dummy node"></a>方法：dummy node</h2><ul>
 <li>有了第83题的思路，我们这里可以用一个指针来进行链表的遍历，</li>
-<li>但是这里需要注意的是，头节点也需要进行判断，如果头节点的值等于val的话，我们不能返回头节点，所以这里很巧妙的重新生成了一个无关的头节点。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">removeElements</span><span class="params">(self, head, val)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type head: ListNode</span></span><br><span class="line"><span class="string">        :type val: int</span></span><br><span class="line"><span class="string">        :rtype: ListNode</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        dummy = ListNode(<span class="number">-1</span>)</span><br><span class="line">        dummy.next = head</span><br><span class="line">        cur = dummy</span><br><span class="line">        <span class="keyword">while</span> cur:</span><br><span class="line">            <span class="keyword">while</span> cur.next <span class="keyword">and</span> cur.next.val == val:</span><br><span class="line">                cur.next = cur.next.next</span><br><span class="line">            cur = cur.next</span><br><span class="line">        <span class="keyword">return</span> dummy.next</span><br></pre></td></tr></table></figure>
+<li>但是这里需要注意的是，头节点也需要进行判断，如果头节点的值等于val的话，我们不能返回头节点，所以这里很巧妙的重新生成了一个无关的头节点dummy node。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">removeElements</span><span class="params">(self, head, val)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type head: ListNode</span></span><br><span class="line"><span class="string">        :type val: int</span></span><br><span class="line"><span class="string">        :rtype: ListNode</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        dummy = ListNode(<span class="number">-1</span>)</span><br><span class="line">        dummy.next = head</span><br><span class="line">        cur = dummy</span><br><span class="line">        <span class="keyword">while</span> cur:</span><br><span class="line">            <span class="keyword">while</span> cur.next <span class="keyword">and</span> cur.next.val == val:</span><br><span class="line">                cur.next = cur.next.next</span><br><span class="line">            cur = cur.next</span><br><span class="line">        <span class="keyword">return</span> dummy.next</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </blockquote>
@@ -506,6 +506,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/02/20/用python刷LeetCode数组题(简单级)(一)/" rel="prev" title="用python刷LeetCode数组题(简单级)(一)">
+                用python刷LeetCode数组题(简单级)(一) <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -581,7 +585,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -603,7 +607,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -636,7 +640,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#21-合并两个有序链表"><span class="nav-number">1.</span> <span class="nav-text">21. 合并两个有序链表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number">1.2.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#83-删除排序链表中的重复元素"><span class="nav-number">2.</span> <span class="nav-text">83. 删除排序链表中的重复元素</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-1"><span class="nav-number">2.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一：两个指针"><span class="nav-number">2.2.</span> <span class="nav-text">方法一：两个指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二：-一个指针"><span class="nav-number">2.3.</span> <span class="nav-text">方法二： 一个指针</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#141-环形链表"><span class="nav-number">3.</span> <span class="nav-text">141. 环形链表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-2"><span class="nav-number">3.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法：快慢双指针"><span class="nav-number">3.2.</span> <span class="nav-text">方法：快慢双指针</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#160-相交链表"><span class="nav-number">4.</span> <span class="nav-text">160. 相交链表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-3"><span class="nav-number">4.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法：两指针"><span class="nav-number">4.2.</span> <span class="nav-text">方法：两指针</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#203-移除链表元素"><span class="nav-number">5.</span> <span class="nav-text">203. 移除链表元素</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-4"><span class="nav-number">5.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法：一个指针"><span class="nav-number">5.2.</span> <span class="nav-text">方法：一个指针</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#206-反转链表"><span class="nav-number">6.</span> <span class="nav-text">206. 反转链表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-5"><span class="nav-number">6.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法：两个指针，头插法"><span class="nav-number">6.2.</span> <span class="nav-text">方法：两个指针，头插法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#234-回文链表"><span class="nav-number">7.</span> <span class="nav-text">234. 回文链表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-6"><span class="nav-number">7.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法：两个指针"><span class="nav-number">7.2.</span> <span class="nav-text">方法：两个指针</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#237-删除链表中的节点"><span class="nav-number">8.</span> <span class="nav-text">237. 删除链表中的节点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-7"><span class="nav-number">8.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-替换值"><span class="nav-number">8.2.</span> <span class="nav-text">方法:替换值</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">9.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#21-合并两个有序链表"><span class="nav-number">1.</span> <span class="nav-text">21. 合并两个有序链表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number">1.2.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#83-删除排序链表中的重复元素"><span class="nav-number">2.</span> <span class="nav-text">83. 删除排序链表中的重复元素</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-1"><span class="nav-number">2.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一：两个指针"><span class="nav-number">2.2.</span> <span class="nav-text">方法一：两个指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二：-一个指针"><span class="nav-number">2.3.</span> <span class="nav-text">方法二： 一个指针</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#141-环形链表"><span class="nav-number">3.</span> <span class="nav-text">141. 环形链表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-2"><span class="nav-number">3.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法：快慢双指针"><span class="nav-number">3.2.</span> <span class="nav-text">方法：快慢双指针</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#160-相交链表"><span class="nav-number">4.</span> <span class="nav-text">160. 相交链表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-3"><span class="nav-number">4.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法：两指针"><span class="nav-number">4.2.</span> <span class="nav-text">方法：两指针</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#203-移除链表元素"><span class="nav-number">5.</span> <span class="nav-text">203. 移除链表元素</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-4"><span class="nav-number">5.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法：dummy-node"><span class="nav-number">5.2.</span> <span class="nav-text">方法：dummy node</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#206-反转链表"><span class="nav-number">6.</span> <span class="nav-text">206. 反转链表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-5"><span class="nav-number">6.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法：两个指针，头插法"><span class="nav-number">6.2.</span> <span class="nav-text">方法：两个指针，头插法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#234-回文链表"><span class="nav-number">7.</span> <span class="nav-text">234. 回文链表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-6"><span class="nav-number">7.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法：两个指针"><span class="nav-number">7.2.</span> <span class="nav-text">方法：两个指针</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#237-删除链表中的节点"><span class="nav-number">8.</span> <span class="nav-text">237. 删除链表中的节点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-7"><span class="nav-number">8.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-替换值"><span class="nav-number">8.2.</span> <span class="nav-text">方法:替换值</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">9.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>

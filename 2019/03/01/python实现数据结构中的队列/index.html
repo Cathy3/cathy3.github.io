@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="用数组实现一个顺序队列list表头入队，表尾出队。反过来也可以。 实现的基本操作有：  enqueue 入队，要把表中其余元素全部后移，再插入首元素，需要 $O(n)$时间 dequeue 出队,$O(1)$  1234567891011121314class Queue:    def __init__(self):        self.items = []    def enqueue(s">
+<meta name="description" content="用数组实现一个顺序队列list表头入队，表尾出队。反过来也可以。 实现的基本操作有：  enqueue 入队，要把表中其余元素全部后移，再插入首元素，需要 $O(n)$时间 dequeue 出队,$O(1)$">
 <meta name="keywords" content="python,LeetCode,数据结构,队列">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python实现数据结构中的队列">
 <meta property="og:url" content="http://yoursite.com/2019/03/01/python实现数据结构中的队列/index.html">
 <meta property="og:site_name" content="QxD&#39;s Notes">
-<meta property="og:description" content="用数组实现一个顺序队列list表头入队，表尾出队。反过来也可以。 实现的基本操作有：  enqueue 入队，要把表中其余元素全部后移，再插入首元素，需要 $O(n)$时间 dequeue 出队,$O(1)$  1234567891011121314class Queue:    def __init__(self):        self.items = []    def enqueue(s">
+<meta property="og:description" content="用数组实现一个顺序队列list表头入队，表尾出队。反过来也可以。 实现的基本操作有：  enqueue 入队，要把表中其余元素全部后移，再插入首元素，需要 $O(n)$时间 dequeue 出队,$O(1)$">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-02T11:58:46.338Z">
+<meta property="og:updated_time" content="2019-03-02T12:35:41.324Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python实现数据结构中的队列">
-<meta name="twitter:description" content="用数组实现一个顺序队列list表头入队，表尾出队。反过来也可以。 实现的基本操作有：  enqueue 入队，要把表中其余元素全部后移，再插入首元素，需要 $O(n)$时间 dequeue 出队,$O(1)$  1234567891011121314class Queue:    def __init__(self):        self.items = []    def enqueue(s">
+<meta name="twitter:description" content="用数组实现一个顺序队列list表头入队，表尾出队。反过来也可以。 实现的基本操作有：  enqueue 入队，要把表中其余元素全部后移，再插入首元素，需要 $O(n)$时间 dequeue 出队,$O(1)$">
 
 
 
@@ -349,6 +349,7 @@
 <li>enqueue 入队，要把表中其余元素全部后移，再插入首元素，需要 $O(n)$时间</li>
 <li>dequeue 出队,$O(1)$</li>
 </ul>
+<a id="more"></a>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Queue</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.items = []</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">enqueue</span><span class="params">(self, item)</span>:</span> <span class="comment"># 入队</span></span><br><span class="line">        self.items.insert(<span class="number">0</span>,item)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dequeue</span><span class="params">(self)</span>:</span> <span class="comment"># 出队</span></span><br><span class="line">        <span class="keyword">return</span> self.items.pop()</span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    q = Queue()</span><br><span class="line">    q.enqueue(<span class="number">4</span>)</span><br><span class="line">    q.enqueue(<span class="number">5</span>)</span><br><span class="line">    q.enqueue(<span class="number">6</span>)</span><br><span class="line">    print(q.dequeue())</span><br></pre></td></tr></table></figure>
 <p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4</span><br></pre></td></tr></table></figure></p>
 <h1 id="用链表实现一个链式队列"><a href="#用链表实现一个链式队列" class="headerlink" title="用链表实现一个链式队列"></a>用链表实现一个链式队列</h1><p>等同于用带表尾指针的单链表。链尾入队，链首出队。</p>

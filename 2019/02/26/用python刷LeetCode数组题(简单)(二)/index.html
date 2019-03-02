@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="169. 求众数Majority Element 题目描述给定一个大小为 n 的数组，找到其中的众数。众数是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。 你可以假设数组是非空的，并且给定的数组总是存在众数。 示例 1:  输入: [3,2,3] 输出: 3  方法： 遍历最多的元素出现的次数大于数组长度的一半，在最极端的情况下，最后的count都会大于012345678910111213141">
+<meta name="description" content="169. 求众数Majority Element 题目描述给定一个大小为 n 的数组，找到其中的众数。众数是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。 你可以假设数组是非空的，并且给定的数组总是存在众数。 示例 1:  输入: [3,2,3] 输出: 3">
 <meta name="keywords" content="python,LeetCode,数组">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用python刷LeetCode数组题(简单级)(二)">
 <meta property="og:url" content="http://yoursite.com/2019/02/26/用python刷LeetCode数组题(简单)(二)/index.html">
 <meta property="og:site_name" content="QxD&#39;s Notes">
-<meta property="og:description" content="169. 求众数Majority Element 题目描述给定一个大小为 n 的数组，找到其中的众数。众数是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。 你可以假设数组是非空的，并且给定的数组总是存在众数。 示例 1:  输入: [3,2,3] 输出: 3  方法： 遍历最多的元素出现的次数大于数组长度的一半，在最极端的情况下，最后的count都会大于012345678910111213141">
+<meta property="og:description" content="169. 求众数Majority Element 题目描述给定一个大小为 n 的数组，找到其中的众数。众数是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。 你可以假设数组是非空的，并且给定的数组总是存在众数。 示例 1:  输入: [3,2,3] 输出: 3">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-26T12:45:34.495Z">
+<meta property="og:updated_time" content="2019-03-02T12:43:55.002Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用python刷LeetCode数组题(简单级)(二)">
-<meta name="twitter:description" content="169. 求众数Majority Element 题目描述给定一个大小为 n 的数组，找到其中的众数。众数是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。 你可以假设数组是非空的，并且给定的数组总是存在众数。 示例 1:  输入: [3,2,3] 输出: 3  方法： 遍历最多的元素出现的次数大于数组长度的一半，在最极端的情况下，最后的count都会大于012345678910111213141">
+<meta name="twitter:description" content="169. 求众数Majority Element 题目描述给定一个大小为 n 的数组，找到其中的众数。众数是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。 你可以假设数组是非空的，并且给定的数组总是存在众数。 示例 1:  输入: [3,2,3] 输出: 3">
 
 
 
@@ -351,6 +351,7 @@
 <p>输入: [3,2,3]</p>
 <p>输出: 3</p>
 </blockquote>
+<a id="more"></a>
 <h2 id="方法：-遍历"><a href="#方法：-遍历" class="headerlink" title="方法： 遍历"></a>方法： 遍历</h2><p>最多的元素出现的次数大于数组长度的一半，在最极端的情况下，最后的count都会大于0<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">majorityElement</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        count = <span class="number">1</span></span><br><span class="line">        res = nums[<span class="number">0</span>]</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, len(nums)):</span><br><span class="line">            <span class="keyword">if</span> nums[i] == res:</span><br><span class="line">                count += <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                count -= <span class="number">1</span></span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> count == <span class="number">0</span>:</span><br><span class="line">                res = nums[i]</span><br><span class="line">                count = <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure></p>
 <h1 id="189-旋转数组"><a href="#189-旋转数组" class="headerlink" title="189. 旋转数组"></a>189. 旋转数组</h1><p>Rotate Array</p>
 <h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个数组，将数组中的元素向右移动 k 个位置，其中 k 是非负数。</p>
@@ -429,8 +430,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/20/用python刷LeetCode中链表题(简单级)/" rel="next" title="用python刷LeetCode链表题(简单级)">
-                <i class="fa fa-chevron-left"></i> 用python刷LeetCode链表题(简单级)
+              <a href="/2019/02/22/用python刷LeetCode数组题(简单级)(一)/" rel="next" title="用python刷LeetCode数组题(简单级)(一)">
+                <i class="fa fa-chevron-left"></i> 用python刷LeetCode数组题(简单级)(一)
               </a>
             
           </div>

@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="QxD&#39;s Notes">
 <meta property="og:description" content="Estimate the running time of an algorithm Practice implementing efficient solutions Practice solving programming challenges Implement programs that are several orders of magnitude faster than straigh">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-28T05:45:20.068Z">
+<meta property="og:updated_time" content="2019-03-02T10:53:39.889Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="week2-Algorithm Warmup">
 <meta name="twitter:description" content="Estimate the running time of an algorithm Practice implementing efficient solutions Practice solving programming challenges Implement programs that are several orders of magnitude faster than straigh">
@@ -355,7 +355,7 @@
 <p><strong>Output Format.</strong> Output $F_n$.</p>
 <p><strong>Sample 1.</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">10</span><br><span class="line">Output:</span><br><span class="line">55</span><br></pre></td></tr></table></figure></p>
 <p>$F_10 = 55$.<br>0 1 1 2 3 5 8 13 </p>
-<h2 id="Naive-Algorithm"><a href="#Naive-Algorithm" class="headerlink" title="Naive Algorithm"></a>Naive Algorithm</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">calc_fib</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> (n &lt;= <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">return</span> n</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> calc_fib(n - <span class="number">1</span>) + calc_fib(n - <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">print(calc_fib(<span class="number">6</span>))</span><br><span class="line">print(calc_fib(<span class="number">20</span>))</span><br><span class="line">print(calc_fib(<span class="number">34</span>))</span><br></pre></td></tr></table></figure>
+<h2 id="Naive-Algorithm"><a href="#Naive-Algorithm" class="headerlink" title="Naive Algorithm"></a>Naive Algorithm</h2><p>递归<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">calc_fib</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> (n &lt;= <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">return</span> n</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> calc_fib(n - <span class="number">1</span>) + calc_fib(n - <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">print(calc_fib(<span class="number">6</span>))</span><br><span class="line">print(calc_fib(<span class="number">20</span>))</span><br><span class="line">print(calc_fib(<span class="number">34</span>))</span><br></pre></td></tr></table></figure></p>
 <pre><code>8
 6765
 5702887
@@ -523,7 +523,7 @@
 5
 0
 </code></pre><h2 id="Fast-Algorithm-5"><a href="#Fast-Algorithm-5" class="headerlink" title="Fast Algorithm"></a>Fast Algorithm</h2><p>斐波那契数列的递归定义形式如下：</p>
-<p>$$a_n=<br>    \begin{cases}<br>    a_{n-1}+a_{n-2},\<br>    1,&amp;n\leq 1<br>    \end{cases}<br>$$   </p>
+<p>$$a_n=<br>    \begin{cases}<br>    a_{n-1}+a_{n-2},\<br>    1,&amp; {n\leq 1}<br>    \end{cases}<br>$$   </p>
 <p>斐波那契数列求和公式：</p>
 <p>$$S_n= 2a_n+a_{n-1}-1$$</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fibonacci_sum_fast</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> n &lt;= <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> n</span><br><span class="line"></span><br><span class="line">    previous = <span class="number">0</span></span><br><span class="line">    current  = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> range(n - <span class="number">1</span>):</span><br><span class="line">        previous, current = current, (previous + current)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (<span class="number">2</span>*current + previous - <span class="number">1</span>) % <span class="number">10</span></span><br><span class="line">print(fibonacci_sum_fast(<span class="number">3</span>))</span><br><span class="line">print(fibonacci_sum_fast(<span class="number">100</span>))</span><br><span class="line">print(fibonacci_sum_fast(<span class="number">240</span>))</span><br><span class="line">print(fibonacci_sum_fast(<span class="number">999999</span>))</span><br></pre></td></tr></table></figure>
@@ -709,7 +709,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -731,7 +731,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

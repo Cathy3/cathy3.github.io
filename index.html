@@ -239,6 +239,546 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/02/递归(python)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Icy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QxD's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/02/递归(python)/" itemprop="url">递归(python)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-02T00:00:00+08:00">
+                2019-03-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/03/02/递归(python)/" class="leancloud_visitors" data-flag-title="递归(python)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>递归<br>在函数的定义中对这个函数自身的调用，就是递归。</p>
+<p>递归结构中，递归的部分必须比原来的整体简单，才有可能到达某种终结点(出口)。而且必须存在非递归的基本结构构成的部分，否则会无限递归。</p>
+<p>以下问题都可以用递归来解决。</p>
+<h1 id="编程实现斐波那契数列求值-f-n-f-n-1-f-n-2"><a href="#编程实现斐波那契数列求值-f-n-f-n-1-f-n-2" class="headerlink" title="编程实现斐波那契数列求值 f(n)=f(n-1)+f(n-2)"></a>编程实现斐波那契数列求值 f(n)=f(n-1)+f(n-2)</h1><p>斐波那契数列由 0 和 1 开始，后面的每一项数字都是前面两项数字的和。</p>
+<p>[0,1,1,2,3,5,8,13,…]  给定<code>n</code>,计算 <code>f(N)</code></p>
+<p>对应LeetCode习题：<a href="https://leetcode-cn.com/problems/fibonacci-number/" target="_blank" rel="noopener">509. Fibonacci Number</a></p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(self, N: int)</span> -&gt; int:</span></span><br><span class="line">        <span class="keyword">if</span> N &lt;= <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> N</span><br><span class="line">        <span class="keyword">return</span> self.fib(N<span class="number">-1</span>) + self.fib(N<span class="number">-2</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="编程实现求阶乘-n"><a href="#编程实现求阶乘-n" class="headerlink" title="编程实现求阶乘 n!"></a>编程实现求阶乘 n!</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">factorial</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">0</span> <span class="keyword">or</span> n == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> (n*factorial(n<span class="number">-1</span>))</span><br><span class="line"></span><br><span class="line">a = factorial(<span class="number">3</span>)</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
+<p>输出：6</p>
+<h1 id="LeetCode-46-全排列"><a href="#LeetCode-46-全排列" class="headerlink" title="LeetCode 46. 全排列"></a>LeetCode 46. 全排列</h1><p><a href="https://leetcode-cn.com/problems/permutations/" target="_blank" rel="noopener">Permutations</a><br>给定一个<strong>没有重复</strong>数字的序列，返回其所有可能的全排列。</p>
+<p><strong>示例</strong></p>
+<blockquote>
+<p>输入: [1,2,3]</p>
+<p>输出:<br>[<br>  [1,2,3],<br>  [1,3,2],<br>  [2,1,3],<br>  [2,3,1],<br>  [3,1,2],<br>  [3,2,1]<br>]</p>
+</blockquote>
+<h2 id="方法-1"><a href="#方法-1" class="headerlink" title="方法"></a>方法</h2><p>每次选择一个数出来，然后把剩下的数，再选择一个出来，依次类推，选到头，就回溯到上一层。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">permute</span><span class="params">(self, nums: List[int])</span> -&gt; List[List[int]]:</span></span><br><span class="line">        res = []</span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(nums = nums, path = [])</span>:</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> nums:</span><br><span class="line">                res.append(path)</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):</span><br><span class="line">                dfs(nums[:i]+nums[i+<span class="number">1</span>:], path+[nums[i]])</span><br><span class="line">        dfs()</span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure></p>
+<h1 id="LeetCode-47-全排列-II"><a href="#LeetCode-47-全排列-II" class="headerlink" title="LeetCode 47. 全排列 II"></a>LeetCode 47. 全排列 II</h1><p><a href="https://leetcode-cn.com/problems/permutations-ii/" target="_blank" rel="noopener">Permutations II</a><br>给定一个可包含重复数字的序列，返回所有不重复的全排列。</p>
+<p><strong>示例:</strong></p>
+<blockquote>
+<p>输入: [1,1,2]</p>
+<p>输出:<br>[<br>  [1, 1, 2],<br>  [1, 2, 1],<br>  [2, 1, 1]<br>]</p>
+</blockquote>
+<h2 id="方法-2"><a href="#方法-2" class="headerlink" title="方法"></a>方法</h2><p>相比上一题，多了排序和内部的重复判断。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">permuteUnique</span><span class="params">(self, nums: List[int])</span> -&gt; List[List[int]]:</span></span><br><span class="line">        nums.sort()</span><br><span class="line">        res = []</span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(nums = nums, path=[])</span>:</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> nums:</span><br><span class="line">                res.append(path)</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):</span><br><span class="line">                <span class="keyword">if</span> i&gt;<span class="number">0</span> <span class="keyword">and</span> nums[i] == nums[i<span class="number">-1</span>]:</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line">                dfs(nums[:i]+nums[i+<span class="number">1</span>:], path+[nums[i]])</span><br><span class="line">        dfs()</span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure></p>
+<h1 id="LeetCode-70-爬楼梯"><a href="#LeetCode-70-爬楼梯" class="headerlink" title="LeetCode 70. 爬楼梯"></a>LeetCode 70. 爬楼梯</h1><p><a href="https://leetcode-cn.com/problems/climbing-stairs/" target="_blank" rel="noopener">Climbing Stairs</a></p>
+<p>假设你正在爬楼梯。需要 n 阶你才能到达楼顶。</p>
+<p>每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？</p>
+<p>注意：给定 n 是一个正整数。</p>
+<p><strong>示例 ：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入： 3</span><br><span class="line">输出： 3</span><br><span class="line">解释： 有三种方法可以爬到楼顶。</span><br><span class="line">1.  1 阶 + 1 阶 + 1 阶</span><br><span class="line">2.  1 阶 + 2 阶</span><br><span class="line">3.  2 阶 + 1 阶</span><br></pre></td></tr></table></figure></p>
+<h2 id="方法：递归"><a href="#方法：递归" class="headerlink" title="方法：递归"></a>方法：<del>递归</del></h2><p>当有n个台阶时，可供选择的走法可以分两类：1，先跨一阶再跨完剩下n-1阶；2，先跨2阶再跨完剩下n-2阶。所以n阶的不同走法的数目是n-1阶和n-2阶的走法数的和。 这和斐波那契数列的规律相同，可以用这个思路。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">climbStairs</span><span class="params">(self, n)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type n: int</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> n&lt;=<span class="number">2</span>:</span><br><span class="line">            <span class="keyword">return</span> n </span><br><span class="line">        <span class="keyword">return</span> self.climbStairs(n<span class="number">-1</span>) + self.climbStairs(n<span class="number">-2</span>)</span><br></pre></td></tr></table></figure></p>
+<p>这个方法运行正常，但是因为超出时间限制，未能通过。</p>
+<h2 id="方法：动态规划"><a href="#方法：动态规划" class="headerlink" title="方法：动态规划"></a>方法：动态规划</h2><p>动态规划来记录历史数据。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">climbStairs</span><span class="params">(self, n)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type n: int</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        prev, current = <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">            prev, current = current, prev + current</span><br><span class="line">        <span class="keyword">return</span> current</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/01/python实现数据结构中的队列/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Icy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QxD's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/01/python实现数据结构中的队列/" itemprop="url">python实现数据结构中的队列</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-01T00:00:00+08:00">
+                2019-03-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/03/01/python实现数据结构中的队列/" class="leancloud_visitors" data-flag-title="python实现数据结构中的队列">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="用数组实现一个顺序队列"><a href="#用数组实现一个顺序队列" class="headerlink" title="用数组实现一个顺序队列"></a>用数组实现一个顺序队列</h1><p>list表头入队，表尾出队。反过来也可以。</p>
+<p>实现的基本操作有：</p>
+<ul>
+<li>enqueue 入队，要把表中其余元素全部后移，再插入首元素，需要 $O(n)$时间</li>
+<li>dequeue 出队,$O(1)$</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Queue</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.items = []</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">enqueue</span><span class="params">(self, item)</span>:</span> <span class="comment"># 入队</span></span><br><span class="line">        self.items.insert(<span class="number">0</span>,item)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dequeue</span><span class="params">(self)</span>:</span> <span class="comment"># 出队</span></span><br><span class="line">        <span class="keyword">return</span> self.items.pop()</span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    q = Queue()</span><br><span class="line">    q.enqueue(<span class="number">4</span>)</span><br><span class="line">    q.enqueue(<span class="number">5</span>)</span><br><span class="line">    q.enqueue(<span class="number">6</span>)</span><br><span class="line">    print(q.dequeue())</span><br></pre></td></tr></table></figure>
+<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4</span><br></pre></td></tr></table></figure></p>
+<h1 id="用链表实现一个链式队列"><a href="#用链表实现一个链式队列" class="headerlink" title="用链表实现一个链式队列"></a>用链表实现一个链式队列</h1><p>等同于用带表尾指针的单链表。链尾入队，链首出队。</p>
+<p>实现的基本操作有：</p>
+<ul>
+<li>enqueue 入队   $O(1)$</li>
+<li>dequeue 出队   $O(1)$</li>
+<li>peek 查看队首元素 $O(1)$</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span>:</span> <span class="comment"># 链表的结点</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x, next_=None)</span>:</span></span><br><span class="line">        self.val = x</span><br><span class="line">        self.next = next_</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LQueue</span>:</span> <span class="comment"># </span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span> <span class="comment"># 空表</span></span><br><span class="line">        self._head = <span class="keyword">None</span></span><br><span class="line">        self._rear = <span class="keyword">None</span> <span class="comment"># 尾结点</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">enqueue</span><span class="params">(self, x)</span>:</span> <span class="comment"># 入队</span></span><br><span class="line">        <span class="keyword">if</span> self._head <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            self._head = Node(x, self._head)</span><br><span class="line">            self._rear = self._head</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self._rear.next = Node(x)</span><br><span class="line">            self._rear = self._rear.next</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dequeue</span><span class="params">(self)</span>:</span> <span class="comment"># 出队</span></span><br><span class="line">        <span class="keyword">if</span> self._head <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            <span class="keyword">return</span> </span><br><span class="line">        x = self._head.val</span><br><span class="line">        self._head = self._head.next</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">peek</span><span class="params">(self)</span>:</span> <span class="comment"># 查看最早入队的元素</span></span><br><span class="line">        <span class="keyword">if</span> self._head <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">return</span> self._head.val </span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    l = LQueue()</span><br><span class="line">    l.enqueue(<span class="number">4</span>)</span><br><span class="line">    l.enqueue(<span class="number">5</span>)</span><br><span class="line">    print(l.peek())</span><br><span class="line">    l.enqueue(<span class="number">6</span>)</span><br><span class="line">    l.dequeue()</span><br><span class="line">    print(l.peek())</span><br></pre></td></tr></table></figure>
+<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">5</span><br></pre></td></tr></table></figure></p>
+<h1 id="实现一个循环队列"><a href="#实现一个循环队列" class="headerlink" title="实现一个循环队列"></a>实现一个循环队列</h1><p>队头变量<code>_head</code>记录当前队列的第一个元素位置<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">QueueUnderflow</span><span class="params">(ValueError)</span>:</span><span class="comment"># 空队列无法 dequeue</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SQueue</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, init_len=<span class="number">8</span>)</span>:</span></span><br><span class="line">        self._elems = [<span class="number">0</span>]*init_len  <span class="comment"># 队列元素</span></span><br><span class="line">        self._head = <span class="number">0</span> <span class="comment"># 队列首元素位置的下标</span></span><br><span class="line">        self._num = <span class="number">0</span>  <span class="comment"># 表中元素个数</span></span><br><span class="line">        self._len = init_len   <span class="comment"># 当前表的长度，表满了的话，要换一个存储表</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">peek</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self._num == <span class="number">0</span>: <span class="comment"># 队空状态</span></span><br><span class="line">            <span class="keyword">raise</span> QueueUnderflow</span><br><span class="line">        <span class="keyword">return</span> self._elems[self._head]</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dequeue</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self._num == <span class="number">0</span>:  <span class="comment"># 队空状态</span></span><br><span class="line">            <span class="keyword">raise</span> QueueUnderflow</span><br><span class="line">        e = self._elems[self._head]</span><br><span class="line">        self._head = (self._head+<span class="number">1</span>) % self._len </span><br><span class="line">        self._num -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> e</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">enqueue</span><span class="params">(self, e)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self._num == self._len: <span class="comment"># 队满状态</span></span><br><span class="line">            self.__extend() <span class="comment"># 扩大存储区</span></span><br><span class="line">        <span class="comment"># 新元素的入队位置</span></span><br><span class="line">        self._elems[(self._head + self._num) % self._len]=e</span><br><span class="line">        self._num += <span class="number">1</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__extend</span><span class="params">(self)</span>:</span>  <span class="comment"># 扩容</span></span><br><span class="line">        old_len = self._len</span><br><span class="line">        self._len *= <span class="number">2</span></span><br><span class="line">        new_elems = [<span class="number">0</span>] * self._len</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(old_len):</span><br><span class="line">            new_elems[i] = self._elems[(self._head + i)%old_len]</span><br><span class="line">        self._elems, self._head = new_elems, <span class="number">0</span></span><br><span class="line">        </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    l = SQueue()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">        l.enqueue(i+<span class="number">1</span>)</span><br><span class="line">    print(l.peek())</span><br><span class="line">    l.dequeue()</span><br><span class="line">    print(l.peek())</span><br></pre></td></tr></table></figure></p>
+<h1 id="LeetCode习题"><a href="#LeetCode习题" class="headerlink" title="LeetCode习题"></a>LeetCode习题</h1><h2 id="设计一个双端队列"><a href="#设计一个双端队列" class="headerlink" title="设计一个双端队列"></a>设计一个双端队列</h2><p><a href="https://leetcode-cn.com/problems/design-circular-deque/" target="_blank" rel="noopener">Design Circular Deque</a></p>
+<h2 id="滑动窗口最大值"><a href="#滑动窗口最大值" class="headerlink" title="滑动窗口最大值"></a>滑动窗口最大值</h2><p><a href="https://leetcode-cn.com/problems/sliding-window-maximum/" target="_blank" rel="noopener">Sliding Window Maximum</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/01/python实现数据结构中的栈/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Icy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QxD's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/01/python实现数据结构中的栈/" itemprop="url">python实现数据结构中的栈</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-01T00:00:00+08:00">
+                2019-03-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/03/01/python实现数据结构中的栈/" class="leancloud_visitors" data-flag-title="python实现数据结构中的栈">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>栈是一种后入先出（LIFO，last-in-first-out）的数据结构。添加移除新项总发生在同一端。这一端通常称为“顶部”。与顶部对应的端称为“底部”。</p>
+<p>栈的底部很重要，因为在栈中靠近底部的项是存储时间最长的。最近添加的项是最先会被移除的。</p>
+<p>对栈的两种主要操作是将一个元素压入栈和将一个元素弹出栈。入栈使用<code>push()</code>方法，出栈使用<code>pop()</code>方法。</p>
+<h1 id="用数组实现一个顺序栈"><a href="#用数组实现一个顺序栈" class="headerlink" title="用数组实现一个顺序栈"></a>用数组实现一个顺序栈</h1><p>假定数组的结尾作为栈顶，后端插入和删除是 O(1) 操作。</p>
+<p>栈有如下基本操作：</p>
+<ul>
+<li>Stack() 创建一个空的新栈。 返回一个空栈。</li>
+<li>push(item)将一个新项添加到栈的顶部。它需要 item 做参数并不返回任何内容。</li>
+<li>pop() 从栈中删除顶部项。它返回 item 。栈被修改。</li>
+<li>top() 从栈返回顶部项，但不会删除它。不修改栈。</li>
+<li>isEmpty() 测试栈是否为空。返回布尔值。</li>
+<li>size() 返回栈中的 item 数量。返回一个整数。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SStack</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.items = []</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isEmpty</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.items == []</span><br><span class="line">        <span class="comment"># return not self.items</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">push</span><span class="params">(self,item)</span>:</span></span><br><span class="line">        self.items.append(item)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pop</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.items.pop()</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">top</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.items:</span><br><span class="line">            <span class="keyword">return</span> self.items[<span class="number">-1</span>]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">size</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(self.items)</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    s = SStack()</span><br><span class="line">    s.push(<span class="string">'a'</span>)</span><br><span class="line">    print(s.top())</span><br><span class="line">    s.push(<span class="string">'b'</span>)</span><br><span class="line">    s.push(<span class="string">'c'</span>)</span><br><span class="line">    print(s.pop())</span><br></pre></td></tr></table></figure>
+<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a</span><br><span class="line">c</span><br></pre></td></tr></table></figure></p>
+<p>数组实现的缺点：</p>
+<ul>
+<li>需要完整的大块存储空间</li>
+<li>扩大存储的操作代价高</li>
+</ul>
+<p>而用链表实现就没有以上的问题。</p>
+<h1 id="用链表实现一个链式栈"><a href="#用链表实现一个链式栈" class="headerlink" title="用链表实现一个链式栈"></a>用链表实现一个链式栈</h1><p>对于链接表，将表头作为栈顶，在前端插入和删除都是 O(1) 操作。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span>:</span> <span class="comment"># 链表的结点</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x, next_=None)</span>:</span></span><br><span class="line">        self.val = x</span><br><span class="line">        self.next = next_</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LStack</span>:</span> <span class="comment">#栈的链接表实现</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self._top = <span class="keyword">None</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isEmpty</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self._top <span class="keyword">is</span> <span class="keyword">None</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">push</span><span class="params">(self,item)</span>:</span></span><br><span class="line">        self._top = Node(item, self._top)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pop</span><span class="params">(self)</span>:</span></span><br><span class="line">        p = self._top</span><br><span class="line">        self._top = p.next</span><br><span class="line">        <span class="keyword">return</span> p.val</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">top</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self._top:</span><br><span class="line">            <span class="keyword">return</span> self._top.val</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    s = LStack()</span><br><span class="line">    s.push(<span class="string">'a'</span>)</span><br><span class="line">    print(s.top())</span><br><span class="line">    s.push(<span class="string">'b'</span>)</span><br><span class="line">    s.push(<span class="string">'c'</span>)</span><br><span class="line">    print(s.pop())</span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a</span><br><span class="line">c</span><br></pre></td></tr></table></figure></p>
+<h1 id="编程模拟实现一个浏览器的前进、后退功能"><a href="#编程模拟实现一个浏览器的前进、后退功能" class="headerlink" title="编程模拟实现一个浏览器的前进、后退功能"></a>编程模拟实现一个浏览器的前进、后退功能</h1><p>每个 web 浏览器都有一个返回按钮。当你浏览网页时，这些网页被放置在一个栈中（实际是网页的网址）。你现在查看的网页在顶部，你第一个查看的网页在底部。如果按‘返回’按钮，将按相反的顺序浏览刚才的页面。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Page</span>:</span> <span class="comment"># 一个网页</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, url, prev_=None, next_=None)</span>:</span></span><br><span class="line">        self.val = url</span><br><span class="line">        self.next = next_</span><br><span class="line">        self.prev = prev_</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">History</span>:</span> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span> </span><br><span class="line">        self._cur = Page(<span class="keyword">None</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">loadPage</span><span class="params">(self, newPage)</span>:</span> <span class="comment">#加载新的页面</span></span><br><span class="line">        p = Page(newPage,self._cur,<span class="keyword">None</span>)</span><br><span class="line">        self._cur.next = p</span><br><span class="line">        self._cur = self._cur.next</span><br><span class="line">        <span class="keyword">return</span> self._cur.val</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">back</span><span class="params">(self)</span>:</span> <span class="comment">#返回上一页面</span></span><br><span class="line">        <span class="keyword">if</span> self._cur.prev <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        self._cur = self._cur.prev</span><br><span class="line">        <span class="keyword">return</span> self._cur.val</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self)</span>:</span> <span class="comment">#前进页面</span></span><br><span class="line">        <span class="keyword">if</span> self._cur.next <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        self._cur = self._cur.next</span><br><span class="line">        <span class="keyword">return</span> self._cur.val</span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    h = History()</span><br><span class="line">    print(<span class="string">'加载页面'</span>+ h.loadPage(<span class="string">'a'</span>)) </span><br><span class="line">    print(<span class="string">'加载页面'</span>+ h.loadPage(<span class="string">'b'</span>))</span><br><span class="line">    print(<span class="string">'返回到'</span>+ h.back())       </span><br><span class="line">    print(<span class="string">'加载页面'</span>+ h.loadPage(<span class="string">'c'</span>)) </span><br><span class="line">    print(<span class="string">'返回到'</span>+ h.back())</span><br><span class="line">    print(<span class="string">'前进到'</span>+ h.forward())</span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">加载页面a</span><br><span class="line">加载页面b</span><br><span class="line">返回到a</span><br><span class="line">加载页面c</span><br><span class="line">返回到a</span><br><span class="line">前进到c</span><br></pre></td></tr></table></figure></p>
+<h1 id="LeetCode-习题"><a href="#LeetCode-习题" class="headerlink" title="LeetCode 习题"></a>LeetCode 习题</h1><h2 id="有效的括号"><a href="#有效的括号" class="headerlink" title="有效的括号"></a>有效的括号</h2><p><a href="https://leetcode-cn.com/problems/valid-parentheses/" target="_blank" rel="noopener">Valid Parentheses</a></p>
+<h2 id="最长有效的括号"><a href="#最长有效的括号" class="headerlink" title="最长有效的括号"></a>最长有效的括号</h2><p><a href="https://leetcode-cn.com/problems/longest-valid-parentheses/" target="_blank" rel="noopener">Longest Valid Parentheses</a></p>
+<h2 id="逆波兰表达式求值"><a href="#逆波兰表达式求值" class="headerlink" title="逆波兰表达式求值"></a>逆波兰表达式求值</h2><p><a href="https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/" target="_blank" rel="noopener">Evaluate Reverse Polish Notatio</a></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a href="https://facert.gitbooks.io/python-data-structure-cn/content/" target="_blank" rel="noopener">problem-solving-with-algorithms-and-data-structure-using-python</a></li>
+<li><a href="https://stackoverflow.com/questions/1313788/how-does-the-back-button-in-a-web-browser-work" target="_blank" rel="noopener">How does the Back button in a web browser work?
+</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/python实现数据结构中的链表/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -344,8 +884,10 @@
         
           
             <p>实现单链表、循环链表、双向链表，支持增删操作</p>
-<h1 id="实现单链表"><a href="#实现单链表" class="headerlink" title="实现单链表"></a>实现单链表</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        self.val = x</span><br><span class="line">        self.next = <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SingleLinkList</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.head = <span class="keyword">None</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">#增</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insertAsFirst</span><span class="params">(self, x)</span>:</span> <span class="comment">#x在首位插入</span></span><br><span class="line">        node = Node(x)</span><br><span class="line">        node.next = self.head</span><br><span class="line">        self.head = node</span><br><span class="line">            </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insertAsLast</span><span class="params">(self, x)</span>:</span> <span class="comment">#x在尾部插入</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self.head:</span><br><span class="line">            self.head = Node(x)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        cur = self.head</span><br><span class="line">        <span class="keyword">while</span> cur.next != <span class="keyword">None</span>:</span><br><span class="line">            cur = cur.next</span><br><span class="line">        node = Node(x)</span><br><span class="line">        cur.next = node</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#删</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">remove</span><span class="params">(self, p)</span>:</span><span class="comment">#初除位置p处的节点，返回其数值</span></span><br><span class="line">        x = p.val</span><br><span class="line">        k = self.head</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(p<span class="number">-1</span>):</span><br><span class="line">            k = k.next</span><br><span class="line">        k.next = k.next.next</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">show</span><span class="params">(self)</span>:</span></span><br><span class="line">        cur = self.head</span><br><span class="line">        <span class="keyword">while</span> cur != <span class="keyword">None</span>:</span><br><span class="line">            <span class="comment"># cur是一个有效的节点</span></span><br><span class="line">            print(cur.val, end=<span class="string">' --&gt; '</span>)</span><br><span class="line">            cur = cur.next</span><br><span class="line">        print()</span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    l = SingleLinkList()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">        l.insertAsLast(i)</span><br><span class="line">    l.show()</span><br></pre></td></tr></table></figure>
+<h1 id="实现单链表"><a href="#实现单链表" class="headerlink" title="实现单链表"></a>实现单链表</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span>:</span> <span class="comment"># 链表的结点</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x, next_=None)</span>:</span></span><br><span class="line">        self.val = x</span><br><span class="line">        self.next = next_</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SingleLinkList</span>:</span> <span class="comment"># 单链表</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span> <span class="comment"># 空表</span></span><br><span class="line">        self.head = <span class="keyword">None</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">#增</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insertAsFirst</span><span class="params">(self, x)</span>:</span> <span class="comment">#x在首位插入</span></span><br><span class="line">        node = Node(x)</span><br><span class="line">        node.next = self.head</span><br><span class="line">        self.head = node</span><br><span class="line">            </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insertAsLast</span><span class="params">(self, x)</span>:</span> <span class="comment">#x在尾部插入</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self.head:</span><br><span class="line">            self.head = Node(x)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        cur = self.head</span><br><span class="line">        <span class="keyword">while</span> cur.next != <span class="keyword">None</span>:</span><br><span class="line">            cur = cur.next</span><br><span class="line">        node = Node(x)</span><br><span class="line">        cur.next = node</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#删</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">remove</span><span class="params">(self, p)</span>:</span><span class="comment">#删除在位置p处的结点，返回其数值</span></span><br><span class="line">        k = self.head</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(p<span class="number">-1</span>):</span><br><span class="line">            k = k.next</span><br><span class="line">        x = k.next.val</span><br><span class="line">        k.next = k.next.next</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">remove_last</span><span class="params">(self)</span>:</span> <span class="comment">#删除表尾的结点</span></span><br><span class="line">        p = self.head</span><br><span class="line">        <span class="keyword">if</span> p.next <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            x = p.val</span><br><span class="line">            self.head = <span class="keyword">None</span></span><br><span class="line">            <span class="keyword">return</span> x</span><br><span class="line">        <span class="keyword">while</span> p.next.next <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:  <span class="comment"># 直到 p.next 是最后结点</span></span><br><span class="line">            p = p.next</span><br><span class="line">        x = p.next.val</span><br><span class="line">        p.next = <span class="keyword">None</span></span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">show</span><span class="params">(self)</span>:</span></span><br><span class="line">        cur = self.head</span><br><span class="line">        <span class="keyword">while</span> cur != <span class="keyword">None</span>:</span><br><span class="line">            <span class="comment"># cur是一个有效的节点</span></span><br><span class="line">            print(cur.val, end=<span class="string">' --&gt; '</span>)</span><br><span class="line">            cur = cur.next</span><br><span class="line">        print()</span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    l = SingleLinkList()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">        l.insertAsLast(i)</span><br><span class="line">    l.show()</span><br><span class="line">    l.remove_last()</span><br><span class="line">    l.show()</span><br></pre></td></tr></table></figure>
 <p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 --&gt; 1 --&gt; 2 --&gt; 3 --&gt; 4 --&gt; 5 --&gt; 6 --&gt; 7 --&gt; 8 --&gt; 9 --&gt;</span><br></pre></td></tr></table></figure></p>
+<h1 id="双向链表"><a href="#双向链表" class="headerlink" title="双向链表"></a>双向链表</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DLNode</span>:</span> <span class="comment"># 链表的结点</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x, prev=None, next_=None)</span>:</span></span><br><span class="line">        self.val = x</span><br><span class="line">        self.next = next_</span><br><span class="line">        self.prev = prev</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DoubleLinkList</span>:</span> <span class="comment"># 双链表</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span> <span class="comment"># 空表</span></span><br><span class="line">        self.head = <span class="keyword">None</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">#增</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insertAsFirst</span><span class="params">(self, x)</span>:</span> <span class="comment">#x在首位插入               </span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self.head:</span><br><span class="line">            self.head = DLNode(x)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            node = DLNode(x,<span class="keyword">None</span>,self.head)</span><br><span class="line">            self.head.prev = node </span><br><span class="line">            self.head = node   <span class="comment"># node 作为新的头结点</span></span><br><span class="line">            </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insertAsLast</span><span class="params">(self, x)</span>:</span> <span class="comment">#x在尾部插入</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self.head:</span><br><span class="line">            self.head = DLNode(x)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            cur = self.head</span><br><span class="line">            <span class="keyword">while</span> cur.next != <span class="keyword">None</span>: <span class="comment"># 移动到链表尾部</span></span><br><span class="line">                cur = cur.next</span><br><span class="line">            node = DLNode(x)</span><br><span class="line">            cur.next = node</span><br><span class="line">            node.prev = cur</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#删</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">remove</span><span class="params">(self, p)</span>:</span><span class="comment">#删除在位置p处的结点，返回其数值</span></span><br><span class="line">        k = self.head</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(p<span class="number">-1</span>):</span><br><span class="line">            k = k.next</span><br><span class="line">        x = k.next.val</span><br><span class="line">        k.next = k.next.next</span><br><span class="line">        k.next.prev = k</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">show</span><span class="params">(self)</span>:</span></span><br><span class="line">        cur = self.head</span><br><span class="line">        <span class="keyword">while</span> cur != <span class="keyword">None</span>:</span><br><span class="line">            <span class="comment"># cur是一个有效的节点</span></span><br><span class="line">            print(cur.val, end=<span class="string">' -- '</span>)</span><br><span class="line">            cur = cur.next</span><br><span class="line">        print()</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">show_reverse</span><span class="params">(self)</span>:</span></span><br><span class="line">        cur = self.head</span><br><span class="line">        <span class="keyword">while</span> cur.next != <span class="keyword">None</span>:</span><br><span class="line">            cur = cur.next</span><br><span class="line">        <span class="keyword">while</span> cur != <span class="keyword">None</span>:</span><br><span class="line">            print(cur.val, end=<span class="string">' -- '</span>)</span><br><span class="line">            cur = cur.prev</span><br><span class="line">        print()    </span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    l = DoubleLinkList()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">        l.insertAsLast(i)</span><br><span class="line">    l.show()</span><br><span class="line">    l.remove(<span class="number">2</span>)</span><br><span class="line">    l.show()</span><br><span class="line">    l.show_reverse()</span><br></pre></td></tr></table></figure>
+<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">0 -- 1 -- 2 -- 3 -- 4 -- 5 -- 6 -- 7 -- 8 -- 9 -- </span><br><span class="line">0 -- 1 -- 3 -- 4 -- 5 -- 6 -- 7 -- 8 -- 9 -- </span><br><span class="line">9 -- 8 -- 7 -- 6 -- 5 -- 4 -- 3 -- 1 -- 0 --</span><br></pre></td></tr></table></figure></p>
 <h1 id="Leetcode习题"><a href="#Leetcode习题" class="headerlink" title="Leetcode习题"></a>Leetcode习题</h1><h2 id="206-反转链表"><a href="#206-反转链表" class="headerlink" title="206. 反转链表"></a>206. 反转链表</h2><p><a href="https://leetcode-cn.com/problems/reverse-linked-list/" target="_blank" rel="noopener">Reverse Linked List</a></p>
 <p>反转一个单链表。</p>
 <p><strong>示例:</strong></p>
@@ -795,6 +1337,169 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/20/用python刷LeetCode中链表题(简单级)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Icy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QxD's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/20/用python刷LeetCode中链表题(简单级)/" itemprop="url">用python刷LeetCode链表题(简单级)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-20T00:00:00+08:00">
+                2019-02-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/02/20/用python刷LeetCode中链表题(简单级)/" class="leancloud_visitors" data-flag-title="用python刷LeetCode链表题(简单级)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="21-合并两个有序链表"><a href="#21-合并两个有序链表" class="headerlink" title="21. 合并两个有序链表"></a>21. 合并两个有序链表</h1><p><a href="https://leetcode-cn.com/problems/merge-two-sorted-lists/" target="_blank" rel="noopener">Merge Two Sorted Lists</a></p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 </p>
+<p><strong>示例：</strong></p>
+<blockquote>
+<p>输入：1-&gt;2-&gt;4, 1-&gt;3-&gt;4</p>
+<p>输出：1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4</p>
+</blockquote>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/20/用python刷LeetCode中链表题(简单级)/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/20/用python刷LeetCode数组题(简单级)(一)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1140,169 +1845,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/20/用python刷LeetCode中链表题(简单级)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Icy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="QxD's Notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/20/用python刷LeetCode中链表题(简单级)/" itemprop="url">用python刷LeetCode链表题(简单级)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-20T00:00:00+08:00">
-                2019-02-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/02/20/用python刷LeetCode中链表题(简单级)/" class="leancloud_visitors" data-flag-title="用python刷LeetCode链表题(简单级)">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="21-合并两个有序链表"><a href="#21-合并两个有序链表" class="headerlink" title="21. 合并两个有序链表"></a>21. 合并两个有序链表</h1><p><a href="https://leetcode-cn.com/problems/merge-two-sorted-lists/" target="_blank" rel="noopener">Merge Two Sorted Lists</a></p>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 </p>
-<p><strong>示例：</strong></p>
-<blockquote>
-<p>输入：1-&gt;2-&gt;4, 1-&gt;3-&gt;4</p>
-<p>输出：1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4</p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/02/20/用python刷LeetCode中链表题(简单级)/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/24/week3-Greedy Algorithms/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1588,7 +2130,7 @@
 <p><strong>Output Format.</strong> Output $F_n$.</p>
 <p><strong>Sample 1.</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">10</span><br><span class="line">Output:</span><br><span class="line">55</span><br></pre></td></tr></table></figure></p>
 <p>$F_10 = 55$.<br>0 1 1 2 3 5 8 13 </p>
-<h2 id="Naive-Algorithm"><a href="#Naive-Algorithm" class="headerlink" title="Naive Algorithm"></a>Naive Algorithm</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">calc_fib</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> (n &lt;= <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">return</span> n</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> calc_fib(n - <span class="number">1</span>) + calc_fib(n - <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">print(calc_fib(<span class="number">6</span>))</span><br><span class="line">print(calc_fib(<span class="number">20</span>))</span><br><span class="line">print(calc_fib(<span class="number">34</span>))</span><br></pre></td></tr></table></figure>
+<h2 id="Naive-Algorithm"><a href="#Naive-Algorithm" class="headerlink" title="Naive Algorithm"></a>Naive Algorithm</h2><p>递归<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">calc_fib</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> (n &lt;= <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">return</span> n</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> calc_fib(n - <span class="number">1</span>) + calc_fib(n - <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">print(calc_fib(<span class="number">6</span>))</span><br><span class="line">print(calc_fib(<span class="number">20</span>))</span><br><span class="line">print(calc_fib(<span class="number">34</span>))</span><br></pre></td></tr></table></figure></p>
 <pre><code>8
 6765
 5702887
@@ -1596,465 +2138,6 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/09/28/week2-algorithm_warmup/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/25/Maximum_Pairwise/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Icy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="QxD's Notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/25/Maximum_Pairwise/" itemprop="url">Maximum Pairwise Product Problem</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-25T00:00:00+08:00">
-                2018-09-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/09/25/Maximum_Pairwise/" class="leancloud_visitors" data-flag-title="Maximum Pairwise Product Problem">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="问题：两数最大乘积"><a href="#问题：两数最大乘积" class="headerlink" title="问题：两数最大乘积"></a>问题：两数最大乘积</h1><p>Find the maximum product of two distinct numbers in a sequence of non-negative integers.</p>
-<p><strong>Input:</strong> A sequence of non-negative integers.</p>
-<p><strong>Output:</strong> The maximum value that can be obtained by multiplying two different elements from the sequence.</p>
-<p><strong>Constraints:</strong> $ 2 ≤ n ≤ 2 · 10^5; 0 ≤ a_1,…,a_n ≤ 2 · 10^5 $.</p>
-<p>Sample:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">1 2 3</span><br><span class="line">Output:</span><br><span class="line">6</span><br></pre></td></tr></table></figure></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/09/25/Maximum_Pairwise/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/10/The Bellman Equation/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Icy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="QxD's Notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/10/The Bellman Equation/" itemprop="url">贝尔曼方程(The Bellman Equation)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-10T00:00:00+08:00">
-                2018-09-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/强化学习/" itemprop="url" rel="index">
-                    <span itemprop="name">强化学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/09/10/The Bellman Equation/" class="leancloud_visitors" data-flag-title="贝尔曼方程(The Bellman Equation)">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h1><p>Logistic回归是统计学习中的经典分类方法。其实仅在线性回归的基础上，套用了一个逻辑函数。本文主要详述逻辑回归模型的基础。</p>
-<h1 id="马尔可夫决策过程-Markov-Decision-Processes-MDPs"><a href="#马尔可夫决策过程-Markov-Decision-Processes-MDPs" class="headerlink" title="马尔可夫决策过程 Markov Decision Processes (MDPs)"></a>马尔可夫决策过程 Markov Decision Processes (MDPs)</h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
-<li><a href="http://incompleteideas.net/book/the-book-2nd.html" target="_blank" rel="noopener">Reinforcement Learning: an introduction” by Sutton and Barto (freely downloadable)</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/24/LogisticRegression的sklearn参数说明/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Icy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="QxD's Notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/24/LogisticRegression的sklearn参数说明/" itemprop="url">LogisticRegression的sklearn参数说明</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T16:51:05+08:00">
-                2018-08-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/08/24/LogisticRegression的sklearn参数说明/" class="leancloud_visitors" data-flag-title="LogisticRegression的sklearn参数说明">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p><em>class</em> sklearn.linear_model.<strong>LogisticRegression</strong>(penalty=’l2’, dual=False, tol=0.0001, C=1.0, fit_intercept=True, intercept_scaling=1, class_weight=None, random_state=None, solver=’liblinear’, max_iter=100, multi_class=’ovr’, verbose=0, warm_start=False, n_jobs=1)</p>
-</blockquote>
-<p>在scikit-learn中，主要是基于LogisticRegression模型来解决Logistic回归算法，其中，有两种不同的代价函数(cost function)：<br>L1:  </p>
-<p>$$ \min _ { w,c }|w| _ 1+C\sum _ { i=1 }^n log ( exp ( -y_ i(X _ { i }^ \mathrm { T }w+c))+1)$$</p>
-<p>L2：  </p>
-<p>$$ \min _{ w, c } \frac { 1 }{ 2 }w^ \mathrm { T }w +C \sum _{ i=1 }^nlog(exp(-y _i (X _{i}^ \mathrm { T }w+c))+1)$$</p>
-<p>每个式子中前一项是<strong>正则化项（Regularizer）</strong>（包含w的范数），后一项是<strong>损失函数（loss function）</strong>，参数 <strong>C</strong> 控制了两者在最终的损失函数中所占的比重。<br>求解w参数的方法根据L1/L2代价函数的不同，也存在不同的求解拟合参数的方法： </p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/08/24/LogisticRegression的sklearn参数说明/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2142,7 +2225,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2164,7 +2247,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

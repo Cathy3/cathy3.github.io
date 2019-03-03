@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="在函数的定义中对这个函数自身的调用，就是递归。 递归结构中，递归的部分必须比原来的整体简单，才有可能到达某种终结点(出口)。而且必须存在非递归的基本结构构成的部分，否则会无限递归。 以下问题都可以用递归来解决。">
+<meta name="description" content="在函数的定义中对这个函数自身的调用，就是递归。 递归结构中，递归的部分必须比原来的整体简单，才有可能到达某种终结点(出口)。而且必须存在非递归的基本结构构成的部分，否则会无限递归。 学习目标：  编程实现斐波那契数列求值 f(n)=f(n-1)+f(n-2) 编程实现求阶乘 n! 编程实现一组数据集合的全排列 LeetCode 70. 爬楼梯  以上问题都可以用递归来解决。">
 <meta name="keywords" content="python,LeetCode,数据结构,递归">
 <meta property="og:type" content="article">
 <meta property="og:title" content="递归(python)">
 <meta property="og:url" content="http://yoursite.com/2019/03/02/递归(python)/index.html">
 <meta property="og:site_name" content="QxD&#39;s Notes">
-<meta property="og:description" content="在函数的定义中对这个函数自身的调用，就是递归。 递归结构中，递归的部分必须比原来的整体简单，才有可能到达某种终结点(出口)。而且必须存在非递归的基本结构构成的部分，否则会无限递归。 以下问题都可以用递归来解决。">
+<meta property="og:description" content="在函数的定义中对这个函数自身的调用，就是递归。 递归结构中，递归的部分必须比原来的整体简单，才有可能到达某种终结点(出口)。而且必须存在非递归的基本结构构成的部分，否则会无限递归。 学习目标：  编程实现斐波那契数列求值 f(n)=f(n-1)+f(n-2) 编程实现求阶乘 n! 编程实现一组数据集合的全排列 LeetCode 70. 爬楼梯  以上问题都可以用递归来解决。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-02T12:35:39.006Z">
+<meta property="og:updated_time" content="2019-03-03T03:00:28.591Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="递归(python)">
-<meta name="twitter:description" content="在函数的定义中对这个函数自身的调用，就是递归。 递归结构中，递归的部分必须比原来的整体简单，才有可能到达某种终结点(出口)。而且必须存在非递归的基本结构构成的部分，否则会无限递归。 以下问题都可以用递归来解决。">
+<meta name="twitter:description" content="在函数的定义中对这个函数自身的调用，就是递归。 递归结构中，递归的部分必须比原来的整体简单，才有可能到达某种终结点(出口)。而且必须存在非递归的基本结构构成的部分，否则会无限递归。 学习目标：  编程实现斐波那契数列求值 f(n)=f(n-1)+f(n-2) 编程实现求阶乘 n! 编程实现一组数据集合的全排列 LeetCode 70. 爬楼梯  以上问题都可以用递归来解决。">
 
 
 
@@ -345,7 +345,14 @@
       
         <p>在函数的定义中对这个函数自身的调用，就是递归。</p>
 <p>递归结构中，递归的部分必须比原来的整体简单，才有可能到达某种终结点(出口)。而且必须存在非递归的基本结构构成的部分，否则会无限递归。</p>
-<p>以下问题都可以用递归来解决。</p>
+<p>学习目标：</p>
+<ul>
+<li>编程实现斐波那契数列求值 f(n)=f(n-1)+f(n-2)</li>
+<li>编程实现求阶乘 n!</li>
+<li>编程实现一组数据集合的全排列</li>
+<li>LeetCode 70. 爬楼梯</li>
+</ul>
+<p>以上问题都可以用递归来解决。</p>
 <a id="more"></a>
 <h1 id="斐波那契数列求值-f-n-f-n-1-f-n-2"><a href="#斐波那契数列求值-f-n-f-n-1-f-n-2" class="headerlink" title="斐波那契数列求值 f(n)=f(n-1)+f(n-2)"></a>斐波那契数列求值 f(n)=f(n-1)+f(n-2)</h1><p>斐波那契数列由 0 和 1 开始，后面的每一项数字都是前面两项数字的和。</p>
 <p>[0,1,1,2,3,5,8,13,…]  给定<code>n</code>,计算 <code>f(N)</code></p>

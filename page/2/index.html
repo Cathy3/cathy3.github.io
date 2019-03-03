@@ -776,10 +776,8 @@
 <p><em>class</em> sklearn.linear_model.<strong>LogisticRegression</strong>(penalty=’l2’, dual=False, tol=0.0001, C=1.0, fit_intercept=True, intercept_scaling=1, class_weight=None, random_state=None, solver=’liblinear’, max_iter=100, multi_class=’ovr’, verbose=0, warm_start=False, n_jobs=1)</p>
 </blockquote>
 <p>在scikit-learn中，主要是基于LogisticRegression模型来解决Logistic回归算法，其中，有两种不同的代价函数(cost function)：<br>L1:  </p>
-<p>$$ \min _ { w,c }|w| _ 1+C\sum _ { i=1 }^n log ( exp ( -y_ i(X _ { i }^ \mathrm { T }w+c))+1)$$</p>
-<p>L2：  </p>
-<p>$$ \min _{ w, c } \frac { 1 }{ 2 }w^ \mathrm { T }w +C \sum _{ i=1 }^nlog(exp(-y _i (X _{i}^ \mathrm { T }w+c))+1)$$</p>
-<p>每个式子中前一项是<strong>正则化项（Regularizer）</strong>（包含w的范数），后一项是<strong>损失函数（loss function）</strong>，参数 <strong>C</strong> 控制了两者在最终的损失函数中所占的比重。<br>求解w参数的方法根据L1/L2代价函数的不同，也存在不同的求解拟合参数的方法： </p>
+<script type="math/tex; mode=display">\min _ { w,c }\|w\| _ 1+C\sum _ { i=1 }^n log ( exp ( -y_ i(X _ { i }^ \mathrm { T }w+c))+1)</script><p>L2：  </p>
+<script type="math/tex; mode=display">\min _{ w, c } \frac { 1 }{ 2 }w^ \mathrm { T }w +C \sum _{ i=1 }^nlog(exp(-y _i (X _{i}^ \mathrm { T }w+c))+1)</script><p>每个式子中前一项是<strong>正则化项（Regularizer）</strong>（包含w的范数），后一项是<strong>损失函数（loss function）</strong>，参数 <strong>C</strong> 控制了两者在最终的损失函数中所占的比重。<br>求解w参数的方法根据L1/L2代价函数的不同，也存在不同的求解拟合参数的方法： </p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -975,20 +973,20 @@
 <p><strong>语法 :</strong></p>
 <pre><code>zip(*iterables)
 </code></pre><p><strong>参数说明：</strong></p>
-<p>iterables – 一个或多个迭代器,可以内置的迭代器（比如<code>list</code>, <code>string</code>, <code>dict</code>）也可以是用户自定义的迭代器(有<code>__iter__</code>方法的对象).</p>
+<p>iterables — 一个或多个迭代器,可以内置的迭代器（比如<code>list</code>, <code>string</code>, <code>dict</code>）也可以是用户自定义的迭代器(有<code>__iter__</code>方法的对象).</p>
 <h2 id="例1-基本用法"><a href="#例1-基本用法" class="headerlink" title="例1 基本用法"></a>例1 基本用法</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">numberList = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">strList = [<span class="string">'one'</span>, <span class="string">'two'</span>, <span class="string">'three'</span>]</span><br><span class="line"></span><br><span class="line">result = zip() <span class="comment"># 没有传入可迭代量</span></span><br><span class="line"></span><br><span class="line">resultList = list(result) <span class="comment"># 转为列表</span></span><br><span class="line">print(resultList)</span><br><span class="line"></span><br><span class="line">result = zip(numberList, strList) <span class="comment"># 传入两个可迭代量</span></span><br><span class="line"></span><br><span class="line">resultSet = set(result) <span class="comment"># 转为集合</span></span><br><span class="line">print(resultSet)</span><br></pre></td></tr></table></figure>
 <pre><code>[]
-{(1, &apos;one&apos;), (3, &apos;three&apos;), (2, &apos;two&apos;)}
+{(1, &#39;one&#39;), (3, &#39;three&#39;), (2, &#39;two&#39;)}
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a1, a2 = zip(*zip(a,b))          <span class="comment"># 与 zip 相反，*zip 可理解为解压，返回二维矩阵式</span></span><br><span class="line">list(a1),list(a2)</span><br></pre></td></tr></table></figure>
 <pre><code>([1, 2, 3], [4, 5, 6])
 </code></pre><h2 id="例2-传入个数不同的可迭代量"><a href="#例2-传入个数不同的可迭代量" class="headerlink" title="例2 传入个数不同的可迭代量"></a>例2 传入个数不同的可迭代量</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">numbersList = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">strList = [<span class="string">'one'</span>, <span class="string">'two'</span>]</span><br><span class="line">numbersTuple = (<span class="string">'ONE'</span>, <span class="string">'TWO'</span>, <span class="string">'THREE'</span>, <span class="string">'FOUR'</span>)</span><br><span class="line"></span><br><span class="line">result = zip(numbersList, numbersTuple) <span class="comment"># 元素个数与最短的列表一致，3个</span></span><br><span class="line">resultSet = set(result)</span><br><span class="line">print(resultSet)</span><br><span class="line"></span><br><span class="line">result = zip(numbersList, strList, numbersTuple)<span class="comment"># 2个元素</span></span><br><span class="line">resultSet = set(result)</span><br><span class="line">print(resultSet)</span><br></pre></td></tr></table></figure>
-<pre><code>{(2, &apos;TWO&apos;), (1, &apos;ONE&apos;), (3, &apos;THREE&apos;)}
-{(2, &apos;two&apos;, &apos;TWO&apos;), (1, &apos;one&apos;, &apos;ONE&apos;)}
+<pre><code>{(2, &#39;TWO&#39;), (1, &#39;ONE&#39;), (3, &#39;THREE&#39;)}
+{(2, &#39;two&#39;, &#39;TWO&#39;), (1, &#39;one&#39;, &#39;ONE&#39;)}
 </code></pre><h2 id="例3-用-和zip-来解压列表"><a href="#例3-用-和zip-来解压列表" class="headerlink" title="例3 用*和zip()来解压列表"></a>例3 用*和zip()来解压列表</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">y = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line">unzipped_x, unzipped_y = zip(*zip(x,y))</span><br><span class="line">print(unzipped_x, unzipped_y)</span><br></pre></td></tr></table></figure>
 <pre><code>(1, 2, 3) (4, 5, 6)
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">zipper_list = [(<span class="number">1</span>, <span class="string">'a'</span>), (<span class="number">2</span>, <span class="string">'b'</span>), (<span class="number">3</span>, <span class="string">'c'</span>)]</span><br><span class="line"> </span><br><span class="line">l_a, l_b = zip(*zipper_list)</span><br><span class="line">print(l_a, l_b)</span><br><span class="line">print(list(l_a), list(l_b))</span><br></pre></td></tr></table></figure>
-<pre><code>(1, 2, 3) (&apos;a&apos;, &apos;b&apos;, &apos;c&apos;)
-[1, 2, 3] [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]
+<pre><code>(1, 2, 3) (&#39;a&#39;, &#39;b&#39;, &#39;c&#39;)
+[1, 2, 3] [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]
 </code></pre><h1 id="lambda匿名函数"><a href="#lambda匿名函数" class="headerlink" title="lambda匿名函数"></a>lambda匿名函数</h1><p>lambda表达式是一行函数。<br>它们在其他语言中也被称为<strong>匿名函数</strong>。如果你不想在程序中对一个函数使用两次，你也许会想用lambda表达式，它们和普通的函数完全一样。</p>
 <p><strong>语法</strong></p>
 <pre><code>lambda 参数:操作(参数)
@@ -1187,7 +1185,9 @@
       
         
           
-            <div align="life"><br><iframe frameborder="no" marginwidth="0" marginheight="0" width="400" height="140" src="https://music.163.com/outchain/player?type=2&id=34341360&auto=0&height=66"></iframe><br></div>
+            <div align="life"> 
+<iframe frameborder="no" marginwidth="0" marginheight="0" width="400" height="140" src="https://music.163.com/outchain/player?type=2&id=34341360&auto=0&height=66"></iframe>
+</div>
 
 <p><code>hexo init &lt;folder&gt;</code> 创建并初始化一个站点文件夹<br><code>hexo new &#39;article title&#39;</code>  新增一篇文章</p>
 <p><code>hexo clean</code>  用于主题切换等涉及到站点整体布局效果改变时清除hexo原有缓存</p>
@@ -1380,7 +1380,8 @@
       
         
           
-            <h1 id="一类动词"><a href="#一类动词" class="headerlink" title="一类动词"></a>一类动词</h1><table>
+            <h1 id="一类动词"><a href="#一类动词" class="headerlink" title="一类动词"></a>一类动词</h1><div class="table-container">
+<table>
 <thead>
 <tr>
 <th style="text-align:center">词尾</th>
@@ -1461,8 +1462,10 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>只有“行(い)く”是例外，て形为“行(い)って”。</p>
-<h1 id="二类动词"><a href="#二类动词" class="headerlink" title="二类动词"></a>二类动词</h1><table>
+<h1 id="二类动词"><a href="#二类动词" class="headerlink" title="二类动词"></a>二类动词</h1><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>词尾</th>
@@ -1480,7 +1483,9 @@
 </tr>
 </tbody>
 </table>
-<h1 id="三类动词"><a href="#三类动词" class="headerlink" title="三类动词"></a>三类动词</h1><table>
+</div>
+<h1 id="三类动词"><a href="#三类动词" class="headerlink" title="三类动词"></a>三类动词</h1><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>词尾</th>
@@ -1504,6 +1509,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h1 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h1><h2 id="1-请求对方做某事"><a href="#1-请求对方做某事" class="headerlink" title="1. 请求对方做某事"></a>1. 请求对方做某事</h2><p><strong>动词て形 + ください</strong></p>
 <ul>
 <li>黒板（こくばん）を　見て　ください。<br>  <code>请看黑板。</code></li>
@@ -2064,7 +2070,8 @@
         
           <h1 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h1><p>Logistic回归是统计学习中的经典分类方法。其实仅在线性回归的基础上，套用了一个逻辑函数。本文主要详述逻辑回归模型的基础。</p>
 <p>假设有输入向量 $x=(x_1;x_2;…;x_n)$， 由线性回归模型产生的预测值 </p>
-<p>$$z=w ^ \mathrm{ T }x+b\tag{1}$$ 是实值，需要转换为 0/1 值才能进行分类。因此找一个单调可微函数来替代，将$z$ 的值映射到 (0,1) 之间，这里采用<a href="https://en.wikipedia.org/wiki/Logistic_function" target="_blank" rel="noopener">logistic函数</a>：<br>$$y=\frac{1}{1+e^{-z}}\tag{2}$$</p>
+<script type="math/tex; mode=display">z=w ^ \mathrm{ T }x+b\tag{1}$$ 是实值，需要转换为 0/1 值才能进行分类。因此找一个单调可微函数来替代，将$z$ 的值映射到 (0,1) 之间，这里采用[logistic函数](https://en.wikipedia.org/wiki/Logistic_function)：
+$$y=\frac{1}{1+e^{-z}}\tag{2}</script>
           <!--noindex-->
           
             <div class="post-button text-center">

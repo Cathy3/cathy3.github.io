@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="学习目标：  实现朴素的字符串匹配算法  123456789class Solution:    def reverseString(self, s: List[str]) -&amp;gt; None:        &quot;&quot;&quot;        Do not return anything, modify s in-place instead.        &quot;&quot;&quot;        for i in r">
+  <meta name="description" content="学习目标：  实现一个字符集，只包含 a～z 这 26 个英文字母的 Trie 树 实现朴素的字符串匹配算法 LeetCode 344. 反转字符串 LeetCode 151. 翻转字符串里的单词 LeetCode 8. 字符串转换整数 (atoi)">
 <meta name="keywords" content="python,LeetCode,数据结构,字符串">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python实现数据结构之字符串">
 <meta property="og:url" content="http://yoursite.com/2019/03/08/python实现数据结构之字符串/index.html">
 <meta property="og:site_name" content="QxD&#39;s Notes">
-<meta property="og:description" content="学习目标：  实现朴素的字符串匹配算法  123456789class Solution:    def reverseString(self, s: List[str]) -&amp;gt; None:        &quot;&quot;&quot;        Do not return anything, modify s in-place instead.        &quot;&quot;&quot;        for i in r">
+<meta property="og:description" content="学习目标：  实现一个字符集，只包含 a～z 这 26 个英文字母的 Trie 树 实现朴素的字符串匹配算法 LeetCode 344. 反转字符串 LeetCode 151. 翻转字符串里的单词 LeetCode 8. 字符串转换整数 (atoi)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-08T14:00:03.945Z">
+<meta property="og:updated_time" content="2019-03-09T10:46:38.100Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python实现数据结构之字符串">
-<meta name="twitter:description" content="学习目标：  实现朴素的字符串匹配算法  123456789class Solution:    def reverseString(self, s: List[str]) -&amp;gt; None:        &quot;&quot;&quot;        Do not return anything, modify s in-place instead.        &quot;&quot;&quot;        for i in r">
+<meta name="twitter:description" content="学习目标：  实现一个字符集，只包含 a～z 这 26 个英文字母的 Trie 树 实现朴素的字符串匹配算法 LeetCode 344. 反转字符串 LeetCode 151. 翻转字符串里的单词 LeetCode 8. 字符串转换整数 (atoi)">
 
 
 
@@ -342,12 +342,24 @@
                 
               
 
-              <time title="创建时间：2019-03-08 00:00:00 / 修改时间：22:00:03" itemprop="dateCreated datePublished" datetime="2019-03-08T00:00:00+08:00">2019-03-08</time>
+              <time title="创建时间：2019-03-08 00:00:00" itemprop="dateCreated datePublished" datetime="2019-03-08T00:00:00+08:00">2019-03-08</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-03-09 18:46:38" itemprop="dateModified" datetime="2019-03-09T18:46:38+08:00">2019-03-09</time>
               
             
           </span>
@@ -412,9 +424,104 @@
       
         <p>学习目标：</p>
 <ul>
+<li>实现一个字符集，只包含 a～z 这 26 个英文字母的 Trie 树</li>
 <li>实现朴素的字符串匹配算法</li>
+<li>LeetCode 344. 反转字符串</li>
+<li>LeetCode 151. 翻转字符串里的单词</li>
+<li>LeetCode 8. 字符串转换整数 (atoi)</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reverseString</span><span class="params">(self, s: List[str])</span> -&gt; <span class="keyword">None</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Do not return anything, modify s in-place instead.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, int(len(s)/<span class="number">2</span>)):</span><br><span class="line">            tmp = s[i]</span><br><span class="line">            s[i] = s[len(s)<span class="number">-1</span>-i]</span><br><span class="line">            s[len(s)<span class="number">-1</span>-i] = tmp</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h1 id="leetcode-208.-实现-trie-前缀树">LeetCode 208. 实现 Trie (前缀树)</h1>
+<p>实现一个 Trie (前缀树)，包含 insert, search, 和 startsWith 这三个操作。</p>
+<p>示例: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Trie trie = new Trie();</span><br><span class="line"></span><br><span class="line">trie.insert(&quot;apple&quot;);</span><br><span class="line">trie.search(&quot;apple&quot;);   // 返回 true</span><br><span class="line">trie.search(&quot;app&quot;);     // 返回 false</span><br><span class="line">trie.startsWith(&quot;app&quot;); // 返回 true</span><br><span class="line">trie.insert(&quot;app&quot;);   </span><br><span class="line">trie.search(&quot;app&quot;);     // 返回 true</span><br></pre></td></tr></table></figure></p>
+<p>说明:</p>
+<p>你可以假设所有的输入都是由小写字母 a-z 构成的。</p>
+<p>保证所有输入均为非空字符串。</p>
+<h2 id="方法">方法</h2>
+<p>trie，又称前缀树或字典树，是一种有序树，用于保存关联数组，其中的键通常是字符串。</p>
+<p>一个节点的所有子孙都有相同的前缀，也就是这个节点对应的字符串，而根节点对应空字符串。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TrieNode</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.isEnd = <span class="keyword">False</span>  <span class="comment"># 判断是否是词尾</span></span><br><span class="line">        self.children = dict() <span class="comment">#子结点</span></span><br><span class="line">        </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Trie</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Initialize your data structure here.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        self.root = TrieNode()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insert</span><span class="params">(self, word: str)</span> -&gt; <span class="keyword">None</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Inserts a word into the trie.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        currNode = self.root</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> word:</span><br><span class="line">            <span class="keyword">if</span> i <span class="keyword">not</span> <span class="keyword">in</span> currNode.children:</span><br><span class="line">                currNode.children[i] = TrieNode()</span><br><span class="line">            currNode = currNode.children[i]</span><br><span class="line">        currNode.isEnd = <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">search</span><span class="params">(self, word: str)</span> -&gt; bool:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Returns if the word is in the trie.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        currNode = self.root </span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> word:</span><br><span class="line">            <span class="keyword">if</span> i <span class="keyword">not</span> <span class="keyword">in</span> currNode.children:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">            currNode = currNode.children[i]</span><br><span class="line">        <span class="keyword">return</span> currNode.isEnd</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">startsWith</span><span class="params">(self, prefix: str)</span> -&gt; bool:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Returns if there is any word in the trie that starts with the given prefix.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        currNode = self.root</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> prefix:</span><br><span class="line">            <span class="keyword">if</span> i <span class="keyword">not</span> <span class="keyword">in</span> currNode.children:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">            currNode = currNode.children[i]</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Your Trie object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"># obj = Trie()</span></span><br><span class="line"><span class="comment"># obj.insert(word)</span></span><br><span class="line"><span class="comment"># param_2 = obj.search(word)</span></span><br><span class="line"><span class="comment"># param_3 = obj.startsWith(prefix)</span></span><br></pre></td></tr></table></figure>
+<h2 id="trie树的优缺点">Trie树的优缺点</h2>
+<p>Trie树的核心思想是空间换时间，利用字符串的公共前缀来减少无谓的字符串比较以达到提高查询效率的目的。</p>
+<p>优点</p>
+<ul>
+<li><p>插入和查询的效率很高，都为O(m)O(m)，其中 mm 是待插入/查询的字符串的长度。</p>
+<ul>
+<li>关于查询，会有人说 hash 表时间复杂度是O(1)O(1)不是更快？但是，哈希搜索的效率通常取决于 hash 函数的好坏，若一个坏的 hash 函数导致很多的冲突，效率并不一定比Trie树高。</li>
+</ul></li>
+<li><p>Trie树中不同的关键字不会产生冲突。</p></li>
+<li><p>Trie树只有在允许一个关键字关联多个值的情况下才有类似hash碰撞发生。</p></li>
+<li><p>Trie树不用求 hash 值，对短字符串有更快的速度。通常，求hash值也是需要遍历字符串的。</p></li>
+<li><p>Trie树可以对关键字按字典序排序。</p></li>
+</ul>
+<p>缺点</p>
+<ul>
+<li>当 hash 函数很好时，Trie树的查找效率会低于哈希搜索。</li>
+</ul>
+<p>空间消耗比较大。</p>
+<h1 id="leetcode-28.-实现strstr">LeetCode 28. 实现strStr()</h1>
+<p><a href="https://leetcode-cn.com/problems/implement-strstr/" target="_blank" rel="noopener">Implement strStr()</a></p>
+<p>实现 strStr() 函数。</p>
+<p>给定一个 haystack 字符串和一个 needle 字符串，在 haystack 字符串中找出 needle 字符串出现的第一个位置 (从0开始)。如果不存在，则返回 -1。</p>
+<p>示例 1: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: haystack = &quot;hello&quot;, needle = &quot;ll&quot;</span><br><span class="line">输出: 2</span><br></pre></td></tr></table></figure></p>
+<p>示例 2: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: haystack = &quot;aaaaa&quot;, needle = &quot;bba&quot;</span><br><span class="line">输出: -1</span><br></pre></td></tr></table></figure></p>
+<p>说明:</p>
+<p>当 needle 是空字符串时我们返回 0 。这与C语言的 strstr() 以及 Java的 indexOf() 定义相符。</p>
+<h2 id="方法内置find函数">方法：内置find()函数</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">strStr</span><span class="params">(self, haystack: str, needle: str)</span> -&gt; int:</span></span><br><span class="line">        <span class="keyword">return</span> haystack.find(needle)</span><br></pre></td></tr></table></figure>
+<h2 id="方法朴素算法">方法：朴素算法</h2>
+<p>字符串匹配算法主要是两类，最基本的暴力解法，也叫做朴素算法，另一种是KMP算法。</p>
+<p>朴素算法是通过一个循环找到所有有效偏移，检查是否满足条件。 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">strStr</span><span class="params">(self, haystack: str, needle: str)</span> -&gt; int:</span></span><br><span class="line">        M, N = len(haystack), len(needle)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(M-N+<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> haystack[i:i+N] == needle:</span><br><span class="line">                <span class="keyword">return</span> i</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="leetcode-344.-反转字符串">LeetCode 344. 反转字符串</h1>
+<p><a href="https://leetcode-cn.com/problems/reverse-string/" target="_blank" rel="noopener">反转字符串</a></p>
+<p>编写一个函数，其作用是将输入的字符串反转过来。输入字符串以字符数组 char[] 的形式给出。</p>
+<p>不要给另外的数组分配额外的空间，你必须原地修改输入数组、使用 O(1) 的额外空间解决这一问题。</p>
+<p>你可以假设数组中的所有字符都是 ASCII 码表中的可打印字符。</p>
+<p>示例 1： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：[&quot;h&quot;,&quot;e&quot;,&quot;l&quot;,&quot;l&quot;,&quot;o&quot;]</span><br><span class="line">输出：[&quot;o&quot;,&quot;l&quot;,&quot;l&quot;,&quot;e&quot;,&quot;h&quot;]</span><br></pre></td></tr></table></figure></p>
+<p>示例 2： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：[&quot;H&quot;,&quot;a&quot;,&quot;n&quot;,&quot;n&quot;,&quot;a&quot;,&quot;h&quot;]</span><br><span class="line">输出：[&quot;h&quot;,&quot;a&quot;,&quot;n&quot;,&quot;n&quot;,&quot;a&quot;,&quot;H&quot;]</span><br></pre></td></tr></table></figure></p>
+<h2 id="方法-1">方法</h2>
+<p>依次交换前面和后面的字符直至中间字符，完成反转。 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def reverseString(self, s: List[str]) -&gt; None:</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        Do not return anything, modify s in-place instead.</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        for i in range(len(s)//2):</span><br><span class="line">            tmp = s[i]</span><br><span class="line">            s[i] = s[len(s)-1-i]</span><br><span class="line">            s[len(s)-1-i] = tmp</span><br></pre></td></tr></table></figure></p>
+<h1 id="leetcode-151.-翻转字符串里的单词">LeetCode 151. 翻转字符串里的单词</h1>
+<p><a href="https://leetcode-cn.com/problems/reverse-words-in-a-string/" target="_blank" rel="noopener">Reverse Words in a String</a></p>
+<p>给定一个字符串，逐个翻转字符串中的每个单词。</p>
+<p>示例 1： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: &quot;the sky is blue&quot;</span><br><span class="line">输出: &quot;blue is sky the&quot;</span><br></pre></td></tr></table></figure></p>
+<p>示例 2： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: &quot;  hello world!  &quot;</span><br><span class="line">输出: &quot;world! hello&quot;</span><br><span class="line">解释: 输入字符串可以在前面或者后面包含多余的空格，但是反转后的字符不能包括。</span><br></pre></td></tr></table></figure></p>
+<p>示例 3： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: &quot;a good   example&quot;</span><br><span class="line">输出: &quot;example good a&quot;</span><br><span class="line">解释: 如果两个单词间有多余的空格，将反转后单词间的空格减少到只含一个。</span><br></pre></td></tr></table></figure></p>
+<p>说明：</p>
+<ul>
+<li>无空格字符构成一个单词。</li>
+<li>输入字符串可以在前面或者后面包含多余的空格，但是反转后的字符不能包括。</li>
+<li>如果两个单词间有多余的空格，将反转后单词间的空格减少到只含一个。</li>
+</ul>
+<h2 id="方法-2">方法</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reverseWords</span><span class="params">(self, s: str)</span> -&gt; str:</span></span><br><span class="line">        lst = s.split()</span><br><span class="line">        lst.reverse()</span><br><span class="line">        <span class="keyword">return</span> <span class="string">" "</span>.join(lst)</span><br></pre></td></tr></table></figure>
+<h1 id="leetcode-8.-字符串转换整数-atoi">LeetCode 8. 字符串转换整数 (atoi)</h1>
+<p><a href="https://leetcode-cn.com/problems/string-to-integer-atoi/" target="_blank" rel="noopener">字符串转换整数 (atoi)</a></p>
+<p>请你来实现一个 atoi 函数，使其能将字符串转换成整数。</p>
+<p>首先，该函数会根据需要丢弃无用的开头空格字符，直到寻找到第一个非空格的字符为止。</p>
+<p>当我们寻找到的第一个非空字符为正或者负号时，则将该符号与之后面尽可能多的连续数字组合起来，作为该整数的正负号；假如第一个非空字符是数字，则直接将其与之后连续的数字字符组合起来，形成整数。</p>
+<p>该字符串除了有效的整数部分之后也可能会存在多余的字符，这些字符可以被忽略，它们对于函数不应该造成影响。</p>
+<p>注意：假如该字符串中的第一个非空格字符不是一个有效整数字符、字符串为空或字符串仅包含空白字符时，则你的函数不需要进行转换。</p>
+<p>在任何情况下，若函数不能进行有效的转换时，请返回 0。</p>
+<p>说明：假设我们的环境只能存储 32 位大小的有符号整数，那么其数值范围为 <span class="math inline">\([−2^{31}, 2^{31} − 1]\)</span>。如果数值超过这个范围，qing返回 INT_MAX<span class="math inline">\((2^{31} − 1)\)</span> 或 INT_MIN <span class="math inline">\((−2^{31})\)</span> 。</p>
+<p><strong>示例 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: &quot;42&quot;</span><br><span class="line">输出: 42</span><br></pre></td></tr></table></figure>
+<p><strong>示例 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入: &quot;   -42&quot;</span><br><span class="line">输出: -42</span><br><span class="line">解释: 第一个非空白字符为 &apos;-&apos;, 它是一个负号。</span><br><span class="line">     我们尽可能将负号与后面所有连续出现的数字组合起来，最后得到 -42 。</span><br></pre></td></tr></table></figure>
+<p><strong>示例 3:</strong> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: &quot;4193 with words&quot;</span><br><span class="line">输出: 4193</span><br><span class="line">解释: 转换截止于数字 &apos;3&apos; ，因为它的下一个字符不为数字。</span><br></pre></td></tr></table></figure></p>
+<p><strong>示例 4:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入: &quot;words and 987&quot;</span><br><span class="line">输出: 0</span><br><span class="line">解释: 第一个非空字符是 &apos;w&apos;, 但它不是数字或正、负号。</span><br><span class="line">     因此无法执行有效的转换。</span><br></pre></td></tr></table></figure>
+<p><strong>示例 5:</strong> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入: &quot;-91283472332&quot;</span><br><span class="line">输出: -2147483648</span><br><span class="line">解释: 数字 &quot;-91283472332&quot; 超过 32 位有符号整数范围。 </span><br><span class="line">     因此返回 INT_MIN (−231) 。</span><br></pre></td></tr></table></figure></p>
+<h2 id="方法一按条件多次判断">方法一：按条件多次判断</h2>
+<p>按题目要求进行如下处理和判断： 1. strip()去掉首位空格字符 2. 如果字符串为空，返回0 3. 判断首字符是否为正负号 4. 遍历每个字符，若在0-9范围内，则加入数字中；否则break。 5. 乘上正负号之后，判断数字是否越界。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">myAtoi</span><span class="params">(self, str)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type str: str</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span>        </span><br><span class="line">        str = str.strip()</span><br><span class="line">        number, flag = <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> str:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> str[<span class="number">0</span>] == <span class="string">'-'</span> <span class="keyword">and</span> len(str)&gt;<span class="number">1</span>:</span><br><span class="line">            str = str[<span class="number">1</span>:]</span><br><span class="line">            flag = <span class="number">-1</span></span><br><span class="line">        <span class="keyword">elif</span> str[<span class="number">0</span>] == <span class="string">'+'</span> <span class="keyword">and</span> len(str)&gt;<span class="number">1</span>:</span><br><span class="line">            str = str[<span class="number">1</span>:]</span><br><span class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> str:</span><br><span class="line">            <span class="keyword">if</span> c &gt;= <span class="string">'0'</span> <span class="keyword">and</span> c &lt;= <span class="string">'9'</span>:</span><br><span class="line">                number = <span class="number">10</span>*number + ord(c) - ord(<span class="string">'0'</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        number = flag * number</span><br><span class="line">        number = number <span class="keyword">if</span> number &lt;= <span class="number">2</span>**<span class="number">31</span><span class="number">-1</span> <span class="keyword">else</span> <span class="number">2</span>**<span class="number">31</span><span class="number">-1</span></span><br><span class="line">        number = number <span class="keyword">if</span> number &gt;= <span class="number">-2</span>**<span class="number">31</span> <span class="keyword">else</span> <span class="number">-2</span>**<span class="number">31</span></span><br><span class="line">        <span class="keyword">return</span> number</span><br></pre></td></tr></table></figure>
+<h2 id="方法二正则匹配">方法二：正则匹配</h2>
+<p>用正则表达式来匹配 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">myAtoi</span><span class="params">(self, str)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type str: str</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="comment"># 导入正则模块</span></span><br><span class="line">        <span class="keyword">import</span> re</span><br><span class="line">        <span class="comment"># 字符串中查找全部符合条件的整数，返回的是列表，第一个参数是正则，第二个参数是字符串</span></span><br><span class="line">        ret = re.findall(<span class="string">r"^[-+]?\d+"</span>, str.strip())  <span class="comment"># strip()字符串去空格</span></span><br><span class="line">        <span class="comment"># 判断是否有匹配的值，没有的话返回0，例如"word values 987"，匹配不到，返回0</span></span><br><span class="line">        <span class="keyword">if</span> ret:</span><br><span class="line">            ret_str = ret[<span class="number">0</span>]  <span class="comment"># 匹配的数字的字符串</span></span><br><span class="line">            ret_str2 = <span class="string">""</span>  <span class="comment"># 记录去符号的字符串，ret_str后面还要使用，所以定义一个新的变量记录</span></span><br><span class="line">            <span class="comment"># 判断是否带有符号 + or -</span></span><br><span class="line">            <span class="keyword">if</span> ret_str[<span class="number">0</span>] == <span class="string">"-"</span> <span class="keyword">or</span> ret_str[<span class="number">0</span>] == <span class="string">"+"</span>:</span><br><span class="line">                ret_str2 = ret_str[<span class="number">1</span>:]</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                ret_str2 = ret_str</span><br><span class="line">            <span class="comment"># str转int</span></span><br><span class="line">            ret_int = int(ret_str2)</span><br><span class="line">            <span class="comment"># 判断第一个字符是否为负号</span></span><br><span class="line">            <span class="keyword">if</span> ret_str[<span class="number">0</span>] == <span class="string">"-"</span>:</span><br><span class="line">                <span class="comment"># 三目运算符，判断是否溢出</span></span><br><span class="line">                <span class="comment"># 如果ret_int &lt;= 2**31则返回-ret_int，否则返回-2**31</span></span><br><span class="line">                <span class="keyword">return</span> -ret_int <span class="keyword">if</span> ret_int &lt;= <span class="number">2</span>**<span class="number">31</span> <span class="keyword">else</span> <span class="number">-2</span>**<span class="number">31</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> ret_int <span class="keyword">if</span> ret_int &lt; <span class="number">2</span>**<span class="number">31</span> <span class="keyword">else</span> <span class="number">2</span>**<span class="number">31</span><span class="number">-1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br></pre></td></tr></table></figure></p>
+<p>比方法一的执行时间短</p>
+<h1 id="参考">参考</h1>
+<ul>
+<li><a href="https://blog.csdn.net/lisonglisonglisong/article/details/45584721" target="_blank" rel="noopener">Trie树（Prefix Tree）介绍</a></li>
+</ul>
 
       
     </div>
@@ -509,8 +616,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -656,6 +772,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#leetcode-208.-实现-trie-前缀树"><span class="nav-number">1.</span> <span class="nav-text">LeetCode 208. 实现 Trie (前缀树)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number">1.1.</span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#trie树的优缺点"><span class="nav-number">1.2.</span> <span class="nav-text">Trie树的优缺点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#leetcode-28.-实现strstr"><span class="nav-number">2.</span> <span class="nav-text">LeetCode 28. 实现strStr()</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法内置find函数"><span class="nav-number">2.1.</span> <span class="nav-text">方法：内置find()函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法朴素算法"><span class="nav-number">2.2.</span> <span class="nav-text">方法：朴素算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#leetcode-344.-反转字符串"><span class="nav-number">3.</span> <span class="nav-text">LeetCode 344. 反转字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-1"><span class="nav-number">3.1.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#leetcode-151.-翻转字符串里的单词"><span class="nav-number">4.</span> <span class="nav-text">LeetCode 151. 翻转字符串里的单词</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-2"><span class="nav-number">4.1.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#leetcode-8.-字符串转换整数-atoi"><span class="nav-number">5.</span> <span class="nav-text">LeetCode 8. 字符串转换整数 (atoi)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一按条件多次判断"><span class="nav-number">5.1.</span> <span class="nav-text">方法一：按条件多次判断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二正则匹配"><span class="nav-number">5.2.</span> <span class="nav-text">方法二：正则匹配</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -868,7 +1001,63 @@
           
         });
     });
-  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  </script>
+
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+</style><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -887,16 +1076,7 @@
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
 
-
-
-  
-
-  
-  
-
-  
-  
-
+    
   
 
 

@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="回溯法是暴力搜索法中的一种。 对于某些计算问题而言，回溯法是一种可以找出所有解的一般性算法，尤其适用于约束满足问题。回溯法采用试错的思想，它尝试分步的去解决一个问题。 在分步解决问题的过程中，当它通过尝试发现现有的分步答案不能得到有效的正确的解答的时候，它将取消上一步甚至是上几步的计算，再通过其它的可能的分步解答再次尝试寻找问题的答案。回溯法通常用最简单的递归方法来实现，在反复重复上述的步骤后可">
+<meta name="keywords" content="python,LeetCode,数据结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="回溯、分治、动态规划">
+<meta property="og:url" content="http://yoursite.com/2019/03/16/回溯、分治、动态规划 /index.html">
+<meta property="og:site_name" content="QxD&#39;s Notes">
+<meta property="og:description" content="回溯法是暴力搜索法中的一种。 对于某些计算问题而言，回溯法是一种可以找出所有解的一般性算法，尤其适用于约束满足问题。回溯法采用试错的思想，它尝试分步的去解决一个问题。 在分步解决问题的过程中，当它通过尝试发现现有的分步答案不能得到有效的正确的解答的时候，它将取消上一步甚至是上几步的计算，再通过其它的可能的分步解答再次尝试寻找问题的答案。回溯法通常用最简单的递归方法来实现，在反复重复上述的步骤后可">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-17T09:42:24.733Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="回溯、分治、动态规划">
+<meta name="twitter:description" content="回溯法是暴力搜索法中的一种。 对于某些计算问题而言，回溯法是一种可以找出所有解的一般性算法，尤其适用于约束满足问题。回溯法采用试错的思想，它尝试分步的去解决一个问题。 在分步解决问题的过程中，当它通过尝试发现现有的分步答案不能得到有效的正确的解答的时候，它将取消上一步甚至是上几步的计算，再通过其它的可能的分步解答再次尝试寻找问题的答案。回溯法通常用最简单的递归方法来实现，在反复重复上述的步骤后可">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/16/回溯、分治、动态规划 /"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>回溯、分治、动态规划 | QxD's Notes</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?06c071c7d2b7852d98870768083c6f50";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">QxD's Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/16/回溯、分治、动态规划 /"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Icy"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QxD's Notes"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">回溯、分治、动态规划
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-16 00:00:00" itemprop="dateCreated datePublished" datetime="2019-03-16T00:00:00+08:00">2019-03-16</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-03-17 17:42:24" itemprop="dateModified" datetime="2019-03-17T17:42:24+08:00">2019-03-17</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2019/03/16/回溯、分治、动态规划 /" class="leancloud_visitors" data-flag-title="回溯、分治、动态规划">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>回溯法是暴力搜索法中的一种。 对于某些计算问题而言，回溯法是一种可以找出所有解的一般性算法，尤其适用于约束满足问题。回溯法采用试错的思想，它尝试分步的去解决一个问题。</p>
+<p>在分步解决问题的过程中，当它通过尝试发现现有的分步答案不能得到有效的正确的解答的时候，它将取消上一步甚至是上几步的计算，再通过其它的可能的分步解答再次尝试寻找问题的答案。回溯法通常用最简单的递归方法来实现，在反复重复上述的步骤后可能出现两种情况：</p>
+<ul>
+<li>找到一个可能存在的正确的答案</li>
+<li>在尝试了所有可能的分步方法后宣告该问题没有答案</li>
+</ul>
+<p><strong>学习目标：</strong> - 利用回溯算法求解八皇后问题 - 利用回溯算法求解 0-1 背包问题</p>
+<p>分治 利用分治算法求一组数据的逆序对个数</p>
+<p>动态规划 0-1 背包问题 最小路径和（详细可看 Minimum Path Sum） 编程实现莱文斯坦最短编辑距离 编程实现查找两个字符串的最长公共子序列 编程实现一个数据序列的最长递增子序列</p>
+<p>对应的 LeetCode 练习题 实战递归：完成Leetcode上的Letter Combinations of a Phone Number(17)及permutations(46) （保留往期第六天任务） 实战DP：完成0-1背包问题实现(自我实现)及Leetcode上Palindrome Partitioning II(132) （保留往期第七天任务） Regular Expression Matching（正则表达式匹配） 英文版：https://leetcode.com/problems/regular-expression-matching/ 中文版：https://leetcode-cn.com/problems/regular-expression-matching/ Minimum Path Sum（最小路径和） 英文版：https://leetcode.com/problems/minimum-path-sum/ 中文版：https://leetcode-cn.com/problems/minimum-path-sum/ Coin Change （零钱兑换） 英文版：https://leetcode.com/problems/coin-change/ 中文版：https://leetcode-cn.com/problems/coin-change/ Best Time to Buy and Sell Stock（买卖股票的最佳时机） 英文版：https://leetcode.com/problems/best-time-to-buy-and-sell-stock/ 中文版：https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/ Maximum Product Subarray（乘积最大子序列） 英文版：https://leetcode.com/problems/maximum-product-subarray/ 中文版：https://leetcode-cn.com/problems/maximum-product-subarray/ Triangle（三角形最小路径和） 英文版：https://leetcode.com/problems/triangle/ 中文版：https://leetcode-cn.com/problems/triangle/</p>
+<h1 id="八皇后问题">八皇后问题</h1>
+<p>有一个棋盘和8个要放到上面的皇后。唯一的要求是皇后之间不能形成威胁。（必须把它们放置成每个皇后都不能吃掉其他皇后的状态）皇后要如何放置呢？</p>
+<p>假设不只是8个，而是有任意数目的皇后，怎么解决？</p>
+<h2 id="方法回溯-生成器">方法：回溯 + 生成器</h2>
+<p>这是一个典型的回溯问题。首先尝试在第一行放置第1个皇后，然后第二行放置第2个，依次类推。 如果发现不能放置下一个皇后，就回溯到上一步，试着将皇后放到其他的位置。最后，或者尝试完所有的可能，或者找到解决方案。</p>
+<ol style="list-style-type: decimal">
+<li>状态表示
+<ul>
+<li>元组表示：每个元组中的元素都指示相应行的皇后的列的位置信息。</li>
+<li>比如 <code>state[0] == 3</code> 就是第一行的皇后在第4列。</li>
+</ul></li>
+<li>寻找冲突
+<ul>
+<li>定义一个 conflict 函数，传入已知的皇后位置，判断下一个皇后可能的位置是否与它们有冲突。</li>
+<li>冲突指的是水平位置(即列数)相同，或者对角线位置相同(即行数之差==列数之差)。</li>
+</ul></li>
+<li>基本情况：最后一个皇后该怎么做？
+<ul>
+<li>已知其他行皇后的位置(相互间没有冲突)，遍历这一行的每一列，返回没有冲突发生的位置。</li>
+</ul></li>
+<li>需要递归的情况
+<ul>
+<li>同样已知底层的所有行皇后位置(相互间没有冲突)，判断当前行的这一列没有冲突，则加入包含位置信息的元组中，递归传到下一层，下一层返回它的所有正确位置，加入到当前层的位置信息中。</li>
+</ul></li>
+<li>打包
+<ul>
+<li>清理输出。将输出处理得更容易理解一点。</li>
+</ul></li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">conflict</span><span class="params">(state, nextX)</span>:</span> <span class="comment">#nextX是当前列数</span></span><br><span class="line">    nextY = len(state) <span class="comment"># 当前行数</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(nextY):<span class="comment"># 遍历之前所有行</span></span><br><span class="line">        <span class="keyword">if</span> abs(state[i]-nextX) <span class="keyword">in</span> (<span class="number">0</span>, nextY-i):</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">True</span> <span class="comment"># 同一列或统一对角线上，就冲突</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#生成器</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">queens</span><span class="params">(num=<span class="number">8</span>, state=<span class="params">()</span>)</span>:</span> </span><br><span class="line">    <span class="keyword">for</span> pos <span class="keyword">in</span> range(num):<span class="comment">#遍历所有列</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> conflict(state,pos): <span class="comment">#如果这一列不冲突</span></span><br><span class="line">            <span class="keyword">if</span> len(state) == num<span class="number">-1</span>:<span class="comment">#到了最后一个皇后</span></span><br><span class="line">                <span class="keyword">yield</span> (pos,)</span><br><span class="line">            <span class="keyword">else</span>:<span class="comment">#递归</span></span><br><span class="line">                <span class="keyword">for</span> result <span class="keyword">in</span> queens(num,state+(pos,)):<span class="comment">#加上当前层的正确列数pos去下一层</span></span><br><span class="line">                    <span class="comment">#result就是递归的下一层返回来的一个列结果</span></span><br><span class="line">                    <span class="keyword">yield</span> (pos,) + result <span class="comment"># 当前层应该返回的结果</span></span><br><span class="line"><span class="comment"># 生成器给出所有解决方案</span></span><br><span class="line">print(list(queens(<span class="number">3</span>)))  <span class="comment"># []</span></span><br><span class="line">print(list(queens(<span class="number">4</span>)))  <span class="comment"># [(1, 3, 0, 2), (2, 0, 3, 1)]</span></span><br><span class="line"><span class="comment"># 8个皇后有多少中解决方案：</span></span><br><span class="line">print(len(list(queens(<span class="number">8</span>))))  <span class="comment"># 92</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 打包：更形象得随机输出解决方案</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">prettyprint</span><span class="params">(solution)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">line</span><span class="params">(pos,length=len<span class="params">(solution)</span>)</span>:</span> <span class="comment"># 对于每一行pos</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'. '</span>*pos + <span class="string">'X '</span> + <span class="string">'. '</span>*(length-pos<span class="number">-1</span>)</span><br><span class="line">    <span class="keyword">for</span> pos <span class="keyword">in</span> solution:<span class="comment"># 对于每一行pos</span></span><br><span class="line">        print(line(pos))</span><br><span class="line">        </span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line">prettyprint(random.choice(list(queens(<span class="number">8</span>))))</span><br><span class="line"><span class="comment">#输出：</span></span><br><span class="line"><span class="comment">#. . . . . . X . </span></span><br><span class="line"><span class="comment">#X . . . . . . . </span></span><br><span class="line"><span class="comment">#. . X . . . . . </span></span><br><span class="line"><span class="comment">#. . . . . . . X </span></span><br><span class="line"><span class="comment">#. . . . . X . . </span></span><br><span class="line"><span class="comment">#. . . X . . . . </span></span><br><span class="line"><span class="comment">#. X . . . . . . </span></span><br><span class="line"><span class="comment">#. . . . X . . .</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
+          
+            <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/14/python魔法方法/" rel="next" title="python 魔法方法">
+                <i class="fa fa-chevron-left"></i> python 魔法方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Icy</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">32</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#八皇后问题"><span class="nav-number">1.</span> <span class="nav-text">八皇后问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法回溯-生成器"><span class="nav-number">1.1.</span> <span class="nav-text">方法：回溯 + 生成器</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Icy</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .done(function() {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+              })
+            
+              .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+              })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! More info at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log('LeanCloud Counter Error: ' + responseJSON.code + ' ' + responseJSON.error);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'o9dDzrylom5H6YuhbsgIcdRp-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': 'o9dDzrylom5H6YuhbsgIcdRp-gzGzoHsz',
+                'X-LC-Key': 'fy7h3oVOypD8qdy6GTxfsh8E',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            addCount(Counter);
+          
+        });
+    });
+  </script>
+
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+</style><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

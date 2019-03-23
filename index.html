@@ -295,6 +295,702 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/21/模型验证/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Icy"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QxD's Notes"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/21/模型验证/" class="post-title-link" itemprop="url">模型评估指标</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-21 00:00:00 / 修改时间：21:32:08" itemprop="dateCreated datePublished" datetime="2019-03-21T00:00:00+08:00">2019-03-21</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/机器学习/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2019/03/21/模型验证/" class="leancloud_visitors" data-flag-title="模型评估指标">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>先加载数据 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Data Loading</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment"># Load data</span></span><br><span class="line">melbourne_file_path = <span class="string">'../input/melbourne-housing-snapshot/melb_data.csv'</span></span><br><span class="line">melbourne_data = pd.read_csv(melbourne_file_path) </span><br><span class="line"><span class="comment"># Filter rows with missing price values</span></span><br><span class="line">filtered_melbourne_data = melbourne_data.dropna(axis=<span class="number">0</span>)</span><br><span class="line"><span class="comment"># Choose target and features</span></span><br><span class="line">y = filtered_melbourne_data.Price</span><br><span class="line">melbourne_features = [<span class="string">'Rooms'</span>, <span class="string">'Bathroom'</span>, <span class="string">'Landsize'</span>, <span class="string">'BuildingArea'</span>, </span><br><span class="line">                        <span class="string">'YearBuilt'</span>, <span class="string">'Lattitude'</span>, <span class="string">'Longtitude'</span>]</span><br><span class="line">X = filtered_melbourne_data[melbourne_features]</span><br></pre></td></tr></table></figure></p>
+<p>回归模型评价指标MSE、RMSE、MAE、R-Squared</p>
+<h1 id="均方误差mae">均方误差(MAE)</h1>
+<p>MSE （Mean Squared Error）叫做均方误差。看公式</p>
+<p><span class="math display">\[ \frac{1}{m}\sum _ { i=1 }^m (y_ i-\hat{y_i})^2\]</span></p>
+<h1 id="参考">参考</h1>
+<ul>
+<li><a href="https://www.kaggle.com/dansbecker/model-validation" target="_blank" rel="noopener">Model Validation</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/18/决策树/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Icy"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QxD's Notes"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/18/决策树/" class="post-title-link" itemprop="url">决策树(Decision trees)</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-18 00:00:00 / 修改时间：09:49:59" itemprop="dateCreated datePublished" datetime="2019-03-18T00:00:00+08:00">2019-03-18</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/机器学习/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2019/03/18/决策树/" class="leancloud_visitors" data-flag-title="决策树(Decision trees)">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/18/随机森林/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Icy"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QxD's Notes"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/18/随机森林/" class="post-title-link" itemprop="url">随机森林(Random Forest)</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-18 00:00:00 / 修改时间：09:45:50" itemprop="dateCreated datePublished" datetime="2019-03-18T00:00:00+08:00">2019-03-18</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/机器学习/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2019/03/18/随机森林/" class="leancloud_visitors" data-flag-title="随机森林(Random Forest)">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/18/梯度下降/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Icy"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QxD's Notes"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/18/梯度下降/" class="post-title-link" itemprop="url">梯度下降(gradient boosting)</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-18 00:00:00 / 修改时间：10:14:20" itemprop="dateCreated datePublished" datetime="2019-03-18T00:00:00+08:00">2019-03-18</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/机器学习/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2019/03/18/梯度下降/" class="leancloud_visitors" data-flag-title="梯度下降(gradient boosting)">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/16/回溯、分治、动态规划 /"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -357,7 +1053,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-17 17:42:24" itemprop="dateModified" datetime="2019-03-17T17:42:24+08:00">2019-03-17</time>
+                <time title="修改时间：2019-03-18 10:19:55" itemprop="dateModified" datetime="2019-03-18T10:19:55+08:00">2019-03-18</time>
               
             
           </span>
@@ -421,49 +1117,22 @@
 
       
         
-          
-            <p>回溯法是暴力搜索法中的一种。 对于某些计算问题而言，回溯法是一种可以找出所有解的一般性算法，尤其适用于约束满足问题。回溯法采用试错的思想，它尝试分步的去解决一个问题。</p>
+          <p>回溯法是暴力搜索法中的一种。 对于某些计算问题而言，回溯法是一种可以找出所有解的一般性算法，尤其适用于约束满足问题。回溯法采用试错的思想，它尝试分步的去解决一个问题。</p>
 <p>在分步解决问题的过程中，当它通过尝试发现现有的分步答案不能得到有效的正确的解答的时候，它将取消上一步甚至是上几步的计算，再通过其它的可能的分步解答再次尝试寻找问题的答案。回溯法通常用最简单的递归方法来实现，在反复重复上述的步骤后可能出现两种情况：</p>
 <ul>
 <li>找到一个可能存在的正确的答案</li>
 <li>在尝试了所有可能的分步方法后宣告该问题没有答案</li>
 </ul>
 <p><strong>学习目标：</strong> - 利用回溯算法求解八皇后问题 - 利用回溯算法求解 0-1 背包问题</p>
-<p>分治 利用分治算法求一组数据的逆序对个数</p>
-<p>动态规划 0-1 背包问题 最小路径和（详细可看 Minimum Path Sum） 编程实现莱文斯坦最短编辑距离 编程实现查找两个字符串的最长公共子序列 编程实现一个数据序列的最长递增子序列</p>
-<p>对应的 LeetCode 练习题 实战递归：完成Leetcode上的Letter Combinations of a Phone Number(17)及permutations(46) （保留往期第六天任务） 实战DP：完成0-1背包问题实现(自我实现)及Leetcode上Palindrome Partitioning II(132) （保留往期第七天任务） Regular Expression Matching（正则表达式匹配） 英文版：https://leetcode.com/problems/regular-expression-matching/ 中文版：https://leetcode-cn.com/problems/regular-expression-matching/ Minimum Path Sum（最小路径和） 英文版：https://leetcode.com/problems/minimum-path-sum/ 中文版：https://leetcode-cn.com/problems/minimum-path-sum/ Coin Change （零钱兑换） 英文版：https://leetcode.com/problems/coin-change/ 中文版：https://leetcode-cn.com/problems/coin-change/ Best Time to Buy and Sell Stock（买卖股票的最佳时机） 英文版：https://leetcode.com/problems/best-time-to-buy-and-sell-stock/ 中文版：https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/ Maximum Product Subarray（乘积最大子序列） 英文版：https://leetcode.com/problems/maximum-product-subarray/ 中文版：https://leetcode-cn.com/problems/maximum-product-subarray/ Triangle（三角形最小路径和） 英文版：https://leetcode.com/problems/triangle/ 中文版：https://leetcode-cn.com/problems/triangle/</p>
-<h1 id="八皇后问题">八皇后问题</h1>
-<p>有一个棋盘和8个要放到上面的皇后。唯一的要求是皇后之间不能形成威胁。（必须把它们放置成每个皇后都不能吃掉其他皇后的状态）皇后要如何放置呢？</p>
-<p>假设不只是8个，而是有任意数目的皇后，怎么解决？</p>
-<h2 id="方法回溯-生成器">方法：回溯 + 生成器</h2>
-<p>这是一个典型的回溯问题。首先尝试在第一行放置第1个皇后，然后第二行放置第2个，依次类推。 如果发现不能放置下一个皇后，就回溯到上一步，试着将皇后放到其他的位置。最后，或者尝试完所有的可能，或者找到解决方案。</p>
-<ol style="list-style-type: decimal">
-<li>状态表示
-<ul>
-<li>元组表示：每个元组中的元素都指示相应行的皇后的列的位置信息。</li>
-<li>比如 <code>state[0] == 3</code> 就是第一行的皇后在第4列。</li>
-</ul></li>
-<li>寻找冲突
-<ul>
-<li>定义一个 conflict 函数，传入已知的皇后位置，判断下一个皇后可能的位置是否与它们有冲突。</li>
-<li>冲突指的是水平位置(即列数)相同，或者对角线位置相同(即行数之差==列数之差)。</li>
-</ul></li>
-<li>基本情况：最后一个皇后该怎么做？
-<ul>
-<li>已知其他行皇后的位置(相互间没有冲突)，遍历这一行的每一列，返回没有冲突发生的位置。</li>
-</ul></li>
-<li>需要递归的情况
-<ul>
-<li>同样已知底层的所有行皇后位置(相互间没有冲突)，判断当前行的这一列没有冲突，则加入包含位置信息的元组中，递归传到下一层，下一层返回它的所有正确位置，加入到当前层的位置信息中。</li>
-</ul></li>
-<li>打包
-<ul>
-<li>清理输出。将输出处理得更容易理解一点。</li>
-</ul></li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">conflict</span><span class="params">(state, nextX)</span>:</span> <span class="comment">#nextX是当前列数</span></span><br><span class="line">    nextY = len(state) <span class="comment"># 当前行数</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(nextY):<span class="comment"># 遍历之前所有行</span></span><br><span class="line">        <span class="keyword">if</span> abs(state[i]-nextX) <span class="keyword">in</span> (<span class="number">0</span>, nextY-i):</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">True</span> <span class="comment"># 同一列或统一对角线上，就冲突</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#生成器</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">queens</span><span class="params">(num=<span class="number">8</span>, state=<span class="params">()</span>)</span>:</span> </span><br><span class="line">    <span class="keyword">for</span> pos <span class="keyword">in</span> range(num):<span class="comment">#遍历所有列</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> conflict(state,pos): <span class="comment">#如果这一列不冲突</span></span><br><span class="line">            <span class="keyword">if</span> len(state) == num<span class="number">-1</span>:<span class="comment">#到了最后一个皇后</span></span><br><span class="line">                <span class="keyword">yield</span> (pos,)</span><br><span class="line">            <span class="keyword">else</span>:<span class="comment">#递归</span></span><br><span class="line">                <span class="keyword">for</span> result <span class="keyword">in</span> queens(num,state+(pos,)):<span class="comment">#加上当前层的正确列数pos去下一层</span></span><br><span class="line">                    <span class="comment">#result就是递归的下一层返回来的一个列结果</span></span><br><span class="line">                    <span class="keyword">yield</span> (pos,) + result <span class="comment"># 当前层应该返回的结果</span></span><br><span class="line"><span class="comment"># 生成器给出所有解决方案</span></span><br><span class="line">print(list(queens(<span class="number">3</span>)))  <span class="comment"># []</span></span><br><span class="line">print(list(queens(<span class="number">4</span>)))  <span class="comment"># [(1, 3, 0, 2), (2, 0, 3, 1)]</span></span><br><span class="line"><span class="comment"># 8个皇后有多少中解决方案：</span></span><br><span class="line">print(len(list(queens(<span class="number">8</span>))))  <span class="comment"># 92</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 打包：更形象得随机输出解决方案</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">prettyprint</span><span class="params">(solution)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">line</span><span class="params">(pos,length=len<span class="params">(solution)</span>)</span>:</span> <span class="comment"># 对于每一行pos</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'. '</span>*pos + <span class="string">'X '</span> + <span class="string">'. '</span>*(length-pos<span class="number">-1</span>)</span><br><span class="line">    <span class="keyword">for</span> pos <span class="keyword">in</span> solution:<span class="comment"># 对于每一行pos</span></span><br><span class="line">        print(line(pos))</span><br><span class="line">        </span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line">prettyprint(random.choice(list(queens(<span class="number">8</span>))))</span><br><span class="line"><span class="comment">#输出：</span></span><br><span class="line"><span class="comment">#. . . . . . X . </span></span><br><span class="line"><span class="comment">#X . . . . . . . </span></span><br><span class="line"><span class="comment">#. . X . . . . . </span></span><br><span class="line"><span class="comment">#. . . . . . . X </span></span><br><span class="line"><span class="comment">#. . . . . X . . </span></span><br><span class="line"><span class="comment">#. . . X . . . . </span></span><br><span class="line"><span class="comment">#. X . . . . . . </span></span><br><span class="line"><span class="comment">#. . . . X . . .</span></span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/03/16/回溯、分治、动态规划 /#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -580,7 +1249,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-16 09:45:48" itemprop="dateModified" datetime="2019-03-16T09:45:48+08:00">2019-03-16</time>
+                <time title="修改时间：2019-03-18 10:14:14" itemprop="dateModified" datetime="2019-03-18T10:14:14+08:00">2019-03-18</time>
               
             
           </span>
@@ -644,56 +1313,205 @@
 
       
         
-          
-            <p>Python 中有的方法的名称前后都有两个下划线，这些方法被称为魔法方法。如果对象实现了这些方法中的某一个，那么这个方法就会在特殊的情况下被 Python 所调用，而这一切都是自动发生的。</p>
+          <p>Python 中有的方法的名称前后都有两个下划线，这些方法被称为魔法方法。如果对象实现了这些方法中的某一个，那么这个方法就会在特殊的情况下被 Python 所调用，而这一切都是自动发生的。</p>
 <p>这里总结一些重要的魔法方法： - 构造方法 <code>__init__</code> , <code>__new__</code></p>
-<h1 id="构造方法">构造方法</h1>
-<h2 id="init__"><code>__init__</code></h2>
-<p>在定义类的时候，会去定义构造方法。当一个对象被创造后，会立即调用构造方法，定义这个对象的初始值。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FooBar</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,s=<span class="number">8</span>)</span>:</span></span><br><span class="line">        self.var = <span class="number">40</span></span><br><span class="line">        self.some = s</span><br><span class="line"></span><br><span class="line">f = FooBar(<span class="number">9</span>)</span><br><span class="line">print(f.var) <span class="comment"># 40</span></span><br><span class="line">print(f.some) <span class="comment"># 9</span></span><br></pre></td></tr></table></figure>
-<p>可以给构造函数传几个参数。</p>
-<h2 id="new__"><code>__new__</code></h2>
-<p>这个方法我们一般很少定义，不过我们在一些开源框架中偶尔会遇到定义这个方法的类。实际上，这才是“真正的构造方法”，它会在对象实例化时第一个被调用，然后再调用<code>__init__</code>，它们的区别主要如下：</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/03/14/python魔法方法/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/10/python实现数据结构之堆/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Icy"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QxD's Notes"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/10/python实现数据结构之堆/" class="post-title-link" itemprop="url">python实现数据结构之堆</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-10 00:00:00" itemprop="dateCreated datePublished" datetime="2019-03-10T00:00:00+08:00">2019-03-10</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-03-09 18:57:50" itemprop="dateModified" datetime="2019-03-09T18:57:50+08:00">2019-03-09</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2019/03/10/python实现数据结构之堆/" class="leancloud_visitors" data-flag-title="python实现数据结构之堆">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>学习目标：</p>
 <ul>
-<li><code>__new__</code>的第一个参数是<code>cls</code>xz，而<code>__init__</code>的第一个参数是<code>self</code></li>
-<li><code>__new__</code>返回值是一个实例，而<code>__init__</code>没有任何返回值，只做初始化操作</li>
-<li><code>__new__</code>由于是返回一个实例对象，所以它可以给所有实例进行统一的初始化操作</li>
-<li>由于 <code>__new__</code> 优先于 <code>__init__</code> 调用，且返回一个实例。</li>
-</ul>
-<p>看下面例子： <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__new__</span><span class="params">(cls, *args, **kwargs)</span>:</span></span><br><span class="line">        print(<span class="string">"in __new__"</span>)</span><br><span class="line">        instance = object.__new__(cls)</span><br><span class="line">        <span class="keyword">return</span> instance</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, age)</span>:</span></span><br><span class="line">        print(<span class="string">"in __init__"</span>)</span><br><span class="line">        self._name = name</span><br><span class="line">        self._age = age</span><br><span class="line"></span><br><span class="line">p = Person(<span class="string">"Wang"</span>, <span class="number">33</span>)</span><br><span class="line"><span class="comment">#输出：</span></span><br><span class="line"><span class="comment">#in __new__</span></span><br><span class="line"><span class="comment">#in __init__</span></span><br></pre></td></tr></table></figure></p>
-<p>可以每次返回同一个实例来实现一个单例类：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Singleton</span><span class="params">(object)</span>:</span></span><br><span class="line">    _instance = <span class="keyword">None</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__new__</span><span class="params">(cls, *args, **kwargs)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> cls._instance <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            cls._instance = object.__new__(cls, *args, **kwargs)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> cls._instance</span><br><span class="line"></span><br><span class="line">s1 = Singleton()</span><br><span class="line">s2 = Singleton()</span><br><span class="line">print(s1)</span><br><span class="line">print(s2) </span><br><span class="line"><span class="comment">#输出：</span></span><br><span class="line"><span class="comment"># &lt;__main__.Singleton object at 0x000001AEC9403400&gt;</span></span><br><span class="line"><span class="comment"># &lt;__main__.Singleton object at 0x000001AEC9403400&gt;</span></span><br></pre></td></tr></table></figure>
-<p>可以看到s1和s2都指向同一个对象，实现了单例模式。</p>
-<p>再来看下工厂模式的实现 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Fruit</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">print_color</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Apple</span><span class="params">(Fruit)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">print_color</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"apple is in red"</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Orange</span><span class="params">(Fruit)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">print_color</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"orange is in orange"</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FruitFactory</span><span class="params">(object)</span>:</span></span><br><span class="line">    fruits = &#123;<span class="string">"apple"</span>: Apple, <span class="string">"orange"</span>: Orange&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__new__</span><span class="params">(cls, name)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> name <span class="keyword">in</span> cls.fruits.keys():</span><br><span class="line">            <span class="keyword">return</span> cls.fruits[name]()</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> Fruit()</span><br><span class="line"></span><br><span class="line">fruit1 = FruitFactory(<span class="string">"apple"</span>)</span><br><span class="line">fruit2 = FruitFactory(<span class="string">"orange"</span>)</span><br><span class="line">fruit1.print_color()    </span><br><span class="line">fruit2.print_color()    </span><br><span class="line">fruit3 = FruitFactory(<span class="string">"banana"</span>)</span><br><span class="line">print(fruit2)</span><br><span class="line">print(fruit3)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出：</span></span><br><span class="line"><span class="comment"># apple is in red</span></span><br><span class="line"><span class="comment"># orange is in orange</span></span><br><span class="line"><span class="comment"># &lt;__main__.Orange object at 0x000001AEC940F2E8&gt;</span></span><br><span class="line"><span class="comment"># &lt;__main__.Fruit object at 0x000001AEC94277F0&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>另外一种使用场景是当你需要继承内置类时，例如int、str、tuple，只能通过__new__来达到初始化数据的效果： <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">g</span><span class="params">(float)</span>:</span></span><br><span class="line">    <span class="string">"""千克转克"""</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__new__</span><span class="params">(cls, kg)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> float.__new__(cls, kg * <span class="number">2</span>)</span><br><span class="line"><span class="comment"># 50千克转为克</span></span><br><span class="line">a = g(<span class="number">50</span>)</span><br><span class="line">print(a)	<span class="comment"># 100.0</span></span><br><span class="line">print(a + <span class="number">100</span>)	<span class="comment"># 200.0, 由于继承了float，所以可以直接运算，非常方便！</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="del__"><code>__del__</code></h2>
-<p>这是析构方法，也就是在对象被垃圾回收之前被调用。</p>
-<h1 id="自定义序列和映射">自定义序列和映射</h1>
-<p>序列和映射是对象的集合。为了实现它们的基本行为，如果对象是不可变的，就需要使用 <code>__len__</code> 和 <code>__getitem__</code> 两个魔法方法，如果是可变的，则还需要使用 <code>__setitem__</code> 和 <code>__delitem__</code> 。</p>
-<p><code>__len__(self)</code></p>
-<p>返回容器的长度，可变和不可变类型都需要实现。</p>
-<p><code>__getitem__(self, key)</code></p>
-<p>定义对容器中某一项使用 <code>self[key]</code> 的方式进行读取操作时的行为。这也是可变和不可变容器类型都需要实现的一个方法。它应该在键的类型错误式产生 TypeError 异常，同时在没有与键值相匹配的内容时产生 KeyError 异常。</p>
-<p><code>__setitem__(self, key)</code></p>
-<p>定义对容器中某一项使用 <code>self[key]</code> 的方式进行赋值操作时的行为。它是可变容器类型必须实现的一个方法，同样应该在合适的时候产生 KeyError 和 TypeError 异常。</p>
-<p><code>__delitem__(self, key)</code></p>
-<p>这个方法在对一部分对象使用 del 语句时被调用，同时必须删除和键相关的键。</p>
-<h1 id="访问控制">访问控制</h1>
-<h2 id="str__"><code>__str__</code></h2>
-<p>当被 str() 调用时会执行__str__。此方法类似JAVA中的toString方法。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name)</span>:</span></span><br><span class="line">        self.name = name</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name)</span>:</span></span><br><span class="line">        self.name = name</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span><span class="comment">#重写__str__方法</span></span><br><span class="line">        <span class="keyword">return</span> self.name</span><br><span class="line"></span><br><span class="line">a = A(<span class="string">"Tom"</span>)</span><br><span class="line">print(a)</span><br><span class="line">b = B(<span class="string">"Jake"</span>)</span><br><span class="line">print(b)</span><br><span class="line"><span class="comment">#输出：</span></span><br><span class="line"><span class="comment">#&lt;__main__.A object at 0x000001AEC9447198&gt;</span></span><br><span class="line"><span class="comment">#Jake</span></span><br></pre></td></tr></table></figure>
-<h1 id="迭代器">迭代器</h1>
-<h2 id="iter__"><code>__iter__</code></h2>
-<p>该方法会返回一个迭代器。</p>
-<p>迭代器是具有next方法的对象。在调用next方法时，会返回迭代器的下一个值。</p>
-<p>除了在迭代器和可迭代对象上进行迭代外，还能把他们转换为序列。</p>
-<p>下面的例子是用list构造方法显示地将迭代器转化为列表。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h1 id="生成器">生成器</h1>
-<h1 id="参考">参考</h1>
-<ul>
-<li><a href="https://juejin.im/post/5add4446f265da0b8d4186af" target="_blank" rel="noopener">Python面试之理解__new__和__init__的区别</a></li>
-<li></li>
+<li>实现一个小顶堆、大顶堆、优先级队列</li>
+<li>实现堆排序</li>
+<li>利用优先级队列合并 K 个有序数组</li>
+<li>求一组动态数据集合的最大 Top K</li>
+<li>（选做）第三天堆排序学习（复习）</li>
 </ul>
 
           
@@ -966,197 +1784,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/10/python实现数据结构之堆/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Icy"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="QxD's Notes"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/10/python实现数据结构之堆/" class="post-title-link" itemprop="url">python实现数据结构之堆</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-10 00:00:00" itemprop="dateCreated datePublished" datetime="2019-03-10T00:00:00+08:00">2019-03-10</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-03-09 18:57:50" itemprop="dateModified" datetime="2019-03-09T18:57:50+08:00">2019-03-09</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-            <span id="/2019/03/10/python实现数据结构之堆/" class="leancloud_visitors" data-flag-title="python实现数据结构之堆">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>学习目标：</p>
-<ul>
-<li>实现一个小顶堆、大顶堆、优先级队列</li>
-<li>实现堆排序</li>
-<li>利用优先级队列合并 K 个有序数组</li>
-<li>求一组动态数据集合的最大 Top K</li>
-<li>（选做）第三天堆排序学习（复习）</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/09/python实现数据结构之二叉树/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1219,7 +1846,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-12 20:56:38" itemprop="dateModified" datetime="2019-03-12T20:56:38+08:00">2019-03-12</time>
+                <time title="修改时间：2019-03-23 15:18:28" itemprop="dateModified" datetime="2019-03-23T15:18:28+08:00">2019-03-23</time>
               
             
           </span>
@@ -1283,8 +1910,7 @@
 
       
         
-          
-            <p>二叉查找树（英语：Binary Search Tree），也称为二叉搜索树、有序二叉树（ordered binary tree）或排序二叉树（sorted binary tree），是指一棵空树或者具有下列性质的二叉树：</p>
+          <p>二叉查找树（英语：Binary Search Tree），也称为二叉搜索树、有序二叉树（ordered binary tree）或排序二叉树（sorted binary tree），是指一棵空树或者具有下列性质的二叉树：</p>
 <ol style="list-style-type: decimal">
 <li>若任意节点的左子树不空，则左子树上所有节点的值均小于它的根节点的值；</li>
 <li>若任意节点的右子树不空，则右子树上所有节点的值均大于它的根节点的值；</li>
@@ -1294,9 +1920,21 @@
 <p>二叉查找树相比于其他数据结构的优势在于查找、插入的时间复杂度较低，为 <span class="math inline">\(O(log n)\)</span>。 每次插入的新的结点都是二叉查找树上新的叶子结点，在进行插入操作时，不必移动其它结点，只需改动某个结点的指针，由空变为非空即可。</p>
 <p>学习目标：</p>
 <ul>
-<li>实现一个二叉查找树，并且支持插入、删除、查找操作</li>
-<li>实现查找二叉查找树中某个节点的后继、前驱节点</li>
-<li>实现二叉树前、中、后序以及按层遍历</li>
+<li>实现一个二叉查找树，并且支持插入、删除、查找操作
+<ul>
+<li>LeetCode 108. 将有序数组转换为二叉搜索树</li>
+<li>LeetCode 109.</li>
+<li>LeetCode 701. 二叉搜索树中的插入操作</li>
+<li>LeetCode 700. 二叉搜索树中的搜索</li>
+<li>LeetCode 450. 删除二叉搜索树中的结点</li>
+</ul></li>
+<li>实现查找二叉查找树中某个结点的后继、前驱结点</li>
+<li>实现二叉树前、中、后序以及按层遍历
+<ul>
+<li>LeetCode 144. 二叉树的前序遍历</li>
+<li>LeetCode 94. 二叉树的中序遍历</li>
+<li>LeetCode</li>
+</ul></li>
 <li>leetcode上的验证二叉搜索树(98)及 二叉树 层次遍历(102,107)！（选做）（保留往期第四天任务）</li>
 </ul>
 <ol start="226" style="list-style-type: decimal">
@@ -1304,61 +1942,15 @@
 <li><p>Maximum Depth of Binary Tree（二叉树的最大深度）</p></li>
 <li><p>Path Sum（路径总和）</p></li>
 </ol>
-<h1 id="leetcode-701.-二叉搜索树中的插入操作">LeetCode 701. 二叉搜索树中的插入操作</h1>
-<p><a href="https://leetcode-cn.com/problems/insert-into-a-binary-search-tree/" target="_blank" rel="noopener">Insert into a Binary Search Tree</a></p>
-<p>给定二叉搜索树（BST）的根节点和要插入树中的值，将值插入二叉搜索树。 返回插入后二叉搜索树的根节点。 保证原始二叉搜索树中不存在新值。</p>
-<p>注意，可能存在多种有效的插入方式，只要树在插入后仍保持为二叉搜索树即可。 你可以返回任意有效的结果。</p>
-<p>例如, <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">给定二叉搜索树:</span><br><span class="line"></span><br><span class="line">        4</span><br><span class="line">       / \</span><br><span class="line">      2   7</span><br><span class="line">     / \</span><br><span class="line">    1   3</span><br><span class="line"></span><br><span class="line">和 插入的值: 5</span><br></pre></td></tr></table></figure></p>
-<p>你可以返回这个二叉搜索树: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">     4</span><br><span class="line">   /   \</span><br><span class="line">  2     7</span><br><span class="line"> / \   /</span><br><span class="line">1   3 5</span><br></pre></td></tr></table></figure></p>
-<p>或者这个树也是有效的: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">     5</span><br><span class="line">   /   \</span><br><span class="line">  2     7</span><br><span class="line"> / \   </span><br><span class="line">1   3</span><br><span class="line">     \</span><br><span class="line">      4</span><br></pre></td></tr></table></figure></p>
-<h1 id="方法">方法</h1>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.left = None</span></span><br><span class="line"><span class="comment">#         self.right = None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insertIntoBST</span><span class="params">(self, root: TreeNode, val: int)</span> -&gt; TreeNode:</span></span><br><span class="line">        <span class="keyword">if</span> root:</span><br><span class="line">            <span class="keyword">if</span> val &lt; root.val:</span><br><span class="line">                root.left = self.insertIntoBST(root.left, val)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                root.right = self.insertIntoBST(root.right, val)</span><br><span class="line">            <span class="keyword">return</span> root</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> TreeNode(val)</span><br></pre></td></tr></table></figure>
-<h1 id="leetcode-700.-二叉搜索树中的搜索">LeetCode 700. 二叉搜索树中的搜索</h1>
-<p><a href="https://leetcode-cn.com/problems/search-in-a-binary-search-tree/" target="_blank" rel="noopener">Search in a Binary Search Tree</a></p>
-<p>给定二叉搜索树（BST）的根节点和一个值。 你需要在BST中找到节点值等于给定值的节点。 返回以该节点为根的子树。 如果节点不存在，则返回 NULL。</p>
-<p>例如， <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">给定二叉搜索树:</span><br><span class="line"></span><br><span class="line">        4</span><br><span class="line">       / \</span><br><span class="line">      2   7</span><br><span class="line">     / \</span><br><span class="line">    1   3</span><br><span class="line"></span><br><span class="line">和值: 2</span><br></pre></td></tr></table></figure></p>
-<p>你应该返回如下子树: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  2     </span><br><span class="line"> / \   </span><br><span class="line">1   3</span><br></pre></td></tr></table></figure></p>
-<h1 id="方法-1">方法</h1>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.left = None</span></span><br><span class="line"><span class="comment">#         self.right = None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">searchBST</span><span class="params">(self, root: TreeNode, val: int)</span> -&gt; TreeNode:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">        <span class="keyword">if</span> val == root.val:</span><br><span class="line">            <span class="keyword">return</span> root        </span><br><span class="line">        <span class="keyword">if</span> val &lt; root.val:</span><br><span class="line">            <span class="keyword">return</span> self.searchBST(root.left, val)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> self.searchBST(root.right, val)</span><br></pre></td></tr></table></figure>
-<h1 id="leetcode-450.-删除二叉搜索树中的节点">LeetCode 450. 删除二叉搜索树中的节点</h1>
-<p><a href="https://leetcode-cn.com/problems/delete-node-in-a-bst/" target="_blank" rel="noopener">Delete Node in a BST</a></p>
-<p>给定一个二叉搜索树的根节点 root 和一个值 key，删除二叉搜索树中的 key 对应的节点，并保证二叉搜索树的性质不变。返回二叉搜索树（有可能被更新）的根节点的引用。</p>
-<p>一般来说，删除节点可分为两个步骤：</p>
-<p>首先找到需要删除的节点； 如果找到了，删除它。 说明： 要求算法时间复杂度为 O(h)，h 为树的高度。</p>
-<p>示例: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">root = [5,3,6,2,4,null,7]</span><br><span class="line">key = 3</span><br><span class="line"></span><br><span class="line">    5</span><br><span class="line">   / \</span><br><span class="line">  3   6</span><br><span class="line"> / \   \</span><br><span class="line">2   4   7</span><br><span class="line"></span><br><span class="line">给定需要删除的节点值是 3，所以我们首先找到 3 这个节点，然后删除它。</span><br><span class="line"></span><br><span class="line">一个正确的答案是 [5,4,6,2,null,null,7], 如下图所示。</span><br><span class="line"></span><br><span class="line">    5</span><br><span class="line">   / \</span><br><span class="line">  4   6</span><br><span class="line"> /     \</span><br><span class="line">2       7</span><br><span class="line"></span><br><span class="line">另一个正确答案是 [5,2,6,null,4,null,7]。</span><br><span class="line"></span><br><span class="line">    5</span><br><span class="line">   / \</span><br><span class="line">  2   6</span><br><span class="line">   \   \</span><br><span class="line">    4   7</span><br></pre></td></tr></table></figure></p>
-<h2 id="方法-2">方法</h2>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.left = None</span></span><br><span class="line"><span class="comment">#         self.right = None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">deleteNode</span><span class="params">(self, root: TreeNode, key: int)</span> -&gt; TreeNode:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">        <span class="keyword">if</span> root.val == key: <span class="comment"># 找到这个结点</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> root.right: <span class="comment"># 如果只有左孩子，或没有孩子</span></span><br><span class="line">                <span class="keyword">return</span> root.left</span><br><span class="line">            <span class="keyword">else</span>: <span class="comment"># 如果有右孩子</span></span><br><span class="line">                succ = root.right</span><br><span class="line">                <span class="keyword">while</span> succ.left:<span class="comment"># 找右子树的最小值，即待删结点的后继</span></span><br><span class="line">                    succ = succ.left</span><br><span class="line">                succ.val, root.val = root.val, succ.val <span class="comment">#交换两个值</span></span><br><span class="line">        root.left = self.deleteNode(root.left, key) <span class="comment"># 递归遍历左子树</span></span><br><span class="line">        root.right = self.deleteNode(root.right, key) <span class="comment"># 递归遍历右子树</span></span><br><span class="line">        <span class="keyword">return</span> root</span><br></pre></td></tr></table></figure>
-<h1 id="section"></h1>
-<p>前驱节点</p>
-<p>若一个节点有左子树，那么该节点的前驱节点是其左子树中val值最大的节点（也就是左子树中所谓的rightMostNode）</p>
-<p>若一个节点没有左子树，那么判断该节点和其父节点的关系</p>
-<p>2.1 若该节点是其父节点的右边孩子，那么该节点的前驱结点即为其父节点。</p>
-<p>2.2 若该节点是其父节点的左边孩子，那么需要沿着其父亲节点一直向树的顶端寻找，直到找到一个节点P，P节点是其父节点Q的右边孩子，那么Q就是该节点的前驱节点</p>
-<p>后继节点</p>
-<p>若一个节点有右子树，那么该节点的后继节点是其右子树中val值最小的节点（也就是右子树中所谓的leftMostNode）</p>
-<p>若一个节点没有右子树，那么判断该节点和其父节点的关系</p>
-<p>2.1 若该节点是其父节点的左边孩子，那么该节点的后继结点即为其父节点</p>
-<p>2.2 若该节点是其父节点的右边孩子，那么需要沿着其父亲节点一直向树的顶端寻找，直到找到一个节点P，P节点是其父节点Q的左边孩子，那么Q就是该节点的后继节点</p>
-<h2 id="方法-3">方法</h2>
-<p>写成递归形式，</p>
-<ul>
-<li>当根节点值小于等于p节点值，说明p的后继节点一定在右子树中，
-<ul>
-<li>所以对右子节点递归调用此函数，</li>
-</ul></li>
-<li>如果根节点值大于p节点值，那么有可能根节点就是p的后继节点，或者左子树中的某个节点是p的后继节点，
-<ul>
-<li>所以先对左子节点递归调用此函数，如果返回空，说明根节点是后继节点，返回即可，如果不为空，则将那个节点返回 ## ## 中序遍历</li>
-</ul></li>
-</ul>
-<p>中序遍历二叉查找树可得到一个关键字的有序序列，一个无序序列可以通过构造一棵二叉查找树变成一个有序序列，构造树的过程即为对无序序列进行查找的过程。</p>
-<h1 id="参考">参考</h1>
-<ul>
-<li>《Problem Solving with Algorithms and Data Structures using Python》</li>
-<li><a href="http://www.cnblogs.com/grandyang/p/5306162.html" target="_blank" rel="noopener">[LeetCode] Inorder Successor in BST 二叉搜索树中的中序后继节点</a></li>
-</ul>
-
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/03/09/python实现数据结构之二叉树/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1595,798 +2187,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/07/python实现数据结构中的哈希表/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Icy"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="QxD's Notes"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/07/python实现数据结构中的哈希表/" class="post-title-link" itemprop="url">python实现数据结构之哈希表</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-07 00:00:00" itemprop="dateCreated datePublished" datetime="2019-03-07T00:00:00+08:00">2019-03-07</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-03-09 19:03:07" itemprop="dateModified" datetime="2019-03-09T19:03:07+08:00">2019-03-09</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-            <span id="/2019/03/07/python实现数据结构中的哈希表/" class="leancloud_visitors" data-flag-title="python实现数据结构之哈希表">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>散列表（Hash table，也叫哈希表），是根据键（Key）而直接访问在内存存储位置的数据结构。</p>
-<p>具体方法是：</p>
-<ol style="list-style-type: decimal">
-<li>选定一个整数的下标范围（通常以 0 或 1 开始)，建立一个包括相应元素位置范围的顺序表。</li>
-<li>选定一个从实际关键码集合到上述下标范围的适当映射 h
-<ul>
-<li>在需要存入关键码为 key 的数据时，将其存入表中第 h(key) 个位置。</li>
-<li>遇到以 key 为关键码检索数据时，直接去找表中第 h(key) 个位置的元素。</li>
-</ul></li>
-</ol>
-<p>这个 h 称为散列函数， 也常被称为哈希（hash)函数或杂凑函数，它就是从可能的关键码集合到一个整数区间（下标区间）的映射。</p>
-<p>学习目标：</p>
-<ul>
-<li>实现一个基于链表法解决冲突问题的散列表</li>
-<li>实现一个 LRU 缓存淘汰算法</li>
-<li>LeetCode 1. 两数之和</li>
-<li>LeetCode 202. Happy Number</li>
-</ul>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/03/07/python实现数据结构中的哈希表/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/06/二分查找算法/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Icy"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="QxD's Notes"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/06/二分查找算法/" class="post-title-link" itemprop="url">二分查找算法</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-06 00:00:00 / 修改时间：16:54:56" itemprop="dateCreated datePublished" datetime="2019-03-06T00:00:00+08:00">2019-03-06</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-            <span id="/2019/03/06/二分查找算法/" class="leancloud_visitors" data-flag-title="二分查找算法">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>学习目标：</p>
-<ul>
-<li>实现一个有序数组的二分查找算法</li>
-<li>实现模糊二分查找算法
-<ul>
-<li>大于给定值的第一个元素</li>
-</ul></li>
-<li>LeetCode 69. x 的平方根</li>
-<li>LeetCode 35. 搜索插入位置</li>
-</ul>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/03/06/二分查找算法/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/04/python实现排序算法/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Icy"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="QxD's Notes"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/04/python实现排序算法/" class="post-title-link" itemprop="url">python实现排序算法</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-04 00:00:00" itemprop="dateCreated datePublished" datetime="2019-03-04T00:00:00+08:00">2019-03-04</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-03-06 16:54:51" itemprop="dateModified" datetime="2019-03-06T16:54:51+08:00">2019-03-06</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-            <span id="/2019/03/04/python实现排序算法/" class="leancloud_visitors" data-flag-title="python实现排序算法">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>学习目标：</p>
-<ul>
-<li>实现归并排序、快速排序、插入排序、冒泡排序、选择排序、堆排序</li>
-<li>LeetCode 215. 数组中的第K个最大元素</li>
-</ul>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/03/04/python实现排序算法/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/02/递归(python)/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Icy"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="QxD's Notes"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/02/递归(python)/" class="post-title-link" itemprop="url">递归(python)</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-02 00:00:00" itemprop="dateCreated datePublished" datetime="2019-03-02T00:00:00+08:00">2019-03-02</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-03-16 10:04:12" itemprop="dateModified" datetime="2019-03-16T10:04:12+08:00">2019-03-16</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-            <span id="/2019/03/02/递归(python)/" class="leancloud_visitors" data-flag-title="递归(python)">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>在函数的定义中对这个函数自身的调用，就是递归。</p>
-<p>递归结构中，递归的部分必须比原来的整体简单，才有可能到达某种终结点(出口)。而且必须存在非递归的基本结构构成的部分，否则会无限递归。</p>
-<p>学习目标：</p>
-<ul>
-<li>编程实现斐波那契数列求值 f(n)=f(n-1)+f(n-2)</li>
-<li>编程实现求阶乘 n!</li>
-<li>编程实现一组数据集合的全排列</li>
-<li>LeetCode 70. 爬楼梯</li>
-</ul>
-<p>以上问题都可以用递归来解决。</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/03/02/递归(python)/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2428,7 +2233,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-count">32</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2540,7 +2345,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">32</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">34</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

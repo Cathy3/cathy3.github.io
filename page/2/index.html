@@ -295,7 +295,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/01/python实现数据结构中的栈/"/>
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/07/python实现数据结构中的哈希表/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Icy"/>
@@ -315,7 +315,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/03/01/python实现数据结构中的栈/" class="post-title-link" itemprop="url">python实现数据结构中的栈</a>
+                <a href="/2019/03/07/python实现数据结构中的哈希表/" class="post-title-link" itemprop="url">python实现数据结构之哈希表</a>
               
             
           </h1>
@@ -340,7 +340,7 @@
                 
               
 
-              <time title="创建时间：2019-03-01 00:00:00" itemprop="dateCreated datePublished" datetime="2019-03-01T00:00:00+08:00">2019-03-01</time>
+              <time title="创建时间：2019-03-07 00:00:00" itemprop="dateCreated datePublished" datetime="2019-03-07T00:00:00+08:00">2019-03-07</time>
             
 
             
@@ -357,7 +357,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-03 19:44:29" itemprop="dateModified" datetime="2019-03-03T19:44:29+08:00">2019-03-03</time>
+                <time title="修改时间：2019-03-09 19:03:07" itemprop="dateModified" datetime="2019-03-09T19:03:07+08:00">2019-03-09</time>
               
             
           </span>
@@ -389,7 +389,7 @@
 
           
           
-            <span id="/2019/03/01/python实现数据结构中的栈/" class="leancloud_visitors" data-flag-title="python实现数据结构中的栈">
+            <span id="/2019/03/07/python实现数据结构中的哈希表/" class="leancloud_visitors" data-flag-title="python实现数据结构之哈希表">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -421,15 +421,608 @@
 
       
         
-          <p>栈是一种数据呈线性排列的、后入先出（LIFO，last-in-first-out）的数据结构。不过在这种结构中，我们只能访问最新添加的数据。添加移除新项总发生在同一端。这一端通常称为“顶部”。与顶部对应的端称为“底部”。</p>
-<p>栈的底部很重要，因为在栈中靠近底部的项是存储时间最长的。最近添加的项是最先会被移除的。</p>
-<p>对栈的两种主要操作是将一个元素压入栈和将一个元素弹出栈。入栈使用<code>push()</code>方法，出栈使用<code>pop()</code>方法。</p>
-<p>在栈的应用上，比如深度优先搜索算法，通常会选择最新的数据作为候补顶点。在候补顶点的管理上就可以使用栈。</p>
-<p>学习目标： - 用数组实现一个顺序栈 - 用链表实现一个链式栈 - 编程模拟实现一个浏览器的前进、后退功能</p>
+          <p>散列表（Hash table，也叫哈希表），是根据键（Key）而直接访问在内存存储位置的数据结构。</p>
+<p>具体方法是：</p>
+<ol style="list-style-type: decimal">
+<li>选定一个整数的下标范围（通常以 0 或 1 开始)，建立一个包括相应元素位置范围的顺序表。</li>
+<li>选定一个从实际关键码集合到上述下标范围的适当映射 h
+<ul>
+<li>在需要存入关键码为 key 的数据时，将其存入表中第 h(key) 个位置。</li>
+<li>遇到以 key 为关键码检索数据时，直接去找表中第 h(key) 个位置的元素。</li>
+</ul></li>
+</ol>
+<p>这个 h 称为散列函数， 也常被称为哈希（hash)函数或杂凑函数，它就是从可能的关键码集合到一个整数区间（下标区间）的映射。</p>
+<p>学习目标：</p>
+<ul>
+<li>实现一个基于链表法解决冲突问题的散列表</li>
+<li>实现一个 LRU 缓存淘汰算法</li>
+<li>LeetCode 1. 两数之和</li>
+<li>LeetCode 202. Happy Number</li>
+</ul>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2019/03/01/python实现数据结构中的栈/#more" rel="contents">
+              <a class="btn" href="/2019/03/07/python实现数据结构中的哈希表/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/06/二分查找算法/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Icy"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QxD's Notes"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/06/二分查找算法/" class="post-title-link" itemprop="url">二分查找算法</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-06 00:00:00 / 修改时间：16:54:56" itemprop="dateCreated datePublished" datetime="2019-03-06T00:00:00+08:00">2019-03-06</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2019/03/06/二分查找算法/" class="leancloud_visitors" data-flag-title="二分查找算法">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>学习目标：</p>
+<ul>
+<li>实现一个有序数组的二分查找算法</li>
+<li>实现模糊二分查找算法
+<ul>
+<li>大于给定值的第一个元素</li>
+</ul></li>
+<li>LeetCode 69. x 的平方根</li>
+<li>LeetCode 35. 搜索插入位置</li>
+</ul>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/03/06/二分查找算法/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/04/python实现排序算法/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Icy"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QxD's Notes"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/04/python实现排序算法/" class="post-title-link" itemprop="url">python实现排序算法</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-04 00:00:00" itemprop="dateCreated datePublished" datetime="2019-03-04T00:00:00+08:00">2019-03-04</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-03-06 16:54:51" itemprop="dateModified" datetime="2019-03-06T16:54:51+08:00">2019-03-06</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2019/03/04/python实现排序算法/" class="leancloud_visitors" data-flag-title="python实现排序算法">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>学习目标：</p>
+<ul>
+<li>实现归并排序、快速排序、插入排序、冒泡排序、选择排序、堆排序</li>
+<li>LeetCode 215. 数组中的第K个最大元素</li>
+</ul>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/03/04/python实现排序算法/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/02/递归(python)/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Icy"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QxD's Notes"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/02/递归(python)/" class="post-title-link" itemprop="url">递归(python)</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-02 00:00:00" itemprop="dateCreated datePublished" datetime="2019-03-02T00:00:00+08:00">2019-03-02</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-03-16 10:04:12" itemprop="dateModified" datetime="2019-03-16T10:04:12+08:00">2019-03-16</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2019/03/02/递归(python)/" class="leancloud_visitors" data-flag-title="递归(python)">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>在函数的定义中对这个函数自身的调用，就是递归。</p>
+<p>递归结构中，递归的部分必须比原来的整体简单，才有可能到达某种终结点(出口)。而且必须存在非递归的基本结构构成的部分，否则会无限递归。</p>
+<p>学习目标：</p>
+<ul>
+<li>编程实现斐波那契数列求值 f(n)=f(n-1)+f(n-2)</li>
+<li>编程实现求阶乘 n!</li>
+<li>编程实现一组数据集合的全排列</li>
+<li>LeetCode 70. 爬楼梯</li>
+</ul>
+<p>以上问题都可以用递归来解决。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/03/02/递归(python)/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -682,7 +1275,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/python实现数据结构中的链表/"/>
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/01/python实现数据结构中的栈/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Icy"/>
@@ -702,7 +1295,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/02/28/python实现数据结构中的链表/" class="post-title-link" itemprop="url">python实现数据结构中的链表</a>
+                <a href="/2019/03/01/python实现数据结构中的栈/" class="post-title-link" itemprop="url">python实现数据结构中的栈</a>
               
             
           </h1>
@@ -727,7 +1320,7 @@
                 
               
 
-              <time title="创建时间：2019-02-28 00:00:00" itemprop="dateCreated datePublished" datetime="2019-02-28T00:00:00+08:00">2019-02-28</time>
+              <time title="创建时间：2019-03-01 00:00:00" itemprop="dateCreated datePublished" datetime="2019-03-01T00:00:00+08:00">2019-03-01</time>
             
 
             
@@ -744,7 +1337,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-04 10:32:59" itemprop="dateModified" datetime="2019-03-04T10:32:59+08:00">2019-03-04</time>
+                <time title="修改时间：2019-03-03 19:44:29" itemprop="dateModified" datetime="2019-03-03T19:44:29+08:00">2019-03-03</time>
               
             
           </span>
@@ -776,7 +1369,7 @@
 
           
           
-            <span id="/2019/02/28/python实现数据结构中的链表/" class="leancloud_visitors" data-flag-title="python实现数据结构中的链表">
+            <span id="/2019/03/01/python实现数据结构中的栈/" class="leancloud_visitors" data-flag-title="python实现数据结构中的栈">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -808,13 +1401,15 @@
 
       
         
-          <p>链表是数据结构之一，其中的数据呈线性排列。在链表中，数据的添加和删除都较为方便， 就是访问比较耗费时间。</p>
-<p>链表在前一结点里用链接的方式显示地记录与下一结点的关系。不同于数组，链表的元素的物理地址可以任意。</p>
-<p>学习目标： - 实现单链表、循环链表、双向链表，支持增删操作。</p>
+          <p>栈是一种数据呈线性排列的、后入先出（LIFO，last-in-first-out）的数据结构。不过在这种结构中，我们只能访问最新添加的数据。添加移除新项总发生在同一端。这一端通常称为“顶部”。与顶部对应的端称为“底部”。</p>
+<p>栈的底部很重要，因为在栈中靠近底部的项是存储时间最长的。最近添加的项是最先会被移除的。</p>
+<p>对栈的两种主要操作是将一个元素压入栈和将一个元素弹出栈。入栈使用<code>push()</code>方法，出栈使用<code>pop()</code>方法。</p>
+<p>在栈的应用上，比如深度优先搜索算法，通常会选择最新的数据作为候补顶点。在候补顶点的管理上就可以使用栈。</p>
+<p>学习目标： - 用数组实现一个顺序栈 - 用链表实现一个链式栈 - 编程模拟实现一个浏览器的前进、后退功能</p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2019/02/28/python实现数据结构中的链表/#more" rel="contents">
+              <a class="btn" href="/2019/03/01/python实现数据结构中的栈/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1008,6 +1603,198 @@
           
             <div class="post-button text-center">
               <a class="btn" href="/2019/02/28/python实现数据结构中的数组/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/python实现数据结构中的链表/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Icy"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QxD's Notes"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/02/28/python实现数据结构中的链表/" class="post-title-link" itemprop="url">python实现数据结构中的链表</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-28 00:00:00" itemprop="dateCreated datePublished" datetime="2019-02-28T00:00:00+08:00">2019-02-28</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-03-04 10:32:59" itemprop="dateModified" datetime="2019-03-04T10:32:59+08:00">2019-03-04</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2019/02/28/python实现数据结构中的链表/" class="leancloud_visitors" data-flag-title="python实现数据结构中的链表">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>链表是数据结构之一，其中的数据呈线性排列。在链表中，数据的添加和删除都较为方便， 就是访问比较耗费时间。</p>
+<p>链表在前一结点里用链接的方式显示地记录与下一结点的关系。不同于数组，链表的元素的物理地址可以任意。</p>
+<p>学习目标： - 实现单链表、循环链表、双向链表，支持增删操作。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/02/28/python实现数据结构中的链表/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1443,802 +2230,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/20/用python刷LeetCode中链表题(简单级)/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Icy"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="QxD's Notes"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/02/20/用python刷LeetCode中链表题(简单级)/" class="post-title-link" itemprop="url">用python刷LeetCode链表题(简单级)</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-02-20 00:00:00" itemprop="dateCreated datePublished" datetime="2019-02-20T00:00:00+08:00">2019-02-20</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-02-26 20:45:40" itemprop="dateModified" datetime="2019-02-26T20:45:40+08:00">2019-02-26</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-            <span id="/2019/02/20/用python刷LeetCode中链表题(简单级)/" class="leancloud_visitors" data-flag-title="用python刷LeetCode链表题(简单级)">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="合并两个有序链表">21. 合并两个有序链表</h1>
-<p><a href="https://leetcode-cn.com/problems/merge-two-sorted-lists/" target="_blank" rel="noopener">Merge Two Sorted Lists</a> ## 题目描述 将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。</p>
-<p><strong>示例：</strong></p>
-<blockquote>
-<p>输入：1-&gt;2-&gt;4, 1-&gt;3-&gt;4</p>
-</blockquote>
-<blockquote>
-<p>输出：1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4</p>
-</blockquote>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/02/20/用python刷LeetCode中链表题(简单级)/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/24/week3-Greedy Algorithms/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Icy"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="QxD's Notes"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/10/24/week3-Greedy Algorithms/" class="post-title-link" itemprop="url">week3-贪心算法</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-10-24 00:00:00" itemprop="dateCreated datePublished" datetime="2018-10-24T00:00:00+08:00">2018-10-24</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-03-18 09:37:57" itemprop="dateModified" datetime="2019-03-18T09:37:57+08:00">2019-03-18</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-            <span id="/2018/10/24/week3-Greedy Algorithms/" class="leancloud_visitors" data-flag-title="week3-贪心算法">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="概述">概述</h1>
-<p>贪心算法是指，在对问题求解时，每一步选择中总是做出在当前看来是最好的选择。也就是说，不从整体最优上加以考虑，他所做出的是在某种意义上的局部最优解。</p>
-<h2 id="实现过程">实现过程</h2>
-<p>从问题的某一初始解出发；while 能朝给定总目标前进一步 do，求出可行解的一个解元素； 最后，由所有解元素组合成问题的一个可行解。</p>
-<ol style="list-style-type: decimal">
-<li>创建数学模型来描述问题。</li>
-<li>把求解的问题分成若干个子问题。</li>
-<li>对每一子问题求解，得到子问题的局部最优解。</li>
-<li>把子问题的解局部最优解合成原来解问题的一个解。</li>
-</ol>
-<p>注意： - 贪心算法与动态规划的不同在于它对每个子问题的解决方案都做出选择，不能回退。动态规划则会保存以前的运算结果，并根据以前的结果对当前进行选择，有回退功能。 - 贪心法可以解决一些最优化问题，如：求图中的最小生成树、求哈夫曼编码…… - 对于大部分的问题，贪心法通常都不能找出最佳解（不过也有例外），因为他们一般没有测试所有可能的解。贪心法容易过早做决定，因而没法达到最佳解。例如，所有对图着色问题。</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/10/24/week3-Greedy Algorithms/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/28/week2-algorithm_warmup/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Icy"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="QxD's Notes"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/09/28/week2-algorithm_warmup/" class="post-title-link" itemprop="url">week2-Algorithm Warmup</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-09-28 00:00:00" itemprop="dateCreated datePublished" datetime="2018-09-28T00:00:00+08:00">2018-09-28</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-03-04 09:24:07" itemprop="dateModified" datetime="2019-03-04T09:24:07+08:00">2019-03-04</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-            <span id="/2018/09/28/week2-algorithm_warmup/" class="leancloud_visitors" data-flag-title="week2-Algorithm Warmup">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <ul>
-<li>Estimate the running time of an algorithm</li>
-<li>Practice implementing efficient solutions</li>
-<li>Practice solving programming challenges</li>
-<li>Implement programs that are several orders of magnitude faster than straightforward programs</li>
-</ul>
-<h1 id="fibonacci-numbers">Fibonacci Numbers</h1>
-<h2 id="斐波那契数列">斐波那契数列</h2>
-<p><strong>Task.</strong> Given an integer <span class="math inline">\(n\)</span>, find the last digit of the nth Fibonacci number <span class="math inline">\(F_n\)</span>.</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/09/28/week2-algorithm_warmup/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/25/Maximum_Pairwise/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Icy"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="QxD's Notes"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/09/25/Maximum_Pairwise/" class="post-title-link" itemprop="url">Maximum Pairwise Product Problem</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-09-25 00:00:00" itemprop="dateCreated datePublished" datetime="2018-09-25T00:00:00+08:00">2018-09-25</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-03-04 09:13:35" itemprop="dateModified" datetime="2019-03-04T09:13:35+08:00">2019-03-04</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-            <span id="/2018/09/25/Maximum_Pairwise/" class="leancloud_visitors" data-flag-title="Maximum Pairwise Product Problem">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="问题两数最大乘积">问题：两数最大乘积</h1>
-<p>Find the maximum product of two distinct numbers in a sequence of non-negative integers.</p>
-<p><strong>Input:</strong> A sequence of non-negative integers.</p>
-<p><strong>Output:</strong> The maximum value that can be obtained by multiplying two different elements from the sequence.</p>
-<p><strong>Constraints:</strong> $ 2 ≤ n ≤ 2 · 10^5; 0 ≤ a_1,...,a_n ≤ 2 · 10^5 $.</p>
-<p>Sample: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">1 2 3</span><br><span class="line">Output:</span><br><span class="line">6</span><br></pre></td></tr></table></figure></p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/09/25/Maximum_Pairwise/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2280,7 +2276,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-count">32</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2392,7 +2388,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">32</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">34</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

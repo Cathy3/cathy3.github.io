@@ -295,6 +295,460 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/04/随机森林/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Icy"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QxD's Notes"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/04/04/随机森林/" class="post-title-link" itemprop="url">随机森林(Random Forest)算法梳理</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-04 00:00:00 / 修改时间：15:05:14" itemprop="dateCreated datePublished" datetime="2019-04-04T00:00:00+08:00">2019-04-04</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/机器学习/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2019/04/04/随机森林/" class="leancloud_visitors" data-flag-title="随机森林(Random Forest)算法梳理">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>学习任务：</strong> - 集成学习 1. 什么是集成学习？ 2. 集成学习的种类 3. 集成学习的基本步骤：个体学习器的选择、训练、结合 - bagging算法 - 随机森林思想 - 随机森林的推广 - sklearn参数</p>
+<h1 id="集成学习">集成学习</h1>
+<p>集成学习（ensemble learning）是机器学习中的一种思想，而不是指某一具体算法，它通过构建并结合多个学习器来完成学习任务。</p>
+<p>集成学习通过将多个学习器进行结合，常可获得比单一学习器显著优越的泛化性能。这对&quot;弱学习器&quot;(weak learner)尤为明显，因此集成学习的很多理论研究都是针对弱学习器进行的，而基学习器有时也被直接称为弱学习器。</p>
+<h2 id="集成学习的种类">集成学习的种类</h2>
+<p>根据个体学习器的生成方式，目前的集成学习方法大致可分为两大类， - 个体学习器问存在强依赖关系、必须串行生成的序列化方法，代表是 Boosting； - 个体学习器间不存在强依赖关系、可同时生成的并行化方法，代表是 Bagging 和&quot;随机森林&quot; (Random Forest)。</p>
+<p>Boosting 的基本思路是将基分类器层层叠加， 每一层在训练的时候， 对前一层基分类器中分错的样本， 给予更高的权重。 测试时， 根据各层分类器的结果的加权得到最终结果。（降低偏差）</p>
+<p>Bagging 方法更像是一个集体决策的过程， 每个个体都进行单独学习， 学习的内容可以相同， 也可以不同， 也可以部分重叠。 但由于个体之间存在差异性， 最终做出的判断不会完全一致。 在最终做决策时， 每个个体单独作出判断， 再通过投票的方式做出最后的集体决策。 （降低方差）</p>
+<h2 id="集成学习的基本步骤">集成学习的基本步骤</h2>
+<p>集成学习一般可分为以下3个步骤。 1. 找到误差互相独立的个体学习器。</p>
+<pre><code>    这里可以选取ID3决策树作为基分类器。 事实上， 任何分类模型都可以作为基分类器， 但树形模型由于结构简单且较易产生随机性所以比较常用。</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li><p>训练个体学习器。</p>
+<pre><code>在集成学习中需有效地生成多样性大的个体学习器。与简单地直接用初始数据训练出个体学习器相比，如何增强多样性呢?一般思路是在学习过程中引入随机性，常见做法主要是对数据样本、 输入属性、输出表示 、 算法参数进行扰动。
+-    数据样本扰动：通常是基于采样法， 例如在 Bagging中使用自助采样(即有放回的采样)，在 AdaBoost 中使用序列采样.
+-    输入属性扰动：从初始属性集中抽取出若干个属性子集，再基于每个属性子集训练一个基学习器。比如随机子空间 (random subspace)算法。
+-    输出表示扰动：可对训练样本的类标记稍作变动，如&quot;翻转法&quot; (Flipping Output)随机改变一些训练样本的标记;也可对输出表示进行转化，如&quot;输出调制法&quot; (Output Smearing) 将分类输出转化为回归输出后构建个体学习器;
+-    算法参数扰动：基学习算法一般都有参数需进行设置，例如神经网络的隐层神经元数、初始连接权值等。通过随机设置不同的参数，往往可产生差别较大的个体学习器.</code></pre></li>
+<li><p>合并个体学习器的结果。</p>
+<pre><code>常见的结合策略：平均法(averaging)，投票法(voting)，学习法(比如 stacking)
+
+-   averaging 常用于数值型输出。有简单平均法、加权平均法等。
+-   voting 是用投票的方式， 将获得最多选票的结果作为最终的结果。常用于分类任务。 
+-   stacking 是用串行的方式， 把前一个基分类器的结果输出到下一个分类器， 将所有基分类器的输出结果相加（或者用更复杂的算法融合） 作为最终的输出。</code></pre></li>
+</ol>
+<h1 id="bagging算法">Bagging算法</h1>
+<h2 id="采样训练">采样，训练</h2>
+<p>在Bootstrap(有放回抽样)的基础上可以构造出Bagging（Bootstrap Aggregating）算法。这种方法对训练样本集进行多次Bootstrap抽样，用每次抽样形成的数据集训练一个弱学习器模型，得到多个独立的弱学习器（对于分类问题，称为弱分类器），最后用它们的组合进行预测。</p>
+<h2 id="结合策略">结合策略</h2>
+<p>在对预测输出进行结合时， Bagging 通常对分类任务使用简单投票法，对回归任务使用简单平均法.</p>
+<p>若分类预测时出现两个类收到同样票数的情形，则最简单的做法是随机选择一个，也可进一步考察学习器投票的置信度来确定最终胜者.</p>
+<h2 id="算法特点">算法特点</h2>
+<ul>
+<li>假定基学习器的计算复杂度为 O(m) ， 则 Bagging 的复杂度大致为<span class="math inline">\(T(O(m) + O (s))\)</span> ，考虑到采样与投票/平均过程的复杂度 <span class="math inline">\(O(s)\)</span> 很小，而<span class="math inline">\(T\)</span>通常是一个不太大的常数，因此，训练一个 Bagging 集成与直接使用基学习算法训练一个学习器的复杂度同阶，这说明 Bagging 是一个很高效的集成学习算法.</li>
+<li>因为Boostrap采样过程，每个基学习器只使用了初始训练集中约 63.2% 的样本，那么剩下约 36.8% 的样本可用作验证集来对泛化性能进行&quot;包外估计&quot; (out-oιbag estimate)</li>
+<li>从偏差方差分解的角度看， Bagging 主要关注降低方差，因此它在不剪枝 决策树、神经网络等易受样本扰动的学习器上效用更为明显.</li>
+</ul>
+<h1 id="随机森林思想">随机森林思想</h1>
+<p>随机森林(Random Forest，简称RF)是 Bagging 的一个扩展变体. RF 在以决策树为基学习器构建 Bagging 集成的基础上，进一步在决策树的训练过程中引入了随机属性选择. (数据样本扰动 + 输入属性扰动)</p>
+<ul>
+<li>传统决策树在选择划分属性时是在当前结点的属性集合(假定有 d 个属性)中选择一个最优属性;</li>
+<li>而在RF 中，对基决策树的每个结点，先从该结点的属性集合中随机选择一个包含 k 个属性的子集，然后再从这个子集中选择一个最优属性用于划分.</li>
+</ul>
+<p>这里的参数 k 控制了随机性的引入程度： - 若令 <span class="math inline">\(k = d\)</span> ， 则基决策树的构建与传统决策树相同; - 若令 <span class="math inline">\(k = 1\)</span> ， 则是随机选择一个属性用于划分 ; - 一般情况下，推荐值 <span class="math inline">\(k = log_{2}d\)</span> ## 特点 - 随机森林简单、容易实现、计算开销小，令人惊奇的是，它在很多现实任务中展现出强大的性能。 - 随机森林的训练效率常优于 Bagging。</p>
+<pre><code>    因为在个体决策树的构建过程中，Bagging使用的是 &quot;确定型&quot; 决策树，在选择划分属性时要对结点的所有属性进行考察，而随机森林使用的&quot;随机型&quot;决策树则只需考察一个属性子集。</code></pre>
+<ul>
+<li>由于可以随机选择决策树节点划分特征，这样在样本特征维度很高的时候，仍然能高效的训练模型。</li>
+<li>在训练后，可以给出各个特征对于输出的重要性。</li>
+</ul>
+<p>缺点 - 在某些噪音比较大的样本集上，RF模型容易陷入过拟合。</p>
+<h1 id="随机森林的推广">随机森林的推广</h1>
+<p>基于RF，有很多变种算法，应用也很广泛，不光可以用于分类回归，还可以用于特征转换，异常点检测等。</p>
+<h1 id="sklearn参数">sklearn参数</h1>
+<p>RF的分类器是RandomForestClassifier，回归器是RandomForestRegressor。RF需要调的参数包括两部分，第一部分是Bagging框架的参数，第二部分是CART决策树的参数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">sklearn</span>.<span class="title">ensemble</span>.<span class="title">RandomForestClassifier</span><span class="params">(</span></span></span><br><span class="line"><span class="class"><span class="params">        n_estimators=’warn’, criterion=’gini’, </span></span></span><br><span class="line"><span class="class"><span class="params">        max_depth=None, min_samples_split=<span class="number">2</span>, </span></span></span><br><span class="line"><span class="class"><span class="params">        min_samples_leaf=<span class="number">1</span>, </span></span></span><br><span class="line"><span class="class"><span class="params">        min_weight_fraction_leaf=<span class="number">0.0</span>, </span></span></span><br><span class="line"><span class="class"><span class="params">        max_features=’auto’, max_leaf_nodes=None, </span></span></span><br><span class="line"><span class="class"><span class="params">        min_impurity_decrease=<span class="number">0.0</span>, </span></span></span><br><span class="line"><span class="class"><span class="params">        min_impurity_split=None, bootstrap=True, </span></span></span><br><span class="line"><span class="class"><span class="params">        oob_score=False, n_jobs=None, </span></span></span><br><span class="line"><span class="class"><span class="params">        random_state=None, verbose=<span class="number">0</span>, </span></span></span><br><span class="line"><span class="class"><span class="params">        warm_start=False, class_weight=None)</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="bagging框架的参数解释">Bagging框架的参数解释</h2>
+<ul>
+<li><p><strong>n_estimators</strong>：弱学习器的最大迭代次数，或者说最大的弱学习器的个数。 一般来说n_estimators太小，容易过拟合，太大又容易欠拟合，一般选择一个适中的数值。默认是100.实际调参的过程中，我们常常将n_estimators和下面介绍的参数learning_rate一起考虑。</p></li>
+<li><p><strong>oob_score</strong>：即是否采用袋外样本来评估模型的好坏。默认设置False。个人推荐设置为True，因为袋外分数反应了一个模型拟合后的泛化能力。</p></li>
+<li><p><strong>criterion</strong>：即CART决策树做划分时对特征的评价标准。分类模型和回归模型的损失函数不一样。 - 分类RF对应的CART分类树默认是基尼系数，另一个可选择的标准是信息增益。 - 回归RF对应的CART回归树默认是均方差mse，另一个可以选择的标准时绝对值mae。</p>
+<pre><code>一般来说选择默认的标准就已经很好了。</code></pre></li>
+</ul>
+<p>RF重要的框架参数比较少，主要关注的是n_estimators，即RF最大的决策树个数。</p>
+<h2 id="rf决策树参数">RF决策树参数</h2>
+<p>RF的决策树参数，它要调参的参数基本和GBDT相同，如下:</p>
+<ul>
+<li><strong>max_features</strong>:RF划分时考虑的最大特征，可以使用很多种类型的值. - 默认是&quot;auto&quot;，意味着划分时最多考虑 <span class="math inline">\(\sqrt{N}\)</span> 个特征； - 如果是&quot;log2&quot;意味着划分时最多考虑 <span class="math inline">\(log_{2}N\)</span> 个特征； - 如果是&quot;sqrt&quot;或者&quot;auto&quot;意味着划分时最多可考虑 <span class="math inline">\(\sqrt{N}\)</span> 个特征。 - 如果是整数，代表考虑的特征绝对数。 - 如果是浮点数，代表考虑特征百分比，即考虑（百分比xN）取整后的特征数。 - 其中N为样本总特征数。 - 一般我们默认的&quot;auto&quot;就可以了，如果特征数非常多，我们可以灵活使用刚才描述的其他取值来控制划分时考虑的最大特征数，以控制决策树的生成时间。</li>
+<li><strong>max_depth</strong>: 决策树最大深度。默认可以不输入，如果不输入的话，决策树在建立子树的时候不会限制子树的深度。 - 一般来说，数据少或者特征少的时候可以不管这个值。 - 如果模型样本量多，特征也多的情况下，推荐限制这个最大深度，具体的取值取决于数据的分布。常用的可以取值10-100之间。</li>
+<li><strong>min_samples_split</strong>: 内部节点再划分所需最小样本数。这个值限制了子树继续划分的条件，如果某节点的样本数少于min_samples_split，则不会继续再尝试选择最优特征来进行划分。 - 默认是2.如果样本量不大，不需要管这个值。如果样本量数量级非常大，则推荐增大这个值。</li>
+<li><strong>min_samples_leaf</strong>: 叶子节点最少样本数。这个值限制了叶子节点最少的样本数，如果某叶子节点数目小于样本数，则会和兄弟节点一起被剪枝。 - 默认是1,可以输入最少的样本数的整数，或者最少样本数占样本总数的百分比。如果样本量不大，不需要管这个值。如果样本量数量级非常大，则推荐增大这个值。</li>
+<li><strong>min_weight_fraction_leaf</strong>：叶子节点最小的样本权重和。这个值限制了叶子节点所有样本权重和的最小值，如果小于这个值，则会和兄弟节点一起被剪枝。 - 默认是0，就是不考虑权重问题。一般来说，如果我们有较多样本有缺失值，或者分类树样本的分布类别偏差很大，就会引入样本权重，这时我们就要注意这个值了。</li>
+<li><strong>max_leaf_nodes</strong>: 最大叶子节点数。通过限制最大叶子节点数，可以防止过拟合，默认是&quot;None”，即不限制最大的叶子节点数。如果加了限制，算法会建立在最大叶子节点数内最优的决策树。如果特征不多，可以不考虑这个值，但是如果特征很多的话，可以加以限制，具体的值可以通过交叉验证得到。</li>
+<li><strong>min_impurity_split</strong>: 节点划分最小不纯度。这个值限制了决策树的增长，如果某节点的不纯度(基于基尼系数，均方差)小于这个阈值，则该节点不再生成子节点。即为叶子节点 。一般不推荐改动默认值1e-7。</li>
+</ul>
+<p>上面决策树参数中最重要的包括最大特征数 <strong>max_features</strong>， 最大深度 <strong>max_depth</strong>， 内部节点再划分所需最小样本数<strong>min_samples_split</strong> 和叶子节点最少样本数 <strong>min_samples_leaf</strong>。</p>
+<h1 id="参考">参考</h1>
+<ul>
+<li>《机器学习》周志华</li>
+<li>《百面机器学习》诸葛越</li>
+<li><a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1554345104&amp;ver=1525&amp;signature=nv3IJ0jWadpcSy4ZJz6CRoEChzTMau2o9zf3Nl736gN4pWbufSm9XvgY7nh2EykPaJ37oX2iroXw9Ai0sLIQNxmi5r3mtXNDSjypQ*poIZkDqhyy3CrCMD-IB*0XU*8N&amp;new=1" target="_blank" rel="noopener">随机森林概述 by SIGAI</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/52704839" target="_blank" rel="noopener">随机森林算法介绍(理论)</a></li>
+<li><a href="https://www.cnblogs.com/pinard/p/6160412.html" target="_blank" rel="noopener">scikit-learn随机森林调参小结</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/01/pandas处理时间和日期类型数据/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Icy"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QxD's Notes"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/04/01/pandas处理时间和日期类型数据/" class="post-title-link" itemprop="url">pandas 处理时间类型数据</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-01 00:00:00" itemprop="dateCreated datePublished" datetime="2019-04-01T00:00:00+08:00">2019-04-01</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-04 10:07:08" itemprop="dateModified" datetime="2019-04-04T10:07:08+08:00">2019-04-04</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据分析/" itemprop="url" rel="index"><span itemprop="name">数据分析</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2019/04/01/pandas处理时间和日期类型数据/" class="leancloud_visitors" data-flag-title="pandas 处理时间类型数据">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>学习目标：</strong> - 时间序列数据导入，并转为时间类型 -</p>
+<p>导入一个时间相关的数据集 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment">## importing a dataset</span></span><br><span class="line">url=<span class="string">"http://mlr.cs.umass.edu/ml/machine-learning-databases/event-detection/CalIt2.data"</span></span><br><span class="line">data = pd.read_csv(url, header = <span class="keyword">None</span>)</span><br></pre></td></tr></table></figure></p>
+<p>查看数据的属性</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>data.head(<span class="number">3</span>)</span><br><span class="line">   <span class="number">0</span>         <span class="number">1</span>         <span class="number">2</span>  <span class="number">3</span></span><br><span class="line"><span class="number">0</span>  <span class="number">7</span>  <span class="number">07</span>/<span class="number">24</span>/<span class="number">05</span>  <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>  <span class="number">0</span></span><br><span class="line"><span class="number">1</span>  <span class="number">9</span>  <span class="number">07</span>/<span class="number">24</span>/<span class="number">05</span>  <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>  <span class="number">0</span></span><br><span class="line"><span class="number">2</span>  <span class="number">7</span>  <span class="number">07</span>/<span class="number">24</span>/<span class="number">05</span>  <span class="number">00</span>:<span class="number">30</span>:<span class="number">00</span>  <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 查看所有列的数据类型</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>data.dtypes</span><br><span class="line"><span class="number">0</span>     int64</span><br><span class="line"><span class="number">1</span>    object</span><br><span class="line"><span class="number">2</span>    object</span><br><span class="line"><span class="number">3</span>     int64</span><br><span class="line">dtype: object</span><br></pre></td></tr></table></figure>
+<p>可以看出来第1列和第2列包含时间时间序列数据，但却是object类型，我们可以转换成时间类型。 ## 数据类型转化(object → datetime) <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>data[<span class="number">1</span>] = pd.to_datetime(data[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>data[<span class="number">2</span>] = pd.to_datetime(data[<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>data.dtypes</span><br><span class="line"><span class="number">0</span>             int64</span><br><span class="line"><span class="number">1</span>    datetime64[ns]</span><br><span class="line"><span class="number">2</span>    datetime64[ns]</span><br><span class="line"><span class="number">3</span>             int64</span><br><span class="line">dtype: object</span><br></pre></td></tr></table></figure></p>
+<h2 id="查看datetime类型数据">查看datetime类型数据</h2>
+<ul>
+<li>查看这个数据集中的时间数据中包含了哪些年、月、日等。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>data[<span class="number">1</span>].dt.year.unique()</span><br><span class="line">array([<span class="number">2005</span>], dtype=int64)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>data[<span class="number">1</span>].dt.month.unique()</span><br><span class="line">array([ <span class="number">7</span>,  <span class="number">8</span>,  <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>], dtype=int64)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>data[<span class="number">1</span>].dt.day.unique()</span><br><span class="line">array([<span class="number">24</span>, <span class="number">25</span>, <span class="number">26</span>, <span class="number">27</span>, <span class="number">28</span>, <span class="number">29</span>, <span class="number">30</span>, <span class="number">31</span>,  <span class="number">1</span>,  <span class="number">2</span>,  <span class="number">3</span>,  <span class="number">4</span>,  <span class="number">5</span>,  <span class="number">6</span>,  <span class="number">7</span>,  <span class="number">8</span>,  <span class="number">9</span>,</span><br><span class="line">       <span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>, <span class="number">16</span>, <span class="number">17</span>, <span class="number">18</span>, <span class="number">19</span>, <span class="number">20</span>, <span class="number">21</span>, <span class="number">22</span>, <span class="number">23</span>], dtype=int64)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>查看某月的数据有多少 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>data[data[<span class="number">1</span>].dt.month == <span class="number">10</span>].shape</span><br><span class="line">(<span class="number">2976</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure></p></li>
+<li><p>查看两个时间相差多久</p></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>data.loc[<span class="number">6624</span>,<span class="number">1</span>] - data.loc[<span class="number">0</span>,<span class="number">1</span>]</span><br><span class="line">Timedelta(<span class="string">'69 days 00:00:00'</span>)</span><br></pre></td></tr></table></figure>
+<p>第1行和第6624行的数据相差69天，结果是个Timedelta数据类型。</p>
+<p>参考：<a href="https://stepik.org/lesson/44678/step/1?unit=22718" target="_blank" rel="noopener">Working with Dates and timedelta in Pandas</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/21/模型验证/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -558,178 +1012,6 @@
           
           
             <span id="/2019/03/18/决策树/" class="leancloud_visitors" data-flag-title="决策树(Decision trees)">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/18/随机森林/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Icy"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="QxD's Notes"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/18/随机森林/" class="post-title-link" itemprop="url">随机森林(Random Forest)</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-18 00:00:00 / 修改时间：09:45:50" itemprop="dateCreated datePublished" datetime="2019-03-18T00:00:00+08:00">2019-03-18</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/机器学习/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-            <span id="/2019/03/18/随机森林/" class="leancloud_visitors" data-flag-title="随机森林(Random Forest)">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -1378,6 +1660,200 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/10/python实现数据结构之图/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Icy"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QxD's Notes"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/10/python实现数据结构之图/" class="post-title-link" itemprop="url">python实现数据结构之图</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-10 00:00:00" itemprop="dateCreated datePublished" datetime="2019-03-10T00:00:00+08:00">2019-03-10</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-04 10:07:10" itemprop="dateModified" datetime="2019-04-04T10:07:10+08:00">2019-04-04</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2019/03/10/python实现数据结构之图/" class="leancloud_visitors" data-flag-title="python实现数据结构之图">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><strong>学习目标：</strong></p>
+<ul>
+<li>实现有向图、无向图、有权图、无权图的邻接矩阵和邻接表表示方法</li>
+<li>实现图的深度优先搜索、广度优先搜索 实现 Dijkstra 算法、A* 算法 实现拓扑排序的 Kahn 算法、DFS 算法 对应的 LeetCode 练习题 200 Number of Islands（岛屿的个数） 英文版：https://leetcode.com/problems/number-of-islands/description/ 中文版：https://leetcode-cn.com/problems/number-of-islands/description/ Valid Sudoku（有效的数独） 英文版：https://leetcode.com/problems/valid-sudoku/ 中文版：https://leetcode-cn.com/problems/valid-sudoku/</li>
+</ul>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/03/10/python实现数据结构之图/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/10/python实现数据结构之堆/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1569,221 +2045,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/10/python实现数据结构之图/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Icy"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="QxD's Notes"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/10/python实现数据结构之图/" class="post-title-link" itemprop="url">python实现数据结构之图</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-10 00:00:00" itemprop="dateCreated datePublished" datetime="2019-03-10T00:00:00+08:00">2019-03-10</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-03-24 09:19:35" itemprop="dateModified" datetime="2019-03-24T09:19:35+08:00">2019-03-24</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-            <span id="/2019/03/10/python实现数据结构之图/" class="leancloud_visitors" data-flag-title="python实现数据结构之图">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>学习目标：</p>
-<ul>
-<li>实现有向图、无向图、有权图、无权图的邻接矩阵和邻接表表示方法</li>
-<li>实现图的深度优先搜索、广度优先搜索 实现 Dijkstra 算法、A* 算法 实现拓扑排序的 Kahn 算法、DFS 算法 对应的 LeetCode 练习题 200 Number of Islands（岛屿的个数） 英文版：https://leetcode.com/problems/number-of-islands/description/ 中文版：https://leetcode-cn.com/problems/number-of-islands/description/ Valid Sudoku（有效的数独） 英文版：https://leetcode.com/problems/valid-sudoku/ 中文版：https://leetcode-cn.com/problems/valid-sudoku/</li>
-</ul>
-<h1 id="实现一个邻接表表示的有向带权图">实现一个邻接表表示的有向带权图</h1>
-<p>每个顶点的所有邻接点和对应的边的权重用字典表示。</p>
-<p>对于无权图，可以只将顶点的所有邻接点放入 list 中即可。</p>
-<p>图的所有顶点名称及对应的顶点对象用字典表示。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vertex</span>:</span><span class="comment">#顶点</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,key)</span>:</span></span><br><span class="line">        self.id = key</span><br><span class="line">        self.connectedTo = &#123;&#125; <span class="comment">#邻接点，及相应的权重</span></span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">addNeighbor</span><span class="params">(self, nbr, weight=<span class="number">0</span>)</span>:</span></span><br><span class="line">        self.connectedTo[nbr] = weight</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> str(self.id) + <span class="string">' connectedTo: '</span>+str([x.id <span class="keyword">for</span> x <span class="keyword">in</span> self.connectedTo])</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getConnections</span><span class="params">(self)</span>:</span> <span class="comment">#多有邻接点</span></span><br><span class="line">        <span class="keyword">return</span> self.connectedTo.keys()</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getId</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.id</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getWeight</span><span class="params">(self,nbr)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.connectedTo[nbr]</span><br><span class="line">    </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Graph</span>:</span> <span class="comment"># 邻接表表示的有向带权图</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.vertList = &#123;&#125; <span class="comment"># 所有顶点</span></span><br><span class="line">        self.numVertices = <span class="number">0</span></span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">addVertex</span><span class="params">(self, key)</span>:</span> <span class="comment">#添加顶点</span></span><br><span class="line">        self.numVertices += <span class="number">1</span></span><br><span class="line">        newVertex = Vertex(key)</span><br><span class="line">        self.vertList[key] = newVertex</span><br><span class="line">        <span class="keyword">return</span> newVertex</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getVertex</span><span class="params">(self, n)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> n <span class="keyword">in</span> self.vertList:</span><br><span class="line">            <span class="keyword">return</span> self.vertList[n]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__contains__</span><span class="params">(self,n)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> n <span class="keyword">in</span> self.vertList</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">addEdge</span><span class="params">(self,f,t,cost=<span class="number">0</span>)</span>:</span> <span class="comment">#添加边</span></span><br><span class="line">        <span class="keyword">if</span> f <span class="keyword">not</span> <span class="keyword">in</span> self.vertList:</span><br><span class="line">            self.addVertex(f)</span><br><span class="line">        <span class="keyword">if</span> t <span class="keyword">not</span> <span class="keyword">in</span> self.vertList:</span><br><span class="line">            self.addVertex(t)</span><br><span class="line">        self.vertList[f].addNeighbor(self.vertList[t], cost)</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getVertices</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.vertList.keys()</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__iter__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> iter(self.vertList.values())</span><br><span class="line">    </span><br><span class="line">g = Graph()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">6</span>):</span><br><span class="line">    g.addVertex(i)</span><br><span class="line">print(g.getVertex(<span class="number">3</span>))</span><br><span class="line">print(g.vertList)</span><br><span class="line">print(<span class="number">3</span> <span class="keyword">in</span> g)</span><br><span class="line">g.addEdge(<span class="number">0</span>,<span class="number">1</span>,<span class="number">5</span>)</span><br><span class="line">g.addEdge(<span class="number">0</span>,<span class="number">5</span>,<span class="number">2</span>)</span><br><span class="line">g.addEdge(<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>)</span><br><span class="line">g.addEdge(<span class="number">2</span>,<span class="number">3</span>,<span class="number">9</span>)</span><br><span class="line">g.addEdge(<span class="number">3</span>,<span class="number">4</span>,<span class="number">7</span>)</span><br><span class="line">g.addEdge(<span class="number">3</span>,<span class="number">5</span>,<span class="number">3</span>)</span><br><span class="line">g.addEdge(<span class="number">4</span>,<span class="number">0</span>,<span class="number">1</span>)</span><br><span class="line">g.addEdge(<span class="number">5</span>,<span class="number">4</span>,<span class="number">8</span>)</span><br><span class="line">g.addEdge(<span class="number">5</span>,<span class="number">2</span>,<span class="number">1</span>)</span><br><span class="line">print(g.getVertices())</span><br><span class="line"><span class="keyword">for</span> v <span class="keyword">in</span> g:</span><br><span class="line">    <span class="keyword">for</span> w <span class="keyword">in</span> v.getConnections():</span><br><span class="line">        print(<span class="string">'(%s,%s)'</span>%(v.getId(), w.getId()))</span><br></pre></td></tr></table></figure>
-<p>输出：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">3 connectedTo: []</span><br><span class="line">&#123;0: &lt;__main__.Vertex object at 0x000001AEC9423B70&gt;, 1: &lt;__main__.Vertex object at 0x000001AEC903F748&gt;, 2: &lt;__main__.Vertex object at 0x000001AEC85F8CC0&gt;, 3: &lt;__main__.Vertex object at 0x000001AEC9415FD0&gt;, 4: &lt;__main__.Vertex object at 0x000001AEC9415EF0&gt;, 5: &lt;__main__.Vertex object at 0x000001AEC9415B70&gt;&#125;</span><br><span class="line">True</span><br><span class="line">dict_keys([0, 1, 2, 3, 4, 5])</span><br><span class="line">(0,1)</span><br><span class="line">(0,5)</span><br><span class="line">(1,2)</span><br><span class="line">(2,3)</span><br><span class="line">(3,4)</span><br><span class="line">(3,5)</span><br><span class="line">(4,0)</span><br><span class="line">(5,4)</span><br><span class="line">(5,2)</span><br></pre></td></tr></table></figure>
-<h1 id="图的遍历">图的遍历</h1>
-<p>遍历图最常用的有两种方式，就是你常听到的 BFS 和 DFS.</p>
-<ul>
-<li>BFS: Breadth First Search，广度优先搜索</li>
-<li>DFS: Depdth First Search，深度优先搜索</li>
-</ul>
-<h2 id="bfs">BFS</h2>
-<p>BFS 类似于树的层序遍历，从第一个节点开始，先访问离 A 最近的点，接着访问次近的点。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"></span><br><span class="line">GRAPH = &#123;  <span class="comment"># 邻接表表示的无向无权图</span></span><br><span class="line">    <span class="string">'A'</span>: [<span class="string">'B'</span>, <span class="string">'F'</span>],</span><br><span class="line">    <span class="string">'B'</span>: [<span class="string">'C'</span>, <span class="string">'I'</span>, <span class="string">'G'</span>],</span><br><span class="line">    <span class="string">'C'</span>: [<span class="string">'B'</span>, <span class="string">'I'</span>, <span class="string">'D'</span>],</span><br><span class="line">    <span class="string">'D'</span>: [<span class="string">'C'</span>, <span class="string">'I'</span>, <span class="string">'G'</span>, <span class="string">'H'</span>, <span class="string">'E'</span>],</span><br><span class="line">    <span class="string">'E'</span>: [<span class="string">'D'</span>, <span class="string">'H'</span>, <span class="string">'F'</span>],</span><br><span class="line">    <span class="string">'F'</span>: [<span class="string">'A'</span>, <span class="string">'G'</span>, <span class="string">'E'</span>],</span><br><span class="line">    <span class="string">'G'</span>: [<span class="string">'B'</span>, <span class="string">'F'</span>, <span class="string">'H'</span>, <span class="string">'D'</span>],</span><br><span class="line">    <span class="string">'H'</span>: [<span class="string">'G'</span>, <span class="string">'D'</span>, <span class="string">'E'</span>],</span><br><span class="line">    <span class="string">'I'</span>: [<span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'D'</span>],</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Queue</span><span class="params">(object)</span>:</span> <span class="comment"># 队列辅助</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self._deque = deque()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">push</span><span class="params">(self, value)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self._deque.append(value)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pop</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self._deque.popleft()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(self._deque)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bfs</span><span class="params">(graph, start)</span>:</span></span><br><span class="line">    search_queue = Queue()</span><br><span class="line">    search_queue.push(start)<span class="comment"># 起点先入队</span></span><br><span class="line">    searched = set() <span class="comment"># 已经访问过的结点</span></span><br><span class="line">    <span class="keyword">while</span> search_queue:   <span class="comment"># 队列不为空就继续</span></span><br><span class="line">        cur_node = search_queue.pop() <span class="comment"># 出队</span></span><br><span class="line">        <span class="keyword">if</span> cur_node <span class="keyword">not</span> <span class="keyword">in</span> searched: <span class="comment"># 若是未访问的结点</span></span><br><span class="line">            <span class="keyword">yield</span> cur_node <span class="comment"># 读出</span></span><br><span class="line">            searched.add(cur_node) <span class="comment"># 添加到记录中</span></span><br><span class="line">            <span class="keyword">for</span> node <span class="keyword">in</span> graph[cur_node]: <span class="comment"># 所有邻接点</span></span><br><span class="line">                search_queue.push(node)<span class="comment"># 起点的所有邻接点入队</span></span><br><span class="line"></span><br><span class="line">print([i <span class="keyword">for</span> i <span class="keyword">in</span> bfs(GRAPH, <span class="string">'A'</span>)])</span><br></pre></td></tr></table></figure>
-<p>输出</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[&apos;A&apos;, &apos;B&apos;, &apos;F&apos;, &apos;C&apos;, &apos;I&apos;, &apos;G&apos;, &apos;E&apos;, &apos;D&apos;, &apos;H&apos;]</span><br></pre></td></tr></table></figure>
-<h2 id="dfs">DFS</h2>
-<p>深度优先搜索(DFS)是每遇到一个节点，如果没有被访问过，就直接去访问它的邻居节点，不断加深。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">GRAPH = &#123;  <span class="comment">#邻接表表示的无向无权图</span></span><br><span class="line">    <span class="string">'A'</span>: [<span class="string">'B'</span>, <span class="string">'F'</span>],</span><br><span class="line">    <span class="string">'B'</span>: [<span class="string">'C'</span>, <span class="string">'I'</span>, <span class="string">'G'</span>],</span><br><span class="line">    <span class="string">'C'</span>: [<span class="string">'B'</span>, <span class="string">'I'</span>, <span class="string">'D'</span>],</span><br><span class="line">    <span class="string">'D'</span>: [<span class="string">'C'</span>, <span class="string">'I'</span>, <span class="string">'G'</span>, <span class="string">'H'</span>, <span class="string">'E'</span>],</span><br><span class="line">    <span class="string">'E'</span>: [<span class="string">'D'</span>, <span class="string">'H'</span>, <span class="string">'F'</span>],</span><br><span class="line">    <span class="string">'F'</span>: [<span class="string">'A'</span>, <span class="string">'G'</span>, <span class="string">'E'</span>],</span><br><span class="line">    <span class="string">'G'</span>: [<span class="string">'B'</span>, <span class="string">'F'</span>, <span class="string">'H'</span>, <span class="string">'D'</span>],</span><br><span class="line">    <span class="string">'H'</span>: [<span class="string">'G'</span>, <span class="string">'D'</span>, <span class="string">'E'</span>],</span><br><span class="line">    <span class="string">'I'</span>: [<span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'D'</span>],</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">DFS_SEARCHED = set()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(graph, start)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> start <span class="keyword">not</span> <span class="keyword">in</span> DFS_SEARCHED: <span class="comment"># 若是未访问的结点</span></span><br><span class="line">        print(start)</span><br><span class="line">        DFS_SEARCHED.add(start)</span><br><span class="line">    <span class="keyword">for</span> node <span class="keyword">in</span> graph[start]: <span class="comment"># 所有邻接点</span></span><br><span class="line">        <span class="keyword">if</span> node <span class="keyword">not</span> <span class="keyword">in</span> DFS_SEARCHED:<span class="comment"># 一旦是未访问的结点</span></span><br><span class="line">            dfs(graph, node)  <span class="comment"># 递归</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">dfs(GRAPH, <span class="string">'A'</span>)  <span class="comment"># A B C I D G F E H</span></span><br></pre></td></tr></table></figure>
-<h1 id="参考">参考</h1>
-<ul>
-<li>《Problem Solving with Algorithms and Data Structures using Python》</li>
-<li><a href="https://python-data-structures-and-algorithms.readthedocs.io/zh/latest/18_%E5%9B%BE%E4%B8%8E%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86/graph/" target="_blank" rel="noopener">18_图与图的遍历</a></li>
-<li><a href="https://www.zybuluo.com/guoxs/note/249812" target="_blank" rel="noopener">数据结构之图</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/09/python实现数据结构之二叉树/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1846,7 +2107,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-30 11:37:56" itemprop="dateModified" datetime="2019-03-30T11:37:56+08:00">2019-03-30</time>
+                <time title="修改时间：2019-04-01 09:14:19" itemprop="dateModified" datetime="2019-04-01T09:14:19+08:00">2019-04-01</time>
               
             
           </span>
@@ -1910,238 +2171,12 @@
 
       
         
-          <p>二叉查找树（英语：Binary Search Tree），也称为二叉搜索树、有序二叉树（ordered binary tree）或排序二叉树（sorted binary tree），是指一棵空树或者具有下列性质的二叉树：</p>
-<ol style="list-style-type: decimal">
-<li>若任意节点的左子树不空，则左子树上所有节点的值均小于它的根节点的值；</li>
-<li>若任意节点的右子树不空，则右子树上所有节点的值均大于它的根节点的值；</li>
-<li>任意节点的左、右子树也分别为二叉查找树；</li>
-<li>没有键值相等的节点。</li>
-</ol>
-<p>学习目标：</p>
-<ul>
-<li>实现一个二叉查找树，并且支持插入、删除、查找操作
-<ul>
-<li>LeetCode 108. 将有序数组转换为二叉搜索树</li>
-<li>LeetCode 109. 有序链表转换二叉搜索树</li>
-<li>LeetCode 701. 二叉搜索树中的插入操作</li>
-<li>LeetCode 700. 二叉搜索树中的搜索</li>
-<li>LeetCode 450. 删除二叉搜索树中的结点</li>
-</ul></li>
-<li>实现查找二叉查找树中某个结点的后继、前驱结点</li>
-<li>实现二叉树前、中、后序以及按层遍历
-<ul>
-<li>LeetCode 144. 二叉树的前序遍历</li>
-<li>LeetCode 94. 二叉树的中序遍历</li>
-<li>LeetCode 145. 二叉树的后序遍历</li>
-<li>LeetCode 102. 二叉树的层次遍历</li>
-</ul></li>
-<li>LeetCode 98. 验证二叉搜索树</li>
-<li>LeetCode 103. 二叉树的锯齿形层次遍历</li>
-<li>LeetCode 226. 翻转二叉树</li>
-<li>LeetCode 104. 二叉树的最大深度</li>
-<li>LeetCode 112. 路径总和</li>
-</ul>
+          <p>二叉查找树（英语：Binary Search Tree），也称为二叉搜索树、有序二叉树（ordered binary tree）或排序二叉树（sorted binary tree）。</p>
+<p><strong>学习目标：</strong> - 实现一个二叉查找树，并且支持插入、删除、查找操作 - LeetCode 108. 将有序数组转换为二叉搜索树 - LeetCode 109. 有序链表转换二叉搜索树 - LeetCode 701. 二叉搜索树中的插入操作 - LeetCode 700. 二叉搜索树中的搜索 - LeetCode 450. 删除二叉搜索树中的结点 - 实现查找二叉查找树中某个结点的后继、前驱结点 - 实现二叉树前、中、后序以及按层遍历 - LeetCode 144. 二叉树的前序遍历 - LeetCode 94. 二叉树的中序遍历 - LeetCode 145. 二叉树的后序遍历 - LeetCode 102. 二叉树的层次遍历 - LeetCode 98. 验证二叉搜索树 - LeetCode 103. 二叉树的锯齿形层次遍历 - LeetCode 226. 翻转二叉树 - LeetCode 104. 二叉树的最大深度 - LeetCode 112. 路径总和</p>
           <!--noindex-->
           
             <div class="post-button text-center">
               <a class="btn" href="/2019/03/09/python实现数据结构之二叉树/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/08/python实现数据结构之字符串/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Icy"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="QxD's Notes"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/08/python实现数据结构之字符串/" class="post-title-link" itemprop="url">python实现数据结构之字符串</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-08 00:00:00" itemprop="dateCreated datePublished" datetime="2019-03-08T00:00:00+08:00">2019-03-08</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-03-09 18:46:38" itemprop="dateModified" datetime="2019-03-09T18:46:38+08:00">2019-03-09</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-            <span id="/2019/03/08/python实现数据结构之字符串/" class="leancloud_visitors" data-flag-title="python实现数据结构之字符串">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>学习目标：</p>
-<ul>
-<li>实现一个字符集，只包含 a～z 这 26 个英文字母的 Trie 树</li>
-<li>实现朴素的字符串匹配算法</li>
-<li>LeetCode 344. 反转字符串</li>
-<li>LeetCode 151. 翻转字符串里的单词</li>
-<li>LeetCode 8. 字符串转换整数 (atoi)</li>
-</ul>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/03/08/python实现数据结构之字符串/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -2232,7 +2267,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">32</span>
+                    <span class="site-state-item-count">33</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2263,7 +2298,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">7</span>
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -2350,7 +2387,15 @@
                     
                       
                     
-                    <span class="site-state-item-count">34</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">38</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

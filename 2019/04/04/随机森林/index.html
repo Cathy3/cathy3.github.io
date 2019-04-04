@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="学习任务： - 集成学习 1. 什么是集成学习？ 2. 集成学习的种类有哪些？ 3. 集成学习的基本步骤：个体学习器的选择、训练、结合 - bagging算法 - 随机森林思想 - 随机森林的推广 - sklearn参数">
+  <meta name="description" content="学习任务：  集成学习  什么是集成学习？ 集成学习的种类有哪些？ 集成学习的基本步骤：个体学习器的选择、训练、结合  bagging算法 随机森林思想 随机森林的推广 sklearn参数">
 <meta name="keywords" content="sklearn,机器学习,算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="随机森林(Random Forest)算法梳理">
 <meta property="og:url" content="http://yoursite.com/2019/04/04/随机森林/index.html">
 <meta property="og:site_name" content="QxD&#39;s Notes">
-<meta property="og:description" content="学习任务： - 集成学习 1. 什么是集成学习？ 2. 集成学习的种类有哪些？ 3. 集成学习的基本步骤：个体学习器的选择、训练、结合 - bagging算法 - 随机森林思想 - 随机森林的推广 - sklearn参数">
+<meta property="og:description" content="学习任务：  集成学习  什么是集成学习？ 集成学习的种类有哪些？ 集成学习的基本步骤：个体学习器的选择、训练、结合  bagging算法 随机森林思想 随机森林的推广 sklearn参数">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-04T07:31:18.976Z">
+<meta property="og:updated_time" content="2019-04-04T07:38:17.353Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="随机森林(Random Forest)算法梳理">
-<meta name="twitter:description" content="学习任务： - 集成学习 1. 什么是集成学习？ 2. 集成学习的种类有哪些？ 3. 集成学习的基本步骤：个体学习器的选择、训练、结合 - bagging算法 - 随机森林思想 - 随机森林的推广 - sklearn参数">
+<meta name="twitter:description" content="学习任务：  集成学习  什么是集成学习？ 集成学习的种类有哪些？ 集成学习的基本步骤：个体学习器的选择、训练、结合  bagging算法 随机森林思想 随机森林的推广 sklearn参数">
 
 
 
@@ -342,7 +342,7 @@
                 
               
 
-              <time title="创建时间：2019-04-04 00:00:00 / 修改时间：15:31:18" itemprop="dateCreated datePublished" datetime="2019-04-04T00:00:00+08:00">2019-04-04</time>
+              <time title="创建时间：2019-04-04 00:00:00 / 修改时间：15:38:17" itemprop="dateCreated datePublished" datetime="2019-04-04T00:00:00+08:00">2019-04-04</time>
             
 
             
@@ -410,40 +410,58 @@
       
 
       
-        <p><strong>学习任务：</strong> - 集成学习 1. 什么是集成学习？ 2. 集成学习的种类有哪些？ 3. 集成学习的基本步骤：个体学习器的选择、训练、结合 - bagging算法 - 随机森林思想 - 随机森林的推广 - sklearn参数</p>
+        <p><strong>学习任务：</strong></p>
+<ul>
+<li>集成学习
+<ol style="list-style-type: decimal">
+<li>什么是集成学习？</li>
+<li>集成学习的种类有哪些？</li>
+<li>集成学习的基本步骤：个体学习器的选择、训练、结合</li>
+</ol></li>
+<li>bagging算法</li>
+<li>随机森林思想</li>
+<li>随机森林的推广</li>
+<li>sklearn参数</li>
+</ul>
 <a id="more"></a>
 <h1 id="集成学习">集成学习</h1>
 <p>集成学习（ensemble learning）是机器学习中的一种思想，而不是指某一具体算法，它通过构建并结合多个学习器来完成学习任务。</p>
 <p>集成学习通过将多个学习器进行结合，常可获得比单一学习器显著优越的泛化性能。</p>
 <h2 id="集成学习的种类">集成学习的种类</h2>
-<p>根据个体学习器的生成方式，目前的集成学习方法大致可分为两大类， - 个体学习器问存在强依赖关系、必须串行生成的序列化方法，代表是 Boosting； - 个体学习器间不存在强依赖关系、可同时生成的并行化方法，代表是 Bagging 和&quot;随机森林&quot; (Random Forest)。</p>
+<p>根据个体学习器的生成方式，目前的集成学习方法大致可分为两大类：</p>
+<ul>
+<li>个体学习器问存在强依赖关系、必须串行生成的序列化方法，代表是 Boosting；</li>
+<li>个体学习器间不存在强依赖关系、可同时生成的并行化方法，代表是 Bagging 和&quot;随机森林&quot; (Random Forest)。</li>
+</ul>
 <p>Boosting 的基本思路是将基分类器层层叠加， 每一层在训练的时候， 对前一层基分类器中分错的样本， 给予更高的权重。 测试时， 根据各层分类器的结果的加权得到最终结果。（降低偏差）</p>
 <p>Bagging 方法更像是一个集体决策的过程， 每个个体都进行单独学习， 学习的内容可以相同， 也可以不同， 也可以部分重叠。 但由于个体之间存在差异性， 最终做出的判断不会完全一致。 在最终做决策时， 每个个体单独作出判断， 再通过投票的方式做出最后的集体决策。 （降低方差）</p>
 <h2 id="集成学习的基本步骤">集成学习的基本步骤</h2>
 <p>集成学习一般可分为以下3个步骤。</p>
 <ol style="list-style-type: decimal">
-<li>找到误差互相独立的个体学习器。</li>
-</ol>
-<p>这里可以选取ID3决策树作为基分类器。 事实上， 任何分类模型都可以作为基分类器， 但树形模型由于结构简单且较易产生随机性所以比较常用。</p>
-<ol start="2" style="list-style-type: decimal">
-<li>训练个体学习器。</li>
-</ol>
-<p>在集成学习中需有效地生成多样性大的个体学习器。与简单地直接用初始数据训练出个体学习器相比，如何增强多样性呢?一般思路是在学习过程中引入随机性，常见做法主要是对数据样本、 输入属性、输出表示 、 算法参数进行扰动。</p>
+<li>找到误差互相独立的个体学习器。
+<ul>
+<li>这里可以选取ID3决策树作为基分类器。 事实上， 任何分类模型都可以作为基分类器， 但树形模型由于结构简单且较易产生随机性所以比较常用。</li>
+</ul></li>
+<li>训练个体学习器。
+<ul>
+<li><p>在集成学习中需有效地生成多样性大的个体学习器。与简单地直接用初始数据训练出个体学习器相比，如何增强多样性呢?一般思路是在学习过程中引入随机性，常见做法主要是对数据样本、 输入属性、输出表示 、 算法参数进行扰动。</p>
 <ul>
 <li>数据样本扰动：通常是基于采样法， 例如在 Bagging中使用自助采样(即有放回的采样)，在 AdaBoost 中使用序列采样.</li>
 <li>输入属性扰动：从初始属性集中抽取出若干个属性子集，再基于每个属性子集训练一个基学习器。比如随机子空间 (random subspace)算法。</li>
 <li>输出表示扰动：可对训练样本的类标记稍作变动，如&quot;翻转法&quot; (Flipping Output)随机改变一些训练样本的标记;也可对输出表示进行转化，如&quot;输出调制法&quot; (Output Smearing) 将分类输出转化为回归输出后构建个体学习器;</li>
 <li>算法参数扰动：基学习算法一般都有参数需进行设置，例如神经网络的隐层神经元数、初始连接权值等。通过随机设置不同的参数，往往可产生差别较大的个体学习器.</li>
-</ul>
-<ol start="3" style="list-style-type: decimal">
-<li>合并个体学习器的结果。</li>
-</ol>
-<p>常见的结合策略：平均法(averaging)，投票法(voting)，学习法(比如 stacking)</p>
+</ul></li>
+</ul></li>
+<li>合并个体学习器的结果。
+<ul>
+<li>常见的结合策略：平均法(averaging)，投票法(voting)，学习法(比如 stacking)
 <ul>
 <li>averaging 常用于数值型输出。有简单平均法、加权平均法等。</li>
 <li>voting 是用投票的方式， 将获得最多选票的结果作为最终的结果。常用于分类任务。</li>
 <li>stacking 是用串行的方式， 把前一个基分类器的结果输出到下一个分类器， 将所有基分类器的输出结果相加（或者用更复杂的算法融合） 作为最终的输出。</li>
-</ul>
+</ul></li>
+</ul></li>
+</ol>
 <h1 id="bagging算法">Bagging算法</h1>
 <h2 id="采样训练">采样，训练</h2>
 <p>在Bootstrap(有放回抽样)的基础上可以构造出Bagging（Bootstrap Aggregating）算法。这种方法对训练样本集进行多次Bootstrap抽样，用每次抽样形成的数据集训练一个弱学习器模型，得到多个独立的弱学习器（对于分类问题，称为弱分类器），最后用它们的组合进行预测。</p>

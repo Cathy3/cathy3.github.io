@@ -97,7 +97,7 @@
 
 
   <meta name="description" content="梯度提升决策树（Gradient Boosting Decision Tree， GBDT）是Boosting算法中非常流行的模型，也是近来在机器学习竞赛、商业应用中表现都非常优秀的模型。GBDT非常好地体现了“从错误中学习”的理念，基于决策树预测的残差进行迭代的学习。 学习任务：  前向分步算法 负梯度拟合 损失函数 回归 二分类，多分类 正则化 优缺点 sklearn参数">
-<meta name="keywords" content="机器学习,sklearn,算法">
+<meta name="keywords" content="sklearn,机器学习,算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="梯度提升树(GBDT)算法梳理">
 <meta property="og:url" content="http://yoursite.com/2019/04/04/梯度提升决策树(GBDT)算法梳理/index.html">
@@ -404,9 +404,33 @@
           
             
             
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/04/04/梯度提升决策树(GBDT)算法梳理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/04/梯度提升决策树(GBDT)算法梳理/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
+          
+            <span id="/2019/04/04/梯度提升决策树(GBDT)算法梳理/" class="leancloud_visitors" data-flag-title="梯度提升树(GBDT)算法梳理">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
           
 
           
@@ -706,9 +730,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
-          
             <a href="/tags/sklearn/" rel="tag"># sklearn</a>
+          
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
           
             <a href="/tags/算法/" rel="tag"># 算法</a>
           
@@ -756,6 +780,10 @@
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+    </div>
 
   
 
@@ -1118,6 +1146,35 @@
 
   
   
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'o9dDzrylom5H6YuhbsgIcdRp-gzGzoHsz',
+    appKey: 'fy7h3oVOypD8qdy6GTxfsh8E',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true
+  });
+</script>
+
+
 
 
   
@@ -1210,7 +1267,8 @@
 
   
   <!-- 页面点击小红心 -->
-  <script type="text/javascript" src="/js/src/love.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -1227,6 +1285,5 @@
 <script type="text/javascript" src="custom_mathjax_source">
 </script>
 <!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<!-- hexo-inject:end --></body>
 </html>

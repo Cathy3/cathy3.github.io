@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="学习任务： - 算法原理 - 损失函数 - 分裂结点算法 - 正则化 - 对缺失值处理 - 优缺点 - 应用场景 - sklearn参数 2014年，陈天奇博士提出了XGBoost算法，它可认为是在GBDT算法基础上的进一步优化。首先，XGBoost算法在基学习器损失函数中引入了正则项，控制减少训练过程当中的过拟合；其次，XGBoost算法不仅使用一阶导数计算伪残差，还计算二阶导数可近似快速剪枝">
+  <meta name="description" content="学习任务：  算法原理 损失函数 分裂结点算法 对缺失值处理 优缺点 sklearn参数">
 <meta name="keywords" content="sklearn,机器学习,算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="XGBoost算法梳理">
 <meta property="og:url" content="http://yoursite.com/2019/04/09/XGBoost算法梳理/index.html">
 <meta property="og:site_name" content="QxD&#39;s Notes">
-<meta property="og:description" content="学习任务： - 算法原理 - 损失函数 - 分裂结点算法 - 正则化 - 对缺失值处理 - 优缺点 - 应用场景 - sklearn参数 2014年，陈天奇博士提出了XGBoost算法，它可认为是在GBDT算法基础上的进一步优化。首先，XGBoost算法在基学习器损失函数中引入了正则项，控制减少训练过程当中的过拟合；其次，XGBoost算法不仅使用一阶导数计算伪残差，还计算二阶导数可近似快速剪枝">
+<meta property="og:description" content="学习任务：  算法原理 损失函数 分裂结点算法 对缺失值处理 优缺点 sklearn参数">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-09T12:19:34.007Z">
+<meta property="og:updated_time" content="2019-04-10T03:33:12.327Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="XGBoost算法梳理">
-<meta name="twitter:description" content="学习任务： - 算法原理 - 损失函数 - 分裂结点算法 - 正则化 - 对缺失值处理 - 优缺点 - 应用场景 - sklearn参数 2014年，陈天奇博士提出了XGBoost算法，它可认为是在GBDT算法基础上的进一步优化。首先，XGBoost算法在基学习器损失函数中引入了正则项，控制减少训练过程当中的过拟合；其次，XGBoost算法不仅使用一阶导数计算伪残差，还计算二阶导数可近似快速剪枝">
+<meta name="twitter:description" content="学习任务：  算法原理 损失函数 分裂结点算法 对缺失值处理 优缺点 sklearn参数">
 
 
 
@@ -390,12 +390,24 @@
                 
               
 
-              <time title="创建时间：2019-04-09 00:00:00 / 修改时间：20:19:34" itemprop="dateCreated datePublished" datetime="2019-04-09T00:00:00+08:00">2019-04-09</time>
+              <time title="创建时间：2019-04-09 00:00:00" itemprop="dateCreated datePublished" datetime="2019-04-09T00:00:00+08:00">2019-04-09</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-10 11:33:12" itemprop="dateModified" datetime="2019-04-10T11:33:12+08:00">2019-04-10</time>
               
             
           </span>
@@ -471,7 +483,16 @@
       
 
       
-        <p><strong>学习任务：</strong> - 算法原理 - 损失函数 - 分裂结点算法 - 正则化 - 对缺失值处理 - 优缺点 - 应用场景 - sklearn参数</p>
+        <p><strong>学习任务：</strong></p>
+<ul>
+<li>算法原理</li>
+<li>损失函数</li>
+<li>分裂结点算法</li>
+<li>对缺失值处理</li>
+<li>优缺点</li>
+<li>sklearn参数</li>
+</ul>
+<a id="more"></a>
 <p>2014年，陈天奇博士提出了XGBoost算法，它可认为是在GBDT算法基础上的进一步优化。首先，XGBoost算法在基学习器损失函数中引入了正则项，控制减少训练过程当中的过拟合；其次，XGBoost算法不仅使用一阶导数计算伪残差，还计算二阶导数可近似快速剪枝的构建新的基学习器；此外，XGBoost算法还做了很多工程上的优化，例如支持并行计算、提高计算效率、处理稀疏训练数据等等。</p>
 <p>总的来说，XGBoost算法源起于Boosting集成学习方法，在演化过程中又融入了Bagging集成学习方法的优势，通过Gradient Boosting框架自定义损失函数提高了算法解决通用问题的能力，同时引入更多可控参数即可针对问题场景进行优化，最后通过工程实现方面细节优化，在保证算法结果稳定的同时还可高效处理大规模数据，可扩展支持不同编程语言。这些因素共同使它成为了工业界的主流机器学习算法之一。</p>
 <p>XGBoost是一种提升树模型，所以它是将许多树模型集成在一起，形成一个很强的分类器。而所用到的树模型则是CART回归树模型。讲解其原理前，先讲解一下CART回归树。</p>
@@ -496,7 +517,63 @@ R_{1}(j, s)=\left\{x | x^{(j)} \leq s\right\} \text { and } R_{2}(j, s)=\left\{x
 <p><span class="math display">\[
 where\ F=\left\{f(x)=w_{q(x)}\right\}\left(q : R^{m} \rightarrow T, w \in R^{T}\right)
 \]</span></p>
-<p>注：w_q(x)为叶子节点q的分数，f(x)为其中一棵回归树</p>
+<p>注：<span class="math inline">\(w_q(x)\)</span> 为叶子节点 <span class="math inline">\(q\)</span> 的分数，<span class="math inline">\(f(x)\)</span>为其中一棵回归树</p>
+<h1 id="xgboost原理">XGBoost原理</h1>
+<p>XGBoost目标函数定义为：</p>
+<p><span class="math display">\[
+O b j=\sum_{i=1}^{n} l\left(y_{i}, \hat{y}_{i}\right)+\sum_{k=1}^{K} \Omega\left(f_{k}\right)
+\\
+where\ \Omega(f)=\gamma T+\frac{1}{2} \lambda\|w\|^{2}
+\]</span></p>
+<p>目标函数由两部分构成，第一部分用来衡量预测分数和真实分数的差距（损失），另一部分则是正则化项。</p>
+<p>正则化项同样包含两部分，<span class="math inline">\(T\)</span> 表示叶子结点的个数，<span class="math inline">\(w\)</span> 表示叶子结点的分数。<span class="math inline">\(γ\)</span> 可以控制叶子结点的个数，<span class="math inline">\(λ\)</span> 可以控制叶子节点的分数不会过大，防止过拟合。<span class="math inline">\(y_i\)</span> 即为真实值，<span class="math inline">\(\hat{y}_{i}\)</span> 为预测值。</p>
+<p>正如上文所说，新生成的树是要拟合上次预测的残差的，即当生成 <span class="math inline">\(t\)</span> 棵树后，预测分数可以写成：</p>
+<p><span class="math display">\[
+\hat{y}_{i}^{(t)}=\hat{y}_{i}^{(t-1)}+f_{t}\left(x_{i}\right)
+\]</span></p>
+<p>同时，可以将目标函数改写成：</p>
+<p><span class="math display">\[
+\mathcal{L}^{(t)}=\sum_{i=1}^{n} l\left(y_{i}, \hat{y}_{i}^{(t-1)}+f_{t}\left(x_{i}\right)\right)+\Omega\left(f_{t}\right)
+\]</span></p>
+<p>很明显，我们接下来就是要去找到一个 <span class="math inline">\(f_t\)</span> 能够最小化目标函数。XGBoost的想法是利用其在 <span class="math inline">\(f_t=0\)</span> 处的泰勒二阶展开近似它。</p>
+<p>泰勒展开：<span class="math inline">\(f(x+\Delta x) \simeq f(x)+f^{\prime}(x) \Delta x+\frac{1}{2} f^{\prime \prime}(x) \Delta x^{2}\)</span></p>
+<p>先定义一阶导数和二阶导数：<span class="math inline">\(g_{i}=\partial_{\hat{y}^{(t-1)}} l\left(y_{i}, \hat{y}^{(t-1)}\right), \quad h_{i}=\partial_{\hat{y}^{(t-1)}}^{2} l\left(y_{i}, \hat{y}^{(t-1)}\right)\)</span></p>
+<p>所以，目标函数近似为：</p>
+<p><span class="math display">\[
+O b j^{(t)} \simeq \sum_{i=1}^{n}\left[l\left(y_{i}, \hat{y}_{i}^{(t-1)}\right)+g_{i} f_{t}\left(x_{i}\right)+\frac{1}{2} h_{i} f_{t}^{2}\left(x_{i}\right)\right]+\Omega\left(f_{t}\right)+ constant
+\]</span></p>
+<p>由于前t-1棵树的预测分数与y的残差对目标函数优化不影响，可以直接去掉。我们知道，每个样本都最终会落到一个叶子结点中，所以我们可以将所以同一个叶子结点的样本重组起来，过程如下：</p>
+<p><span class="math display">\[
+\begin{aligned} O b j^{(t)} &amp; \simeq \sum_{i=1}^{n}\left[g_{i} f_{t}\left(x_{i}\right)+\frac{1}{2} h_{i} f_{t}^{2}\left(x_{i}\right)\right]+\Omega\left(f_{t}\right) \\ &amp;=\sum_{i=1}^{n}\left[g_{i} w_{q\left(x_{i}\right)}+\frac{1}{2} h_{i} w_{q\left(x_{i}\right)}^{2}\right]+\gamma T+\lambda \frac{1}{2} \sum_{j=1}^{T} w_{j}^{2} \\ &amp;=\sum_{j=1}^{T}\left[\left(\sum_{i \in I_{j}} g_{i}\right) w_{j}+\frac{1}{2}\left(\sum_{i \in I_{j}} h_{i}+\lambda\right) w_{j}^{2}\right]+\gamma T \end{aligned}
+\]</span></p>
+<p>因此通过上式的改写，我们可以将目标函数改写成关于叶子结点分数 <span class="math inline">\(w\)</span> 的一个一元二次函数，求解最优的 <span class="math inline">\(w\)</span> 和目标函数值就变得很简单了，直接使用顶点公式即可。因此，最优的 <span class="math inline">\(w\)</span> 和目标函数公式为</p>
+<p><span class="math display">\[
+w_{j}^{*}=-\frac{G_{j}}{H_{j}+\lambda}
+\\
+O b j=-\frac{1}{2} \sum_{j=1}^{T} \frac{G_{j}^{2}}{H_{j}+\lambda}+\gamma T
+\]</span></p>
+<h1 id="分裂结点算法">分裂结点算法</h1>
+<p>在上面的推导中，我们知道了如果我们一棵树的结构确定了，如何求得每个叶子结点的分数。但我们还没介绍如何确定树结构，即每次特征分裂怎么寻找最佳特征，怎么寻找最佳分裂点。</p>
+<p>正如上文说到，基于空间切分去构造一颗决策树是一个NP难问题，我们不可能去遍历所有树结构，因此，XGBoost使用了和CART回归树一样的想法，利用贪婪算法，遍历所有特征的所有特征划分点，不同的是使用上式目标函数值作为评价函数。具体做法就是对比分裂后的目标函数值与单子叶子节点的目标函数增益，同时为了限制树生长过深，还加了个阈值，只有当增益大于该阈值才进行分裂。</p>
+<p>同时可以设置树的最大深度、当样本权重和小于设定阈值时停止生长去防止过拟合。</p>
+<h1 id="shrinkage-and-column-subsampling">Shrinkage and Column Subsampling</h1>
+<p>XGBoost还提出了两种防止过拟合的方法：Shrinkage and Column Subsampling。</p>
+<p>Shrinkage方法就是在每次迭代中对树的每个叶子结点的分数乘上一个缩减权重η，这可以使得每一棵树的影响力不会太大，留下更大的空间给后面生成的树去优化模型。</p>
+<p>Column Subsampling类似于随机森林中的选取部分特征进行建树。其可分为两种， - 一种是按层随机采样，在对同一层内每个结点分裂之前，先随机选择一部分特征，然后只需要遍历这部分的特征，来确定最优的分割点。 - 另一种是随机选择特征，建树前随机选择一部分特征然后分裂就只遍历这些特征。一般情况下前者效果更好。</p>
+<h1 id="近似算法">近似算法</h1>
+<p>对于连续型特征值，当样本数量非常大，该特征取值过多时，遍历所有取值会花费很多时间，且容易过拟合。因此XGBoost思想是对特征进行分桶，即找到l个划分点，将位于相邻分位点之间的样本分在一个桶中。在遍历该特征的时候，只需要遍历各个分位点，从而计算最优划分。</p>
+<p>从算法伪代码中该流程还可以分为两种，全局的近似是在新生成一棵树之前就对各个特征计算分位点并划分样本，之后在每次分裂过程中都采用近似划分，而局部近似就是在具体的某一次分裂节点的过程中采用近似算法。</p>
+<h1 id="针对稀疏矩阵的算法缺失值处理">针对稀疏矩阵的算法（缺失值处理）</h1>
+<p>当样本的第 <span class="math inline">\(i\)</span> 个特征值缺失时，无法利用该特征进行划分时，XGBoost的想法是将该样本分别划分到左结点和右结点，然后计算其增益，哪个大就划分到哪边。</p>
+<h1 id="xgboost的优点">XGBoost的优点</h1>
+<ol style="list-style-type: decimal">
+<li>使用许多策略去防止过拟合，如：正则化项、Shrinkage and Column Subsampling等。</li>
+<li>目标函数优化利用了损失函数关于待求函数的二阶导数</li>
+<li>支持并行化，这是XGBoost的闪光点，虽然树与树之间是串行关系，但是同层级节点可并行。具体的对于某个节点，节点内选择最佳分裂点，候选分裂点计算增益用多线程并行。训练速度快。</li>
+<li>添加了对稀疏数据的处理。</li>
+<li>交叉验证，early stop，当预测结果已经很好的时候可以提前停止建树，加快训练速度。</li>
+<li>支持设置样本权重，该权重体现在一阶导数g和二阶导数h，通过调整权重可以去更加关注一些样本。</li>
+</ol>
 <h1 id="xgboost参数">xgboost参数</h1>
 <p>官方参数介绍看这里： Parameters (official guide)</p>
 <h2 id="general-parameters常规参数">General Parameters（常规参数）</h2>
@@ -524,6 +601,8 @@ where\ F=\left\{f(x)=w_{q(x)}\right\}\left(q : R^{m} \rightarrow T, w \in R^{T}\
 <p>注意: python sklearn style参数名会有所变化 eta –&gt; learning_rate lambda –&gt; reg_lambda alpha –&gt; reg_alpha</p>
 <h1 id="参考">参考</h1>
 <ul>
+<li><a href="https://zdkswd.github.io/2019/02/25/XGBoost/" target="_blank" rel="noopener">XGBoost-ZDK</a></li>
+<li><a href="https://mp.weixin.qq.com/s/AnENu0i3i5CdUQkZscMKgQ" target="_blank" rel="noopener">一文读懂机器学习大杀器XGBoost原理</a></li>
 <li><a href="https://blog.csdn.net/wzmsltw/article/details/50994481" target="_blank" rel="noopener">XGBoost-Python完全调参指南-参数解释篇</a></li>
 <li><a href="https://www.analyticsvidhya.com/blog/2016/03/complete-guide-parameter-tuning-xgboost-with-codes-python/" target="_blank" rel="noopener">Complete Guide to Parameter Tuning in XGBoost (with codes in Python)</a></li>
 <li><a href="http://blog.csdn.net/zc02051126/article/details/46711047" target="_blank" rel="noopener">XGBoost：参数解释</a></li>
@@ -819,7 +898,7 @@ where\ F=\left\{f(x)=w_{q(x)}\right\}\left(q : R^{m} \rightarrow T, w \in R^{T}\
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#cart回归树"><span class="nav-number">1.</span> <span class="nav-text">CART回归树</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#xgboost参数"><span class="nav-number">2.</span> <span class="nav-text">xgboost参数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#general-parameters常规参数"><span class="nav-number">2.1.</span> <span class="nav-text">General Parameters（常规参数）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#booster-parameters模型参数"><span class="nav-number">2.2.</span> <span class="nav-text">Booster Parameters（模型参数）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#learning-task-parameters学习任务参数"><span class="nav-number">2.3.</span> <span class="nav-text">Learning Task Parameters（学习任务参数）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#cart回归树"><span class="nav-number">1.</span> <span class="nav-text">CART回归树</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#xgboost原理"><span class="nav-number">2.</span> <span class="nav-text">XGBoost原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分裂结点算法"><span class="nav-number">3.</span> <span class="nav-text">分裂结点算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#shrinkage-and-column-subsampling"><span class="nav-number">4.</span> <span class="nav-text">Shrinkage and Column Subsampling</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#近似算法"><span class="nav-number">5.</span> <span class="nav-text">近似算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#针对稀疏矩阵的算法缺失值处理"><span class="nav-number">6.</span> <span class="nav-text">针对稀疏矩阵的算法（缺失值处理）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#xgboost的优点"><span class="nav-number">7.</span> <span class="nav-text">XGBoost的优点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#xgboost参数"><span class="nav-number">8.</span> <span class="nav-text">xgboost参数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#general-parameters常规参数"><span class="nav-number">8.1.</span> <span class="nav-text">General Parameters（常规参数）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#booster-parameters模型参数"><span class="nav-number">8.2.</span> <span class="nav-text">Booster Parameters（模型参数）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#learning-task-parameters学习任务参数"><span class="nav-number">8.3.</span> <span class="nav-text">Learning Task Parameters（学习任务参数）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">9.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
@@ -1410,7 +1489,8 @@ where\ F=\left\{f(x)=w_{q(x)}\right\}\left(q : R^{m} \rightarrow T, w \in R^{T}\
 
   
   <!-- 页面点击小红心 -->
-  <script type="text/javascript" src="/js/src/love.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -1427,6 +1507,5 @@ where\ F=\left\{f(x)=w_{q(x)}\right\}\left(q : R^{m} \rightarrow T, w \in R^{T}\
 <script type="text/javascript" src="custom_mathjax_source">
 </script>
 <!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<!-- hexo-inject:end --></body>
 </html>

@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="QxD&#39;s Notes">
 <meta property="og:description" content="169. 求众数 Majority Element 题目描述 给定一个大小为 n 的数组，找到其中的众数。众数是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。 你可以假设数组是非空的，并且给定的数组总是存在众数。 示例 1:  输入: [3,2,3]   输出: 3">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-22T06:45:51.535Z">
+<meta property="og:updated_time" content="2019-04-22T07:49:43.256Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用python刷LeetCode数组题(简单级)(二)">
 <meta name="twitter:description" content="169. 求众数 Majority Element 题目描述 给定一个大小为 n 的数组，找到其中的众数。众数是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。 你可以假设数组是非空的，并且给定的数组总是存在众数。 示例 1:  输入: [3,2,3]   输出: 3">
@@ -407,7 +407,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-22 14:45:51" itemprop="dateModified" datetime="2019-04-22T14:45:51+08:00">2019-04-22</time>
+                <time title="修改时间：2019-04-22 15:49:43" itemprop="dateModified" datetime="2019-04-22T15:49:43+08:00">2019-04-22</time>
               
             
           </span>
@@ -589,6 +589,13 @@
 <h2 id="方法-2">方法</h2>
 <p>注意到数组元素个数跟元素范围是一样的，所以我们可以把出现过的元素对应下标位置的数字变成负数，最后把所有正数对应的下标拿出来，就是缺失的数字。 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findDisappearedNumbers</span><span class="params">(self, nums: List[int])</span> -&gt; List[int]:</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):</span><br><span class="line">            index = abs(nums[i])<span class="number">-1</span></span><br><span class="line">            nums[index] = -abs(nums[index])</span><br><span class="line">        <span class="keyword">return</span> [i+<span class="number">1</span> <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)) <span class="keyword">if</span> nums[i]&gt;<span class="number">0</span>]</span><br></pre></td></tr></table></figure></p>
 <h1 id="最大连续1的个数">485. 最大连续1的个数</h1>
+<p>给定一个二进制数组， 计算其中最大连续1的个数。</p>
+<p>示例 1: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: [1,1,0,1,1,1]</span><br><span class="line">输出: 3</span><br><span class="line">解释: 开头的两位和最后的三位都是连续1，所以最大连续1的个数是 3.</span><br></pre></td></tr></table></figure></p>
+<p>注意：</p>
+<ul>
+<li>输入的数组只包含 0 和1。</li>
+<li>输入数组的长度是正整数，且不超过 10,000。</li>
+</ul>
 <h2 id="方法遍历数组">方法：遍历数组</h2>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findMaxConsecutiveOnes</span><span class="params">(self, nums: List[int])</span> -&gt; int:</span></span><br><span class="line">        cnt = <span class="number">0</span></span><br><span class="line">        ans = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> num <span class="keyword">in</span> nums:</span><br><span class="line">            <span class="keyword">if</span> num==<span class="number">1</span>:</span><br><span class="line">                cnt += <span class="number">1</span></span><br><span class="line">                ans = max(ans,cnt)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                cnt = <span class="number">0</span></span><br><span class="line">        <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
 <h1 id="数组中的k-diff数对">532. 数组中的K-diff数对</h1>
@@ -765,7 +772,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">37</span>
+                    <span class="site-state-item-count">39</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

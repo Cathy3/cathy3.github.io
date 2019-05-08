@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="基本原理 Logistic回归是统计学习中的经典分类方法。其实仅在线性回归的基础上，套用了一个逻辑函数。本文主要详述逻辑回归模型的基础。 马尔可夫决策过程 Markov Decision Processes (MDPs) 参考  Reinforcement Learning: an introduction” by Sutton and Barto (freely downloadabl">
+  <meta name="description" content="基本原理 贝尔曼方程（Bellman Equation）也被称作动态规划方程（Dynamic Programming Equation） \[ Q^{\pi}(s, a)=\sum_{s^{\prime}} \mathcal{P}_{s s^{\prime}}^{a}\left[\mathcal{R}_{s s^{\prime}}^{a}+\gamma \sum_{a^{\prime}} \">
 <meta name="keywords" content="强化学习,原理,Reinforcement Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="贝尔曼方程(The Bellman Equation)">
 <meta property="og:url" content="http://yoursite.com/2018/09/10/The Bellman Equation/index.html">
 <meta property="og:site_name" content="QxD&#39;s Notes">
-<meta property="og:description" content="基本原理 Logistic回归是统计学习中的经典分类方法。其实仅在线性回归的基础上，套用了一个逻辑函数。本文主要详述逻辑回归模型的基础。 马尔可夫决策过程 Markov Decision Processes (MDPs) 参考  Reinforcement Learning: an introduction” by Sutton and Barto (freely downloadabl">
+<meta property="og:description" content="基本原理 贝尔曼方程（Bellman Equation）也被称作动态规划方程（Dynamic Programming Equation） \[ Q^{\pi}(s, a)=\sum_{s^{\prime}} \mathcal{P}_{s s^{\prime}}^{a}\left[\mathcal{R}_{s s^{\prime}}^{a}+\gamma \sum_{a^{\prime}} \">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-25T13:07:38.519Z">
+<meta property="og:updated_time" content="2019-05-08T11:31:26.135Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="贝尔曼方程(The Bellman Equation)">
-<meta name="twitter:description" content="基本原理 Logistic回归是统计学习中的经典分类方法。其实仅在线性回归的基础上，套用了一个逻辑函数。本文主要详述逻辑回归模型的基础。 马尔可夫决策过程 Markov Decision Processes (MDPs) 参考  Reinforcement Learning: an introduction” by Sutton and Barto (freely downloadabl">
+<meta name="twitter:description" content="基本原理 贝尔曼方程（Bellman Equation）也被称作动态规划方程（Dynamic Programming Equation） \[ Q^{\pi}(s, a)=\sum_{s^{\prime}} \mathcal{P}_{s s^{\prime}}^{a}\left[\mathcal{R}_{s s^{\prime}}^{a}+\gamma \sum_{a^{\prime}} \">
 
 
 
@@ -407,7 +407,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-09-25 21:07:38" itemprop="dateModified" datetime="2018-09-25T21:07:38+08:00">2018-09-25</time>
+                <time title="修改时间：2019-05-08 19:31:26" itemprop="dateModified" datetime="2019-05-08T19:31:26+08:00">2019-05-08</time>
               
             
           </span>
@@ -484,11 +484,23 @@
 
       
         <h1 id="基本原理">基本原理</h1>
-<p>Logistic回归是统计学习中的经典分类方法。其实仅在线性回归的基础上，套用了一个逻辑函数。本文主要详述逻辑回归模型的基础。</p>
-<h1 id="马尔可夫决策过程-markov-decision-processes-mdps">马尔可夫决策过程 Markov Decision Processes (MDPs)</h1>
+<p>贝尔曼方程（Bellman Equation）也被称作动态规划方程（Dynamic Programming Equation）</p>
+<p><span class="math display">\[
+Q^{\pi}(s, a)=\sum_{s^{\prime}} \mathcal{P}_{s s^{\prime}}^{a}\left[\mathcal{R}_{s s^{\prime}}^{a}+\gamma \sum_{a^{\prime}} \pi\left(s^{\prime}, a^{\prime}\right) Q^{\pi}\left(s^{\prime}, a^{\prime}\right)\right]
+\]</span></p>
+<p>其中，转移概率 <span class="math inline">\(\mathcal{P}\)</span> 为</p>
+<p><span class="math display">\[
+\mathcal{P}_{s s^{\prime}}^{a}=\operatorname{Pr}\left(s_{t+1}=s^{\prime} | s_{t}=s, a_{t}=a\right)
+\]</span></p>
+<p>期望奖励为 <span class="math inline">\(\mathcal{R}\)</span></p>
+<p><span class="math display">\[
+\mathcal{R}_{s s^{\prime}}^{a}=\mathbb{E}\left[r_{t+1} | s_{t}=s, s_{t+1}=s^{\prime}, a_{t}=a\right]
+\]</span></p>
+<p>从状态 <span class="math inline">\(s\)</span> 开始，经过动作 <span class="math inline">\(a\)</span> ，以概率 <span class="math inline">\(\mathcal{P}_{s s^{\prime}}^{a}\)</span> 转到状态 <span class="math inline">\(s^{\prime}\)</span> ， 期望奖励为 <span class="math inline">\(\mathcal{R}_{s s^{\prime}}^{a}\)</span> 。</p>
 <h1 id="参考">参考</h1>
 <ul>
 <li><a href="http://incompleteideas.net/book/the-book-2nd.html" target="_blank" rel="noopener">Reinforcement Learning: an introduction” by Sutton and Barto (freely downloadable)</a></li>
+<li><a href="https://joshgreaves.com/reinforcement-learning/understanding-rl-the-bellman-equations/" target="_blank" rel="noopener">Understanding RL: The Bellman Equations</a></li>
 </ul>
 
       
@@ -783,7 +795,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本原理"><span class="nav-number">1.</span> <span class="nav-text">基本原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#马尔可夫决策过程-markov-decision-processes-mdps"><span class="nav-number">2.</span> <span class="nav-text">马尔可夫决策过程 Markov Decision Processes (MDPs)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本原理"><span class="nav-number">1.</span> <span class="nav-text">基本原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">2.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
@@ -1327,8 +1339,7 @@
 
   
   <!-- 页面点击小红心 -->
-  <script type="text/javascript" src="/js/src/love.js"></script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  <script type="text/javascript" src="/js/src/love.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -1345,5 +1356,6 @@
 <script type="text/javascript" src="custom_mathjax_source">
 </script>
 <!-- End: Injected MathJax -->
-<!-- hexo-inject:end --></body>
+<!-- hexo-inject:end -->
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>

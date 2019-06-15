@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="链表是数据结构之一，其中的数据呈线性排列。在链表中，数据的添加和删除都较为方便， 就是访问比较耗费时间。 链表在前一结点里用链接的方式显示地记录与下一结点的关系。不同于数组，链表的元素的物理地址可以任意。 学习目标： - 实现单链表、循环链表、双向链表，支持增删操作。 - leetcode 206. 反转链表">
+  <meta name="description" content="链表是数据结构之一，其中的数据呈线性排列。 链表在前一结点里用链接的方式显示地记录与下一结点的关系。不同于数组，链表的元素的物理地址可以任意。  优点：插入、删除操作方便，不会导致元素的移动，因为元素增减，只需要调整指针。 空间大小可以随意扩大 缺点：只能通过顺次指针访问，查找不方便  学习目标： - 实现单链表、循环链表、双向链表，支持增删操作。 - leetcode 206. 反转">
 <meta name="keywords" content="python,LeetCode,链表">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python实现数据结构中的链表">
 <meta property="og:url" content="http://yoursite.com/2019/02/28/python实现数据结构中的链表/index.html">
 <meta property="og:site_name" content="QxD&#39;s Notes">
-<meta property="og:description" content="链表是数据结构之一，其中的数据呈线性排列。在链表中，数据的添加和删除都较为方便， 就是访问比较耗费时间。 链表在前一结点里用链接的方式显示地记录与下一结点的关系。不同于数组，链表的元素的物理地址可以任意。 学习目标： - 实现单链表、循环链表、双向链表，支持增删操作。 - leetcode 206. 反转链表">
+<meta property="og:description" content="链表是数据结构之一，其中的数据呈线性排列。 链表在前一结点里用链接的方式显示地记录与下一结点的关系。不同于数组，链表的元素的物理地址可以任意。  优点：插入、删除操作方便，不会导致元素的移动，因为元素增减，只需要调整指针。 空间大小可以随意扩大 缺点：只能通过顺次指针访问，查找不方便  学习目标： - 实现单链表、循环链表、双向链表，支持增删操作。 - leetcode 206. 反转">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-10T00:57:17.163Z">
+<meta property="og:updated_time" content="2019-06-14T11:37:01.420Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python实现数据结构中的链表">
-<meta name="twitter:description" content="链表是数据结构之一，其中的数据呈线性排列。在链表中，数据的添加和删除都较为方便， 就是访问比较耗费时间。 链表在前一结点里用链接的方式显示地记录与下一结点的关系。不同于数组，链表的元素的物理地址可以任意。 学习目标： - 实现单链表、循环链表、双向链表，支持增删操作。 - leetcode 206. 反转链表">
+<meta name="twitter:description" content="链表是数据结构之一，其中的数据呈线性排列。 链表在前一结点里用链接的方式显示地记录与下一结点的关系。不同于数组，链表的元素的物理地址可以任意。  优点：插入、删除操作方便，不会导致元素的移动，因为元素增减，只需要调整指针。 空间大小可以随意扩大 缺点：只能通过顺次指针访问，查找不方便  学习目标： - 实现单链表、循环链表、双向链表，支持增删操作。 - leetcode 206. 反转">
 
 
 
@@ -407,7 +407,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-06-10 08:57:17" itemprop="dateModified" datetime="2019-06-10T08:57:17+08:00">2019-06-10</time>
+                <time title="修改时间：2019-06-14 19:37:01" itemprop="dateModified" datetime="2019-06-14T19:37:01+08:00">2019-06-14</time>
               
             
           </span>
@@ -483,8 +483,12 @@
       
 
       
-        <p>链表是数据结构之一，其中的数据呈线性排列。在链表中，数据的添加和删除都较为方便， 就是访问比较耗费时间。</p>
+        <p>链表是数据结构之一，其中的数据呈线性排列。</p>
 <p>链表在前一结点里用链接的方式显示地记录与下一结点的关系。不同于数组，链表的元素的物理地址可以任意。</p>
+<ul>
+<li>优点：插入、删除操作方便，不会导致元素的移动，因为元素增减，只需要调整指针。 空间大小可以随意扩大</li>
+<li>缺点：只能通过顺次指针访问，查找不方便</li>
+</ul>
 <p>学习目标： - 实现单链表、循环链表、双向链表，支持增删操作。 - leetcode 206. 反转链表</p>
 <a id="more"></a>
 <h1 id="实现单链表">实现单链表</h1>

@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="7. 整数反转 给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。 示例 1: 12输入: 123输出: 321 示例 2: 12输入: -123输出: -321 示例 3: 12输入: 120输出: 21 注意: 假设我们的环境只能存储得下 32 位的有符号整数，则其数值范围为 [−231, 231 − 1]。请根据这个假设，如果反转后整数溢出那么就返回 0。">
+  <meta name="description" content="整数反转   字符串转换整数 (atoi)   (解法见 )   回文数   罗马数字转整数">
 <meta name="keywords" content="python,LeetCode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python刷LeetCode数学题(一)">
 <meta property="og:url" content="http://yoursite.com/2019/04/22/python刷LeetCode数学题(一)/index.html">
 <meta property="og:site_name" content="QxD&#39;s Notes">
-<meta property="og:description" content="7. 整数反转 给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。 示例 1: 12输入: 123输出: 321 示例 2: 12输入: -123输出: -321 示例 3: 12输入: 120输出: 21 注意: 假设我们的环境只能存储得下 32 位的有符号整数，则其数值范围为 [−231, 231 − 1]。请根据这个假设，如果反转后整数溢出那么就返回 0。">
+<meta property="og:description" content="整数反转   字符串转换整数 (atoi)   (解法见 )   回文数   罗马数字转整数">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-23T02:38:23.992Z">
+<meta property="og:updated_time" content="2019-06-18T14:25:50.179Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python刷LeetCode数学题(一)">
-<meta name="twitter:description" content="7. 整数反转 给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。 示例 1: 12输入: 123输出: 321 示例 2: 12输入: -123输出: -321 示例 3: 12输入: 120输出: 21 注意: 假设我们的环境只能存储得下 32 位的有符号整数，则其数值范围为 [−231, 231 − 1]。请根据这个假设，如果反转后整数溢出那么就返回 0。">
+<meta name="twitter:description" content="整数反转   字符串转换整数 (atoi)   (解法见 )   回文数   罗马数字转整数">
 
 
 
@@ -407,7 +407,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-23 10:38:23" itemprop="dateModified" datetime="2019-04-23T10:38:23+08:00">2019-04-23</time>
+                <time title="修改时间：2019-06-18 22:25:50" itemprop="dateModified" datetime="2019-06-18T22:25:50+08:00">2019-06-18</time>
               
             
           </span>
@@ -483,7 +483,25 @@
       
 
       
-        <h1 id="整数反转">7. 整数反转</h1>
+        <ul>
+<li><ol start="7" style="list-style-type: decimal">
+<li>整数反转</li>
+</ol></li>
+<li><ol start="8" style="list-style-type: decimal">
+<li>字符串转换整数 (atoi)</li>
+</ol>
+<ul>
+<li>(解法见 <a href="https://cathy3.github.io/2019/03/08/python%E5%AE%9E%E7%8E%B0%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E5%AD%97%E7%AC%A6%E4%B8%B2/" target="_blank" rel="noopener"></a>)</li>
+</ul></li>
+<li><ol start="9" style="list-style-type: decimal">
+<li>回文数</li>
+</ol></li>
+<li><ol start="13" style="list-style-type: decimal">
+<li>罗马数字转整数</li>
+</ol></li>
+</ul>
+<a id="more"></a>
+<h1 id="整数反转">7. 整数反转</h1>
 <p>给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。</p>
 <p>示例 1: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: 123</span><br><span class="line">输出: 321</span><br></pre></td></tr></table></figure></p>
 <p>示例 2: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: -123</span><br><span class="line">输出: -321</span><br></pre></td></tr></table></figure></p>
@@ -495,6 +513,30 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reverse</span><span class="params">(self, x: int)</span> -&gt; int:</span></span><br><span class="line">        flag = <span class="number">1</span> <span class="keyword">if</span> x&gt;<span class="number">0</span> <span class="keyword">else</span> <span class="number">-1</span></span><br><span class="line">        rev = <span class="number">0</span> </span><br><span class="line">        x = abs(x)</span><br><span class="line">        <span class="keyword">while</span>(x!=<span class="number">0</span>):</span><br><span class="line">            rev = rev*<span class="number">10</span> + x%<span class="number">10</span></span><br><span class="line">            x //= <span class="number">10</span></span><br><span class="line">        <span class="keyword">return</span> rev*flag <span class="keyword">if</span> rev &lt; <span class="number">2147483648</span> <span class="keyword">else</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
 <h2 id="方法二转字符串">方法二：转字符串</h2>
 <p>整数符号提取出来，把整数转化为字符串，然后使用字符串的翻转。 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reverse</span><span class="params">(self, x: int)</span> -&gt; int:</span></span><br><span class="line">        flag = <span class="number">-1</span> <span class="keyword">if</span> x &lt; <span class="number">0</span> <span class="keyword">else</span> <span class="number">1</span></span><br><span class="line">        x = int(str(abs(x))[::<span class="number">-1</span>])</span><br><span class="line">        <span class="keyword">return</span> x*flag <span class="keyword">if</span> x&lt;=<span class="number">2</span> ** <span class="number">31</span> <span class="number">-1</span> <span class="keyword">else</span> <span class="number">0</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="回文数">9. 回文数</h1>
+<p>判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。</p>
+<p>示例 1: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: 121</span><br><span class="line">输出: true</span><br></pre></td></tr></table></figure></p>
+<p>示例 2: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: -121</span><br><span class="line">输出: false</span><br><span class="line">解释: 从左向右读, 为 -121 。 从右向左读, 为 121- 。因此它不是一个回文数。</span><br></pre></td></tr></table></figure></p>
+<p>示例 3: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: 10</span><br><span class="line">输出: false</span><br><span class="line">解释: 从右向左读, 为 01 。因此它不是一个回文数。</span><br></pre></td></tr></table></figure></p>
+<h2 id="方法转成字符串">方法：转成字符串</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isPalindrome</span><span class="params">(self, x: int)</span> -&gt; bool:</span></span><br><span class="line">        <span class="keyword">if</span> x &lt; <span class="number">0</span>: <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        x = str(x)</span><br><span class="line">        N = len(x)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(N//<span class="number">2</span>):</span><br><span class="line">            <span class="keyword">if</span> x[i] != x[N<span class="number">-1</span>-i]:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span><br></pre></td></tr></table></figure>
+<h1 id="罗马数字转整数">13. 罗马数字转整数</h1>
+<p>罗马数字包含以下七种字符: I， V， X， L，C，D 和 M。 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">字符          数值</span><br><span class="line">I             1</span><br><span class="line">V             5</span><br><span class="line">X             10</span><br><span class="line">L             50</span><br><span class="line">C             100</span><br><span class="line">D             500</span><br><span class="line">M             1000</span><br></pre></td></tr></table></figure></p>
+<p>例如， 罗马数字 2 写做 II ，即为两个并列的 1。12 写做 XII ，即为 X + II 。 27 写做  XXVII, 即为 XX + V + II 。</p>
+<p>通常情况下，罗马数字中小的数字在大的数字的右边。但也存在特例，例如 4 不写做 IIII，而是 IV。数字 1 在数字 5 的左边，所表示的数等于大数 5 减小数 1 得到的数值 4 。同样地，数字 9 表示为 IX。这个特殊的规则只适用于以下六种情况：</p>
+<ul>
+<li>I 可以放在 V (5) 和 X (10) 的左边，来表示 4 和 9。</li>
+<li>X 可以放在 L (50) 和 C (100) 的左边，来表示 40 和 90。 </li>
+<li>C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。</li>
+</ul>
+<p>给定一个罗马数字，将其转换成整数。输入确保在 1 到 3999 的范围内。</p>
+<p>示例 1: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: &quot;III&quot;</span><br><span class="line">输出: 3</span><br></pre></td></tr></table></figure></p>
+<p>示例 2: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: &quot;IV&quot;</span><br><span class="line">输出: 4</span><br></pre></td></tr></table></figure></p>
+<p>示例 3: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: &quot;IX&quot;</span><br><span class="line">输出: 9</span><br></pre></td></tr></table></figure></p>
+<p>示例 4: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: &quot;LVIII&quot;</span><br><span class="line">输出: 58</span><br><span class="line">解释: L = 50, V= 5, III = 3.</span><br></pre></td></tr></table></figure></p>
+<p>示例 5: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: &quot;MCMXCIV&quot;</span><br><span class="line">输出: 1994</span><br><span class="line">解释: M = 1000, CM = 900, XC = 90, IV = 4.</span><br></pre></td></tr></table></figure></p>
+<h1 id="方法从后往前遍历">方法：从后往前遍历</h1>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">romanToInt</span><span class="params">(self, s: str)</span> -&gt; int:</span></span><br><span class="line">        roman = &#123;<span class="string">"I"</span>:<span class="number">1</span>, <span class="string">"V"</span>:<span class="number">5</span>, <span class="string">"X"</span>:<span class="number">10</span>, <span class="string">"L"</span>:<span class="number">50</span>, <span class="string">"C"</span>:<span class="number">100</span>, <span class="string">"D"</span>:<span class="number">500</span>, <span class="string">"M"</span>:<span class="number">1000</span>&#125;</span><br><span class="line">        res = roman[s[<span class="number">-1</span>]]</span><br><span class="line">        N = len(s)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(N<span class="number">-2</span>, <span class="number">-1</span>, <span class="number">-1</span>):</span><br><span class="line">            <span class="keyword">if</span> roman[s[i]] &lt; roman[s[i+<span class="number">1</span>]]:</span><br><span class="line">                res -= roman[s[i]]</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                res += roman[s[i]]</span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -796,7 +838,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#整数反转"><span class="nav-number">1.</span> <span class="nav-text">7. 整数反转</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法一取模"><span class="nav-number">2.</span> <span class="nav-text">方法一:取模</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二转字符串"><span class="nav-number">2.1.</span> <span class="nav-text">方法二：转字符串</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#整数反转"><span class="nav-number">1.</span> <span class="nav-text">7. 整数反转</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法一取模"><span class="nav-number">2.</span> <span class="nav-text">方法一:取模</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二转字符串"><span class="nav-number">2.1.</span> <span class="nav-text">方法二：转字符串</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#回文数"><span class="nav-number">3.</span> <span class="nav-text">9. 回文数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法转成字符串"><span class="nav-number">3.1.</span> <span class="nav-text">方法：转成字符串</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#罗马数字转整数"><span class="nav-number">4.</span> <span class="nav-text">13. 罗马数字转整数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法从后往前遍历"><span class="nav-number">5.</span> <span class="nav-text">方法：从后往前遍历</span></a></li></ol></div>
             
 
           </div>
@@ -1340,7 +1382,8 @@
 
   
   <!-- 页面点击小红心 -->
-  <script type="text/javascript" src="/js/src/love.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -1357,6 +1400,5 @@
 <script type="text/javascript" src="custom_mathjax_source">
 </script>
 <!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<!-- hexo-inject:end --></body>
 </html>

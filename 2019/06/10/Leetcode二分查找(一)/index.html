@@ -96,27 +96,25 @@
 
 
 
-  <meta name="description" content="基本原理 Logistic回归是统计学习中的经典分类方法。其实仅在线性回归的基础上，套用了一个逻辑函数。本文主要详述逻辑回归模型的基础。 假设有输入向量 \(x=(x_1;x_2;...;x_n)\)， 由线性回归模型产生的预测值 \[z=w ^ \mathrm{ T }x+b\tag{1}\] 是实值，需要转换为 0/1 值才能进行分类。因此找一个单调可微函数来替代，将\(z\) 的值映射">
-<meta name="keywords" content="原理,机器学习,Logistic回归">
+  <meta name="description" content="第一个错误的版本   搜索旋转排序数组   搜索旋转排序数组 II   寻找旋转排序数组中的最小值">
+<meta name="keywords" content="python,LeetCode,二分查找">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Logistic回归">
-<meta property="og:url" content="http://yoursite.com/2018/01/23/logistic回归/index.html">
+<meta property="og:title" content="python刷LeetCode二分查找题(简单级)">
+<meta property="og:url" content="http://yoursite.com/2019/06/10/Leetcode二分查找(一)/index.html">
 <meta property="og:site_name" content="QxD&#39;s Notes">
-<meta property="og:description" content="基本原理 Logistic回归是统计学习中的经典分类方法。其实仅在线性回归的基础上，套用了一个逻辑函数。本文主要详述逻辑回归模型的基础。 假设有输入向量 \(x=(x_1;x_2;...;x_n)\)， 由线性回归模型产生的预测值 \[z=w ^ \mathrm{ T }x+b\tag{1}\] 是实值，需要转换为 0/1 值才能进行分类。因此找一个单调可微函数来替代，将\(z\) 的值映射">
+<meta property="og:description" content="第一个错误的版本   搜索旋转排序数组   搜索旋转排序数组 II   寻找旋转排序数组中的最小值">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Logistic-curve.svg/1200px-Logistic-curve.svg.png">
-<meta property="og:updated_time" content="2019-03-04T01:15:31.454Z">
+<meta property="og:updated_time" content="2019-06-19T15:13:29.072Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Logistic回归">
-<meta name="twitter:description" content="基本原理 Logistic回归是统计学习中的经典分类方法。其实仅在线性回归的基础上，套用了一个逻辑函数。本文主要详述逻辑回归模型的基础。 假设有输入向量 \(x=(x_1;x_2;...;x_n)\)， 由线性回归模型产生的预测值 \[z=w ^ \mathrm{ T }x+b\tag{1}\] 是实值，需要转换为 0/1 值才能进行分类。因此找一个单调可微函数来替代，将\(z\) 的值映射">
-<meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Logistic-curve.svg/1200px-Logistic-curve.svg.png">
+<meta name="twitter:title" content="python刷LeetCode二分查找题(简单级)">
+<meta name="twitter:description" content="第一个错误的版本   搜索旋转排序数组   搜索旋转排序数组 II   寻找旋转排序数组中的最小值">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/01/23/logistic回归/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/06/10/Leetcode二分查找(一)/"/>
 
 
 
@@ -126,7 +124,7 @@
   };
 </script>
 
-  <title>Logistic回归 | QxD's Notes</title>
+  <title>python刷LeetCode二分查找题(简单级) | QxD's Notes</title>
   
 
 
@@ -349,7 +347,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/23/logistic回归/"/>
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/10/Leetcode二分查找(一)/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Icy"/>
@@ -366,7 +364,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Logistic回归
+          <h1 class="post-title" itemprop="name headline">python刷LeetCode二分查找题(简单级)
 
               
             
@@ -392,7 +390,7 @@
                 
               
 
-              <time title="创建时间：2018-01-23 15:27:33" itemprop="dateCreated datePublished" datetime="2018-01-23T15:27:33+08:00">2018-01-23</time>
+              <time title="创建时间：2019-06-10 00:00:00" itemprop="dateCreated datePublished" datetime="2019-06-10T00:00:00+08:00">2019-06-10</time>
             
 
             
@@ -409,7 +407,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-04 09:15:31" itemprop="dateModified" datetime="2019-03-04T09:15:31+08:00">2019-03-04</time>
+                <time title="修改时间：2019-06-19 23:13:29" itemprop="dateModified" datetime="2019-06-19T23:13:29+08:00">2019-06-19</time>
               
             
           </span>
@@ -426,7 +424,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/机器学习/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a></span>
 
                 
                 
@@ -445,8 +443,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2018/01/23/logistic回归/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/01/23/logistic回归/" itemprop="commentCount"></span>
+                <a href="/2019/06/10/Leetcode二分查找(一)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/10/Leetcode二分查找(一)/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -454,7 +452,7 @@
 
           
           
-            <span id="/2018/01/23/logistic回归/" class="leancloud_visitors" data-flag-title="Logistic回归">
+            <span id="/2019/06/10/Leetcode二分查找(一)/" class="leancloud_visitors" data-flag-title="python刷LeetCode二分查找题(简单级)">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -485,24 +483,72 @@
       
 
       
-        <h1 id="基本原理">基本原理</h1>
-<p>Logistic回归是统计学习中的经典分类方法。其实仅在线性回归的基础上，套用了一个逻辑函数。本文主要详述逻辑回归模型的基础。</p>
-<p>假设有输入向量 <span class="math inline">\(x=(x_1;x_2;...;x_n)\)</span>， 由线性回归模型产生的预测值</p>
-<p><span class="math display">\[z=w ^ \mathrm{ T }x+b\tag{1}\]</span> 是实值，需要转换为 0/1 值才能进行分类。因此找一个单调可微函数来替代，将<span class="math inline">\(z\)</span> 的值映射到 (0,1) 之间，这里采用<a href="https://en.wikipedia.org/wiki/Logistic_function" target="_blank" rel="noopener">logistic函数</a>： <span class="math display">\[y=\frac{1}{1+e^{-z}}\tag{2}\]</span></p>
+        <ul>
+<li><ol start="278" style="list-style-type: decimal">
+<li>第一个错误的版本</li>
+</ol></li>
+<li><ol start="33" style="list-style-type: decimal">
+<li>搜索旋转排序数组</li>
+</ol></li>
+<li><ol start="81" style="list-style-type: decimal">
+<li>搜索旋转排序数组 II</li>
+</ol></li>
+<li><ol start="153" style="list-style-type: decimal">
+<li>寻找旋转排序数组中的最小值</li>
+</ol></li>
+</ul>
 <a id="more"></a>
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Logistic-curve.svg/1200px-Logistic-curve.svg.png" alt="logistic function"> 从图中可以看出，对数几率函数是一种“Sigmoid函数”，当 <span class="math inline">\(z=0\)</span> 时，函数值为0.5。随着 <span class="math inline">\(z\)</span> 的增大，对应的值将逼近于1；而随着 <span class="math inline">\(z\)</span> 的减小，输出值将逼近于0。如果横坐标刻度足够大，函数将看起来很像一个阶跃函数，其输出值在 <span class="math inline">\(z=0\)</span> 附近变化很陡。</p>
-<p>将式(1)代入得到</p>
-<p><span class="math display">\[y=\frac{1}{1+e^{-(w ^ \mathrm{ T }x+b)}}\tag{3}\]</span></p>
-<p><strong>上式就是logistic回归模型的分类函数。</strong>最后， <span class="math inline">\(y\)</span> 是一个范围在0~1之间的数值。结果大于0.5的数据被归入1类，小于0.5的即被归入0类。所以，Logistic回归也可以被看成是一种概率估计。</p>
-<p>(3)式可变化为对数几率形式：</p>
-<p><span class="math display">\[\ln \frac{y}{1-y}=w ^ \mathrm{ T }x+b\tag{4}\]</span> 由此看出，<strong>真实标记 <span class="math inline">\(y\)</span> 的对数几率是输入 <span class="math inline">\(x\)</span> 的线性函数</strong>。 将 <span class="math inline">\(y\)</span> 视为类后验概率估计 <span class="math inline">\(p(y=1|x)\)</span> ，则上式可重写为</p>
-<p><span class="math display">\[\ln \frac{p(y=1|x)}{p(y=0|x)}=w ^ \mathrm{ T }x+b\tag{5}\]</span></p>
-<p>显然有</p>
-<p><span class="math display">\[p(y=1|x)=\frac{e^{w ^ \mathrm{ T }x+b}}{1+e^{w ^ \mathrm{ T }x+b}}\tag{6}\]</span> <span class="math display">\[p(y=0|x)=\frac{1}{1+e^{w ^ \mathrm{ T }x+b}}\tag{7}\]</span> <strong>此时线性函数的值越接近正无穷，概率值就越接近1；线性函数的值越接近负无穷，概率值就越接近0。由此得以分类。</strong></p>
-<p>接下来可通过“极大似然法”来估计 <span class="math inline">\(w\)</span> 和 <span class="math inline">\(b\)</span> 。 # 用优化方法来估计参数 优化方法有很多，这里主要了解梯度下降，牛顿法和BFGS</p>
+<h1 id="第一个错误的版本">278. 第一个错误的版本</h1>
+<p>你是产品经理，目前正在带领一个团队开发新的产品。不幸的是，你的产品的最新版本没有通过质量检测。由于每个版本都是基于之前的版本开发的，所以错误的版本之后的所有版本都是错的。</p>
+<p>假设你有 n 个版本 [1, 2, ..., n]，你想找出导致之后所有版本出错的第一个错误的版本。</p>
+<p>你可以通过调用 bool isBadVersion(version) 接口来判断版本号 version 是否在单元测试中出错。实现一个函数来查找第一个错误的版本。你应该尽量减少对调用 API 的次数。</p>
+<p>示例: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">给定 n = 5，并且 version = 4 是第一个错误的版本。</span><br><span class="line"></span><br><span class="line">调用 isBadVersion(3) -&gt; false</span><br><span class="line">调用 isBadVersion(5) -&gt; true</span><br><span class="line">调用 isBadVersion(4) -&gt; true</span><br><span class="line"></span><br><span class="line">所以，4 是第一个错误的版本。</span><br></pre></td></tr></table></figure></p>
+<h2 id="方法">方法</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">firstBadVersion</span><span class="params">(self, n)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type n: int</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        left = <span class="number">0</span></span><br><span class="line">        right = n<span class="number">-1</span></span><br><span class="line">        <span class="keyword">while</span> left &lt;= right:</span><br><span class="line">            mid = left + (right-left)//<span class="number">2</span></span><br><span class="line">            <span class="keyword">if</span> isBadVersion(mid):</span><br><span class="line">                right = mid - <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                left = mid + <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> left</span><br></pre></td></tr></table></figure>
+<h2 id="搜索旋转排序数组">33. 搜索旋转排序数组</h2>
+<p>假设按照升序排序的数组在预先未知的某个点上进行了旋转。</p>
+<p>( 例如，数组 [0,1,2,4,5,6,7] 可能变为 [4,5,6,7,0,1,2] )。</p>
+<p>搜索一个给定的目标值，如果数组中存在这个目标值，则返回它的索引，否则返回 -1 。</p>
+<p>你可以假设数组中不存在重复的元素。</p>
+<p>你的算法时间复杂度必须是 O(log n) 级别。</p>
+<p>示例 1: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: nums = [4,5,6,7,0,1,2], target = 0</span><br><span class="line">输出: 4</span><br></pre></td></tr></table></figure></p>
+<p>示例 2: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: nums = [4,5,6,7,0,1,2], target = 3</span><br><span class="line">输出: -1</span><br></pre></td></tr></table></figure></p>
+<h2 id="方法-1">方法</h2>
+<p>我们的二分查找的思想就是找出某个条件，这个条件给了我们移动左右指针的参考，即要判断查找的target在mid的左边还是右边。</p>
+<p>具体到这个题目，因为给出的数组是旋转有序的，如果mid指向的位置在于pivot之后，那么mid向后部分是有序的，这个时候需要判断target在mid左边还是右边，最简单的方法就是判断target是不是在[pivot,r]区间内，如果的话就向mid后半部分搜索，否则就向mid左半部分搜索；同理，当mid在pivot之前，那么mid前面部分是有序的，根据target判断下面要向mid的左边还是右边搜索。</p>
+<p>具体来说，假设数组是A，每次左边缘为l，右边缘为r，还有中间位置是m。在每次迭代中，分三种情况：</p>
+<ol style="list-style-type: decimal">
+<li>如果target==A[m]，那么m就是我们要的结果，直接返回；</li>
+<li>如果A[m]&lt;A[r]，那么说明从m到r一定是有序的（没有受到rotate的影响），那么我们只需要判断target是不是在m到r之间，如果是则把左边缘移到m+1，否则就target在另一半，即把右边缘移到m-1。</li>
+<li>如果A[m]&gt;=A[r]，那么说明从l到m一定是有序的，同样只需要判断target是否在这个范围内，相应的移动边缘即可。</li>
+</ol>
+<p>注意，由于这个题目要进行和边缘元素的判断，所以没有采取[l,r)的左闭右开区间，而是使用了[l, r]双闭区间。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">search</span><span class="params">(self, nums: List[int], target: int)</span> -&gt; int:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> nums: <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">        left = <span class="number">0</span></span><br><span class="line">        right = len(nums)<span class="number">-1</span></span><br><span class="line">        <span class="keyword">while</span> left &lt;= right:</span><br><span class="line">            mid = (left + right)//<span class="number">2</span></span><br><span class="line">            <span class="keyword">if</span> nums[mid] == target:</span><br><span class="line">                <span class="keyword">return</span> mid</span><br><span class="line">            <span class="keyword">if</span> nums[mid] &lt; nums[right]: <span class="comment"># 确定右边有序</span></span><br><span class="line">                <span class="keyword">if</span> nums[mid] &lt; target <span class="keyword">and</span> target &lt;= nums[right]:</span><br><span class="line">                    left = mid + <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    right = mid - <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>: <span class="comment"># 确定左边有序</span></span><br><span class="line">                <span class="keyword">if</span> nums[mid] &gt; target <span class="keyword">and</span> target &gt;= nums[left]:</span><br><span class="line">                    right = mid - <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    left = mid + <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span></span><br></pre></td></tr></table></figure>
+<h1 id="搜索旋转排序数组-ii">81. 搜索旋转排序数组 II</h1>
+<p>假设按照升序排序的数组在预先未知的某个点上进行了旋转。</p>
+<p>( 例如，数组 [0,0,1,2,2,5,6] 可能变为 [2,5,6,0,0,1,2] )。</p>
+<p>编写一个函数来判断给定的目标值是否存在于数组中。若存在返回 true，否则返回 false。</p>
+<p>示例 1: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: nums = [2,5,6,0,0,1,2], target = 0</span><br><span class="line">输出: true</span><br></pre></td></tr></table></figure></p>
+<p>示例 2: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: nums = [2,5,6,0,0,1,2], target = 3</span><br><span class="line">输出: false</span><br></pre></td></tr></table></figure></p>
+<h2 id="方法-2">方法</h2>
+<p>是第33题的拓展题目，变的是加了一个可能含有重复数字。</p>
+<p>这样的话，如果直接进行左右指针的比较就不知道向哪个方向搜索了，</p>
+<p>所以，需要在正式比较之前，先移动左指针，是他指向一个和右指针不同的数字上。然后再做33题的查找。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">search</span><span class="params">(self, nums: List[int], target: int)</span> -&gt; bool:</span></span><br><span class="line">        left = <span class="number">0</span></span><br><span class="line">        right = len(nums)<span class="number">-1</span></span><br><span class="line">        <span class="keyword">while</span> left &lt;= right:</span><br><span class="line">            <span class="keyword">while</span> left &lt; right <span class="keyword">and</span> nums[left] == nums[right]:</span><br><span class="line">                left += <span class="number">1</span></span><br><span class="line">            mid = (left + right)//<span class="number">2</span></span><br><span class="line">            <span class="keyword">if</span> nums[mid] == target:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">            <span class="keyword">if</span> nums[left] &lt;= nums[mid]: <span class="comment"># 前半部有序</span></span><br><span class="line">                <span class="keyword">if</span> nums[left] &lt;= target <span class="keyword">and</span> target &lt; nums[mid]: <span class="comment"># 有一部分要写‘=’号</span></span><br><span class="line">                    right = mid - <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    left = mid + <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>: <span class="comment"># 后半部分有序</span></span><br><span class="line">                <span class="keyword">if</span> nums[mid] &lt; target <span class="keyword">and</span> target &lt;= nums[right]:</span><br><span class="line">                    left = mid + <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    right = mid - <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">False</span></span><br></pre></td></tr></table></figure>
+<h1 id="寻找旋转排序数组中的最小值">153. 寻找旋转排序数组中的最小值</h1>
+<p>假设按照升序排序的数组在预先未知的某个点上进行了旋转。</p>
+<p>( 例如，数组 [0,1,2,4,5,6,7] 可能变为 [4,5,6,7,0,1,2] )。</p>
+<p>请找出其中最小的元素。</p>
+<p>你可以假设数组中不存在重复元素。</p>
+<p>示例 1: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: [3,4,5,1,2]</span><br><span class="line">输出: 1</span><br></pre></td></tr></table></figure></p>
+<p>示例 2: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: [4,5,6,7,0,1,2]</span><br><span class="line">输出: 0</span><br></pre></td></tr></table></figure></p>
+<h2 id="方法-3">方法</h2>
+<p>这个题是剑指offer上的原题。看到有序的数组就想到二分查找。这个是变种而已。</p>
+<p>注意边界和循环条件。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findMin</span><span class="params">(self, nums: List[int])</span> -&gt; int:</span></span><br><span class="line">        <span class="keyword">if</span> len(nums) == <span class="number">1</span>:<span class="keyword">return</span> nums[<span class="number">0</span>]</span><br><span class="line">        left, right = <span class="number">0</span>, len(nums)<span class="number">-1</span></span><br><span class="line">        </span><br><span class="line">        mid = left</span><br><span class="line">        <span class="keyword">while</span> nums[left] &gt;= nums[right]: <span class="comment"># 左半边 大于 右半边</span></span><br><span class="line">            <span class="keyword">if</span> left+<span class="number">1</span>  == right: <span class="comment"># 左右边相邻</span></span><br><span class="line">                mid = right</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            mid = (left + right)//<span class="number">2</span></span><br><span class="line">            <span class="keyword">if</span> nums[left] &lt;= nums[mid]:</span><br><span class="line">                left = mid</span><br><span class="line">            <span class="keyword">elif</span> nums[mid] &lt;= nums[right]:</span><br><span class="line">                right = mid</span><br><span class="line">                </span><br><span class="line">        <span class="keyword">return</span> nums[mid]</span><br></pre></td></tr></table></figure>
 <h1 id="参考">参考</h1>
 <ul>
-<li><a href="https://chenrudan.github.io/blog/2016/01/09/logisticregression.html" target="_blank" rel="noopener">浅析Logistic Regression</a></li>
+<li><a href="https://blog.csdn.net/fuxuemingzhu/article/details/79533470" target="_blank" rel="noopener">【LeetCode】153. Find Minimum in Rotated Sorted Array 解题报告（Python）</a></li>
 </ul>
 
       
@@ -527,11 +573,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/原理/" rel="tag"># 原理</a>
+            <a href="/tags/python/" rel="tag"># python</a>
           
-            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+            <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
           
-            <a href="/tags/Logistic回归/" rel="tag"># Logistic回归</a>
+            <a href="/tags/二分查找/" rel="tag"># 二分查找</a>
           
         </div>
       
@@ -544,15 +590,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/06/10/python刷LeetCode链表题(困难级)/" rel="next" title="用python刷LeetCode链表题(困难级)">
+                <i class="fa fa-chevron-left"></i> 用python刷LeetCode链表题(困难级)
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/02/14/Conda命令/" rel="prev" title="Conda常用命令">
-                Conda常用命令 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -803,7 +849,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本原理"><span class="nav-number">1.</span> <span class="nav-text">基本原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">2.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一个错误的版本"><span class="nav-number">1.</span> <span class="nav-text">278. 第一个错误的版本</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number">1.1.</span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搜索旋转排序数组"><span class="nav-number">1.2.</span> <span class="nav-text">33. 搜索旋转排序数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-1"><span class="nav-number">1.3.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搜索旋转排序数组-ii"><span class="nav-number">2.</span> <span class="nav-text">81. 搜索旋转排序数组 II</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-2"><span class="nav-number">2.1.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#寻找旋转排序数组中的最小值"><span class="nav-number">3.</span> <span class="nav-text">153. 寻找旋转排序数组中的最小值</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-3"><span class="nav-number">3.1.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
@@ -1322,53 +1368,6 @@
   
   
 
-  
-    
-      <script type="text/x-mathjax-config">
-  
-
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
-      processEscapes: true,
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {
-      
-      equationNumbers: {
-        autoNumber: 'AMS'
-      }
-    }
-  });
-  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
-    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
-      if (data.display) {
-        var next = data.script.nextSibling;
-        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
-        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
-      }
-    });
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-      for (i = 0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-      }
-  });
-</script>
-<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-<style>
-.MathJax_Display {
-  overflow-x: scroll;
-  overflow-y: hidden;
-}
-</style>
-
-    
   
 
 

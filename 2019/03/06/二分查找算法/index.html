@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="学习目标：  实现一个有序数组的二分查找算法 实现模糊二分查找算法  大于给定值的第一个元素  LeetCode 69. x 的平方根 LeetCode 35. 搜索插入位置">
+  <meta name="description" content="学习目标：  实现一个有序数组的二分查找算法 实现模糊二分查找算法  大于给定值的第一个元素  LeetCode 69. x 的平方根 LeetCode 35. 搜索插入位置 LeetCode 34. 在排序数组中查找元素的第一个和最后一个位置">
 <meta name="keywords" content="python,LeetCode,数据结构,二分查找">
 <meta property="og:type" content="article">
 <meta property="og:title" content="二分查找算法">
 <meta property="og:url" content="http://yoursite.com/2019/03/06/二分查找算法/index.html">
 <meta property="og:site_name" content="QxD&#39;s Notes">
-<meta property="og:description" content="学习目标：  实现一个有序数组的二分查找算法 实现模糊二分查找算法  大于给定值的第一个元素  LeetCode 69. x 的平方根 LeetCode 35. 搜索插入位置">
+<meta property="og:description" content="学习目标：  实现一个有序数组的二分查找算法 实现模糊二分查找算法  大于给定值的第一个元素  LeetCode 69. x 的平方根 LeetCode 35. 搜索插入位置 LeetCode 34. 在排序数组中查找元素的第一个和最后一个位置">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-06T08:54:56.670Z">
+<meta property="og:updated_time" content="2019-06-19T07:34:34.346Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="二分查找算法">
-<meta name="twitter:description" content="学习目标：  实现一个有序数组的二分查找算法 实现模糊二分查找算法  大于给定值的第一个元素  LeetCode 69. x 的平方根 LeetCode 35. 搜索插入位置">
+<meta name="twitter:description" content="学习目标：  实现一个有序数组的二分查找算法 实现模糊二分查找算法  大于给定值的第一个元素  LeetCode 69. x 的平方根 LeetCode 35. 搜索插入位置 LeetCode 34. 在排序数组中查找元素的第一个和最后一个位置">
 
 
 
@@ -390,12 +390,24 @@
                 
               
 
-              <time title="创建时间：2019-03-06 00:00:00 / 修改时间：16:54:56" itemprop="dateCreated datePublished" datetime="2019-03-06T00:00:00+08:00">2019-03-06</time>
+              <time title="创建时间：2019-03-06 00:00:00" itemprop="dateCreated datePublished" datetime="2019-03-06T00:00:00+08:00">2019-03-06</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-06-19 15:34:34" itemprop="dateModified" datetime="2019-06-19T15:34:34+08:00">2019-06-19</time>
               
             
           </span>
@@ -480,6 +492,7 @@
 </ul></li>
 <li>LeetCode 69. x 的平方根</li>
 <li>LeetCode 35. 搜索插入位置</li>
+<li>LeetCode 34. 在排序数组中查找元素的第一个和最后一个位置</li>
 </ul>
 <a id="more"></a>
 <h1 id="二分查找">二分查找</h1>
@@ -491,7 +504,7 @@
 <p>输出7</p>
 <p>还可变形为查找最后一个不大于目标值的数。 我们已经找到了第一个大于目标值的数，那么再往前退一位，位置 - 1，就是最后一个不大于目标值的数。比如在数组[0, 1, 1, 1, 1, 5]中查找数字1，就会返回最后一个数字1的位置4。</p>
 <p><code>if nums[mid] &gt; target:</code> 中的'&gt;' 改为 '&gt;='，就能找到<strong>大于等于</strong>给定值的第一个元素。往前退一位，可变形为查找最后一个小于目标值的数。</p>
-<h1 id="leetcode-69.-x-的平方根">LeetCode 69. x 的平方根</h1>
+<h1 id="x-的平方根">69. x 的平方根</h1>
 <p>实现 int sqrt(int x) 函数。</p>
 <p>计算并返回 x 的平方根，其中 x 是非负整数。</p>
 <p>由于返回类型是整数，结果只保留整数的部分，小数部分将被舍去。</p>
@@ -499,7 +512,7 @@
 <p>示例 2: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入: 8</span><br><span class="line">输出: 2</span><br><span class="line">说明: 8 的平方根是 2.82842..., </span><br><span class="line">     由于返回类型是整数，小数部分将被舍去。</span><br></pre></td></tr></table></figure></p>
 <h2 id="方法二分查找">方法：二分查找</h2>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mySqrt</span><span class="params">(self, x: int)</span> -&gt; int:</span></span><br><span class="line">        left = <span class="number">0</span></span><br><span class="line">        right = x</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> left &lt;= right:</span><br><span class="line">            mid = (left+right)//<span class="number">2</span></span><br><span class="line">            <span class="keyword">if</span> mid * mid &lt; x:</span><br><span class="line">                left = mid + <span class="number">1</span></span><br><span class="line">            <span class="keyword">elif</span> mid * mid &gt; x:</span><br><span class="line">                right = mid <span class="number">-1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> mid</span><br><span class="line">        <span class="keyword">return</span> left <span class="number">-1</span></span><br></pre></td></tr></table></figure>
-<h1 id="leetcode-35.-搜索插入位置">LeetCode 35. 搜索插入位置</h1>
+<h1 id="搜索插入位置">35. 搜索插入位置</h1>
 <p><a href="https://leetcode-cn.com/problems/search-insert-position/" target="_blank" rel="noopener">Search Insert Position</a></p>
 <h2 id="题目描述">题目描述</h2>
 <p>给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。</p>
@@ -527,7 +540,7 @@
 </blockquote>
 <h2 id="方法二分查找-1">方法：二分查找</h2>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">searchInsert</span><span class="params">(self, nums, target)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :type target: int</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        </span><br><span class="line">        left = <span class="number">0</span></span><br><span class="line">        right = len(nums)<span class="number">-1</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> left &lt;= right:</span><br><span class="line">            mid = (right-left)/<span class="number">2</span> + left</span><br><span class="line">            <span class="keyword">if</span> nums[mid] == target:</span><br><span class="line">                <span class="keyword">return</span> mid</span><br><span class="line">            <span class="keyword">elif</span> nums[mid] &gt; target:</span><br><span class="line">                right = mid<span class="number">-1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                left = mid+<span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> left</span><br></pre></td></tr></table></figure>
-<h1 id="leetcode-34.-在排序数组中查找元素的第一个和最后一个位置">LeetCode 34. 在排序数组中查找元素的第一个和最后一个位置</h1>
+<h1 id="在排序数组中查找元素的第一个和最后一个位置">34. 在排序数组中查找元素的第一个和最后一个位置</h1>
 <p>给定一个按照升序排列的整数数组 nums，和一个目标值 target。找出给定目标值在数组中的开始位置和结束位置。</p>
 <p>你的算法时间复杂度必须是 O(log n) 级别。</p>
 <p>如果数组中不存在目标值，返回 [-1, -1]。</p>
@@ -666,7 +679,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-count">44</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -840,7 +853,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#二分查找"><span class="nav-number">1.</span> <span class="nav-text">二分查找</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#模糊二分查找"><span class="nav-number">2.</span> <span class="nav-text">模糊二分查找</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#大于给定值的第一个元素"><span class="nav-number">2.1.</span> <span class="nav-text">大于给定值的第一个元素</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#leetcode-69.-x-的平方根"><span class="nav-number">3.</span> <span class="nav-text">LeetCode 69. x 的平方根</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二分查找"><span class="nav-number">3.1.</span> <span class="nav-text">方法：二分查找</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#leetcode-35.-搜索插入位置"><span class="nav-number">4.</span> <span class="nav-text">LeetCode 35. 搜索插入位置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">4.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二分查找-1"><span class="nav-number">4.2.</span> <span class="nav-text">方法：二分查找</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#leetcode-34.-在排序数组中查找元素的第一个和最后一个位置"><span class="nav-number">5.</span> <span class="nav-text">LeetCode 34. 在排序数组中查找元素的第一个和最后一个位置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number">5.1.</span> <span class="nav-text">方法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#二分查找"><span class="nav-number">1.</span> <span class="nav-text">二分查找</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#模糊二分查找"><span class="nav-number">2.</span> <span class="nav-text">模糊二分查找</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#大于给定值的第一个元素"><span class="nav-number">2.1.</span> <span class="nav-text">大于给定值的第一个元素</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#x-的平方根"><span class="nav-number">3.</span> <span class="nav-text">69. x 的平方根</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二分查找"><span class="nav-number">3.1.</span> <span class="nav-text">方法：二分查找</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搜索插入位置"><span class="nav-number">4.</span> <span class="nav-text">35. 搜索插入位置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">4.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二分查找-1"><span class="nav-number">4.2.</span> <span class="nav-text">方法：二分查找</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在排序数组中查找元素的第一个和最后一个位置"><span class="nav-number">5.</span> <span class="nav-text">34. 在排序数组中查找元素的第一个和最后一个位置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number">5.1.</span> <span class="nav-text">方法</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1431,8 +1444,7 @@
 
   
   <!-- 页面点击小红心 -->
-  <script type="text/javascript" src="/js/src/love.js"></script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  <script type="text/javascript" src="/js/src/love.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -1449,5 +1461,6 @@
 <script type="text/javascript" src="custom_mathjax_source">
 </script>
 <!-- End: Injected MathJax -->
-<!-- hexo-inject:end --></body>
+<!-- hexo-inject:end -->
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>

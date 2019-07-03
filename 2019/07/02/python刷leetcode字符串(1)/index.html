@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="报数   最后一个单词的长度   二进制求和">
+  <meta name="description" content="报数   最后一个单词的长度   二进制求和   验证回文串   反转字符串中的元音字母   赎金信">
 <meta name="keywords" content="python,LeetCode,数据结构,字符串">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python刷leetcode字符串(1)">
 <meta property="og:url" content="http://yoursite.com/2019/07/02/python刷leetcode字符串(1)/index.html">
 <meta property="og:site_name" content="QxD&#39;s Notes">
-<meta property="og:description" content="报数   最后一个单词的长度   二进制求和">
+<meta property="og:description" content="报数   最后一个单词的长度   二进制求和   验证回文串   反转字符串中的元音字母   赎金信">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-03T00:26:16.502Z">
+<meta property="og:updated_time" content="2019-07-03T08:49:36.685Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python刷leetcode字符串(1)">
-<meta name="twitter:description" content="报数   最后一个单词的长度   二进制求和">
+<meta name="twitter:description" content="报数   最后一个单词的长度   二进制求和   验证回文串   反转字符串中的元音字母   赎金信">
 
 
 
@@ -407,7 +407,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-03 08:26:16" itemprop="dateModified" datetime="2019-07-03T08:26:16+08:00">2019-07-03</time>
+                <time title="修改时间：2019-07-03 16:49:36" itemprop="dateModified" datetime="2019-07-03T16:49:36+08:00">2019-07-03</time>
               
             
           </span>
@@ -491,7 +491,16 @@
 <li>最后一个单词的长度</li>
 </ol></li>
 <li><ol start="67" style="list-style-type: decimal">
-<li>二进制求和 <a id="more"></a></li>
+<li>二进制求和</li>
+</ol></li>
+<li><ol start="125" style="list-style-type: decimal">
+<li>验证回文串</li>
+</ol></li>
+<li><ol start="345" style="list-style-type: decimal">
+<li>反转字符串中的元音字母</li>
+</ol></li>
+<li><ol start="383" style="list-style-type: decimal">
+<li>赎金信 <a id="more"></a></li>
 </ol></li>
 </ul>
 <h1 id="报数">38. 报数</h1>
@@ -501,7 +510,6 @@
 <p>21 被读作 &quot;one 2&quot;,  &quot;one 1&quot; （&quot;一个二&quot; ,  &quot;一个一&quot;) , 即 1211。</p>
 <p>给定一个正整数 n（1 ≤ n ≤ 30），输出报数序列的第 n 项。</p>
 <p>注意：整数顺序将表示为一个字符串。</p>
-<p> </p>
 <p>示例 1: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: 1</span><br><span class="line">输出: &quot;1&quot;</span><br></pre></td></tr></table></figure></p>
 <p>示例 2: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: 4</span><br><span class="line">输出: &quot;1211&quot;</span><br></pre></td></tr></table></figure></p>
 <h2 id="方法">方法</h2>
@@ -519,9 +527,33 @@
 <p>输入为非空字符串且只包含数字 1 和 0。</p>
 <p>示例 1: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: a = &quot;11&quot;, b = &quot;1&quot;</span><br><span class="line">输出: &quot;100&quot;</span><br></pre></td></tr></table></figure></p>
 <p>示例 2: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: a = &quot;1010&quot;, b = &quot;1011&quot;</span><br><span class="line">输出: &quot;10101&quot;</span><br></pre></td></tr></table></figure></p>
-<h2 id="方法进制转换函数">方法:进制转换函数</h2>
+<h2 id="方法进制转换函数">方法：进制转换函数</h2>
 <p>先将两个加数转成10进制，再把和转换成二进制返回即可。虽然速度还挺快的，但这么做忽略了可能的大整数相加的细节（因为Python帮你处理了）。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">addBinary</span><span class="params">(self, a: str, b: str)</span> -&gt; str:</span></span><br><span class="line">        <span class="keyword">return</span> bin(int(a,<span class="number">2</span>) + int(b,<span class="number">2</span>))[<span class="number">2</span>:]</span><br></pre></td></tr></table></figure>
+<h1 id="验证回文串">125. 验证回文串</h1>
+<p>给定一个字符串，验证它是否是回文串，只考虑字母和数字字符，可以忽略字母的大小写。</p>
+<p>说明：本题中，我们将空字符串定义为有效的回文串。</p>
+<p>示例 1: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: &quot;A man, a plan, a canal: Panama&quot;</span><br><span class="line">输出: true</span><br></pre></td></tr></table></figure></p>
+<p>示例 2: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: &quot;race a car&quot;</span><br><span class="line">输出: false</span><br></pre></td></tr></table></figure></p>
+<h2 id="方法列表生成式">方法：列表生成式</h2>
+<p>isalnum()能判断字符是不是字母数字的，用列表表达式就能产生有效字符串，然后就可以看是不是回文。 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isPalindrome</span><span class="params">(self, s: str)</span> -&gt; bool:</span></span><br><span class="line">        isvalid = <span class="keyword">lambda</span> x : x == x[::<span class="number">-1</span>]</span><br><span class="line">        string = <span class="string">''</span>.join([x <span class="keyword">for</span> x <span class="keyword">in</span> s.lower() <span class="keyword">if</span> x.isalnum()])</span><br><span class="line">        <span class="keyword">return</span> isvalid(string)</span><br></pre></td></tr></table></figure></p>
+<h2 id="方法正则表达式">方法：正则表达式</h2>
+<p>替换非字母数字字符 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isPalindrome</span><span class="params">(self, s: str)</span> -&gt; bool:</span></span><br><span class="line">        s = s.lower()</span><br><span class="line">        s = re.sub(<span class="string">'\W'</span>, <span class="string">''</span>, s) </span><br><span class="line">        <span class="comment"># 正则 sub替换, \W匹配任何非单词字符。等价于 '[^A-Za-z0-9_]'。</span></span><br><span class="line">        N = len(s)</span><br><span class="line">        left, right = <span class="number">0</span>, N<span class="number">-1</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> left &lt;= right: </span><br><span class="line">            <span class="keyword">if</span> s[left] != s[right]:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">            left += <span class="number">1</span></span><br><span class="line">            right -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="反转字符串中的元音字母">345. 反转字符串中的元音字母</h1>
+<p>编写一个函数，以字符串作为输入，反转该字符串中的元音字母。</p>
+<p>示例 1: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: &quot;hello&quot;</span><br><span class="line">输出: &quot;holle&quot;</span><br></pre></td></tr></table></figure></p>
+<p>示例 2: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: &quot;leetcode&quot;</span><br><span class="line">输出: &quot;leotcede&quot;</span><br></pre></td></tr></table></figure></p>
+<p>说明: 元音字母不包含字母&quot;y&quot;。</p>
+<h2 id="方法栈">方法：栈</h2>
+<p>这个题的意思是把收尾向中间走的时候遇到的所有元音字符换位置。也就是说 “abecui”–&gt;“ibucea”;</p>
+<p>把某个东西进行翻转，很容易想到栈。所以把元音字符进栈，再次遍历的时候遇到元音字符就出栈即可。 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reverseVowels</span><span class="params">(self, s: str)</span> -&gt; str:</span></span><br><span class="line">        vstack = []</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> s:</span><br><span class="line">            <span class="keyword">if</span> c <span class="keyword">in</span> <span class="string">"aeiouAEIOU"</span>:</span><br><span class="line">                vstack.append(c)</span><br><span class="line">        </span><br><span class="line">        res = []</span><br><span class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> s:</span><br><span class="line">            <span class="keyword">if</span> c <span class="keyword">in</span> <span class="string">"aeiouAEIOU"</span>:</span><br><span class="line">                res.append(vstack.pop())</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                res.append(c)</span><br><span class="line">        <span class="keyword">return</span> <span class="string">''</span>.join(res)</span><br></pre></td></tr></table></figure></p>
+<h1 id="赎金信">383. 赎金信</h1>
+<p>给定一个赎金信 (ransom) 字符串和一个杂志(magazine)字符串，判断第一个字符串ransom能不能由第二个字符串magazines里面的字符构成。如果可以构成，返回 true ；否则返回 false。</p>
+<p>(题目说明：为了不暴露赎金信字迹，要从杂志上搜索各个需要的字母，组成单词来表达意思。)</p>
+<p>注意：</p>
+<p>你可以假设两个字符串均只含有小写字母。 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">canConstruct(&quot;a&quot;, &quot;b&quot;) -&gt; false</span><br><span class="line">canConstruct(&quot;aa&quot;, &quot;ab&quot;) -&gt; false</span><br><span class="line">canConstruct(&quot;aa&quot;, &quot;aab&quot;) -&gt; true</span><br></pre></td></tr></table></figure></p>
+<h2 id="方法-1">方法</h2>
+<p>直接Counter，然后判断前者的每个字符出现次数都小于后者即可。 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">canConstruct</span><span class="params">(self, ransomNote: str, magazine: str)</span> -&gt; bool:</span></span><br><span class="line">        rcount = collections.Counter(ransomNote)</span><br><span class="line">        mcount = collections.Counter(magazine)</span><br><span class="line">        <span class="keyword">for</span> r, c <span class="keyword">in</span> rcount.items():</span><br><span class="line">            <span class="keyword">if</span> c &gt; mcount[r]:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -823,7 +855,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#报数"><span class="nav-number">1.</span> <span class="nav-text">38. 报数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number">1.1.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最后一个单词的长度"><span class="nav-number">2.</span> <span class="nav-text">58. 最后一个单词的长度</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法库函数"><span class="nav-number">2.1.</span> <span class="nav-text">方法：库函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二进制求和"><span class="nav-number">3.</span> <span class="nav-text">67. 二进制求和</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法进制转换函数"><span class="nav-number">3.1.</span> <span class="nav-text">方法:进制转换函数</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#报数"><span class="nav-number">1.</span> <span class="nav-text">38. 报数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number">1.1.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最后一个单词的长度"><span class="nav-number">2.</span> <span class="nav-text">58. 最后一个单词的长度</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法库函数"><span class="nav-number">2.1.</span> <span class="nav-text">方法：库函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二进制求和"><span class="nav-number">3.</span> <span class="nav-text">67. 二进制求和</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法进制转换函数"><span class="nav-number">3.1.</span> <span class="nav-text">方法：进制转换函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#验证回文串"><span class="nav-number">4.</span> <span class="nav-text">125. 验证回文串</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法列表生成式"><span class="nav-number">4.1.</span> <span class="nav-text">方法：列表生成式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法正则表达式"><span class="nav-number">4.2.</span> <span class="nav-text">方法：正则表达式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#反转字符串中的元音字母"><span class="nav-number">5.</span> <span class="nav-text">345. 反转字符串中的元音字母</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法栈"><span class="nav-number">5.1.</span> <span class="nav-text">方法：栈</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#赎金信"><span class="nav-number">6.</span> <span class="nav-text">383. 赎金信</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-1"><span class="nav-number">6.1.</span> <span class="nav-text">方法</span></a></li></ol></li></ol></div>
             
 
           </div>

@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="学习目标：   课程表">
+  <meta name="description" content="在图论中，拓扑排序（Topological Sorting）是一个有向无环图（DAG, Directed Acyclic Graph）的所有顶点的线性序列。且该序列必须满足下面两个条件：  每个顶点出现且只出现一次。 若存在一条从顶点 A 到顶点 B 的路径，那么在序列中顶点 A 出现在顶点 B 的前面。  有向无环图（DAG）才有拓扑排序，非DAG图没有拓扑排序一说。 学习目标：">
 <meta name="keywords" content="python,LeetCode,图,拓扑排序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python解leetcode拓扑排序">
 <meta property="og:url" content="http://yoursite.com/2019/08/05/python解leetcode拓扑排序/index.html">
 <meta property="og:site_name" content="QxD&#39;s Notes">
-<meta property="og:description" content="学习目标：   课程表">
+<meta property="og:description" content="在图论中，拓扑排序（Topological Sorting）是一个有向无环图（DAG, Directed Acyclic Graph）的所有顶点的线性序列。且该序列必须满足下面两个条件：  每个顶点出现且只出现一次。 若存在一条从顶点 A 到顶点 B 的路径，那么在序列中顶点 A 出现在顶点 B 的前面。  有向无环图（DAG）才有拓扑排序，非DAG图没有拓扑排序一说。 学习目标：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-05T05:39:21.042Z">
+<meta property="og:updated_time" content="2019-08-05T06:23:54.417Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python解leetcode拓扑排序">
-<meta name="twitter:description" content="学习目标：   课程表">
+<meta name="twitter:description" content="在图论中，拓扑排序（Topological Sorting）是一个有向无环图（DAG, Directed Acyclic Graph）的所有顶点的线性序列。且该序列必须满足下面两个条件：  每个顶点出现且只出现一次。 若存在一条从顶点 A 到顶点 B 的路径，那么在序列中顶点 A 出现在顶点 B 的前面。  有向无环图（DAG）才有拓扑排序，非DAG图没有拓扑排序一说。 学习目标：">
 
 
 
@@ -390,7 +390,7 @@
                 
               
 
-              <time title="创建时间：2019-08-05 00:00:00 / 修改时间：13:39:21" itemprop="dateCreated datePublished" datetime="2019-08-05T00:00:00+08:00">2019-08-05</time>
+              <time title="创建时间：2019-08-05 00:00:00 / 修改时间：14:23:54" itemprop="dateCreated datePublished" datetime="2019-08-05T00:00:00+08:00">2019-08-05</time>
             
 
             
@@ -471,16 +471,31 @@
       
 
       
-        <p><strong>学习目标：</strong></p>
+        <p>在图论中，<strong>拓扑排序（Topological Sorting）</strong>是一个有向无环图（DAG, Directed Acyclic Graph）的所有顶点的线性序列。且该序列必须满足下面两个条件：</p>
+<ol type="1">
+<li>每个顶点出现且只出现一次。</li>
+<li>若存在一条从顶点 A 到顶点 B 的路径，那么在序列中顶点 A 出现在顶点 B 的前面。</li>
+</ol>
+<p>有向无环图（DAG）才有拓扑排序，非DAG图没有拓扑排序一说。</p>
+<p><strong>学习目标：</strong></p>
 <ul>
 <li><ol start="207" type="1">
-<li>课程表</li>
+<li>课程表s</li>
 </ol></li>
 <li><ol start="210" type="1">
-<li></li>
+<li>课程表 II</li>
 </ol></li>
 </ul>
+<p>拓扑排序返回的结果是有向图中所有点依据有向边指向顺序的排列而成的点。</p>
+<p>那么该如何获得一个有向图的拓扑排序的结果？</p>
 <a id="more"></a>
+<p>最直观的方法步骤如下</p>
+<ol type="1">
+<li>找到图中入度（indegree）为0的点，然后记录这个点并删除这个点的所有出度（outdegree），也就是连接了这个点的其他点的入度</li>
+<li>检查图中是否有入度为0的点，如果有重复步骤（1）</li>
+</ol>
+<p>重复步骤（1）-（2）直至无法找到入度为0的点，此时如果记录的点的数目与所有点的数目相同，那么说明图中不存在闭合的环，反之则存在。</p>
+<p><strong>应用：</strong>拓扑排序通常用来“排序”具有依赖关系的任务。</p>
 <h1 id="课程表">207. 课程表</h1>
 <p><a href="https://leetcode-cn.com/problems/course-schedule" target="_blank" rel="noopener">Course Schedule</a></p>
 <p>现在你总共有 n 门课需要选，记为 0 到 n-1。</p>
@@ -1375,8 +1390,7 @@
 
   
   <!-- 页面点击小红心 -->
-  <script type="text/javascript" src="/js/src/love.js"></script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  <script type="text/javascript" src="/js/src/love.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -1393,5 +1407,6 @@
 <script type="text/javascript" src="custom_mathjax_source">
 </script>
 <!-- End: Injected MathJax -->
-<!-- hexo-inject:end --></body>
+<!-- hexo-inject:end -->
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>

@@ -100,7 +100,7 @@
 <meta name="keywords" content="python,LeetCode,数据结构,二叉树">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python实现数据结构之二叉树">
-<meta property="og:url" content="http://yoursite.com/2019/03/09/python实现数据结构之二叉树/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/03/09/python解leetcode二叉树(1)/index.html">
 <meta property="og:site_name" content="QxD&#39;s Notes">
 <meta property="og:description" content="二叉查找树（英语：Binary Search Tree），也称为二叉搜索树、有序二叉树（ordered binary tree）或排序二叉树（sorted binary tree）。 学习目标：  实现一个二叉查找树，并且支持插入、删除、查找操作  LeetCode 108. 将有序数组转换为二叉搜索树 LeetCode 109. 有序链表转换二叉搜索树 LeetCode 701.">
 <meta property="og:locale" content="zh-CN">
@@ -114,7 +114,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/09/python实现数据结构之二叉树/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/09/python解leetcode二叉树(1)/"/>
 
 
 
@@ -347,7 +347,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/09/python实现数据结构之二叉树/"/>
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/09/python解leetcode二叉树(1)/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Icy"/>
@@ -443,8 +443,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/03/09/python实现数据结构之二叉树/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/09/python实现数据结构之二叉树/" itemprop="commentCount"></span>
+                <a href="/2019/03/09/python解leetcode二叉树(1)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/09/python解leetcode二叉树(1)/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -452,7 +452,7 @@
 
           
           
-            <span id="/2019/03/09/python实现数据结构之二叉树/" class="leancloud_visitors" data-flag-title="python实现数据结构之二叉树">
+            <span id="/2019/03/09/python解leetcode二叉树(1)/" class="leancloud_visitors" data-flag-title="python实现数据结构之二叉树">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -510,7 +510,7 @@
 </ul>
 <a id="more"></a>
 <p>二叉查找树是指：一棵空树，或者具有下列性质的二叉树：</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>若任意节点的左子树不空，则左子树上所有节点的值均小于它的根节点的值；</li>
 <li>若任意节点的右子树不空，则右子树上所有节点的值均大于它的根节点的值；</li>
 <li>任意节点的左、右子树也分别为二叉查找树；</li>
@@ -560,7 +560,7 @@
 <p>首先找到需要删除的节点； 如果找到了，删除它。 说明： 要求算法时间复杂度为 O(h)，h 为树的高度。</p>
 <p>示例: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">root = [5,3,6,2,4,null,7]</span><br><span class="line">key = 3</span><br><span class="line"></span><br><span class="line">    5</span><br><span class="line">   / \</span><br><span class="line">  3   6</span><br><span class="line"> / \   \</span><br><span class="line">2   4   7</span><br><span class="line"></span><br><span class="line">给定需要删除的节点值是 3，所以我们首先找到 3 这个节点，然后删除它。</span><br><span class="line"></span><br><span class="line">一个正确的答案是 [5,4,6,2,null,null,7], 如下图所示。</span><br><span class="line"></span><br><span class="line">    5</span><br><span class="line">   / \</span><br><span class="line">  4   6</span><br><span class="line"> /     \</span><br><span class="line">2       7</span><br><span class="line"></span><br><span class="line">另一个正确答案是 [5,2,6,null,4,null,7]。</span><br><span class="line"></span><br><span class="line">    5</span><br><span class="line">   / \</span><br><span class="line">  2   6</span><br><span class="line">   \   \</span><br><span class="line">    4   7</span><br></pre></td></tr></table></figure></p>
 <h2 id="方法-2">方法</h2>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>递归遍历整个树</li>
 <li>找到这个要删除的结点后，如果只有左孩子，或没有孩子，返回左孩子或空</li>
 <li>如果有右孩子，找右子树的最小值，即待删结点的后继，交换两个值。</li>
@@ -569,10 +569,10 @@
 <h1 id="查找后继节点">查找后继节点</h1>
 <p>查找二叉查找树中某个节点的前驱节点</p>
 <h2 id="思路">思路</h2>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><p>若一个节点有右子树，那么该节点的后继节点是其右子树中val值最小的节点（也就是右子树中所谓的leftMostNode）</p></li>
 <li><p>若一个节点没有右子树，那么判断该节点和其父节点的关系</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><p>若该节点是其父节点的左边孩子，那么该节点的后继结点即为其父节点</p></li>
 <li><p>若该节点是其父节点的右边孩子，那么需要沿着其父亲节点一直向树的顶端寻找，直到找到一个节点P，P节点是其父节点Q的左边孩子，那么Q就是该节点的后继节点</p></li>
 </ol></li>
@@ -592,10 +592,10 @@
 <h1 id="查找前驱结点">查找前驱结点</h1>
 <p>查找二叉查找树中某个节点的前驱节点</p>
 <h2 id="思路-1">思路</h2>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><p>若一个节点有左子树，那么该节点的前驱节点是其左子树中val值最大的节点（也就是左子树中所谓的rightMostNode）</p></li>
 <li><p>若一个节点没有左子树，那么判断该节点和其父节点的关系</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><p>若该节点是其父节点的右边孩子，那么该节点的前驱结点即为其父节点。</p></li>
 <li><p>若该节点是其父节点的左边孩子，那么需要沿着其父亲节点一直向树的顶端寻找，直到找到一个节点P，P节点是其父节点Q的右边孩子，那么Q就是该节点的前驱节点</p></li>
 </ol></li>
@@ -653,7 +653,8 @@
 <p>节点的左子树只包含小于当前节点的数。 节点的右子树只包含大于当前节点的数。 所有左子树和右子树自身必须也是二叉搜索树。 示例 1: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入:</span><br><span class="line">    2</span><br><span class="line">   / \</span><br><span class="line">  1   3</span><br><span class="line">输出: true</span><br></pre></td></tr></table></figure></p>
 <p>示例 2: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">输入:</span><br><span class="line">    5</span><br><span class="line">   / \</span><br><span class="line">  1   4</span><br><span class="line">     / \</span><br><span class="line">    3   6</span><br><span class="line">输出: false</span><br><span class="line">解释: 输入为: [5,1,4,null,null,3,6]。</span><br><span class="line">     根节点的值为 5 ，但是其右子节点值为 4 。</span><br></pre></td></tr></table></figure></p>
 <h2 id="方法一中序遍历">方法一：中序遍历</h2>
-<p>中序遍历按照 左孩子－根节点－右孩子 这个顺序遍历，如果每个子树都满足左孩子<根节点<右孩子，那就应该是个bst吧。 <figure="" class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isValidBST</span><span class="params">(self, root: TreeNode)</span> -&gt; bool:</span></span><br><span class="line">        res = []</span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">inorder</span><span class="params">(root, res)</span>:</span></span><br><span class="line">            <span class="keyword">if</span> root:                </span><br><span class="line">                inorder(root.left, res)</span><br><span class="line">                res.append(root.val)</span><br><span class="line">                inorder(root.right, res)</span><br><span class="line">            <span class="keyword">return</span> res</span><br><span class="line">        inorder(root,res)</span><br><span class="line">        <span class="keyword">return</span> res == sorted(res) <span class="keyword">and</span> len(res) == len(set(res))</span><br></pre></td></tr></table></根节点<右孩子，那就应该是个bst吧。></p>
+<p>中序遍历按照 左孩子－根节点－右孩子 这个顺序遍历，如果每个子树都满足左孩子&lt;根节点&lt;右孩子，那就应该是个BST吧。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isValidBST</span><span class="params">(self, root: TreeNode)</span> -&gt; bool:</span></span><br><span class="line">        res = []</span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">inorder</span><span class="params">(root, res)</span>:</span></span><br><span class="line">            <span class="keyword">if</span> root:                </span><br><span class="line">                inorder(root.left, res)</span><br><span class="line">                res.append(root.val)</span><br><span class="line">                inorder(root.right, res)</span><br><span class="line">            <span class="keyword">return</span> res</span><br><span class="line">        inorder(root,res)</span><br><span class="line">        <span class="keyword">return</span> res == sorted(res) <span class="keyword">and</span> len(res) == len(set(res))</span><br></pre></td></tr></table></figure>
 <h1 id="方法二递归-1">方法二：递归</h1>
 <p>左子树的值要在(min,mid)之间，右子树的值在(mid,max)之间，这个mid值并不是中位数而是当前节点的值。</p>
 <p>定义一个辅助函数，</p>
@@ -1606,7 +1607,8 @@
 
   
   <!-- 页面点击小红心 -->
-  <script type="text/javascript" src="/js/src/love.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -1623,6 +1625,5 @@
 <script type="text/javascript" src="custom_mathjax_source">
 </script>
 <!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<!-- hexo-inject:end --></body>
 </html>

@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="QxD&#39;s Notes">
 <meta property="og:description" content="整数反转   字符串转换整数 (atoi)   (解法见 python实现数据结构之字符串)   回文数   罗马数字转整数   计数素数">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-13T05:55:19.312Z">
+<meta property="og:updated_time" content="2019-08-04T10:14:13.040Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python刷LeetCode数学题(一)">
 <meta name="twitter:description" content="整数反转   字符串转换整数 (atoi)   (解法见 python实现数据结构之字符串)   回文数   罗马数字转整数   计数素数">
@@ -407,7 +407,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-13 13:55:19" itemprop="dateModified" datetime="2019-07-13T13:55:19+08:00">2019-07-13</time>
+                <time title="修改时间：2019-08-04 18:14:13" itemprop="dateModified" datetime="2019-08-04T18:14:13+08:00">2019-08-04</time>
               
             
           </span>
@@ -484,22 +484,22 @@
 
       
         <ul>
-<li><ol start="7" style="list-style-type: decimal">
+<li><ol start="7" type="1">
 <li>整数反转</li>
 </ol></li>
-<li><ol start="8" style="list-style-type: decimal">
+<li><ol start="8" type="1">
 <li>字符串转换整数 (atoi)</li>
 </ol>
 <ul>
 <li>(解法见 <a href="https://cathy3.github.io/2019/03/08/python%E5%AE%9E%E7%8E%B0%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E5%AD%97%E7%AC%A6%E4%B8%B2/" target="_blank" rel="noopener">python实现数据结构之字符串</a>)</li>
 </ul></li>
-<li><ol start="9" style="list-style-type: decimal">
+<li><ol start="9" type="1">
 <li>回文数</li>
 </ol></li>
-<li><ol start="13" style="list-style-type: decimal">
+<li><ol start="13" type="1">
 <li>罗马数字转整数</li>
 </ol></li>
-<li><ol start="204" style="list-style-type: decimal">
+<li><ol start="204" type="1">
 <li>计数素数</li>
 </ol></li>
 </ul>
@@ -511,7 +511,7 @@
 <p>示例 3: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: 120</span><br><span class="line">输出: 21</span><br></pre></td></tr></table></figure></p>
 <p>注意:</p>
 <p>假设我们的环境只能存储得下 32 位的有符号整数，则其数值范围为 [−231, 231 − 1]。请根据这个假设，如果反转后整数溢出那么就返回 0。</p>
-<h1 id="方法一取模">方法一:取模</h1>
+<h2 id="方法一取模">方法一:取模</h2>
 <p>循环通过对10取模得到尾部数字，一步步乘10构造新的翻转后的整数即可。然而要注意首先判断原数字的正负，最后还要判断结果是否溢出。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reverse</span><span class="params">(self, x: int)</span> -&gt; int:</span></span><br><span class="line">        flag = <span class="number">1</span> <span class="keyword">if</span> x&gt;<span class="number">0</span> <span class="keyword">else</span> <span class="number">-1</span></span><br><span class="line">        rev = <span class="number">0</span> </span><br><span class="line">        x = abs(x)</span><br><span class="line">        <span class="keyword">while</span>(x!=<span class="number">0</span>):</span><br><span class="line">            rev = rev*<span class="number">10</span> + x%<span class="number">10</span></span><br><span class="line">            x //= <span class="number">10</span></span><br><span class="line">        <span class="keyword">return</span> rev*flag <span class="keyword">if</span> rev &lt; <span class="number">2147483648</span> <span class="keyword">else</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
 <h2 id="方法二转字符串">方法二：转字符串</h2>
@@ -521,8 +521,11 @@
 <p>示例 1: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: 121</span><br><span class="line">输出: true</span><br></pre></td></tr></table></figure></p>
 <p>示例 2: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: -121</span><br><span class="line">输出: false</span><br><span class="line">解释: 从左向右读, 为 -121 。 从右向左读, 为 121- 。因此它不是一个回文数。</span><br></pre></td></tr></table></figure></p>
 <p>示例 3: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: 10</span><br><span class="line">输出: false</span><br><span class="line">解释: 从右向左读, 为 01 。因此它不是一个回文数。</span><br></pre></td></tr></table></figure></p>
-<h2 id="方法转成字符串">方法：转成字符串</h2>
+<h2 id="方法一转成字符串">方法一：转成字符串</h2>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isPalindrome</span><span class="params">(self, x: int)</span> -&gt; bool:</span></span><br><span class="line">        <span class="keyword">if</span> x &lt; <span class="number">0</span>: <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        x = str(x)</span><br><span class="line">        N = len(x)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(N//<span class="number">2</span>):</span><br><span class="line">            <span class="keyword">if</span> x[i] != x[N<span class="number">-1</span>-i]:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span><br></pre></td></tr></table></figure>
+<h2 id="方法二数学除余取模">方法二：数学除余+取模</h2>
+<p>借助一个与x同等位数的变量<code>help</code>（首位1，其余位0），通过循环： 1. 找到<code>x</code>的最高位<code>x//help</code>和最低位<code>x%10</code>，进行比较， 2. 去掉<code>x</code>两头的数字<code>(x%help)//10</code>。help变量同步修改去掉两个0。 <code>help/=100</code>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isPalindrome</span><span class="params">(self, x: int)</span> -&gt; bool:</span></span><br><span class="line">        <span class="keyword">if</span> x &lt; <span class="number">0</span>: <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        </span><br><span class="line">        help=<span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> x//help &gt;= <span class="number">10</span>:</span><br><span class="line">            help *= <span class="number">10</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> x!=<span class="number">0</span>:</span><br><span class="line">            <span class="keyword">if</span> x//help != x%<span class="number">10</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">            x = (x%help)//<span class="number">10</span></span><br><span class="line">            help /= <span class="number">100</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span><br></pre></td></tr></table></figure>
 <h1 id="罗马数字转整数">13. 罗马数字转整数</h1>
 <p>罗马数字包含以下七种字符: I， V， X， L，C，D 和 M。 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">字符          数值</span><br><span class="line">I             1</span><br><span class="line">V             5</span><br><span class="line">X             10</span><br><span class="line">L             50</span><br><span class="line">C             100</span><br><span class="line">D             500</span><br><span class="line">M             1000</span><br></pre></td></tr></table></figure></p>
 <p>例如， 罗马数字 2 写做 II ，即为两个并列的 1。12 写做 XII ，即为 X + II 。 27 写做  XXVII, 即为 XX + V + II 。</p>
@@ -682,7 +685,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-count">50</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -717,7 +720,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">9</span>
+                      
+                    
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -824,7 +829,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">45</span>
+                      
+                    
+                    <span class="site-state-item-count">46</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -860,7 +867,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#整数反转"><span class="nav-number">1.</span> <span class="nav-text">7. 整数反转</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法一取模"><span class="nav-number">2.</span> <span class="nav-text">方法一:取模</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二转字符串"><span class="nav-number">2.1.</span> <span class="nav-text">方法二：转字符串</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#回文数"><span class="nav-number">3.</span> <span class="nav-text">9. 回文数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法转成字符串"><span class="nav-number">3.1.</span> <span class="nav-text">方法：转成字符串</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#罗马数字转整数"><span class="nav-number">4.</span> <span class="nav-text">13. 罗马数字转整数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法从后往前遍历"><span class="nav-number">5.</span> <span class="nav-text">方法：从后往前遍历</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#计数素数"><span class="nav-number">6.</span> <span class="nav-text">204. 计数素数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">6.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法素数筛法"><span class="nav-number">6.2.</span> <span class="nav-text">方法：素数筛法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">7.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#整数反转"><span class="nav-number">1.</span> <span class="nav-text">7. 整数反转</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一取模"><span class="nav-number">1.1.</span> <span class="nav-text">方法一:取模</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二转字符串"><span class="nav-number">1.2.</span> <span class="nav-text">方法二：转字符串</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#回文数"><span class="nav-number">2.</span> <span class="nav-text">9. 回文数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一转成字符串"><span class="nav-number">2.1.</span> <span class="nav-text">方法一：转成字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二数学除余取模"><span class="nav-number">2.2.</span> <span class="nav-text">方法二：数学除余+取模</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#罗马数字转整数"><span class="nav-number">3.</span> <span class="nav-text">13. 罗马数字转整数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法从后往前遍历"><span class="nav-number">4.</span> <span class="nav-text">方法：从后往前遍历</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#计数素数"><span class="nav-number">5.</span> <span class="nav-text">204. 计数素数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">5.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法素数筛法"><span class="nav-number">5.2.</span> <span class="nav-text">方法：素数筛法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>

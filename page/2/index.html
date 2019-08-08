@@ -343,6 +343,443 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/15/生成模型与判别模型/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Icy"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QxD's Notes"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/05/15/生成模型与判别模型/" class="post-title-link" itemprop="url">生成模型与判别模型</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-15 00:00:00" itemprop="dateCreated datePublished" datetime="2019-05-15T00:00:00+08:00">2019-05-15</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-29 15:44:53" itemprop="dateModified" datetime="2019-05-29T15:44:53+08:00">2019-05-29</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/机器学习/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/05/15/生成模型与判别模型/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/15/生成模型与判别模型/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/05/15/生成模型与判别模型/" class="leancloud_visitors" data-flag-title="生成模型与判别模型">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>学习任务：</strong></p>
+<ul>
+<li>生成模型（generative model）</li>
+<li>判别模型（discriminative model）</li>
+</ul>
+<h1 id="生成模型">生成模型</h1>
+<p>假设数据分布服从某种参数化的模型。当估计出一个数据分布的参数化模型后，我们可以根据这个模型来生成数据，因此这些模型也称为生成模型（generative model）。</p>
+<p>在机器学习中，生成模型可以用来：</p>
+<ul>
+<li>直接对数据建模（例如根据某个变量的概率密度函数进行数据采样）</li>
+<li>建立变量间的条件概率分布。条件概率分布可以由生成模型根据贝叶斯定理形成。</li>
+</ul>
+<p>生成模型是所有变量的全概率模型， 而判别模型是在给定观测变量值前提下目标变量条件概率模型。 因此生成模型能够用于模拟（即生成）模型中任意变量的分布情况，而判别模型只能根据观测变量得到目标变量的采样。</p>
+<p>判别模型不对观测变量的分布建模，因此它不能够表达观测变量与目标变量之间更复杂的关系。因此，生成模型更适用于无监督的任务，如分类和聚类。</p>
+<p>典型的生成模型包括:</p>
+<ul>
+<li>高斯混合模型和其他混合模型</li>
+<li>隐马尔可夫模型</li>
+<li>随机上下文无关文法</li>
+<li>朴素贝叶斯分类器</li>
+<li>AODE分类器</li>
+<li>潜在狄利克雷分配模型</li>
+<li>受限玻尔兹曼机</li>
+<li>深度信念网络 ## 深度学习的三大生成模型：VAE、GAN、GAN 变分自编码器<br>
+对抗生成网络</li>
+</ul>
+<p>序列生成模型： 自回归 N 元统计模型 深度序列模型 # 判别模型</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/12/LSTM理解/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Icy"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QxD's Notes"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/05/12/LSTM理解/" class="post-title-link" itemprop="url">LSTM理解</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-12 00:00:00" itemprop="dateCreated datePublished" datetime="2019-05-12T00:00:00+08:00">2019-05-12</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-18 14:18:47" itemprop="dateModified" datetime="2019-05-18T14:18:47+08:00">2019-05-18</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/深度学习/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/05/12/LSTM理解/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/12/LSTM理解/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/05/12/LSTM理解/" class="leancloud_visitors" data-flag-title="LSTM理解">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><strong>学习任务：</strong></p>
+<ul>
+<li>循环神经网络 RNN
+<ol style="list-style-type: decimal">
+<li>什么是RNN？</li>
+<li>RNN有哪些不足点？</li>
+</ol></li>
+<li>LSTM网络</li>
+<li>LSTMs 的核心思想</li>
+<li>LSTM应用</li>
+<li>keras代码实现</li>
+</ul>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/05/12/LSTM理解/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/09/Tensorflow入门/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1152,6 +1589,255 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/05/用python刷LeetCode链表题(中等级)/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Icy"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QxD's Notes"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/04/05/用python刷LeetCode链表题(中等级)/" class="post-title-link" itemprop="url">用python刷LeetCode链表题(中等级)</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-05 00:00:00" itemprop="dateCreated datePublished" datetime="2019-04-05T00:00:00+08:00">2019-04-05</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-06 11:13:06" itemprop="dateModified" datetime="2019-08-06T11:13:06+08:00">2019-08-06</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/04/05/用python刷LeetCode链表题(中等级)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/05/用python刷LeetCode链表题(中等级)/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/04/05/用python刷LeetCode链表题(中等级)/" class="leancloud_visitors" data-flag-title="用python刷LeetCode链表题(中等级)">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <ul>
+<li><ol start="2" type="1">
+<li>两数相加</li>
+</ol></li>
+<li><ol start="19" type="1">
+<li>删除链表的倒数第N个节点</li>
+</ol></li>
+<li><ol start="24" type="1">
+<li>两两交换链表中的节点</li>
+</ol></li>
+<li><ol start="61" type="1">
+<li>旋转链表</li>
+</ol></li>
+<li><ol start="82" type="1">
+<li>删除排序链表中的重复元素 II</li>
+</ol></li>
+<li><ol start="86" type="1">
+<li>分隔链表</li>
+</ol></li>
+<li><ol start="92" type="1">
+<li>反转链表 II</li>
+</ol></li>
+<li><ol start="109" type="1">
+<li>有序链表转换二叉搜索树</li>
+</ol>
+<ul>
+<li>(解法见 <a href="https://cathy3.github.io/2019/03/09/python%E5%AE%9E%E7%8E%B0%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E4%BA%8C%E5%8F%89%E6%A0%91/" target="_blank" rel="noopener">python实现数据结构之二叉树</a>)</li>
+</ul></li>
+<li><ol start="138" type="1">
+<li><a href="https://leetcode-cn.com/problems/copy-list-with-random-pointer/" target="_blank" rel="noopener">复制带随机指针的链表</a></li>
+</ol></li>
+<li><ol start="142" type="1">
+<li><a href="https://leetcode-cn.com/problems/linked-list-cycle-ii/" target="_blank" rel="noopener">环形链表 II</a></li>
+</ol></li>
+<li><ol start="143" type="1">
+<li>重排链表</li>
+</ol></li>
+<li><ol start="147" type="1">
+<li>对链表进行插入排序</li>
+</ol></li>
+<li><ol start="148" type="1">
+<li>排序链表</li>
+</ol></li>
+<li><ol start="328" type="1">
+<li></li>
+</ol></li>
+</ul>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/04/05/用python刷LeetCode链表题(中等级)/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/05/动态规划/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1325,458 +2011,6 @@
           
             <div class="post-button text-center">
               <a class="btn" href="/2019/04/05/动态规划/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/05/用python刷LeetCode链表题(中等级)/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Icy"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.jpg"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="QxD's Notes"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/04/05/用python刷LeetCode链表题(中等级)/" class="post-title-link" itemprop="url">用python刷LeetCode链表题(中等级)</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-04-05 00:00:00" itemprop="dateCreated datePublished" datetime="2019-04-05T00:00:00+08:00">2019-04-05</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-06-18 21:49:40" itemprop="dateModified" datetime="2019-06-18T21:49:40+08:00">2019-06-18</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/04/05/用python刷LeetCode链表题(中等级)/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/05/用python刷LeetCode链表题(中等级)/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2019/04/05/用python刷LeetCode链表题(中等级)/" class="leancloud_visitors" data-flag-title="用python刷LeetCode链表题(中等级)">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <ul>
-<li><ol start="2" style="list-style-type: decimal">
-<li>两数相加</li>
-</ol></li>
-<li><ol start="19" style="list-style-type: decimal">
-<li>删除链表的倒数第N个节点</li>
-</ol></li>
-<li><ol start="24" style="list-style-type: decimal">
-<li>两两交换链表中的节点</li>
-</ol></li>
-<li><ol start="61" style="list-style-type: decimal">
-<li>旋转链表</li>
-</ol></li>
-<li><ol start="82" style="list-style-type: decimal">
-<li>删除排序链表中的重复元素 II</li>
-</ol></li>
-<li><ol start="86" style="list-style-type: decimal">
-<li>分隔链表</li>
-</ol></li>
-<li><ol start="92" style="list-style-type: decimal">
-<li>反转链表 II</li>
-</ol></li>
-<li><ol start="109" style="list-style-type: decimal">
-<li>有序链表转换二叉搜索树</li>
-</ol>
-<ul>
-<li>(解法见 <a href="https://cathy3.github.io/2019/03/09/python%E5%AE%9E%E7%8E%B0%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E4%BA%8C%E5%8F%89%E6%A0%91/" target="_blank" rel="noopener">python实现数据结构之二叉树</a>)</li>
-</ul></li>
-<li><ol start="138" style="list-style-type: decimal">
-<li><a href="https://leetcode-cn.com/problems/copy-list-with-random-pointer/" target="_blank" rel="noopener">复制带随机指针的链表</a></li>
-</ol></li>
-<li><ol start="142" style="list-style-type: decimal">
-<li><a href="https://leetcode-cn.com/problems/linked-list-cycle-ii/" target="_blank" rel="noopener">环形链表 II</a></li>
-</ol></li>
-<li><ol start="143" style="list-style-type: decimal">
-<li>重排链表</li>
-</ol></li>
-<li><ol start="147" style="list-style-type: decimal">
-<li>对链表进行插入排序</li>
-</ol></li>
-<li><ol start="148" style="list-style-type: decimal">
-<li>排序链表</li>
-</ol></li>
-<li><ol start="328" style="list-style-type: decimal">
-<li></li>
-</ol></li>
-</ul>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/04/05/用python刷LeetCode链表题(中等级)/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/04/随机森林/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Icy"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.jpg"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="QxD's Notes"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/04/04/随机森林/" class="post-title-link" itemprop="url">随机森林(Random Forest)算法梳理</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-04-04 00:00:00 / 修改时间：15:38:17" itemprop="dateCreated datePublished" datetime="2019-04-04T00:00:00+08:00">2019-04-04</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/机器学习/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/04/04/随机森林/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/04/随机森林/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2019/04/04/随机森林/" class="leancloud_visitors" data-flag-title="随机森林(Random Forest)算法梳理">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><strong>学习任务：</strong></p>
-<ul>
-<li>集成学习
-<ol style="list-style-type: decimal">
-<li>什么是集成学习？</li>
-<li>集成学习的种类有哪些？</li>
-<li>集成学习的基本步骤：个体学习器的选择、训练、结合</li>
-</ol></li>
-<li>bagging算法</li>
-<li>随机森林思想</li>
-<li>随机森林的推广</li>
-<li>sklearn参数</li>
-</ul>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/04/04/随机森林/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -2050,7 +2284,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/01/pandas处理时间和日期类型数据/"/>
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/04/随机森林/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Icy"/>
@@ -2070,7 +2304,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/04/01/pandas处理时间和日期类型数据/" class="post-title-link" itemprop="url">pandas 处理时间类型数据</a>
+                <a href="/2019/04/04/随机森林/" class="post-title-link" itemprop="url">随机森林(Random Forest)算法梳理</a>
               
             
           </h1>
@@ -2095,220 +2329,7 @@
                 
               
 
-              <time title="创建时间：2019-04-01 00:00:00" itemprop="dateCreated datePublished" datetime="2019-04-01T00:00:00+08:00">2019-04-01</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-04-04 10:07:08" itemprop="dateModified" datetime="2019-04-04T10:07:08+08:00">2019-04-04</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据分析/" itemprop="url" rel="index"><span itemprop="name">数据分析</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/04/01/pandas处理时间和日期类型数据/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/01/pandas处理时间和日期类型数据/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2019/04/01/pandas处理时间和日期类型数据/" class="leancloud_visitors" data-flag-title="pandas 处理时间类型数据">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><strong>学习目标：</strong> - 时间序列数据导入，并转为时间类型 -</p>
-<p>导入一个时间相关的数据集 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment">## importing a dataset</span></span><br><span class="line">url=<span class="string">"http://mlr.cs.umass.edu/ml/machine-learning-databases/event-detection/CalIt2.data"</span></span><br><span class="line">data = pd.read_csv(url, header = <span class="keyword">None</span>)</span><br></pre></td></tr></table></figure></p>
-<p>查看数据的属性</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>data.head(<span class="number">3</span>)</span><br><span class="line">   <span class="number">0</span>         <span class="number">1</span>         <span class="number">2</span>  <span class="number">3</span></span><br><span class="line"><span class="number">0</span>  <span class="number">7</span>  <span class="number">07</span>/<span class="number">24</span>/<span class="number">05</span>  <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>  <span class="number">0</span></span><br><span class="line"><span class="number">1</span>  <span class="number">9</span>  <span class="number">07</span>/<span class="number">24</span>/<span class="number">05</span>  <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>  <span class="number">0</span></span><br><span class="line"><span class="number">2</span>  <span class="number">7</span>  <span class="number">07</span>/<span class="number">24</span>/<span class="number">05</span>  <span class="number">00</span>:<span class="number">30</span>:<span class="number">00</span>  <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 查看所有列的数据类型</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>data.dtypes</span><br><span class="line"><span class="number">0</span>     int64</span><br><span class="line"><span class="number">1</span>    object</span><br><span class="line"><span class="number">2</span>    object</span><br><span class="line"><span class="number">3</span>     int64</span><br><span class="line">dtype: object</span><br></pre></td></tr></table></figure>
-<p>可以看出来第1列和第2列包含时间时间序列数据，但却是object类型，我们可以转换成时间类型。 ## 数据类型转化(object → datetime) <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>data[<span class="number">1</span>] = pd.to_datetime(data[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>data[<span class="number">2</span>] = pd.to_datetime(data[<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>data.dtypes</span><br><span class="line"><span class="number">0</span>             int64</span><br><span class="line"><span class="number">1</span>    datetime64[ns]</span><br><span class="line"><span class="number">2</span>    datetime64[ns]</span><br><span class="line"><span class="number">3</span>             int64</span><br><span class="line">dtype: object</span><br></pre></td></tr></table></figure></p>
-<h2 id="查看datetime类型数据">查看datetime类型数据</h2>
-<ul>
-<li>查看这个数据集中的时间数据中包含了哪些年、月、日等。</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>data[<span class="number">1</span>].dt.year.unique()</span><br><span class="line">array([<span class="number">2005</span>], dtype=int64)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>data[<span class="number">1</span>].dt.month.unique()</span><br><span class="line">array([ <span class="number">7</span>,  <span class="number">8</span>,  <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>], dtype=int64)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>data[<span class="number">1</span>].dt.day.unique()</span><br><span class="line">array([<span class="number">24</span>, <span class="number">25</span>, <span class="number">26</span>, <span class="number">27</span>, <span class="number">28</span>, <span class="number">29</span>, <span class="number">30</span>, <span class="number">31</span>,  <span class="number">1</span>,  <span class="number">2</span>,  <span class="number">3</span>,  <span class="number">4</span>,  <span class="number">5</span>,  <span class="number">6</span>,  <span class="number">7</span>,  <span class="number">8</span>,  <span class="number">9</span>,</span><br><span class="line">       <span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>, <span class="number">16</span>, <span class="number">17</span>, <span class="number">18</span>, <span class="number">19</span>, <span class="number">20</span>, <span class="number">21</span>, <span class="number">22</span>, <span class="number">23</span>], dtype=int64)</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>查看某月的数据有多少 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>data[data[<span class="number">1</span>].dt.month == <span class="number">10</span>].shape</span><br><span class="line">(<span class="number">2976</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure></p></li>
-<li><p>查看两个时间相差多久</p></li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>data.loc[<span class="number">6624</span>,<span class="number">1</span>] - data.loc[<span class="number">0</span>,<span class="number">1</span>]</span><br><span class="line">Timedelta(<span class="string">'69 days 00:00:00'</span>)</span><br></pre></td></tr></table></figure>
-<p>第1行和第6624行的数据相差69天，结果是个Timedelta数据类型。</p>
-<p>参考：<a href="https://stepik.org/lesson/44678/step/1?unit=22718" target="_blank" rel="noopener">Working with Dates and timedelta in Pandas</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/21/模型验证/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Icy"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.jpg"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="QxD's Notes"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/21/模型验证/" class="post-title-link" itemprop="url">模型评估指标</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-21 00:00:00 / 修改时间：21:32:08" itemprop="dateCreated datePublished" datetime="2019-03-21T00:00:00+08:00">2019-03-21</time>
+              <time title="创建时间：2019-04-04 00:00:00 / 修改时间：15:38:17" itemprop="dateCreated datePublished" datetime="2019-04-04T00:00:00+08:00">2019-04-04</time>
             
 
             
@@ -2349,8 +2370,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/03/21/模型验证/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/21/模型验证/" itemprop="commentCount"></span>
+                <a href="/2019/04/04/随机森林/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/04/随机森林/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -2358,7 +2379,7 @@
 
           
           
-            <span id="/2019/03/21/模型验证/" class="leancloud_visitors" data-flag-title="模型评估指标">
+            <span id="/2019/04/04/随机森林/" class="leancloud_visitors" data-flag-title="随机森林(Random Forest)算法梳理">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -2390,18 +2411,28 @@
 
       
         
-          
-            <p>先加载数据 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Data Loading</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment"># Load data</span></span><br><span class="line">melbourne_file_path = <span class="string">'../input/melbourne-housing-snapshot/melb_data.csv'</span></span><br><span class="line">melbourne_data = pd.read_csv(melbourne_file_path) </span><br><span class="line"><span class="comment"># Filter rows with missing price values</span></span><br><span class="line">filtered_melbourne_data = melbourne_data.dropna(axis=<span class="number">0</span>)</span><br><span class="line"><span class="comment"># Choose target and features</span></span><br><span class="line">y = filtered_melbourne_data.Price</span><br><span class="line">melbourne_features = [<span class="string">'Rooms'</span>, <span class="string">'Bathroom'</span>, <span class="string">'Landsize'</span>, <span class="string">'BuildingArea'</span>, </span><br><span class="line">                        <span class="string">'YearBuilt'</span>, <span class="string">'Lattitude'</span>, <span class="string">'Longtitude'</span>]</span><br><span class="line">X = filtered_melbourne_data[melbourne_features]</span><br></pre></td></tr></table></figure></p>
-<p>回归模型评价指标MSE、RMSE、MAE、R-Squared</p>
-<h1 id="均方误差mae">均方误差(MAE)</h1>
-<p>MSE （Mean Squared Error）叫做均方误差。看公式</p>
-<p><span class="math display">\[ \frac{1}{m}\sum _ { i=1 }^m (y_ i-\hat{y_i})^2\]</span></p>
-<h1 id="参考">参考</h1>
+          <p><strong>学习任务：</strong></p>
 <ul>
-<li><a href="https://www.kaggle.com/dansbecker/model-validation" target="_blank" rel="noopener">Model Validation</a></li>
+<li>集成学习
+<ol style="list-style-type: decimal">
+<li>什么是集成学习？</li>
+<li>集成学习的种类有哪些？</li>
+<li>集成学习的基本步骤：个体学习器的选择、训练、结合</li>
+</ol></li>
+<li>bagging算法</li>
+<li>随机森林思想</li>
+<li>随机森林的推广</li>
+<li>sklearn参数</li>
 </ul>
-
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/04/04/随机森林/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -2445,7 +2476,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2491,7 +2522,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">50</span>
+                    <span class="site-state-item-count">52</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2637,7 +2668,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">46</span>
+                      
+                    
+                    <span class="site-state-item-count">47</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -3265,7 +3298,8 @@
 
   
   <!-- 页面点击小红心 -->
-  <script type="text/javascript" src="/js/src/love.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -3282,6 +3316,5 @@
 <script type="text/javascript" src="custom_mathjax_source">
 </script>
 <!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<!-- hexo-inject:end --></body>
 </html>

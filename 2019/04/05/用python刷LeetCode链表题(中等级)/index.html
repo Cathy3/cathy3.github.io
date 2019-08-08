@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="QxD&#39;s Notes">
 <meta property="og:description" content="两数相加   删除链表的倒数第N个节点   两两交换链表中的节点   旋转链表   删除排序链表中的重复元素 II   分隔链表   反转链表 II   有序链表转换二叉搜索树   (解法见 python实现数据结构之二叉树)   复制带随机指针的链表   环形链表 II   重排链表   对链表进行插入排序">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-18T13:49:40.930Z">
+<meta property="og:updated_time" content="2019-08-06T03:13:06.575Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用python刷LeetCode链表题(中等级)">
 <meta name="twitter:description" content="两数相加   删除链表的倒数第N个节点   两两交换链表中的节点   旋转链表   删除排序链表中的重复元素 II   分隔链表   反转链表 II   有序链表转换二叉搜索树   (解法见 python实现数据结构之二叉树)   复制带随机指针的链表   环形链表 II   重排链表   对链表进行插入排序">
@@ -407,7 +407,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-06-18 21:49:40" itemprop="dateModified" datetime="2019-06-18T21:49:40+08:00">2019-06-18</time>
+                <time title="修改时间：2019-08-06 11:13:06" itemprop="dateModified" datetime="2019-08-06T11:13:06+08:00">2019-08-06</time>
               
             
           </span>
@@ -484,49 +484,49 @@
 
       
         <ul>
-<li><ol start="2" style="list-style-type: decimal">
+<li><ol start="2" type="1">
 <li>两数相加</li>
 </ol></li>
-<li><ol start="19" style="list-style-type: decimal">
+<li><ol start="19" type="1">
 <li>删除链表的倒数第N个节点</li>
 </ol></li>
-<li><ol start="24" style="list-style-type: decimal">
+<li><ol start="24" type="1">
 <li>两两交换链表中的节点</li>
 </ol></li>
-<li><ol start="61" style="list-style-type: decimal">
+<li><ol start="61" type="1">
 <li>旋转链表</li>
 </ol></li>
-<li><ol start="82" style="list-style-type: decimal">
+<li><ol start="82" type="1">
 <li>删除排序链表中的重复元素 II</li>
 </ol></li>
-<li><ol start="86" style="list-style-type: decimal">
+<li><ol start="86" type="1">
 <li>分隔链表</li>
 </ol></li>
-<li><ol start="92" style="list-style-type: decimal">
+<li><ol start="92" type="1">
 <li>反转链表 II</li>
 </ol></li>
-<li><ol start="109" style="list-style-type: decimal">
+<li><ol start="109" type="1">
 <li>有序链表转换二叉搜索树</li>
 </ol>
 <ul>
 <li>(解法见 <a href="https://cathy3.github.io/2019/03/09/python%E5%AE%9E%E7%8E%B0%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E4%BA%8C%E5%8F%89%E6%A0%91/" target="_blank" rel="noopener">python实现数据结构之二叉树</a>)</li>
 </ul></li>
-<li><ol start="138" style="list-style-type: decimal">
+<li><ol start="138" type="1">
 <li><a href="https://leetcode-cn.com/problems/copy-list-with-random-pointer/" target="_blank" rel="noopener">复制带随机指针的链表</a></li>
 </ol></li>
-<li><ol start="142" style="list-style-type: decimal">
+<li><ol start="142" type="1">
 <li><a href="https://leetcode-cn.com/problems/linked-list-cycle-ii/" target="_blank" rel="noopener">环形链表 II</a></li>
 </ol></li>
-<li><ol start="143" style="list-style-type: decimal">
+<li><ol start="143" type="1">
 <li>重排链表</li>
 </ol></li>
-<li><ol start="147" style="list-style-type: decimal">
+<li><ol start="147" type="1">
 <li>对链表进行插入排序</li>
 </ol></li>
-<li><ol start="148" style="list-style-type: decimal">
+<li><ol start="148" type="1">
 <li>排序链表</li>
 </ol></li>
-<li><ol start="328" style="list-style-type: decimal">
+<li><ol start="328" type="1">
 <li></li>
 </ol></li>
 </ul>
@@ -617,7 +617,7 @@
 <p>题目大意:把一个链表的前半部分正序，后半部分逆序，然后一个一个的连接起来。 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reorderList</span><span class="params">(self, head)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type head: ListNode</span></span><br><span class="line"><span class="string">        :rtype: None Do not return anything, modify head in-place instead.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> head <span class="keyword">and</span> head.next <span class="keyword">and</span> head.next.next:</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 找中间位置head2</span></span><br><span class="line">            fast, slow = head, head</span><br><span class="line">            <span class="keyword">while</span> fast.next <span class="keyword">and</span> fast.next.next:</span><br><span class="line">                fast = fast.next.next</span><br><span class="line">                slow = slow.next</span><br><span class="line">            head1 = head</span><br><span class="line">            head2 = slow.next</span><br><span class="line">            slow.next = <span class="keyword">None</span> <span class="comment"># 前半部分结尾空</span></span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 反转head2后半部分</span></span><br><span class="line">            pre = ListNode(<span class="number">0</span>)</span><br><span class="line">            pre.next = head2</span><br><span class="line">            curr = head2.next</span><br><span class="line">            head2.next = <span class="keyword">None</span> <span class="comment"># 后半部分结尾空</span></span><br><span class="line">            <span class="keyword">while</span> curr:</span><br><span class="line">                temp = curr</span><br><span class="line">                curr = curr.next</span><br><span class="line">                temp.next = pre.next</span><br><span class="line">                pre.next = temp</span><br><span class="line">            head2 = pre.next</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 两部分交叉连接</span></span><br><span class="line">            p1, p2 = head1, head2</span><br><span class="line">            <span class="keyword">while</span> p2:</span><br><span class="line">                temp1 = p1.next</span><br><span class="line">                temp2 = p2.next</span><br><span class="line">                p1.next = p2</span><br><span class="line">                p2.next = temp1</span><br><span class="line">                p1 = temp1</span><br><span class="line">                p2 = temp2</span><br></pre></td></tr></table></figure></p>
 <h1 id="对链表进行插入排序">147. 对链表进行插入排序</h1>
 <p>插入排序算法：</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>插入排序是迭代的，每次只移动一个元素，直到所有元素可以形成一个有序的输出列表。</li>
 <li>每次迭代中，插入排序只从输入数据中移除一个待排序的元素，找到它在序列中适当的位置，并将其插入。</li>
 <li>重复直到所有输入数据插入完为止。</li>
@@ -639,6 +639,7 @@
 <h1 id="参考">参考</h1>
 <ul>
 <li><a href="https://blog.csdn.net/fuxuemingzhu/article/details/79379626" target="_blank" rel="noopener">LeetCode 2. Add Two Numbers 解题报告（Python &amp; C++）</a></li>
+<li><a href="https://blog.csdn.net/fuxuemingzhu/article/details/79530638" target="_blank" rel="noopener">【LeetCode】142. Linked List Cycle II 解题报告（Python &amp; C++）</a></li>
 </ul>
 
       
@@ -680,8 +681,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/04/随机森林/" rel="next" title="随机森林(Random Forest)算法梳理">
-                <i class="fa fa-chevron-left"></i> 随机森林(Random Forest)算法梳理
+              <a href="/2019/04/05/动态规划/" rel="next" title="动态规划">
+                <i class="fa fa-chevron-left"></i> 动态规划
               </a>
             
           </div>
@@ -690,8 +691,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/05/动态规划/" rel="prev" title="动态规划">
-                动态规划 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/09/XGBoost算法梳理/" rel="prev" title="XGBoost算法梳理">
+                XGBoost算法梳理 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -769,7 +770,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">50</span>
+                    <span class="site-state-item-count">52</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -915,7 +916,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">46</span>
+                      
+                    
+                    <span class="site-state-item-count">47</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1495,7 +1498,8 @@
 
   
   <!-- 页面点击小红心 -->
-  <script type="text/javascript" src="/js/src/love.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -1512,6 +1516,5 @@
 <script type="text/javascript" src="custom_mathjax_source">
 </script>
 <!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<!-- hexo-inject:end --></body>
 </html>

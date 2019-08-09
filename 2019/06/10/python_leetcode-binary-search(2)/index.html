@@ -96,25 +96,25 @@
 
 
 
-  <meta name="description" content="学习目标：  Dijkstra算法 Floyd-Warshall算法 Bellman-Ford算法 spfa算法 leetcode743. 网络延迟时间 leetcode787. K 站中转内最便宜的航班">
-<meta name="keywords" content="python,LeetCode,图">
+  <meta name="description" content="在leetcode中属于简单级别的题目。   第一个错误的版本   搜索旋转排序数组   搜索旋转排序数组 II   寻找旋转排序数组中的最小值">
+<meta name="keywords" content="python,LeetCode,二分查找">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python解leetcode图的最短路径问题">
-<meta property="og:url" content="http://yoursite.com/2019/08/07/python解leetcode图的最短路径问题/index.html">
+<meta property="og:title" content="python解LeetCode二分查找(2)">
+<meta property="og:url" content="http://yoursite.com/2019/06/10/python_leetcode-binary-search(2)/index.html">
 <meta property="og:site_name" content="QxD&#39;s Notes">
-<meta property="og:description" content="学习目标：  Dijkstra算法 Floyd-Warshall算法 Bellman-Ford算法 spfa算法 leetcode743. 网络延迟时间 leetcode787. K 站中转内最便宜的航班">
+<meta property="og:description" content="在leetcode中属于简单级别的题目。   第一个错误的版本   搜索旋转排序数组   搜索旋转排序数组 II   寻找旋转排序数组中的最小值">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-08T07:15:03.982Z">
+<meta property="og:updated_time" content="2019-08-09T01:11:56.601Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python解leetcode图的最短路径问题">
-<meta name="twitter:description" content="学习目标：  Dijkstra算法 Floyd-Warshall算法 Bellman-Ford算法 spfa算法 leetcode743. 网络延迟时间 leetcode787. K 站中转内最便宜的航班">
+<meta name="twitter:title" content="python解LeetCode二分查找(2)">
+<meta name="twitter:description" content="在leetcode中属于简单级别的题目。   第一个错误的版本   搜索旋转排序数组   搜索旋转排序数组 II   寻找旋转排序数组中的最小值">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/08/07/python解leetcode图的最短路径问题/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/06/10/python_leetcode-binary-search(2)/"/>
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>python解leetcode图的最短路径问题 | QxD's Notes</title>
+  <title>python解LeetCode二分查找(2) | QxD's Notes</title>
   
 
 
@@ -347,7 +347,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/07/python解leetcode图的最短路径问题/"/>
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/10/python_leetcode-binary-search(2)/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Icy"/>
@@ -364,7 +364,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">python解leetcode图的最短路径问题
+          <h1 class="post-title" itemprop="name headline">python解LeetCode二分查找(2)
 
               
             
@@ -390,7 +390,7 @@
                 
               
 
-              <time title="创建时间：2019-08-07 00:00:00" itemprop="dateCreated datePublished" datetime="2019-08-07T00:00:00+08:00">2019-08-07</time>
+              <time title="创建时间：2019-06-10 00:00:00" itemprop="dateCreated datePublished" datetime="2019-06-10T00:00:00+08:00">2019-06-10</time>
             
 
             
@@ -407,7 +407,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-08 15:15:03" itemprop="dateModified" datetime="2019-08-08T15:15:03+08:00">2019-08-08</time>
+                <time title="修改时间：2019-08-09 09:11:56" itemprop="dateModified" datetime="2019-08-09T09:11:56+08:00">2019-08-09</time>
               
             
           </span>
@@ -443,8 +443,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/08/07/python解leetcode图的最短路径问题/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/08/07/python解leetcode图的最短路径问题/" itemprop="commentCount"></span>
+                <a href="/2019/06/10/python_leetcode-binary-search(2)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/10/python_leetcode-binary-search(2)/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -452,7 +452,7 @@
 
           
           
-            <span id="/2019/08/07/python解leetcode图的最短路径问题/" class="leancloud_visitors" data-flag-title="python解leetcode图的最短路径问题">
+            <span id="/2019/06/10/python_leetcode-binary-search(2)/" class="leancloud_visitors" data-flag-title="python解LeetCode二分查找(2)">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -483,76 +483,74 @@
       
 
       
-        <p><strong>学习目标：</strong></p>
+        <p>在leetcode中属于简单级别的题目。</p>
 <ul>
-<li>Dijkstra算法</li>
-<li>Floyd-Warshall算法</li>
-<li>Bellman-Ford算法</li>
-<li>spfa算法</li>
-<li>leetcode743. 网络延迟时间</li>
-<li>leetcode787. K 站中转内最便宜的航班</li>
+<li><ol start="278" type="1">
+<li>第一个错误的版本</li>
+</ol></li>
+<li><ol start="33" type="1">
+<li>搜索旋转排序数组</li>
+</ol></li>
+<li><ol start="81" type="1">
+<li>搜索旋转排序数组 II</li>
+</ol></li>
+<li><ol start="153" type="1">
+<li>寻找旋转排序数组中的最小值</li>
+</ol></li>
 </ul>
 <a id="more"></a>
-<h1 id="dijkstra迪杰斯特拉算法">Dijkstra(迪杰斯特拉)算法</h1>
-<p>典型的单源最短路径算法，用于计算一个节点到其他所有节点的最短路径。主要特点是以起始点为中心向外层层扩展，直到扩展到终点为止。注意该算法要求图中不存在负权边。时间复杂度O(n^2)</p>
-<p>具体步骤：</p>
+<h1 id="第一个错误的版本">278. 第一个错误的版本</h1>
+<p>你是产品经理，目前正在带领一个团队开发新的产品。不幸的是，你的产品的最新版本没有通过质量检测。由于每个版本都是基于之前的版本开发的，所以错误的版本之后的所有版本都是错的。</p>
+<p>假设你有 n 个版本 [1, 2, …, n]，你想找出导致之后所有版本出错的第一个错误的版本。</p>
+<p>你可以通过调用 bool isBadVersion(version) 接口来判断版本号 version 是否在单元测试中出错。实现一个函数来查找第一个错误的版本。你应该尽量减少对调用 API 的次数。</p>
+<p>示例: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">给定 n = 5，并且 version = 4 是第一个错误的版本。</span><br><span class="line"></span><br><span class="line">调用 isBadVersion(3) -&gt; false</span><br><span class="line">调用 isBadVersion(5) -&gt; true</span><br><span class="line">调用 isBadVersion(4) -&gt; true</span><br><span class="line"></span><br><span class="line">所以，4 是第一个错误的版本。</span><br></pre></td></tr></table></figure></p>
+<h2 id="方法">方法</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">firstBadVersion</span><span class="params">(self, n)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type n: int</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        left = <span class="number">0</span></span><br><span class="line">        right = n<span class="number">-1</span></span><br><span class="line">        <span class="keyword">while</span> left &lt;= right:</span><br><span class="line">            mid = left + (right-left)//<span class="number">2</span></span><br><span class="line">            <span class="keyword">if</span> isBadVersion(mid):</span><br><span class="line">                right = mid - <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                left = mid + <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> left</span><br></pre></td></tr></table></figure>
+<h1 id="搜索旋转排序数组">33. 搜索旋转排序数组</h1>
+<p>假设按照升序排序的数组在预先未知的某个点上进行了旋转。</p>
+<p>( 例如，数组 [0,1,2,4,5,6,7] 可能变为 [4,5,6,7,0,1,2] )。</p>
+<p>搜索一个给定的目标值，如果数组中存在这个目标值，则返回它的索引，否则返回 -1 。</p>
+<p>你可以假设数组中不存在重复的元素。</p>
+<p>你的算法时间复杂度必须是 O(log n) 级别。</p>
+<p>示例 1: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: nums = [4,5,6,7,0,1,2], target = 0</span><br><span class="line">输出: 4</span><br></pre></td></tr></table></figure></p>
+<p>示例 2: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: nums = [4,5,6,7,0,1,2], target = 3</span><br><span class="line">输出: -1</span><br></pre></td></tr></table></figure></p>
+<h2 id="方法-1">方法</h2>
+<p>我们的二分查找的思想就是找出某个条件，这个条件给了我们移动左右指针的参考，即要判断查找的target在mid的左边还是右边。</p>
+<p>具体到这个题目，因为给出的数组是旋转有序的，如果mid指向的位置在于pivot之后，那么mid向后部分是有序的，这个时候需要判断target在mid左边还是右边，最简单的方法就是判断target是不是在[pivot,r]区间内，如果的话就向mid后半部分搜索，否则就向mid左半部分搜索；同理，当mid在pivot之前，那么mid前面部分是有序的，根据target判断下面要向mid的左边还是右边搜索。</p>
+<p>具体来说，假设数组是A，每次左边缘为l，右边缘为r，还有中间位置是m。在每次迭代中，分三种情况：</p>
 <ol type="1">
-<li>找出路径最近的节点S，即可在最短时间内前往的节点</li>
-<li>对于该节点的所有邻居，检查是否有经过S前往它们的更短路径，若有，就更新其路径距离。</li>
-<li>重复前两步，直到对每个节点都这样做了。</li>
-<li>计算最终距离。</li>
+<li>如果target==A[m]，那么m就是我们要的结果，直接返回；</li>
+<li>如果A[m]&lt;A[r]，那么说明从m到r一定是有序的（没有受到rotate的影响），那么我们只需要判断target是不是在m到r之间，如果是则把左边缘移到m+1，否则就target在另一半，即把右边缘移到m-1。</li>
+<li>如果A[m]&gt;=A[r]，那么说明从l到m一定是有序的，同样只需要判断target是否在这个范围内，相应的移动边缘即可。</li>
 </ol>
-<h1 id="floyd-warshall弗洛伊德算法">Floyd-Warshall（弗洛伊德算法）</h1>
-<p>又称为插点法，是一种利用动态规划的思想寻找给定的加权图中多源点之间最短路径的算法，与Dijkstra算法类似。</p>
-<p>时间复杂度O(n^3)</p>
-<h1 id="bellman-ford算法">Bellman-Ford算法</h1>
-<p>是求含负权图的单源最短路径的一种算法，效率较低，代码难度较小。其原理为连续进行松弛，在每次松弛时把每条边都更新一下，若在n-1次松弛后还能更新，则说明图中有负环，因此无法得出结果，否则就完成。</p>
-<ol type="1">
-<li>初始化：将除源点外的所有顶点的最短距离估计值 d[v] ——&gt;+∞, d[s]——&gt;0;</li>
-<li>迭代求解：反复对边集E中的每条边进行松弛操作，使得顶点集V中的每个顶点v的最短距离估计值逐步逼近其最短距离；（运行|v|-1次）</li>
-<li>检验负权回路：判断边集E中的每一条边的两个端点是否收敛。如果存在未收敛的顶点，则算法返回false，表明问题无解；否则算法返回true，并且从源点可达的顶点v的最短距离保存在 d[v]中。</li>
-</ol>
-<h1 id="网络延迟时间">743. 网络延迟时间</h1>
-<p>有 N 个网络节点，标记为 1 到 N。</p>
-<p>给定一个列表 times，表示信号经过有向边的传递时间。 times[i] = (u, v, w)，其中 u 是源节点，v 是目标节点， w 是一个信号从源节点传递到目标节点的时间。</p>
-<p>现在，我们向当前的节点 K 发送了一个信号。需要多久才能使所有节点都收到信号？如果不能使所有节点收到信号，返回 -1。</p>
-<p>注意:</p>
-<ol type="1">
-<li>N 的范围在 [1, 100] 之间。</li>
-<li>K 的范围在 [1, N] 之间。</li>
-<li>times 的长度在 [1, 6000] 之间。</li>
-<li>所有的边 times[i] = (u, v, w) 都有 1 &lt;= u, v &lt;= N 且 0 &lt;= w &lt;= 100。</li>
-</ol>
-<h2 id="题目大意">题目大意</h2>
-<p>单源有向加权图中，求源节点K到所有其它目标节点的最短路径，取最大值。如果有节点不可抵达，返回-1.</p>
-<h2 id="方法1dijkstra算法">方法1：Dijkstra算法</h2>
-<p>时间复杂度是 O(N ^ 2 + E)，空间复杂度是O(N+E).</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">networkDelayTime</span><span class="params">(self, times: List[List[int]], N: int, K: int)</span> -&gt; int:</span></span><br><span class="line">        K -= <span class="number">1</span> <span class="comment"># 起点</span></span><br><span class="line">        nodes = collections.defaultdict(list) <span class="comment"># 存储节点的邻接点和相连边的权重。</span></span><br><span class="line">        <span class="keyword">for</span> u,v,w <span class="keyword">in</span> times:</span><br><span class="line">            nodes[u<span class="number">-1</span>].append((v<span class="number">-1</span>, w))</span><br><span class="line">        </span><br><span class="line">        dist = [float(<span class="string">'inf'</span>)] * N <span class="comment"># 起点到所有节点距离。</span></span><br><span class="line">        dist[K] = <span class="number">0</span></span><br><span class="line">        done = set() <span class="comment"># 记录处理过的节点</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> range(N):</span><br><span class="line">            <span class="comment"># 获取离起点最近的节点</span></span><br><span class="line">            smallest = min((d,i) <span class="keyword">for</span> (i,d) <span class="keyword">in</span> enumerate(dist) <span class="keyword">if</span> i <span class="keyword">not</span> <span class="keyword">in</span> done)[<span class="number">1</span>]</span><br><span class="line">            <span class="keyword">for</span> v,w <span class="keyword">in</span> nodes[smallest]:<span class="comment">#找最近点的所有邻接点。</span></span><br><span class="line">                <span class="keyword">if</span> v <span class="keyword">not</span> <span class="keyword">in</span> done <span class="keyword">and</span> dist[smallest]+w &lt; dist[v]: <span class="comment"># 更新邻接点的距离</span></span><br><span class="line">                    dist[v] = dist[smallest]+w </span><br><span class="line">            done.add(smallest) <span class="comment"># 该节点标记为处理过</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span> <span class="keyword">if</span> float(<span class="string">'inf'</span>) <span class="keyword">in</span> dist <span class="keyword">else</span> max(dist)</span><br></pre></td></tr></table></figure>
-<h2 id="方法2floyd-warshall算法">方法2:Floyd-Warshall算法。</h2>
-<p>这个算法超时 Time Limit Exceed(TLE).</p>
-<p>时间复杂度O(n^3)， 空间复杂度O(n^2)。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">networkDelayTime</span><span class="params">(self, times: List[List[int]], N: int, K: int)</span> -&gt; int:</span></span><br><span class="line">        d = [[float(<span class="string">'inf'</span>)] * N <span class="keyword">for</span> _ <span class="keyword">in</span> range(N)] <span class="comment"># 二维矩阵</span></span><br><span class="line">        <span class="keyword">for</span> time <span class="keyword">in</span> times:</span><br><span class="line">            u, v, w = time[<span class="number">0</span>] - <span class="number">1</span>, time[<span class="number">1</span>] - <span class="number">1</span>, time[<span class="number">2</span>]</span><br><span class="line">            d[u][v] = w</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(N):</span><br><span class="line">            d[i][i] = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> range(N): <span class="comment"># 遍历更新距离</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(N):</span><br><span class="line">                <span class="keyword">for</span> j <span class="keyword">in</span> range(N):</span><br><span class="line">                    d[i][j] = min(d[i][j], d[i][k] + d[k][j])</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span> <span class="keyword">if</span> float(<span class="string">'inf'</span>) <span class="keyword">in</span> d[K - <span class="number">1</span>] <span class="keyword">else</span> max(d[K - <span class="number">1</span>])</span><br></pre></td></tr></table></figure>
-<h2 id="方法3bellman-ford算法">方法3：Bellman-Ford算法</h2>
-<p>这个算法超时TLE。</p>
-<p>时间复杂度O(ne)， 空间复杂度O(n)。 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">networkDelayTime</span><span class="params">(self, times: List[List[int]], N: int, K: int)</span> -&gt; int:</span></span><br><span class="line">        dist = [float(<span class="string">'inf'</span>)] * N</span><br><span class="line">        dist[K - <span class="number">1</span>] = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> range(N):</span><br><span class="line">            <span class="keyword">for</span> time <span class="keyword">in</span> times:</span><br><span class="line">                u = time[<span class="number">0</span>] - <span class="number">1</span></span><br><span class="line">                v = time[<span class="number">1</span>] - <span class="number">1</span></span><br><span class="line">                w = time[<span class="number">2</span>]</span><br><span class="line">                dist[v] = min(dist[v], dist[u] + w)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span> <span class="keyword">if</span> float(<span class="string">'inf'</span>) <span class="keyword">in</span> dist <span class="keyword">else</span> max(dist)</span><br></pre></td></tr></table></figure></p>
-<h1 id="k-站中转内最便宜的航班">787. K 站中转内最便宜的航班</h1>
-<p>有 n 个城市通过 m 个航班连接。每个航班都从城市 u 开始，以价格 w 抵达 v。</p>
-<p>现在给定所有的城市和航班，以及出发城市 src 和目的地 dst，你的任务是找到从 src 到 dst 最多经过 k 站中转的最便宜的价格。 如果没有这样的路线，则输出 -1。</p>
-<p>示例 1: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入: </span><br><span class="line">n = 3, edges = [[0,1,100],[1,2,100],[0,2,500]]</span><br><span class="line">src = 0, dst = 2, k = 1</span><br><span class="line">输出: 200</span><br></pre></td></tr></table></figure></p>
-<p>提示：</p>
+<p>注意，由于这个题目要进行和边缘元素的判断，所以没有采取[l,r)的左闭右开区间，而是使用了[l, r]双闭区间。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">search</span><span class="params">(self, nums: List[int], target: int)</span> -&gt; int:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> nums: <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">        left = <span class="number">0</span></span><br><span class="line">        right = len(nums)<span class="number">-1</span></span><br><span class="line">        <span class="keyword">while</span> left &lt;= right:</span><br><span class="line">            mid = (left + right)//<span class="number">2</span></span><br><span class="line">            <span class="keyword">if</span> nums[mid] == target:</span><br><span class="line">                <span class="keyword">return</span> mid</span><br><span class="line">            <span class="keyword">if</span> nums[mid] &lt; nums[right]: <span class="comment"># 确定右边有序</span></span><br><span class="line">                <span class="keyword">if</span> nums[mid] &lt; target <span class="keyword">and</span> target &lt;= nums[right]:</span><br><span class="line">                    left = mid + <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    right = mid - <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>: <span class="comment"># 确定左边有序</span></span><br><span class="line">                <span class="keyword">if</span> nums[mid] &gt; target <span class="keyword">and</span> target &gt;= nums[left]:</span><br><span class="line">                    right = mid - <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    left = mid + <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span></span><br></pre></td></tr></table></figure>
+<h1 id="搜索旋转排序数组-ii">81. 搜索旋转排序数组 II</h1>
+<p>假设按照升序排序的数组在预先未知的某个点上进行了旋转。</p>
+<p>( 例如，数组 [0,0,1,2,2,5,6] 可能变为 [2,5,6,0,0,1,2] )。</p>
+<p>编写一个函数来判断给定的目标值是否存在于数组中。若存在返回 true，否则返回 false。</p>
+<p>示例 1: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: nums = [2,5,6,0,0,1,2], target = 0</span><br><span class="line">输出: true</span><br></pre></td></tr></table></figure></p>
+<p>示例 2: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: nums = [2,5,6,0,0,1,2], target = 3</span><br><span class="line">输出: false</span><br></pre></td></tr></table></figure></p>
+<h2 id="方法-2">方法</h2>
+<p>是第33题的拓展题目，变的是加了一个可能含有重复数字。</p>
+<p>这样的话，如果直接进行左右指针的比较就不知道向哪个方向搜索了，</p>
+<p>所以，需要在正式比较之前，先移动左指针，是他指向一个和右指针不同的数字上。然后再做33题的查找。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">search</span><span class="params">(self, nums: List[int], target: int)</span> -&gt; bool:</span></span><br><span class="line">        left = <span class="number">0</span></span><br><span class="line">        right = len(nums)<span class="number">-1</span></span><br><span class="line">        <span class="keyword">while</span> left &lt;= right:</span><br><span class="line">            <span class="keyword">while</span> left &lt; right <span class="keyword">and</span> nums[left] == nums[right]:</span><br><span class="line">                left += <span class="number">1</span></span><br><span class="line">            mid = (left + right)//<span class="number">2</span></span><br><span class="line">            <span class="keyword">if</span> nums[mid] == target:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">            <span class="keyword">if</span> nums[left] &lt;= nums[mid]: <span class="comment"># 前半部有序</span></span><br><span class="line">                <span class="keyword">if</span> nums[left] &lt;= target <span class="keyword">and</span> target &lt; nums[mid]: <span class="comment"># 有一部分要写‘=’号</span></span><br><span class="line">                    right = mid - <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    left = mid + <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>: <span class="comment"># 后半部分有序</span></span><br><span class="line">                <span class="keyword">if</span> nums[mid] &lt; target <span class="keyword">and</span> target &lt;= nums[right]:</span><br><span class="line">                    left = mid + <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    right = mid - <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">False</span></span><br></pre></td></tr></table></figure>
+<h1 id="寻找旋转排序数组中的最小值">153. 寻找旋转排序数组中的最小值</h1>
+<p>假设按照升序排序的数组在预先未知的某个点上进行了旋转。</p>
+<p>( 例如，数组 [0,1,2,4,5,6,7] 可能变为 [4,5,6,7,0,1,2] )。</p>
+<p>请找出其中最小的元素。</p>
+<p>你可以假设数组中不存在重复元素。</p>
+<p>示例 1: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: [3,4,5,1,2]</span><br><span class="line">输出: 1</span><br></pre></td></tr></table></figure></p>
+<p>示例 2: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: [4,5,6,7,0,1,2]</span><br><span class="line">输出: 0</span><br></pre></td></tr></table></figure></p>
+<h2 id="方法-3">方法</h2>
+<p>这个题是剑指offer上的原题。看到有序的数组就想到二分查找。这个是变种而已。</p>
+<p>注意边界和循环条件。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findMin</span><span class="params">(self, nums: List[int])</span> -&gt; int:</span></span><br><span class="line">        <span class="keyword">if</span> len(nums) == <span class="number">1</span>:<span class="keyword">return</span> nums[<span class="number">0</span>]</span><br><span class="line">        left, right = <span class="number">0</span>, len(nums)<span class="number">-1</span></span><br><span class="line">        </span><br><span class="line">        mid = left</span><br><span class="line">        <span class="keyword">while</span> nums[left] &gt;= nums[right]: <span class="comment"># 左半边 大于 右半边</span></span><br><span class="line">            <span class="keyword">if</span> left+<span class="number">1</span>  == right: <span class="comment"># 左右边相邻</span></span><br><span class="line">                mid = right</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            mid = (left + right)//<span class="number">2</span></span><br><span class="line">            <span class="keyword">if</span> nums[left] &lt;= nums[mid]:</span><br><span class="line">                left = mid</span><br><span class="line">            <span class="keyword">elif</span> nums[mid] &lt;= nums[right]:</span><br><span class="line">                right = mid</span><br><span class="line">                </span><br><span class="line">        <span class="keyword">return</span> nums[mid]</span><br></pre></td></tr></table></figure>
+<h1 id="参考">参考</h1>
 <ul>
-<li>n 范围是 [1, 100]，城市标签从 0 到 n - 1.</li>
-<li>航班数量范围是 [0, n * (n - 1) / 2].</li>
-<li>每个航班的格式 (src, dst, price).</li>
-<li>每个航班的价格范围是 [1, 10000].</li>
-<li>k 范围是 [0, n - 1].</li>
-<li>航班没有重复，且不存在环路</li>
+<li><a href="https://blog.csdn.net/fuxuemingzhu/article/details/79533470" target="_blank" rel="noopener">【LeetCode】153. Find Minimum in Rotated Sorted Array 解题报告（Python）</a></li>
 </ul>
-<h2 id="方法队列bfs">方法：队列+BFS</h2>
-<p>可以直接判断在指定的k步以内能不能走到dst，不会进行更多的搜索了，因此这个方法要快很多。</p>
-<p>这个队列存放的是当我们进行第step次搜索时，搜索到的当前的节点，以及走到当前节点的花费。所以当当前节点走到dst时，更新最小花费。</p>
-<p>时间复杂度是O(KN)，空间复杂度是O(N).</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findCheapestPrice</span><span class="params">(self, n: int, flights: List[List[int]], src: int, dst: int, K: int)</span> -&gt; int:</span></span><br><span class="line">        graph = collections.defaultdict(dict)</span><br><span class="line">        <span class="keyword">for</span> u, v, e <span class="keyword">in</span> flights:</span><br><span class="line">            graph[u][v] = e</span><br><span class="line">        ans = float(<span class="string">'inf'</span>)</span><br><span class="line">        que = collections.deque()</span><br><span class="line">        que.append((src, <span class="number">0</span>))</span><br><span class="line">        step = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> que:</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(len(que)):</span><br><span class="line">                cur, cost = que.popleft()</span><br><span class="line">                <span class="keyword">if</span> cur == dst:</span><br><span class="line">                    ans = min(ans, cost) <span class="comment">#走到dst,更新最小花费</span></span><br><span class="line">                <span class="keyword">for</span> v, w <span class="keyword">in</span> graph[cur].items(): <span class="comment"># 所有邻居点</span></span><br><span class="line">                    <span class="keyword">if</span> cost + w &gt; ans:</span><br><span class="line">                        <span class="keyword">continue</span></span><br><span class="line">                    que.append((v, cost + w)) <span class="comment"># 走到当前节点的更小的花费</span></span><br><span class="line">            <span class="keyword">if</span> step &gt; K: <span class="keyword">break</span></span><br><span class="line">            step += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span> <span class="keyword">if</span> ans == float(<span class="string">'inf'</span>) <span class="keyword">else</span> ans</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -580,7 +578,7 @@
           
             <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
           
-            <a href="/tags/图/" rel="tag"># 图</a>
+            <a href="/tags/二分查找/" rel="tag"># 二分查找</a>
           
         </div>
       
@@ -593,8 +591,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/06/剑指offer-chapter2problem03-15/" rel="next" title="《剑指offer》第2章03-15题(python)">
-                <i class="fa fa-chevron-left"></i> 《剑指offer》第2章03-15题(python)
+              <a href="/2019/06/10/python刷LeetCode链表题(困难级)/" rel="next" title="用python刷LeetCode链表题(困难级)">
+                <i class="fa fa-chevron-left"></i> 用python刷LeetCode链表题(困难级)
               </a>
             
           </div>
@@ -602,6 +600,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/21/python_leetcode-binary-tree(2)/" rel="prev" title="python解leetcode二叉树(2)">
+                python解leetcode二叉树(2) <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -862,7 +864,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#dijkstra迪杰斯特拉算法"><span class="nav-number">1.</span> <span class="nav-text">Dijkstra(迪杰斯特拉)算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#floyd-warshall弗洛伊德算法"><span class="nav-number">2.</span> <span class="nav-text">Floyd-Warshall（弗洛伊德算法）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bellman-ford算法"><span class="nav-number">3.</span> <span class="nav-text">Bellman-Ford算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#网络延迟时间"><span class="nav-number">4.</span> <span class="nav-text">743. 网络延迟时间</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目大意"><span class="nav-number">4.1.</span> <span class="nav-text">题目大意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法1dijkstra算法"><span class="nav-number">4.2.</span> <span class="nav-text">方法1：Dijkstra算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法2floyd-warshall算法"><span class="nav-number">4.3.</span> <span class="nav-text">方法2:Floyd-Warshall算法。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法3bellman-ford算法"><span class="nav-number">4.4.</span> <span class="nav-text">方法3：Bellman-Ford算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#k-站中转内最便宜的航班"><span class="nav-number">5.</span> <span class="nav-text">787. K 站中转内最便宜的航班</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法队列bfs"><span class="nav-number">5.1.</span> <span class="nav-text">方法：队列+BFS</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一个错误的版本"><span class="nav-number">1.</span> <span class="nav-text">278. 第一个错误的版本</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number">1.1.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搜索旋转排序数组"><span class="nav-number">2.</span> <span class="nav-text">33. 搜索旋转排序数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-1"><span class="nav-number">2.1.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搜索旋转排序数组-ii"><span class="nav-number">3.</span> <span class="nav-text">81. 搜索旋转排序数组 II</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-2"><span class="nav-number">3.1.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#寻找旋转排序数组中的最小值"><span class="nav-number">4.</span> <span class="nav-text">153. 寻找旋转排序数组中的最小值</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-3"><span class="nav-number">4.1.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>

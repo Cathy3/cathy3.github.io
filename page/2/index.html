@@ -1589,6 +1589,238 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/05/动态规划/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Icy"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QxD's Notes"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/04/05/动态规划/" class="post-title-link" itemprop="url">动态规划</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-05 00:00:00" itemprop="dateCreated datePublished" datetime="2019-04-05T00:00:00+08:00">2019-04-05</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-14 16:41:55" itemprop="dateModified" datetime="2019-07-14T16:41:55+08:00">2019-07-14</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/04/05/动态规划/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/05/动态规划/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/04/05/动态规划/" class="leancloud_visitors" data-flag-title="动态规划">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <ol type="1">
+<li>递归 + 记忆化 ——&gt; 递推（动态规划）</li>
+<li>状态的定义：数组 opt[n], dp[n], fib[n]</li>
+<li>状态转移方程：opt[n] = best_of(opt[n-1], opt[n-2], …) 从前面的n-1个值得到最优的第n个值</li>
+<li>最优子结构</li>
+</ol>
+<p><strong>学习内容：</strong></p>
+<ul>
+<li><a href="https://leetcode-cn.com/problems/fibonacci-number/" target="_blank" rel="noopener">LeetCode 509. 斐波那契数列</a></li>
+<li><a href="https://leetcode-cn.com/problems/climbing-stairs/" target="_blank" rel="noopener">LeetCode 70. 爬楼梯</a></li>
+<li>0-1 背包问题
+<ul>
+<li>自我实现</li>
+<li>Palindrome Partitioning II(132)</li>
+</ul></li>
+<li><a href="https://leetcode-cn.com/problems/minimum-path-sum/" target="_blank" rel="noopener">LeetCode 64. 最小路径和</a></li>
+<li>编程实现莱文斯坦最短编辑距离
+<ul>
+<li><a href="https://leetcode-cn.com/problems/edit-distance/" target="_blank" rel="noopener">LeetCode 72. 编辑距离</a></li>
+</ul></li>
+<li>找两个字符串的最长公共子序列
+<ul>
+<li><a href="https://leetcode-cn.com/problems/maximum-length-of-repeated-subarray/" target="_blank" rel="noopener">LeetCode718. 最长重复子数组</a></li>
+</ul></li>
+<li><a href="https://leetcode-cn.com/problems/regular-expression-matching/" target="_blank" rel="noopener">LeetCode 10. 正则表达式匹配</a></li>
+<li><a href="https://leetcode-cn.com/problems/triangle/" target="_blank" rel="noopener">LeetCode 120. 三角形最小路径和</a></li>
+<li><a href="https://leetcode-cn.com/problems/maximum-product-subarray/" target="_blank" rel="noopener">LeetCode 152. 乘积最大子序列</a></li>
+<li><a href="https://leetcode-cn.com/problems/longest-increasing-subsequence/" target="_blank" rel="noopener">LeetCode 300. 最长上升子序列</a></li>
+<li><a href="https://leetcode-cn.com/problems/coin-change/" target="_blank" rel="noopener">LeetCode 322. 零钱兑换</a></li>
+</ul>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/04/05/动态规划/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/05/用python刷LeetCode链表题(中等级)/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1838,7 +2070,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/05/动态规划/"/>
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/04/随机森林/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Icy"/>
@@ -1858,7 +2090,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/04/05/动态规划/" class="post-title-link" itemprop="url">动态规划</a>
+                <a href="/2019/04/04/随机森林/" class="post-title-link" itemprop="url">随机森林(Random Forest)算法梳理</a>
               
             
           </h1>
@@ -1883,24 +2115,12 @@
                 
               
 
-              <time title="创建时间：2019-04-05 00:00:00" itemprop="dateCreated datePublished" datetime="2019-04-05T00:00:00+08:00">2019-04-05</time>
+              <time title="创建时间：2019-04-04 00:00:00 / 修改时间：15:38:17" itemprop="dateCreated datePublished" datetime="2019-04-04T00:00:00+08:00">2019-04-04</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-14 16:41:55" itemprop="dateModified" datetime="2019-07-14T16:41:55+08:00">2019-07-14</time>
               
             
           </span>
@@ -1917,7 +2137,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/机器学习/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a></span>
 
                 
                 
@@ -1936,8 +2156,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/04/05/动态规划/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/05/动态规划/" itemprop="commentCount"></span>
+                <a href="/2019/04/04/随机森林/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/04/随机森林/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1945,7 +2165,7 @@
 
           
           
-            <span id="/2019/04/05/动态规划/" class="leancloud_visitors" data-flag-title="动态规划">
+            <span id="/2019/04/04/随机森林/" class="leancloud_visitors" data-flag-title="随机森林(Random Forest)算法梳理">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -1977,40 +2197,23 @@
 
       
         
-          <ol type="1">
-<li>递归 + 记忆化 ——&gt; 递推（动态规划）</li>
-<li>状态的定义：数组 opt[n], dp[n], fib[n]</li>
-<li>状态转移方程：opt[n] = best_of(opt[n-1], opt[n-2], …) 从前面的n-1个值得到最优的第n个值</li>
-<li>最优子结构</li>
-</ol>
-<p><strong>学习内容：</strong></p>
+          <p><strong>学习任务：</strong></p>
 <ul>
-<li><a href="https://leetcode-cn.com/problems/fibonacci-number/" target="_blank" rel="noopener">LeetCode 509. 斐波那契数列</a></li>
-<li><a href="https://leetcode-cn.com/problems/climbing-stairs/" target="_blank" rel="noopener">LeetCode 70. 爬楼梯</a></li>
-<li>0-1 背包问题
-<ul>
-<li>自我实现</li>
-<li>Palindrome Partitioning II(132)</li>
-</ul></li>
-<li><a href="https://leetcode-cn.com/problems/minimum-path-sum/" target="_blank" rel="noopener">LeetCode 64. 最小路径和</a></li>
-<li>编程实现莱文斯坦最短编辑距离
-<ul>
-<li><a href="https://leetcode-cn.com/problems/edit-distance/" target="_blank" rel="noopener">LeetCode 72. 编辑距离</a></li>
-</ul></li>
-<li>找两个字符串的最长公共子序列
-<ul>
-<li><a href="https://leetcode-cn.com/problems/maximum-length-of-repeated-subarray/" target="_blank" rel="noopener">LeetCode718. 最长重复子数组</a></li>
-</ul></li>
-<li><a href="https://leetcode-cn.com/problems/regular-expression-matching/" target="_blank" rel="noopener">LeetCode 10. 正则表达式匹配</a></li>
-<li><a href="https://leetcode-cn.com/problems/triangle/" target="_blank" rel="noopener">LeetCode 120. 三角形最小路径和</a></li>
-<li><a href="https://leetcode-cn.com/problems/maximum-product-subarray/" target="_blank" rel="noopener">LeetCode 152. 乘积最大子序列</a></li>
-<li><a href="https://leetcode-cn.com/problems/longest-increasing-subsequence/" target="_blank" rel="noopener">LeetCode 300. 最长上升子序列</a></li>
-<li><a href="https://leetcode-cn.com/problems/coin-change/" target="_blank" rel="noopener">LeetCode 322. 零钱兑换</a></li>
+<li>集成学习
+<ol style="list-style-type: decimal">
+<li>什么是集成学习？</li>
+<li>集成学习的种类有哪些？</li>
+<li>集成学习的基本步骤：个体学习器的选择、训练、结合</li>
+</ol></li>
+<li>bagging算法</li>
+<li>随机森林思想</li>
+<li>随机森林的推广</li>
+<li>sklearn参数</li>
 </ul>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2019/04/05/动态规划/#more" rel="contents">
+              <a class="btn" href="/2019/04/04/随机森林/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -2225,209 +2428,6 @@
           
             <div class="post-button text-center">
               <a class="btn" href="/2019/04/04/梯度提升决策树(GBDT)算法梳理/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/04/随机森林/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Icy"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.jpg"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="QxD's Notes"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/04/04/随机森林/" class="post-title-link" itemprop="url">随机森林(Random Forest)算法梳理</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-04-04 00:00:00 / 修改时间：15:38:17" itemprop="dateCreated datePublished" datetime="2019-04-04T00:00:00+08:00">2019-04-04</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/机器学习/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/04/04/随机森林/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/04/随机森林/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2019/04/04/随机森林/" class="leancloud_visitors" data-flag-title="随机森林(Random Forest)算法梳理">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><strong>学习任务：</strong></p>
-<ul>
-<li>集成学习
-<ol style="list-style-type: decimal">
-<li>什么是集成学习？</li>
-<li>集成学习的种类有哪些？</li>
-<li>集成学习的基本步骤：个体学习器的选择、训练、结合</li>
-</ol></li>
-<li>bagging算法</li>
-<li>随机森林思想</li>
-<li>随机森林的推广</li>
-<li>sklearn参数</li>
-</ul>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/04/04/随机森林/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>

@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="QxD&#39;s Notes">
 <meta property="og:description" content="动态规划主要方法是画网格⭐。  递归 + 记忆化 ——&amp;gt; 递推（动态规划） 状态的定义：数组 opt[n], dp[n], fib[n] 状态转移方程：opt[n] = best_of(opt[n-1], opt[n-2], …) 从前面的n-1个值得到最优的第n个值 最优子结构  学习内容：  LeetCode 509. 斐波那契数列 LeetCode 70. 爬楼梯">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-10T06:24:50.856Z">
+<meta property="og:updated_time" content="2019-08-10T07:17:39.813Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python解leetcode动态规划(1)">
 <meta name="twitter:description" content="动态规划主要方法是画网格⭐。  递归 + 记忆化 ——&amp;gt; 递推（动态规划） 状态的定义：数组 opt[n], dp[n], fib[n] 状态转移方程：opt[n] = best_of(opt[n-1], opt[n-2], …) 从前面的n-1个值得到最优的第n个值 最优子结构  学习内容：  LeetCode 509. 斐波那契数列 LeetCode 70. 爬楼梯">
@@ -407,7 +407,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-10 14:24:50" itemprop="dateModified" datetime="2019-08-10T14:24:50+08:00">2019-08-10</time>
+                <time title="修改时间：2019-08-10 15:17:39" itemprop="dateModified" datetime="2019-08-10T15:17:39+08:00">2019-08-10</time>
               
             
           </span>
@@ -591,6 +591,7 @@
 </ol>
 <h2 id="方法动态规划-4">方法:动态规划</h2>
 <p>是找到当前节点之前连续的公共子串长度问题。</p>
+<p>画格子：横纵坐标分别是A和B，对应比较，相等时，格子为1，或者左上角的数+1。</p>
 <p>状态转移就2种，要么上一个匹配成功，要么这一个匹配成功，其他情况都为0。</p>
 <p>我们可以用匹配矩阵来做，让行作为第一个字符串，列为第二个字符串，那么 dp[row][col] 则是第一个字符串第 row 位置和第二个字符串第 col 位置最大的匹配长度。</p>
 <p>递推关系为，dp[i][j] = dp[i-1][j-1]+1，当A[i]== B[j]。如果不等的话，dp[i][j]为0.</p>
@@ -799,7 +800,7 @@ dp[i][j+1],&amp;\text{p[j] == &#39;*&#39; and p[j-1] 匹配超过1次}
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">52</span>
+                    <span class="site-state-item-count">53</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

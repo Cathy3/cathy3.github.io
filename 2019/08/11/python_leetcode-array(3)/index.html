@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="螺旋矩阵   螺旋矩阵 II">
+  <meta name="description" content="寻找两个有序数组的中位数   盛最多水的容器   螺旋矩阵   螺旋矩阵 II   有序数组的平方">
 <meta name="keywords" content="python,LeetCode,数组">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python解LeetCode数组(3)">
 <meta property="og:url" content="http://yoursite.com/2019/08/11/python_leetcode-array(3)/index.html">
 <meta property="og:site_name" content="QxD&#39;s Notes">
-<meta property="og:description" content="螺旋矩阵   螺旋矩阵 II">
+<meta property="og:description" content="寻找两个有序数组的中位数   盛最多水的容器   螺旋矩阵   螺旋矩阵 II   有序数组的平方">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-11T06:04:32.655Z">
+<meta property="og:updated_time" content="2019-08-12T02:36:32.137Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python解LeetCode数组(3)">
-<meta name="twitter:description" content="螺旋矩阵   螺旋矩阵 II">
+<meta name="twitter:description" content="寻找两个有序数组的中位数   盛最多水的容器   螺旋矩阵   螺旋矩阵 II   有序数组的平方">
 
 
 
@@ -390,12 +390,24 @@
                 
               
 
-              <time title="创建时间：2019-08-11 00:00:00 / 修改时间：14:04:32" itemprop="dateCreated datePublished" datetime="2019-08-11T00:00:00+08:00">2019-08-11</time>
+              <time title="创建时间：2019-08-11 00:00:00" itemprop="dateCreated datePublished" datetime="2019-08-11T00:00:00+08:00">2019-08-11</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-12 10:36:32" itemprop="dateModified" datetime="2019-08-12T10:36:32+08:00">2019-08-12</time>
               
             
           </span>
@@ -472,13 +484,56 @@
 
       
         <ul>
+<li><ol start="4" type="1">
+<li>寻找两个有序数组的中位数</li>
+</ol></li>
+<li><ol start="11" type="1">
+<li>盛最多水的容器</li>
+</ol></li>
 <li><ol start="54" type="1">
 <li>螺旋矩阵</li>
 </ol></li>
 <li><ol start="59" type="1">
-<li>螺旋矩阵 II <a id="more"></a></li>
+<li>螺旋矩阵 II</li>
+</ol></li>
+<li><ol start="977" type="1">
+<li>有序数组的平方 <a id="more"></a></li>
 </ol></li>
 </ul>
+<h1 id="寻找两个有序数组的中位数">4. 寻找两个有序数组的中位数</h1>
+<p><a href="https://leetcode-cn.com/problems/median-of-two-sorted-arrays/" target="_blank" rel="noopener">寻找两个有序数组的中位数</a></p>
+<p>给定两个大小为 m 和 n 的有序数组 nums1 和 nums2。</p>
+<p>请你找出这两个有序数组的中位数，并且要求算法的时间复杂度为 O(log(m+n))。</p>
+<p>你可以假设 nums1 和 nums2 不会同时为空。</p>
+<p>示例 1: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nums1 = [1, 3]</span><br><span class="line">nums2 = [2]</span><br><span class="line">则中位数是 2.0</span><br></pre></td></tr></table></figure></p>
+<p>示例 2: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nums1 = [1, 2]</span><br><span class="line">nums2 = [3, 4]</span><br><span class="line">则中位数是 (2 + 3)/2 = 2.5</span><br></pre></td></tr></table></figure></p>
+<h2 id="方法一合并排序除以2">方法一：合并，排序，除以2</h2>
+<p>对于一个有序数组，如果数组长度是奇数，那么中位数就是中间那个值，如果长度是偶数，就是中间两个数的平均数。 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findMedianSortedArrays</span><span class="params">(self, nums1, nums2)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums1: List[int]</span></span><br><span class="line"><span class="string">        :type nums2: List[int]</span></span><br><span class="line"><span class="string">        :rtype: float</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        tmp = nums1 + nums2</span><br><span class="line">        tmp.sort()</span><br><span class="line">        <span class="keyword">if</span> len(tmp)%<span class="number">2</span>==<span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> tmp[int(len(tmp)/<span class="number">2</span>)]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> (tmp[int(len(tmp)/<span class="number">2</span>)<span class="number">-1</span>] + tmp[int(len(tmp)/<span class="number">2</span>)])/<span class="number">2.0</span></span><br></pre></td></tr></table></figure></p>
+<p>Time Complexity: O(n)</p>
+<p>大于题目要求的时间复杂度</p>
+<h2 id="方法二寻找划分位置">方法二：寻找划分位置</h2>
+<p>中位数的作用：将一个集合划分为两个长度相等的子集，其中一个子集中的元素总是大于另一个子集中的元素。</p>
+<p>思路：nums1和nums2分别以i,j为界划分成左右两部分，不断调整i,j,以达成以下条件：</p>
+<ol type="1">
+<li>len(nums1_左) + len(nums2_左) = len(nums1_右) + len(nums2_右) 就是说，划分后的左右两边的长度相等。</li>
+<li>Max(nums1左、nums2左) ≤ Min(nums1右、nums2右) 就是说，左边的元素总是小于右边。</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findMedianSortedArrays</span><span class="params">(self, nums1, nums2)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums1: List[int]</span></span><br><span class="line"><span class="string">        :type nums2: List[int]</span></span><br><span class="line"><span class="string">        :rtype: float</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        m, n = len(nums1), len(nums2)</span><br><span class="line">        <span class="keyword">if</span> m &gt; n:</span><br><span class="line">            nums1, nums2, m, n = nums2, nums1, n, m</span><br><span class="line">        <span class="keyword">if</span> n == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">raise</span> ValueError</span><br><span class="line">            </span><br><span class="line">        imin, imax, half_len = <span class="number">0</span>, m, (m+n+<span class="number">1</span>)//<span class="number">2</span></span><br><span class="line">        <span class="keyword">while</span> imin &lt;= imax:</span><br><span class="line">            i = (imin + imax)//<span class="number">2</span></span><br><span class="line">            j = half_len - i</span><br><span class="line">            <span class="keyword">if</span> i&lt;m <span class="keyword">and</span> nums2[j<span class="number">-1</span>] &gt; nums1[i]: <span class="comment">#i太小</span></span><br><span class="line">                imin = i+<span class="number">1</span></span><br><span class="line">            <span class="keyword">elif</span> i&gt;<span class="number">0</span> <span class="keyword">and</span> nums1[i<span class="number">-1</span>]&gt;nums2[j]: <span class="comment">#i太大</span></span><br><span class="line">                imax = i<span class="number">-1</span></span><br><span class="line">            <span class="keyword">else</span>:<span class="comment">#找到i的正确位置</span></span><br><span class="line">                <span class="keyword">if</span> i==<span class="number">0</span>: max_of_left = nums2[j<span class="number">-1</span>]<span class="comment">#临界问题，其中一个列表全在右边，左边为空</span></span><br><span class="line">                <span class="keyword">elif</span> j==<span class="number">0</span>: max_of_left = nums1[i<span class="number">-1</span>]</span><br><span class="line">                <span class="keyword">else</span>: max_of_left = max(nums1[i<span class="number">-1</span>], nums2[j<span class="number">-1</span>])</span><br><span class="line">                    </span><br><span class="line">                <span class="keyword">if</span>(m+n)%<span class="number">2</span> == <span class="number">1</span>: <span class="comment">#若列表长度为奇数</span></span><br><span class="line">                    <span class="keyword">return</span> max_of_left</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span> i==m: min_of_right = nums2[j] <span class="comment">#临界问题，其中一个列表全在左边，右边为空</span></span><br><span class="line">                <span class="keyword">elif</span> j==n: min_of_right = nums1[i]</span><br><span class="line">                <span class="keyword">else</span>: min_of_right = min(nums1[i], nums2[j])</span><br><span class="line">                    </span><br><span class="line">                <span class="keyword">return</span> (max_of_left + min_of_right)/<span class="number">2</span></span><br></pre></td></tr></table></figure>
+<p>Time Complexity: O(log(min(m,n)))</p>
+<p>首先，查找的区间是 [0,m]。 而该区间的长度在每次循环之后都会减少为原来的一半。 所以，我们只需要执行 (m) 次循环。由于我们在每次循环中进行常量次数的操作，所以时间复杂度为 O(log(m)) 。</p>
+<p>由于 m≤n，所以时间复杂度是 O(log(min(m,n)))。空间复杂度：O(1)， 我们只需要恒定的内存来存储 9 个局部变量， 所以空间复杂度为 O(1)。</p>
+<h1 id="盛最多水的容器">11. 盛最多水的容器</h1>
+<p><a href="https://leetcode-cn.com/problems/container-with-most-water/" target="_blank" rel="noopener">Container With Most Water</a></p>
+<p>给定 n 个非负整数 a1，a2，…，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0)。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。</p>
+<p>说明：你不能倾斜容器，且 n 的值至少为 2。</p>
+<p>图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 49。</p>
+<p>示例: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: [1,8,6,2,5,4,8,3,7]</span><br><span class="line">输出: 49</span><br></pre></td></tr></table></figure></p>
+<h2 id="方法一移动指针">方法一：移动指针</h2>
+<p>装水的面积取决于两条线中较短的那条的长度和两条线之间横坐标的差值。 用双指针<code>left</code>、<code>right</code>，分别指向数组<code>height</code>的首尾。只有较短边会对盛水量造成影响，因此移动较短边的指针，并比较当前盛水量和当前最大盛水量。直至左右指针相遇。 <code>area</code>在宽度变小的情况下，只有可能高度变大，面积才有可能变大 如果<code>height[left]</code>长度小于<code>height[right]</code>，无论如何移动<code>right</code>，短板在<code>left</code>，不可能找到比当前记录的 <code>area</code> 更大的值了，只能通过移动<code>left</code>来找到新的可能的更大面积。这种方式可以遍历到容量最大的情况。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxArea</span><span class="params">(self, height)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type height: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> height == []:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        </span><br><span class="line">        left, right, area = <span class="number">0</span>, len(height)<span class="number">-1</span>, <span class="number">0</span> </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> left&lt;right: </span><br><span class="line">            area = max(area, min(height[left], height[right]) * (right-left))</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> height[left]&lt;height[right]:<span class="comment">#area的高取决于左指针</span></span><br><span class="line">                left+=<span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>: <span class="comment">#area的高取决于右指针</span></span><br><span class="line">                right-=<span class="number">1</span> </span><br><span class="line">        <span class="keyword">return</span> area</span><br></pre></td></tr></table></figure>
+<p>Time Complexity: O(n) O(n)O(n)</p>
+<h2 id="方法一改进">方法一改进</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxArea</span><span class="params">(self, height)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type height: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        l = <span class="number">0</span></span><br><span class="line">        r = len(height)<span class="number">-1</span></span><br><span class="line">        s = <span class="number">0</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> l &lt; r:</span><br><span class="line">            width = r-l</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> height[l] &lt; height[r]:</span><br><span class="line">                h = height[l]</span><br><span class="line">                l += <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                h = height[r]</span><br><span class="line">                r -= <span class="number">1</span></span><br><span class="line">            s = max(s, h*width)</span><br><span class="line">        <span class="keyword">return</span> s</span><br></pre></td></tr></table></figure>
 <h1 id="螺旋矩阵">54. 螺旋矩阵</h1>
 <p>给定一个包含 m x n 个元素的矩阵（m 行, n 列），请按照顺时针螺旋顺序，返回矩阵中的所有元素。</p>
 <p>示例 1: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入:</span><br><span class="line">[</span><br><span class="line"> [ 1, 2, 3 ],</span><br><span class="line"> [ 4, 5, 6 ],</span><br><span class="line"> [ 7, 8, 9 ]</span><br><span class="line">]</span><br><span class="line">输出: [1,2,3,6,9,8,7,4,5]</span><br></pre></td></tr></table></figure></p>
@@ -490,6 +545,29 @@
 <h2 id="方法-1">方法</h2>
 <p>类似于上面54题</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">generateMatrix</span><span class="params">(self, n: int)</span> -&gt; List[List[int]]:</span></span><br><span class="line">        <span class="keyword">if</span> n == <span class="number">0</span>: <span class="keyword">return</span> []</span><br><span class="line">        res = [[<span class="number">0</span> <span class="keyword">for</span> x <span class="keyword">in</span> range(n)] <span class="keyword">for</span> x <span class="keyword">in</span> range(n)]</span><br><span class="line">        cnt, case = <span class="number">1</span>, <span class="number">0</span></span><br><span class="line">        i, j = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">        weight = <span class="number">1</span></span><br><span class="line">        res[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> cnt &lt; n * n:</span><br><span class="line">            <span class="keyword">if</span> case == <span class="number">0</span>:</span><br><span class="line">                j += <span class="number">1</span> <span class="comment">#横向递增</span></span><br><span class="line">                <span class="keyword">if</span> j == n - weight:</span><br><span class="line">                    case = <span class="number">1</span></span><br><span class="line">            <span class="keyword">elif</span> case == <span class="number">1</span>:</span><br><span class="line">                i += <span class="number">1</span> <span class="comment">#纵向递增</span></span><br><span class="line">                <span class="keyword">if</span> i == n - weight:</span><br><span class="line">                    case = <span class="number">2</span></span><br><span class="line">            <span class="keyword">elif</span> case == <span class="number">2</span>:</span><br><span class="line">                j -= <span class="number">1</span> <span class="comment">#横向向左</span></span><br><span class="line">                <span class="keyword">if</span> j == weight - <span class="number">1</span>:</span><br><span class="line">                    case = <span class="number">3</span></span><br><span class="line">                    weight += <span class="number">1</span></span><br><span class="line">            <span class="keyword">elif</span> case == <span class="number">3</span>:</span><br><span class="line">                i -= <span class="number">1</span> <span class="comment">#纵向向上               </span></span><br><span class="line">                <span class="keyword">if</span> i == weight - <span class="number">1</span>:</span><br><span class="line">                    case = <span class="number">0</span></span><br><span class="line">            res[i][j] = cnt + <span class="number">1</span></span><br><span class="line">            cnt += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
+<h1 id="有序数组的平方">977. 有序数组的平方</h1>
+<p>给定一个按非递减顺序排序的整数数组 A，返回每个数字的平方组成的新数组，要求也按非递减顺序排序。</p>
+<p>示例 1： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：[-4,-1,0,3,10]</span><br><span class="line">输出：[0,1,9,16,100]</span><br></pre></td></tr></table></figure></p>
+<p>示例 2： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：[-7,-3,2,3,11]</span><br><span class="line">输出：[4,9,9,49,121]</span><br></pre></td></tr></table></figure></p>
+<p>提示：</p>
+<ul>
+<li>1 &lt;= A.length &lt;= 10000</li>
+<li>-10000 &lt;= A[i] &lt;= 10000</li>
+<li>A 已按非递减顺序排序。</li>
+</ul>
+<h2 id="方法一归并排序">方法一：归并排序</h2>
+<p>用两个指针分别读取数组的非负部分与负数部分 —— 指针 i 反向读取负数部分，指针 j 正向读取非负数部分。 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sortedSquares</span><span class="params">(self, A)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type A: List[int]</span></span><br><span class="line"><span class="string">        :rtype: List[int]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        N = len(A)</span><br><span class="line">        j = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> A[j]&lt;<span class="number">0</span> <span class="keyword">and</span> j&lt;N<span class="number">-1</span>:</span><br><span class="line">            j+=<span class="number">1</span></span><br><span class="line">        i = j<span class="number">-1</span></span><br><span class="line">        </span><br><span class="line">        res = []</span><br><span class="line">        <span class="keyword">while</span> <span class="number">0</span>&lt;=i <span class="keyword">and</span> j&lt;N: <span class="comment"># 归并操作, 谁的平方小，谁先输出</span></span><br><span class="line">            <span class="keyword">if</span> A[i]**<span class="number">2</span> &lt; A[j]**<span class="number">2</span>:</span><br><span class="line">                res.append(A[i]**<span class="number">2</span>)</span><br><span class="line">                i-=<span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                res.append(A[j]**<span class="number">2</span>)</span><br><span class="line">                j+=<span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> i&gt;=<span class="number">0</span>: <span class="comment"># 如果负数部分没有输出完，则直接输出</span></span><br><span class="line">            res.append(A[i]**<span class="number">2</span>)</span><br><span class="line">            i-=<span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> j&lt;N:  <span class="comment"># 如果正数部分没有输出完，则直接输出</span></span><br><span class="line">            res.append(A[j]**<span class="number">2</span>)</span><br><span class="line">            j+=<span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure></p>
+<p>Time Complexity: O(n) O(n)O(n)</p>
+<h2 id="方法二排序">方法二：排序</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">class</span> Solution:</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">    <span class="kw">def</span> sortedSquares(<span class="va">self</span>, A):</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">        <span class="cf">return</span> <span class="bu">sorted</span>(x<span class="op">*</span>x <span class="cf">for</span> x <span class="kw">in</span> A)</a></code></pre></div>
+<p>Time Complexity: O(nlogn) O(nlogn)O(nlogn)</p>
+<h1 id="参考">参考</h1>
+<ul>
+<li><a href="https://blog.csdn.net/xx_123_1_rj/article/details/86568877" target="_blank" rel="noopener">LeetCode：977. Squares of a Sorted Array - Python</a></li>
+<li><a href="https://segmentfault.com/a/1190000008824222" target="_blank" rel="noopener">leetcode11. Container With Most Water 盛水最多的容器</a></li>
+</ul>
 
       
     </div>
@@ -801,7 +879,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#螺旋矩阵"><span class="nav-number">1.</span> <span class="nav-text">54. 螺旋矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number">1.1.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#螺旋矩阵-ii"><span class="nav-number">2.</span> <span class="nav-text">59. 螺旋矩阵 II</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-1"><span class="nav-number">2.1.</span> <span class="nav-text">方法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#寻找两个有序数组的中位数"><span class="nav-number">1.</span> <span class="nav-text">4. 寻找两个有序数组的中位数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一合并排序除以2"><span class="nav-number">1.1.</span> <span class="nav-text">方法一：合并，排序，除以2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二寻找划分位置"><span class="nav-number">1.2.</span> <span class="nav-text">方法二：寻找划分位置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#盛最多水的容器"><span class="nav-number">2.</span> <span class="nav-text">11. 盛最多水的容器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一移动指针"><span class="nav-number">2.1.</span> <span class="nav-text">方法一：移动指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一改进"><span class="nav-number">2.2.</span> <span class="nav-text">方法一改进</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#螺旋矩阵"><span class="nav-number">3.</span> <span class="nav-text">54. 螺旋矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number">3.1.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#螺旋矩阵-ii"><span class="nav-number">4.</span> <span class="nav-text">59. 螺旋矩阵 II</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-1"><span class="nav-number">4.1.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#有序数组的平方"><span class="nav-number">5.</span> <span class="nav-text">977. 有序数组的平方</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一归并排序"><span class="nav-number">5.1.</span> <span class="nav-text">方法一：归并排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二排序"><span class="nav-number">5.2.</span> <span class="nav-text">方法二：排序</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
@@ -1345,7 +1423,8 @@
 
   
   <!-- 页面点击小红心 -->
-  <script type="text/javascript" src="/js/src/love.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -1362,6 +1441,5 @@
 <script type="text/javascript" src="custom_mathjax_source">
 </script>
 <!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<!-- hexo-inject:end --></body>
 </html>

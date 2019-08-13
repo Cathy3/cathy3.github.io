@@ -96,25 +96,25 @@
 
 
 
-  <meta name="description" content="整数反转   字符串转换整数 (atoi)   (解法见 python实现数据结构之字符串)   回文数   罗马数字转整数   计数素数">
+  <meta name="description" content="整数反转   字符串转换整数 (atoi)   (解法见 python实现数据结构之字符串)   回文数   罗马数字转整数   格雷编码   计数素数   2的幂   Nim 游戏">
 <meta name="keywords" content="python,LeetCode,牛客">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python刷LeetCode数学题(一)">
-<meta property="og:url" content="http://yoursite.com/2019/04/22/python刷LeetCode数学题(一)/index.html">
+<meta property="og:title" content="python解LeetCode数学题(1)">
+<meta property="og:url" content="http://yoursite.com/2019/04/22/python_leetcode-math(1)/index.html">
 <meta property="og:site_name" content="QxD&#39;s Notes">
-<meta property="og:description" content="整数反转   字符串转换整数 (atoi)   (解法见 python实现数据结构之字符串)   回文数   罗马数字转整数   计数素数">
+<meta property="og:description" content="整数反转   字符串转换整数 (atoi)   (解法见 python实现数据结构之字符串)   回文数   罗马数字转整数   格雷编码   计数素数   2的幂   Nim 游戏">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-05T06:23:50.852Z">
+<meta property="og:updated_time" content="2019-08-13T06:54:00.327Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python刷LeetCode数学题(一)">
-<meta name="twitter:description" content="整数反转   字符串转换整数 (atoi)   (解法见 python实现数据结构之字符串)   回文数   罗马数字转整数   计数素数">
+<meta name="twitter:title" content="python解LeetCode数学题(1)">
+<meta name="twitter:description" content="整数反转   字符串转换整数 (atoi)   (解法见 python实现数据结构之字符串)   回文数   罗马数字转整数   格雷编码   计数素数   2的幂   Nim 游戏">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/22/python刷LeetCode数学题(一)/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/04/22/python_leetcode-math(1)/"/>
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>python刷LeetCode数学题(一) | QxD's Notes</title>
+  <title>python解LeetCode数学题(1) | QxD's Notes</title>
   
 
 
@@ -347,7 +347,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/22/python刷LeetCode数学题(一)/"/>
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/22/python_leetcode-math(1)/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Icy"/>
@@ -364,7 +364,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">python刷LeetCode数学题(一)
+          <h1 class="post-title" itemprop="name headline">python解LeetCode数学题(1)
 
               
             
@@ -407,7 +407,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-05 14:23:50" itemprop="dateModified" datetime="2019-08-05T14:23:50+08:00">2019-08-05</time>
+                <time title="修改时间：2019-08-13 14:54:00" itemprop="dateModified" datetime="2019-08-13T14:54:00+08:00">2019-08-13</time>
               
             
           </span>
@@ -443,8 +443,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/04/22/python刷LeetCode数学题(一)/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/22/python刷LeetCode数学题(一)/" itemprop="commentCount"></span>
+                <a href="/2019/04/22/python_leetcode-math(1)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/22/python_leetcode-math(1)/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -452,7 +452,7 @@
 
           
           
-            <span id="/2019/04/22/python刷LeetCode数学题(一)/" class="leancloud_visitors" data-flag-title="python刷LeetCode数学题(一)">
+            <span id="/2019/04/22/python_leetcode-math(1)/" class="leancloud_visitors" data-flag-title="python解LeetCode数学题(1)">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -499,8 +499,17 @@
 <li><ol start="13" type="1">
 <li>罗马数字转整数</li>
 </ol></li>
+<li><ol start="89" type="1">
+<li>格雷编码</li>
+</ol></li>
 <li><ol start="204" type="1">
 <li>计数素数</li>
+</ol></li>
+<li><ol start="231" type="1">
+<li>2的幂</li>
+</ol></li>
+<li><ol start="292" type="1">
+<li>Nim 游戏</li>
 </ol></li>
 </ul>
 <a id="more"></a>
@@ -543,6 +552,17 @@
 <p>示例 5: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: &quot;MCMXCIV&quot;</span><br><span class="line">输出: 1994</span><br><span class="line">解释: M = 1000, CM = 900, XC = 90, IV = 4.</span><br></pre></td></tr></table></figure></p>
 <h2 id="方法从后往前遍历">方法：从后往前遍历</h2>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">romanToInt</span><span class="params">(self, s: str)</span> -&gt; int:</span></span><br><span class="line">        roman = &#123;<span class="string">"I"</span>:<span class="number">1</span>, <span class="string">"V"</span>:<span class="number">5</span>, <span class="string">"X"</span>:<span class="number">10</span>, <span class="string">"L"</span>:<span class="number">50</span>, <span class="string">"C"</span>:<span class="number">100</span>, <span class="string">"D"</span>:<span class="number">500</span>, <span class="string">"M"</span>:<span class="number">1000</span>&#125;</span><br><span class="line">        res = roman[s[<span class="number">-1</span>]]</span><br><span class="line">        N = len(s)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(N<span class="number">-2</span>, <span class="number">-1</span>, <span class="number">-1</span>):</span><br><span class="line">            <span class="keyword">if</span> roman[s[i]] &lt; roman[s[i+<span class="number">1</span>]]:</span><br><span class="line">                res -= roman[s[i]]</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                res += roman[s[i]]</span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
+<h1 id="格雷编码">89.格雷编码</h1>
+<p>格雷编码是一个二进制数字系统，在该系统中，两个连续的数值仅有一个位数的差异。</p>
+<p>给定一个代表编码总位数的非负整数 n，打印其格雷编码序列。格雷编码序列必须以 0 开头。</p>
+<p>示例 1: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">输入: 2</span><br><span class="line">输出: [0,1,3,2]</span><br><span class="line">解释:</span><br><span class="line">00 - 0</span><br><span class="line">01 - 1</span><br><span class="line">11 - 3</span><br><span class="line">10 - 2</span><br><span class="line"></span><br><span class="line">对于给定的 n，其格雷编码序列并不唯一。</span><br><span class="line">例如，[0,2,3,1] 也是一个有效的格雷编码序列。</span><br><span class="line"></span><br><span class="line">00 - 0</span><br><span class="line">10 - 2</span><br><span class="line">11 - 3</span><br><span class="line">01 - 1</span><br></pre></td></tr></table></figure></p>
+<h2 id="方法">方法</h2>
+<p>下面是百度百科告诉的如何求n位的格雷码的方法。</p>
+<p>递归生成码表</p>
+<p>这种方法基于格雷码是反射码的事实，利用递归的如下规则来构造： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1位格雷码有两个码字</span><br><span class="line">(n+1)位格雷码中的前2n个码字等于n位格雷码的码字，按顺序书写，加前缀0</span><br><span class="line">(n+1)位格雷码中的后2n个码字等于n位格雷码的码字，按逆序书写，加前缀1</span><br><span class="line">n+1位格雷码的集合 = n位格雷码集合(顺序)加前缀0 + n位格雷码集合(逆序)加前缀1</span><br></pre></td></tr></table></figure></p>
+<p>简言之就是递归。第（n+1）位的格雷码序列=（‘0’+第n位的正序） + （‘1’+第n位的逆序）</p>
+<p>题目中说了n是非负数，当n=0的时候，返回[0]即可。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">grayCode</span><span class="params">(self, n: int)</span> -&gt; List[int]:</span></span><br><span class="line">        <span class="keyword">return</span> map(<span class="keyword">lambda</span> x: int(x,<span class="number">2</span>), self.bit_gray(n))</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">bit_gray</span><span class="params">(self,n)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> n==<span class="number">0</span>: <span class="keyword">return</span> [<span class="string">"0"</span>]</span><br><span class="line">        <span class="keyword">elif</span> n==<span class="number">1</span>: <span class="keyword">return</span> [<span class="string">"0"</span>,<span class="string">"1"</span>]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            pre_gray = self.bit_gray(n<span class="number">-1</span>)</span><br><span class="line">            <span class="keyword">return</span> [<span class="string">"0"</span>+x <span class="keyword">for</span> x <span class="keyword">in</span> pre_gray] + [<span class="string">"1"</span>+x <span class="keyword">for</span> x <span class="keyword">in</span> pre_gray[::<span class="number">-1</span>]]</span><br></pre></td></tr></table></figure>
 <h1 id="计数素数">204. 计数素数</h1>
 <p>质数（prime number）又称素数，有无限个。 质数定义为在大于1的自然数中，除了1和它本身以外不再有其他因数。</p>
 <h2 id="题目描述">题目描述</h2>
@@ -551,6 +571,23 @@
 <h2 id="方法素数筛法">方法：素数筛法</h2>
 <p>素数筛法就是把这个数的所有倍数都删除掉，因为这些数一定不是素数。最后统计一下数字剩余的没有被删除的个数就好。 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">countPrimes</span><span class="params">(self, n: int)</span> -&gt; int:</span></span><br><span class="line">        nums = [<span class="number">1</span>]*n</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>, n):</span><br><span class="line">            <span class="keyword">if</span> nums[i]==<span class="number">0</span>:</span><br><span class="line">                <span class="keyword">continue</span> <span class="comment"># 筛掉不是素数的值</span></span><br><span class="line">            j = <span class="number">2</span></span><br><span class="line">            <span class="keyword">while</span> i*j &lt; n:</span><br><span class="line">                nums[i*j] = <span class="number">0</span></span><br><span class="line">                j += <span class="number">1</span></span><br><span class="line">        res = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>, n):</span><br><span class="line">            res += nums[i]</span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure></p>
 <p>执行用时有点长。</p>
+<h1 id="的幂">231. 2的幂</h1>
+<p>给定一个整数，编写一个函数来判断它是否是 2 的幂次方。</p>
+<p>示例 1: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: 1</span><br><span class="line">输出: true</span><br><span class="line">解释: 20 = 1</span><br></pre></td></tr></table></figure></p>
+<p>示例 2: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: 16</span><br><span class="line">输出: true</span><br><span class="line">解释: 24 = 16</span><br></pre></td></tr></table></figure></p>
+<h2 id="方法一二进制">方法一：二进制</h2>
+<p>数一下二进制中1的个数是不是正好是1个</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isPowerOfTwo</span><span class="params">(self, n: int)</span> -&gt; bool:</span></span><br><span class="line">        <span class="keyword">return</span> n&gt;<span class="number">0</span> <span class="keyword">and</span> bin(n).count(<span class="string">"1"</span>)==<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h2 id="方法二位运算">方法二：位运算</h2>
+<p>n&amp;(n-1) 的方法来数一个数里边只有一个1 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isPowerOfTwo</span><span class="params">(self, n)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type n: int</span></span><br><span class="line"><span class="string">        :rtype: bool</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> n &lt;= <span class="number">0</span>: <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        <span class="keyword">return</span> n &amp; (n - <span class="number">1</span>) == <span class="number">0</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="nim-游戏">292. Nim 游戏</h1>
+<p>你和你的朋友，两个人一起玩 Nim 游戏：桌子上有一堆石头，每次你们轮流拿掉 1 - 3 块石头。 拿掉最后一块石头的人就是获胜者。你作为先手。</p>
+<p>你们是聪明人，每一步都是最优解。 编写一个函数，来判断你是否可以在给定石头数量的情况下赢得游戏。</p>
+<p>示例: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入: 4</span><br><span class="line">输出: false </span><br><span class="line">解释: 如果堆中有 4 块石头，那么你永远不会赢得比赛；</span><br><span class="line">     因为无论你拿走 1 块、2 块 还是 3 块石头，最后一块石头总是会被你的朋友拿走。</span><br></pre></td></tr></table></figure></p>
+<h2 id="方法-1">方法</h2>
+<p>题目的意思是只要拿最后一个石子的人赢。</p>
+<p>因为每次最多拿三个，所以只要我拿走子之后，最后剩余四个的话，我就输了。</p>
+<p>所以，所有子的个数不能被四整除我就赢了，否则我会输。输的原因是对手每次都拿4-n，n为当次我拿到子的个数。 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">canWinNim</span><span class="params">(self, n: int)</span> -&gt; bool:</span></span><br><span class="line">        <span class="keyword">return</span> n % <span class="number">4</span> != <span class="number">0</span></span><br></pre></td></tr></table></figure></p>
 <h1 id="参考">参考</h1>
 <ul>
 <li><a href="https://primes.utm.edu/howmany.html" target="_blank" rel="noopener">How Many Primes Are There?</a></li>
@@ -871,7 +908,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#整数反转"><span class="nav-number">1.</span> <span class="nav-text">7. 整数反转</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一取模"><span class="nav-number">1.1.</span> <span class="nav-text">方法一:取模</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二转字符串"><span class="nav-number">1.2.</span> <span class="nav-text">方法二：转字符串</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#回文数"><span class="nav-number">2.</span> <span class="nav-text">9. 回文数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一转成字符串"><span class="nav-number">2.1.</span> <span class="nav-text">方法一：转成字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二数学除余取模"><span class="nav-number">2.2.</span> <span class="nav-text">方法二：数学除余+取模</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#罗马数字转整数"><span class="nav-number">3.</span> <span class="nav-text">13. 罗马数字转整数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法从后往前遍历"><span class="nav-number">3.1.</span> <span class="nav-text">方法：从后往前遍历</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#计数素数"><span class="nav-number">4.</span> <span class="nav-text">204. 计数素数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">4.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法素数筛法"><span class="nav-number">4.2.</span> <span class="nav-text">方法：素数筛法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#整数反转"><span class="nav-number">1.</span> <span class="nav-text">7. 整数反转</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一取模"><span class="nav-number">1.1.</span> <span class="nav-text">方法一:取模</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二转字符串"><span class="nav-number">1.2.</span> <span class="nav-text">方法二：转字符串</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#回文数"><span class="nav-number">2.</span> <span class="nav-text">9. 回文数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一转成字符串"><span class="nav-number">2.1.</span> <span class="nav-text">方法一：转成字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二数学除余取模"><span class="nav-number">2.2.</span> <span class="nav-text">方法二：数学除余+取模</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#罗马数字转整数"><span class="nav-number">3.</span> <span class="nav-text">13. 罗马数字转整数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法从后往前遍历"><span class="nav-number">3.1.</span> <span class="nav-text">方法：从后往前遍历</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#格雷编码"><span class="nav-number">4.</span> <span class="nav-text">89.格雷编码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number">4.1.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#计数素数"><span class="nav-number">5.</span> <span class="nav-text">204. 计数素数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">5.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法素数筛法"><span class="nav-number">5.2.</span> <span class="nav-text">方法：素数筛法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#的幂"><span class="nav-number">6.</span> <span class="nav-text">231. 2的幂</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一二进制"><span class="nav-number">6.1.</span> <span class="nav-text">方法一：二进制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二位运算"><span class="nav-number">6.2.</span> <span class="nav-text">方法二：位运算</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nim-游戏"><span class="nav-number">7.</span> <span class="nav-text">292. Nim 游戏</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-1"><span class="nav-number">7.1.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">8.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>

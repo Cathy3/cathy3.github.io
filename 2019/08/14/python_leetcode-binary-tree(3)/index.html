@@ -96,25 +96,25 @@
 
 
 
-  <meta name="description" content="第 3 题：数组中重复的数字">
-<meta name="keywords" content="python,剑指offer">
+  <meta name="description" content="二叉树中第二小的节点   二叉搜索树中第K小的元素">
+<meta name="keywords" content="python,LeetCode,数据结构,二叉树">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《剑指offer》第2章03-15题(python)">
-<meta property="og:url" content="http://yoursite.com/2019/08/06/剑指offer-chapter2problem03-15/index.html">
+<meta property="og:title" content="python解leetcode二叉树(3)">
+<meta property="og:url" content="http://yoursite.com/2019/08/14/python_leetcode-binary-tree(3)/index.html">
 <meta property="og:site_name" content="QxD&#39;s Notes">
-<meta property="og:description" content="第 3 题：数组中重复的数字">
+<meta property="og:description" content="二叉树中第二小的节点   二叉搜索树中第K小的元素">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-06T03:13:07.493Z">
+<meta property="og:updated_time" content="2019-08-14T03:29:40.973Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="《剑指offer》第2章03-15题(python)">
-<meta name="twitter:description" content="第 3 题：数组中重复的数字">
+<meta name="twitter:title" content="python解leetcode二叉树(3)">
+<meta name="twitter:description" content="二叉树中第二小的节点   二叉搜索树中第K小的元素">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/08/06/剑指offer-chapter2problem03-15/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/08/14/python_leetcode-binary-tree(3)/"/>
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>《剑指offer》第2章03-15题(python) | QxD's Notes</title>
+  <title>python解leetcode二叉树(3) | QxD's Notes</title>
   
 
 
@@ -347,7 +347,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/06/剑指offer-chapter2problem03-15/"/>
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/14/python_leetcode-binary-tree(3)/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Icy"/>
@@ -364,7 +364,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">《剑指offer》第2章03-15题(python)
+          <h1 class="post-title" itemprop="name headline">python解leetcode二叉树(3)
 
               
             
@@ -390,7 +390,7 @@
                 
               
 
-              <time title="创建时间：2019-08-06 00:00:00 / 修改时间：11:13:07" itemprop="dateCreated datePublished" datetime="2019-08-06T00:00:00+08:00">2019-08-06</time>
+              <time title="创建时间：2019-08-14 00:00:00 / 修改时间：11:29:40" itemprop="dateCreated datePublished" datetime="2019-08-14T00:00:00+08:00">2019-08-14</time>
             
 
             
@@ -431,8 +431,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/08/06/剑指offer-chapter2problem03-15/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/08/06/剑指offer-chapter2problem03-15/" itemprop="commentCount"></span>
+                <a href="/2019/08/14/python_leetcode-binary-tree(3)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/08/14/python_leetcode-binary-tree(3)/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -440,7 +440,7 @@
 
           
           
-            <span id="/2019/08/06/剑指offer-chapter2problem03-15/" class="leancloud_visitors" data-flag-title="《剑指offer》第2章03-15题(python)">
+            <span id="/2019/08/14/python_leetcode-binary-tree(3)/" class="leancloud_visitors" data-flag-title="python解leetcode二叉树(3)">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -472,25 +472,34 @@
 
       
         <ul>
-<li>第 3 题：数组中重复的数字</li>
+<li><ol start="671" type="1">
+<li>二叉树中第二小的节点</li>
+</ol></li>
+<li><ol start="230" type="1">
+<li>二叉搜索树中第K小的元素 <a id="more"></a></li>
+</ol></li>
 </ul>
-<a id="more"></a>
-<h1 id="第3题数组中重复的数字">第3题：数组中重复的数字</h1>
-<p><a href="https://www.nowcoder.com/practice/623a5ac0ea5b4e5f95552655361ae0a8?tpId=13&amp;tqId=11203&amp;tPage=3&amp;rp=3&amp;ru=/ta/coding-interviews&amp;qru=/ta/coding-interviews/question-ranking" target="_blank" rel="noopener">牛客网 online judge 地址</a></p>
-<p>在一个长度为n的数组里的所有数字都在0到n-1的范围内。 数组中某些数字是重复的，但不知道有几个数字是重复的。也不知道每个数字重复几次。请找出数组中任意一个重复的数字。</p>
-<p>例如，如果输入长度为7的数组{2,3,1,0,2,5,3}，那么对应的输出是第一个重复的数字2。</p>
-<h2 id="可以修改原始数组">3.1 可以修改原始数组</h2>
-<h3 id="方法交换数字">方法：交换数字</h3>
-<p>交换数字到对应位置</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="comment"># 这里要特别注意~找到任意重复的一个值并赋值到duplication[0]</span></span><br><span class="line">    <span class="comment"># 函数返回True/False</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">duplicate</span><span class="params">(self, numbers, duplication)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> len(numbers)&lt;<span class="number">2</span>:</span><br><span class="line">            duplication[<span class="number">0</span>] = <span class="number">-1</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(numbers)):</span><br><span class="line">            <span class="keyword">while</span> i != numbers[i]:</span><br><span class="line">                <span class="keyword">if</span> numbers[i] == numbers[numbers[i]]:</span><br><span class="line">                    duplication[<span class="number">0</span>] = numbers[i]</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">                <span class="comment"># 注意这里不能直接multiple assignment</span></span><br><span class="line">                temp = numbers[i]</span><br><span class="line">                numbers[i] = numbers[numbers[i]]</span><br><span class="line">                numbers[temp] = temp</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">False</span></span><br></pre></td></tr></table></figure>
-<h2 id="不能修改原始数组">3.2 不能修改原始数组</h2>
-<h3 id="方法一二分查找">方法一：二分查找</h3>
-<p>类似于二分查找，多了一步计数</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="comment"># 这里要特别注意~找到任意重复的一个值并赋值到duplication[0]</span></span><br><span class="line">    <span class="comment"># 函数返回True/False</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">duplicate</span><span class="params">(self, numbers, duplication)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> len(set(numbers)) == len(numbers):</span><br><span class="line">            duplication[<span class="number">0</span>] = <span class="number">-1</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        left = <span class="number">1</span></span><br><span class="line">        right = len(numbers)<span class="number">-1</span></span><br><span class="line">        <span class="keyword">while</span> left &lt; right:</span><br><span class="line">            mid = left + (right-left+<span class="number">1</span>)//<span class="number">2</span></span><br><span class="line">            count = <span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> num <span class="keyword">in</span> numbers:</span><br><span class="line">                <span class="keyword">if</span> num &lt; mid:</span><br><span class="line">                    count += <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> count &lt; mid:<span class="comment"># 右半边有重复</span></span><br><span class="line">                left = mid </span><br><span class="line">            <span class="keyword">else</span>: <span class="comment"># 左半边有重复</span></span><br><span class="line">                right = mid <span class="number">-1</span></span><br><span class="line">        duplication[<span class="number">0</span>] = left</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span><br></pre></td></tr></table></figure>
-<h3 id="方法二快慢指针">方法二：快慢指针</h3>
-<p>使用快慢指针，判断数组中是否有逻辑上的环存在。寻找环的起点。</p>
-<p><strong>注意：</strong>题目的返回方式、快慢指针的初始化方式。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="comment"># 这里要特别注意~找到任意重复的一个值并赋值到duplication[0]</span></span><br><span class="line">    <span class="comment"># 函数返回True/False</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">duplicate</span><span class="params">(self, nums, duplication)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> len(set(nums)) == len(nums):</span><br><span class="line">            duplication[<span class="number">0</span>] = <span class="number">-1</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        fast = nums[nums[<span class="number">0</span>]]</span><br><span class="line">        slow = nums[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">while</span> fast != slow:</span><br><span class="line">            fast = nums[nums[fast]]</span><br><span class="line">            slow = nums[slow]</span><br><span class="line">        fast = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> fast != slow:</span><br><span class="line">            fast = nums[nums[fast]]</span><br><span class="line">            slow = nums[slow]</span><br><span class="line">        duplication[<span class="number">0</span>] = nums[fast]</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span><br></pre></td></tr></table></figure>
+<h1 id="二叉树中第二小的节点">671. 二叉树中第二小的节点</h1>
+<p>给定一个非空特殊的二叉树，每个节点都是正数，并且每个节点的子节点数量只能为 2 或 0。如果一个节点有两个子节点的话，那么这个节点的值不大于它的子节点的值。 </p>
+<p>给出这样的一个二叉树，你需要输出所有节点中的第二小的值。如果第二小的值不存在的话，输出 -1 。</p>
+<p>示例 1: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">输入: </span><br><span class="line">    2</span><br><span class="line">   / \</span><br><span class="line">  2   5</span><br><span class="line">     / \</span><br><span class="line">    5   7</span><br><span class="line"></span><br><span class="line">输出: 5</span><br><span class="line">说明: 最小的值是 2 ，第二小的值是 5 。</span><br></pre></td></tr></table></figure></p>
+<p>示例 2: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入: </span><br><span class="line">    2</span><br><span class="line">   / \</span><br><span class="line">  2   2</span><br><span class="line"></span><br><span class="line">输出: -1</span><br><span class="line">说明: 最小的值是 2, 但是不存在第二小的值。</span><br></pre></td></tr></table></figure></p>
+<h2 id="方法一">方法一</h2>
+<p>遍历所有值，找最小，再找次小</p>
+<p>使用了一个中序遍历，把所有的值放入到set里，然后我们先找最小值，然后删除掉它之后，再求一次最小值就是次小值。 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findSecondMinimumValue</span><span class="params">(self, root: TreeNode)</span> -&gt; int:</span></span><br><span class="line">        self.res = set()</span><br><span class="line">        self.inOrder(root)</span><br><span class="line">        <span class="keyword">if</span> len(self.res) &lt;= <span class="number">1</span>: <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">        min1 = min(self.res)</span><br><span class="line">        self.res.remove(min1)</span><br><span class="line">        <span class="keyword">return</span> min(self.res)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inOrder</span><span class="params">(self, root)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root:<span class="keyword">return</span></span><br><span class="line">        self.inOrder(root.left)</span><br><span class="line">        self.res.add(root.val)</span><br><span class="line">        self.inOrder(root.right)</span><br></pre></td></tr></table></figure></p>
+<h2 id="方法二">方法二</h2>
+<p>所有的值的最小值一定是root的值。</p>
+<p>可以使用一个变量，时刻保存现在遇到的比最小值大并且比次小值小的值作为第二小的值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findSecondMinimumValue</span><span class="params">(self, root: TreeNode)</span> -&gt; int:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root: <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">        self.res = float(<span class="string">"inf"</span>)</span><br><span class="line">        self.min = root.val</span><br><span class="line">        self.inOrder(root)</span><br><span class="line">        <span class="keyword">return</span> self.res <span class="keyword">if</span> self.res != float(<span class="string">"inf"</span>) <span class="keyword">else</span> <span class="number">-1</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inOrder</span><span class="params">(self, root)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        self.inOrder(root.left)</span><br><span class="line">        <span class="keyword">if</span> self.min &lt; root.val &lt; self.res:</span><br><span class="line">            self.res = root.val</span><br><span class="line">        self.inOrder(root.right)</span><br></pre></td></tr></table></figure>
+<h1 id="二叉搜索树中第k小的元素">230. 二叉搜索树中第K小的元素</h1>
+<h2 id="方法递归">方法：递归</h2>
+<p>提到BST就应该想到它的中序遍历是有序的，因此，最简单的想法就是获取中序遍历的list，直接得到第k个数即可。方法很简单，注意中序遍历的写法，以及，获取第k个数的List标号是k-1.</p>
+<p>当K比较小的时候，没必要获取得到所有的中序遍历结果之后再停止，可以直接记数到了k停止即可，这样后面的结果就不用统计了。</p>
+<p>我们需要做的是有一个全局的变量保存现在已经遍历了多少节点了，或者还剩多少个节点需要遍历。 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">kthSmallest</span><span class="params">(self, root: TreeNode, k: int)</span> -&gt; int:</span></span><br><span class="line">        self.res = <span class="number">0</span></span><br><span class="line">        self.count = <span class="number">0</span></span><br><span class="line">        self.inOrder(root, k)</span><br><span class="line">        <span class="keyword">return</span> self.res</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inOrder</span><span class="params">(self, root, k)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root:<span class="keyword">return</span></span><br><span class="line">        self.inOrder(root.left, k)</span><br><span class="line">        self.count += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> self.count == k: </span><br><span class="line">            self.res = root.val</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        self.inOrder(root.right, k)</span><br></pre></td></tr></table></figure></p>
+<h1 id="参考">参考</h1>
+<ul>
+<li><a href="https://blog.csdn.net/fuxuemingzhu/article/details/69947495" target="_blank" rel="noopener">【LeetCode】230. Kth Smallest Element in a BST 解题报告（C++ &amp; Java）</a></li>
+</ul>
 
       
     </div>
@@ -516,7 +525,11 @@
           
             <a href="/tags/python/" rel="tag"># python</a>
           
-            <a href="/tags/剑指offer/" rel="tag"># 剑指offer</a>
+            <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
+          
+            <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
+          
+            <a href="/tags/二叉树/" rel="tag"># 二叉树</a>
           
         </div>
       
@@ -529,8 +542,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/05/python_leetcode-topological-sort/" rel="next" title="python解leetcode拓扑排序">
-                <i class="fa fa-chevron-left"></i> python解leetcode拓扑排序
+              <a href="/2019/08/11/python_leetcode-array(3)/" rel="next" title="python解LeetCode数组(3)">
+                <i class="fa fa-chevron-left"></i> python解LeetCode数组(3)
               </a>
             
           </div>
@@ -538,10 +551,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/07/python_leetcode图的最短路径问题/" rel="prev" title="python解leetcode图的最短路径问题">
-                python解leetcode图的最短路径问题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -618,7 +627,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">54</span>
+                    <span class="site-state-item-count">55</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -804,7 +813,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第3题数组中重复的数字"><span class="nav-number">1.</span> <span class="nav-text">第3题：数组中重复的数字</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#可以修改原始数组"><span class="nav-number">1.1.</span> <span class="nav-text">3.1 可以修改原始数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法交换数字"><span class="nav-number">1.1.1.</span> <span class="nav-text">方法：交换数字</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不能修改原始数组"><span class="nav-number">1.2.</span> <span class="nav-text">3.2 不能修改原始数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法一二分查找"><span class="nav-number">1.2.1.</span> <span class="nav-text">方法一：二分查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法二快慢指针"><span class="nav-number">1.2.2.</span> <span class="nav-text">方法二：快慢指针</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#二叉树中第二小的节点"><span class="nav-number">1.</span> <span class="nav-text">671. 二叉树中第二小的节点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一"><span class="nav-number">1.1.</span> <span class="nav-text">方法一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二"><span class="nav-number">1.2.</span> <span class="nav-text">方法二</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二叉搜索树中第k小的元素"><span class="nav-number">2.</span> <span class="nav-text">230. 二叉搜索树中第K小的元素</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法递归"><span class="nav-number">2.1.</span> <span class="nav-text">方法：递归</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
@@ -1395,8 +1404,7 @@
 
   
   <!-- 页面点击小红心 -->
-  <script type="text/javascript" src="/js/src/love.js"></script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  <script type="text/javascript" src="/js/src/love.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -1413,5 +1421,6 @@
 <script type="text/javascript" src="custom_mathjax_source">
 </script>
 <!-- End: Injected MathJax -->
-<!-- hexo-inject:end --></body>
+<!-- hexo-inject:end -->
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>

@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="跳跃游戏 II   跳跃游戏   移掉K位数字">
+  <meta name="description" content="跳跃游戏 II   跳跃游戏   移掉K位数字   分发饼干   判断子序列（不需要连续）">
 <meta name="keywords" content="python,LeetCode,贪心算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python解leetcode贪心算法">
 <meta property="og:url" content="http://yoursite.com/2019/07/04/python_leetcode-greedy-algorithms/index.html">
 <meta property="og:site_name" content="QxD&#39;s Notes">
-<meta property="og:description" content="跳跃游戏 II   跳跃游戏   移掉K位数字">
+<meta property="og:description" content="跳跃游戏 II   跳跃游戏   移掉K位数字   分发饼干   判断子序列（不需要连续）">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-09T04:40:15.901Z">
+<meta property="og:updated_time" content="2019-08-15T09:00:42.061Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python解leetcode贪心算法">
-<meta name="twitter:description" content="跳跃游戏 II   跳跃游戏   移掉K位数字">
+<meta name="twitter:description" content="跳跃游戏 II   跳跃游戏   移掉K位数字   分发饼干   判断子序列（不需要连续）">
 
 
 
@@ -407,7 +407,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-09 12:40:15" itemprop="dateModified" datetime="2019-08-09T12:40:15+08:00">2019-08-09</time>
+                <time title="修改时间：2019-08-15 17:00:42" itemprop="dateModified" datetime="2019-08-15T17:00:42+08:00">2019-08-15</time>
               
             
           </span>
@@ -493,8 +493,13 @@
 <li><ol start="402" type="1">
 <li>移掉K位数字</li>
 </ol></li>
+<li><ol start="455" type="1">
+<li>分发饼干</li>
+</ol></li>
+<li><ol start="392" type="1">
+<li>判断子序列（不需要连续） <a id="more"></a></li>
+</ol></li>
 </ul>
-<a id="more"></a>
 <p><strong>贪心算法</strong>就是每次都贪心地选择当前最好的那个(局部最优解)，不去考虑以后的情况，而且选择了就不能够“反悔”了，如果原问题满足贪心选择性质和最优子结构，那么最后得到的解就是最优解。</p>
 <p>每一步的最优解一定包含上一步的最优解。</p>
 <p>区别于其他算法：</p>
@@ -536,6 +541,28 @@
 <p>遍历数字字符串，当当前的字符比栈最后的字符小的时候，说明要把栈的最后的这个字符删除掉。然后用现在的字符进行替换，是不是数字比以前的那种情况更小了？所以同样的道理，做一个while循环！</p>
 <p>最后，如果K还没用完，那要删除哪里的字符呢？毋庸置疑肯定是最后的字符，因为前面的字符都是小字符。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">removeKdigits</span><span class="params">(self, num: str, k: int)</span> -&gt; str:</span></span><br><span class="line">        <span class="keyword">if</span> len(num) == k:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">'0'</span></span><br><span class="line">        stack = []</span><br><span class="line">        <span class="keyword">for</span> n <span class="keyword">in</span> num:</span><br><span class="line">            <span class="comment"># while每轮循环删除局部最大值</span></span><br><span class="line">            <span class="keyword">while</span> stack <span class="keyword">and</span> k <span class="keyword">and</span> int(stack[<span class="number">-1</span>]) &gt; int(n):</span><br><span class="line">                stack.pop() <span class="comment"># 删除栈中最大的一个值</span></span><br><span class="line">                k -= <span class="number">1</span></span><br><span class="line">            stack.append(n) <span class="comment"># 栈里的值由小到大,新加入栈的值最大</span></span><br><span class="line">            </span><br><span class="line">        <span class="keyword">while</span> k: <span class="comment"># k还有剩余</span></span><br><span class="line">            stack.pop()</span><br><span class="line">            k -= <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> stack:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">'0'</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> str(int(<span class="string">''</span>.join(stack)))</span><br></pre></td></tr></table></figure>
+<h1 id="分发饼干">455. 分发饼干</h1>
+<p>假设你是一位很棒的家长，想要给你的孩子们一些小饼干。但是，每个孩子最多只能给一块饼干。对每个孩子 i ，都有一个胃口值 gi ，这是能让孩子们满足胃口的饼干的最小尺寸；并且每块饼干 j ，都有一个尺寸 sj 。如果 sj &gt;= gi ，我们可以将这个饼干 j 分配给孩子 i ，这个孩子会得到满足。你的目标是尽可能满足越多数量的孩子，并输出这个最大数值。</p>
+<p>注意：</p>
+<ul>
+<li>你可以假设胃口值为正。</li>
+<li>一个小朋友最多只能拥有一块饼干。</li>
+</ul>
+<p>示例 1: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">输入: [1,2,3], [1,1]</span><br><span class="line"></span><br><span class="line">输出: 1</span><br><span class="line"></span><br><span class="line">解释: </span><br><span class="line">你有三个孩子和两块小饼干，3个孩子的胃口值分别是：1,2,3。</span><br><span class="line">虽然你有两块小饼干，由于他们的尺寸都是1，你只能让胃口值是1的孩子满足。</span><br><span class="line">所以你应该输出1。</span><br></pre></td></tr></table></figure></p>
+<p>示例 2: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">输入: [1,2], [1,2,3]</span><br><span class="line"></span><br><span class="line">输出: 2</span><br><span class="line"></span><br><span class="line">解释: </span><br><span class="line">你有两个孩子和三块小饼干，2个孩子的胃口值分别是1,2。</span><br><span class="line">你拥有的饼干数量和尺寸都足以让所有孩子满足。</span><br><span class="line">所以你应该输出2.</span><br></pre></td></tr></table></figure></p>
+<h2 id="方法贪心算法-2">方法：贪心算法</h2>
+<ul>
+<li>首先对贪婪系数g、饼干尺寸s从小到大排序</li>
+<li>令指针i指向g的末尾，指针j指向s的末尾</li>
+<li>当g和s均≥0时，执行循环：
+<ul>
+<li>若g[i] ≤ s[j] 则令计数器+1，并令j -= 1 （将j号饼干分配给i号孩子，并令j指向下一个更小的饼干）</li>
+<li>令i -= 1 （将i指向下一个贪婪系数更小的孩子）</li>
+</ul></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findContentChildren</span><span class="params">(self, g: List[int], s: List[int])</span> -&gt; int:</span></span><br><span class="line">        g.sort()</span><br><span class="line">        s.sort() <span class="comment"># 排序</span></span><br><span class="line">        cnt = <span class="number">0</span></span><br><span class="line">        i, j = len(g) - <span class="number">1</span>, len(s) - <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> min(i, j) &gt;= <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">if</span> g[i] &lt;= s[j]:</span><br><span class="line">                cnt += <span class="number">1</span></span><br><span class="line">                j -= <span class="number">1</span> <span class="comment">#下一个更小的饼干</span></span><br><span class="line">            i -= <span class="number">1</span> <span class="comment">#下一个胃口更小的孩子</span></span><br><span class="line">        <span class="keyword">return</span> cnt</span><br></pre></td></tr></table></figure>
+<h1 id="判断子序列">392. 判断子序列</h1>
+<h2 id="方法">方法</h2>
 
       
     </div>
@@ -851,7 +878,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#跳跃游戏-ii"><span class="nav-number">1.</span> <span class="nav-text">45. 跳跃游戏 II</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法贪心算法"><span class="nav-number">1.1.</span> <span class="nav-text">方法：贪心算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#跳跃游戏"><span class="nav-number">2.</span> <span class="nav-text">55. 跳跃游戏</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法贪心算法-1"><span class="nav-number">2.1.</span> <span class="nav-text">方法：贪心算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#移掉k位数字"><span class="nav-number">3.</span> <span class="nav-text">402. 移掉K位数字</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法栈"><span class="nav-number">3.1.</span> <span class="nav-text">方法：栈</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#跳跃游戏-ii"><span class="nav-number">1.</span> <span class="nav-text">45. 跳跃游戏 II</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法贪心算法"><span class="nav-number">1.1.</span> <span class="nav-text">方法：贪心算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#跳跃游戏"><span class="nav-number">2.</span> <span class="nav-text">55. 跳跃游戏</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法贪心算法-1"><span class="nav-number">2.1.</span> <span class="nav-text">方法：贪心算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#移掉k位数字"><span class="nav-number">3.</span> <span class="nav-text">402. 移掉K位数字</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法栈"><span class="nav-number">3.1.</span> <span class="nav-text">方法：栈</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分发饼干"><span class="nav-number">4.</span> <span class="nav-text">455. 分发饼干</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法贪心算法-2"><span class="nav-number">4.1.</span> <span class="nav-text">方法：贪心算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#判断子序列"><span class="nav-number">5.</span> <span class="nav-text">392. 判断子序列</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number">5.1.</span> <span class="nav-text">方法</span></a></li></ol></li></ol></div>
             
 
           </div>

@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="整数反转   字符串转换整数 (atoi)   (解法见 python实现数据结构之字符串)   回文数   罗马数字转整数   格雷编码   计数素数   2的幂   Nim 游戏">
+  <meta name="description" content="整数反转   字符串转换整数 (atoi)   (解法见 python实现数据结构之字符串)   回文数   罗马数字转整数   格雷编码   计数素数   2的幂   丑数   丑数 II   Nim 游戏   第N个数字">
 <meta name="keywords" content="python,LeetCode,牛客">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python解LeetCode数学题(1)">
 <meta property="og:url" content="http://yoursite.com/2019/04/22/python_leetcode-math(1)/index.html">
 <meta property="og:site_name" content="QxD&#39;s Notes">
-<meta property="og:description" content="整数反转   字符串转换整数 (atoi)   (解法见 python实现数据结构之字符串)   回文数   罗马数字转整数   格雷编码   计数素数   2的幂   Nim 游戏">
+<meta property="og:description" content="整数反转   字符串转换整数 (atoi)   (解法见 python实现数据结构之字符串)   回文数   罗马数字转整数   格雷编码   计数素数   2的幂   丑数   丑数 II   Nim 游戏   第N个数字">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-13T06:54:00.327Z">
+<meta property="og:updated_time" content="2019-08-20T00:56:16.865Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python解LeetCode数学题(1)">
-<meta name="twitter:description" content="整数反转   字符串转换整数 (atoi)   (解法见 python实现数据结构之字符串)   回文数   罗马数字转整数   格雷编码   计数素数   2的幂   Nim 游戏">
+<meta name="twitter:description" content="整数反转   字符串转换整数 (atoi)   (解法见 python实现数据结构之字符串)   回文数   罗马数字转整数   格雷编码   计数素数   2的幂   丑数   丑数 II   Nim 游戏   第N个数字">
 
 
 
@@ -407,7 +407,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-13 14:54:00" itemprop="dateModified" datetime="2019-08-13T14:54:00+08:00">2019-08-13</time>
+                <time title="修改时间：2019-08-20 08:56:16" itemprop="dateModified" datetime="2019-08-20T08:56:16+08:00">2019-08-20</time>
               
             
           </span>
@@ -508,9 +508,19 @@
 <li><ol start="231" type="1">
 <li>2的幂</li>
 </ol></li>
+<li><ol start="263" type="1">
+<li>丑数</li>
+</ol></li>
+<li><ol start="264" type="1">
+<li>丑数 II</li>
+</ol></li>
 <li><ol start="292" type="1">
 <li>Nim 游戏</li>
 </ol></li>
+<li><ol start="400" type="1">
+<li>第N个数字</li>
+</ol></li>
+<li></li>
 </ul>
 <a id="more"></a>
 <h1 id="整数反转">7. 整数反转</h1>
@@ -580,14 +590,46 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isPowerOfTwo</span><span class="params">(self, n: int)</span> -&gt; bool:</span></span><br><span class="line">        <span class="keyword">return</span> n&gt;<span class="number">0</span> <span class="keyword">and</span> bin(n).count(<span class="string">"1"</span>)==<span class="number">1</span></span><br></pre></td></tr></table></figure>
 <h2 id="方法二位运算">方法二：位运算</h2>
 <p>n&amp;(n-1) 的方法来数一个数里边只有一个1 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isPowerOfTwo</span><span class="params">(self, n)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type n: int</span></span><br><span class="line"><span class="string">        :rtype: bool</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> n &lt;= <span class="number">0</span>: <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        <span class="keyword">return</span> n &amp; (n - <span class="number">1</span>) == <span class="number">0</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="丑数">263. 丑数</h1>
+<p>编写一个程序判断给定的数是否为丑数。</p>
+<p>丑数就是只包含质因数 2, 3, 5 的正整数。</p>
+<p>示例 1: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: 6</span><br><span class="line">输出: true</span><br><span class="line">解释: 6 = 2 × 3</span><br></pre></td></tr></table></figure></p>
+<p>示例 2: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: 8</span><br><span class="line">输出: true</span><br><span class="line">解释: 8 = 2 × 2 × 2</span><br></pre></td></tr></table></figure></p>
+<p>示例 3: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: 14</span><br><span class="line">输出: false </span><br><span class="line">解释: 14 不是丑数，因为它包含了另外一个质因数 7。</span><br></pre></td></tr></table></figure></p>
+<p>说明：</p>
+<ul>
+<li>1 是丑数。</li>
+<li>输入不会超过 32 位有符号整数的范围: [−231,  231 − 1]。</li>
+</ul>
+<h2 id="方法-1">方法</h2>
+<p>把这个数中的所有的2,3,5的因子全部除去，剩余的数为1，则说明全部为这几个因子构成。 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isUgly</span><span class="params">(self, num: int)</span> -&gt; bool:</span></span><br><span class="line">        <span class="keyword">if</span> num==<span class="number">0</span>: <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        <span class="keyword">while</span> num%<span class="number">2</span>==<span class="number">0</span>:</span><br><span class="line">            num /= <span class="number">2</span></span><br><span class="line">        <span class="keyword">while</span> num%<span class="number">3</span>==<span class="number">0</span>:</span><br><span class="line">            num /= <span class="number">3</span></span><br><span class="line">        <span class="keyword">while</span> num%<span class="number">5</span>==<span class="number">0</span>:</span><br><span class="line">            num /= <span class="number">5</span></span><br><span class="line">        <span class="keyword">return</span> num==<span class="number">1</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="丑数-ii">264. 丑数 II</h1>
+<p>编写一个程序，找出第 n 个丑数。</p>
+<p>丑数就是只包含质因数 2, 3, 5 的正整数。</p>
+<p>示例: <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: n = <span class="number">10</span></span><br><span class="line">输出: <span class="number">12</span></span><br><span class="line">解释: <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">12</span> 是前 <span class="number">10</span> 个丑数。</span><br></pre></td></tr></table></figure></p>
+<p>说明:  </p>
+<ul>
+<li>1 是丑数。</li>
+<li>n 不超过1690。</li>
+</ul>
+<h2 id="方法-2">方法</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">nthUglyNumber</span><span class="params">(self, n: int)</span> -&gt; int:</span></span><br><span class="line">        <span class="keyword">if</span> n&lt;<span class="number">0</span>: <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        dp = [<span class="number">1</span>]*n</span><br><span class="line">        index2, index3, index5 = <span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,n):</span><br><span class="line">            dp[i] = min(dp[index2]*<span class="number">2</span>, dp[index3]*<span class="number">3</span>, dp[index5]*<span class="number">5</span>)</span><br><span class="line">            <span class="keyword">if</span> dp[i]==dp[index2]*<span class="number">2</span>: index2 += <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> dp[i]==dp[index3]*<span class="number">3</span>: index3 += <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> dp[i]==dp[index5]*<span class="number">5</span>: index5 += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> dp[<span class="number">-1</span>]</span><br></pre></td></tr></table></figure>
 <h1 id="nim-游戏">292. Nim 游戏</h1>
 <p>你和你的朋友，两个人一起玩 Nim 游戏：桌子上有一堆石头，每次你们轮流拿掉 1 - 3 块石头。 拿掉最后一块石头的人就是获胜者。你作为先手。</p>
 <p>你们是聪明人，每一步都是最优解。 编写一个函数，来判断你是否可以在给定石头数量的情况下赢得游戏。</p>
 <p>示例: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入: 4</span><br><span class="line">输出: false </span><br><span class="line">解释: 如果堆中有 4 块石头，那么你永远不会赢得比赛；</span><br><span class="line">     因为无论你拿走 1 块、2 块 还是 3 块石头，最后一块石头总是会被你的朋友拿走。</span><br></pre></td></tr></table></figure></p>
-<h2 id="方法-1">方法</h2>
+<h2 id="方法-3">方法</h2>
 <p>题目的意思是只要拿最后一个石子的人赢。</p>
 <p>因为每次最多拿三个，所以只要我拿走子之后，最后剩余四个的话，我就输了。</p>
 <p>所以，所有子的个数不能被四整除我就赢了，否则我会输。输的原因是对手每次都拿4-n，n为当次我拿到子的个数。 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">canWinNim</span><span class="params">(self, n: int)</span> -&gt; bool:</span></span><br><span class="line">        <span class="keyword">return</span> n % <span class="number">4</span> != <span class="number">0</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="第n个数字">400. 第N个数字</h1>
+<p>在无限的整数序列 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, …中找到第 n 个数字。</p>
+<p>注意:n 是正数且在32为整形范围内 ( n &lt; 231)。</p>
+<p>示例 1: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入:3</span><br><span class="line">输出:3</span><br></pre></td></tr></table></figure></p>
+<p>示例 2: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入:11</span><br><span class="line">输出:0</span><br></pre></td></tr></table></figure></p>
+<p>说明: 第11个数字在序列 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, … 里是0，它是10的一部分。</p>
+<h1 id="方法-4">方法</h1>
+<p>找规律：个位数字有9个，2位数字有910=90个，3位数字有9100=900个……所以我们先求出n是几位数字，然后判断第n个数字应该落在哪个自然数上，最后再求这个自然数会落在自然数的那一位上。 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findNthDigit</span><span class="params">(self, n: int)</span> -&gt; int:</span></span><br><span class="line">        _len = <span class="number">1</span></span><br><span class="line">        count = <span class="number">9</span></span><br><span class="line">        start = <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> n &gt; count*_len:</span><br><span class="line">            n -= count*_len</span><br><span class="line">            count *= <span class="number">10</span></span><br><span class="line">            _len += <span class="number">1</span></span><br><span class="line">            start *= <span class="number">10</span></span><br><span class="line">        start += (n<span class="number">-1</span>)/_len</span><br><span class="line">        <span class="keyword">return</span> int(str(start)[(n<span class="number">-1</span>)%_len])</span><br></pre></td></tr></table></figure></p>
 <h1 id="参考">参考</h1>
 <ul>
 <li><a href="https://primes.utm.edu/howmany.html" target="_blank" rel="noopener">How Many Primes Are There?</a></li>
@@ -722,7 +764,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">56</span>
+                    <span class="site-state-item-count">57</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -908,7 +950,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#整数反转"><span class="nav-number">1.</span> <span class="nav-text">7. 整数反转</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一取模"><span class="nav-number">1.1.</span> <span class="nav-text">方法一:取模</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二转字符串"><span class="nav-number">1.2.</span> <span class="nav-text">方法二：转字符串</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#回文数"><span class="nav-number">2.</span> <span class="nav-text">9. 回文数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一转成字符串"><span class="nav-number">2.1.</span> <span class="nav-text">方法一：转成字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二数学除余取模"><span class="nav-number">2.2.</span> <span class="nav-text">方法二：数学除余+取模</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#罗马数字转整数"><span class="nav-number">3.</span> <span class="nav-text">13. 罗马数字转整数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法从后往前遍历"><span class="nav-number">3.1.</span> <span class="nav-text">方法：从后往前遍历</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#格雷编码"><span class="nav-number">4.</span> <span class="nav-text">89.格雷编码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number">4.1.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#计数素数"><span class="nav-number">5.</span> <span class="nav-text">204. 计数素数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">5.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法素数筛法"><span class="nav-number">5.2.</span> <span class="nav-text">方法：素数筛法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#的幂"><span class="nav-number">6.</span> <span class="nav-text">231. 2的幂</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一二进制"><span class="nav-number">6.1.</span> <span class="nav-text">方法一：二进制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二位运算"><span class="nav-number">6.2.</span> <span class="nav-text">方法二：位运算</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nim-游戏"><span class="nav-number">7.</span> <span class="nav-text">292. Nim 游戏</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-1"><span class="nav-number">7.1.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">8.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#整数反转"><span class="nav-number">1.</span> <span class="nav-text">7. 整数反转</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一取模"><span class="nav-number">1.1.</span> <span class="nav-text">方法一:取模</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二转字符串"><span class="nav-number">1.2.</span> <span class="nav-text">方法二：转字符串</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#回文数"><span class="nav-number">2.</span> <span class="nav-text">9. 回文数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一转成字符串"><span class="nav-number">2.1.</span> <span class="nav-text">方法一：转成字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二数学除余取模"><span class="nav-number">2.2.</span> <span class="nav-text">方法二：数学除余+取模</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#罗马数字转整数"><span class="nav-number">3.</span> <span class="nav-text">13. 罗马数字转整数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法从后往前遍历"><span class="nav-number">3.1.</span> <span class="nav-text">方法：从后往前遍历</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#格雷编码"><span class="nav-number">4.</span> <span class="nav-text">89.格雷编码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number">4.1.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#计数素数"><span class="nav-number">5.</span> <span class="nav-text">204. 计数素数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">5.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法素数筛法"><span class="nav-number">5.2.</span> <span class="nav-text">方法：素数筛法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#的幂"><span class="nav-number">6.</span> <span class="nav-text">231. 2的幂</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一二进制"><span class="nav-number">6.1.</span> <span class="nav-text">方法一：二进制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二位运算"><span class="nav-number">6.2.</span> <span class="nav-text">方法二：位运算</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#丑数"><span class="nav-number">7.</span> <span class="nav-text">263. 丑数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-1"><span class="nav-number">7.1.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#丑数-ii"><span class="nav-number">8.</span> <span class="nav-text">264. 丑数 II</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-2"><span class="nav-number">8.1.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nim-游戏"><span class="nav-number">9.</span> <span class="nav-text">292. Nim 游戏</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-3"><span class="nav-number">9.1.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第n个数字"><span class="nav-number">10.</span> <span class="nav-text">400. 第N个数字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法-4"><span class="nav-number">11.</span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">12.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>

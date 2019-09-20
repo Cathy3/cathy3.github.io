@@ -100,11 +100,11 @@
 <meta name="keywords" content="sklearn,机器学习,算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="XGBoost算法梳理">
-<meta property="og:url" content="http://yoursite.com/2019/04/09/XGBoost算法梳理/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/04/09/XGBoost_introduction/index.html">
 <meta property="og:site_name" content="QxD&#39;s Notes">
 <meta property="og:description" content="学习任务：  算法原理 损失函数 分裂结点算法 对缺失值处理 优缺点 sklearn参数">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-10T03:33:12.327Z">
+<meta property="og:updated_time" content="2019-09-01T11:27:36.048Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="XGBoost算法梳理">
 <meta name="twitter:description" content="学习任务：  算法原理 损失函数 分裂结点算法 对缺失值处理 优缺点 sklearn参数">
@@ -114,7 +114,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/09/XGBoost算法梳理/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/04/09/XGBoost_introduction/"/>
 
 
 
@@ -347,7 +347,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/09/XGBoost算法梳理/"/>
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/09/XGBoost_introduction/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Icy"/>
@@ -407,7 +407,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-10 11:33:12" itemprop="dateModified" datetime="2019-04-10T11:33:12+08:00">2019-04-10</time>
+                <time title="修改时间：2019-09-01 19:27:36" itemprop="dateModified" datetime="2019-09-01T19:27:36+08:00">2019-09-01</time>
               
             
           </span>
@@ -443,8 +443,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/04/09/XGBoost算法梳理/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/09/XGBoost算法梳理/" itemprop="commentCount"></span>
+                <a href="/2019/04/09/XGBoost_introduction/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/09/XGBoost_introduction/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -452,7 +452,7 @@
 
           
           
-            <span id="/2019/04/09/XGBoost算法梳理/" class="leancloud_visitors" data-flag-title="XGBoost算法梳理">
+            <span id="/2019/04/09/XGBoost_introduction/" class="leancloud_visitors" data-flag-title="XGBoost算法梳理">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -493,6 +493,7 @@
 <li>sklearn参数</li>
 </ul>
 <a id="more"></a>
+<p>目前来说，gradient boosting是对表格数据进行预测的最有力的方法。而XGBoost方法(eXtreme Gradient Boosting)是gradient boosting的最快实现。</p>
 <p>2014年，陈天奇博士提出了XGBoost算法，它可认为是在GBDT算法基础上的进一步优化。首先，XGBoost算法在基学习器损失函数中引入了正则项，控制减少训练过程当中的过拟合；其次，XGBoost算法不仅使用一阶导数计算伪残差，还计算二阶导数可近似快速剪枝的构建新的基学习器；此外，XGBoost算法还做了很多工程上的优化，例如支持并行计算、提高计算效率、处理稀疏训练数据等等。</p>
 <p>总的来说，XGBoost算法源起于Boosting集成学习方法，在演化过程中又融入了Bagging集成学习方法的优势，通过Gradient Boosting框架自定义损失函数提高了算法解决通用问题的能力，同时引入更多可控参数即可针对问题场景进行优化，最后通过工程实现方面细节优化，在保证算法结果稳定的同时还可高效处理大规模数据，可扩展支持不同编程语言。这些因素共同使它成为了工业界的主流机器学习算法之一。</p>
 <p>XGBoost是一种提升树模型，所以它是将许多树模型集成在一起，形成一个很强的分类器。而所用到的树模型则是CART回归树模型。讲解其原理前，先讲解一下CART回归树。</p>
@@ -566,7 +567,7 @@ O b j=-\frac{1}{2} \sum_{j=1}^{T} \frac{G_{j}^{2}}{H_{j}+\lambda}+\gamma T
 <h1 id="针对稀疏矩阵的算法缺失值处理">针对稀疏矩阵的算法（缺失值处理）</h1>
 <p>当样本的第 <span class="math inline">\(i\)</span> 个特征值缺失时，无法利用该特征进行划分时，XGBoost的想法是将该样本分别划分到左结点和右结点，然后计算其增益，哪个大就划分到哪边。</p>
 <h1 id="xgboost的优点">XGBoost的优点</h1>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>使用许多策略去防止过拟合，如：正则化项、Shrinkage and Column Subsampling等。</li>
 <li>目标函数优化利用了损失函数关于待求函数的二阶导数</li>
 <li>支持并行化，这是XGBoost的闪光点，虽然树与树之间是串行关系，但是同层级节点可并行。具体的对于某个节点，节点内选择最佳分裂点，候选分裂点计算增益用多线程并行。训练速度快。</li>
@@ -577,7 +578,7 @@ O b j=-\frac{1}{2} \sum_{j=1}^{T} \frac{G_{j}^{2}}{H_{j}+\lambda}+\gamma T
 <h1 id="xgboost参数">xgboost参数</h1>
 <p>官方参数介绍看这里： Parameters (official guide)</p>
 <h2 id="general-parameters常规参数">General Parameters（常规参数）</h2>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>booster [default=gbtree]：选择基分类器，gbtree: tree-based models/gblinear: linear models</li>
 <li>silent [default=0]:设置成1则没有运行信息输出，最好是设置为0.</li>
 <li>nthread [default to maximum number of threads available if not set]：线程数</li>
@@ -1515,8 +1516,7 @@ O b j=-\frac{1}{2} \sum_{j=1}^{T} \frac{G_{j}^{2}}{H_{j}+\lambda}+\gamma T
 
   
   <!-- 页面点击小红心 -->
-  <script type="text/javascript" src="/js/src/love.js"></script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  <script type="text/javascript" src="/js/src/love.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -1533,5 +1533,6 @@ O b j=-\frac{1}{2} \sum_{j=1}^{T} \frac{G_{j}^{2}}{H_{j}+\lambda}+\gamma T
 <script type="text/javascript" src="custom_mathjax_source">
 </script>
 <!-- End: Injected MathJax -->
-<!-- hexo-inject:end --></body>
+<!-- hexo-inject:end -->
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
